@@ -1,0 +1,10 @@
+POSTGRES_DB=project
+POSTGRES_USER=username
+POSTGRES_HOST=sql
+# generate a unique diceware password using https://secure.research.vt.edu/diceware/#eff
+POSTGRES_PASSWORD=tldr-use-diceware-passwords
+REDIS_HOST=redis
+REDIS_PORT=6379
+SESSION_SECRET=WHATeverIwant
+MAILGUN_DOMAIN=sandbox.....Put.your.mailgun.domain.here........mailgun.org
+MAILGUN_API_KEY=...Put.your.mailgun.key.here...
