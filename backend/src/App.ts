@@ -45,7 +45,7 @@ export class App {
         }))
     }
 
-    // private method for setting up routes in their basic sense (ie. any route that performs an action on profiles starts with /profiles)
+    // private method for setting up routes in their basic sense (i.e. any route that performs an action on profiles starts with /profiles)
     private routes (): void {
         this.app.use('/apis', indexRoute)
     }
