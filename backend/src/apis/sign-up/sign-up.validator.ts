@@ -1,7 +1,7 @@
 import { Schema } from 'express-validator'
 
     export const signUpValidator: Schema = {
-    ProfileUsername: {
+    profileUsername: {
         escape: true,
         trim: true,
         isLength: {
