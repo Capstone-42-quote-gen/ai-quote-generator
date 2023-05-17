@@ -17,7 +17,7 @@ export async function signUpProfileController (request: Request, response: Respo
         const profileActivationToken = setActivationToken()
         const profilePhotoUrl = "https://placekitten.com/200/300"
 
-        const basePath: string = `${request.protocol}:/${request.hostname}/${request.originalUrl}/activation/${profileActivationToken}`
+        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${profileActivationToken}`
         // TODO rename sign up message when we find a name change p too
         const message = `<h2>Thanks for signing into</h2> 
         <p>Copy and paste your link to activate your account</p>
