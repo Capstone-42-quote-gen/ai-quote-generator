@@ -7,7 +7,6 @@ export async function activationController (request: Request, response: Response
     try {
         const { activation } = request.params
         const profile = await selectProfileByProfileActivationToken(activation)
-        console.log(profile)
 
         const activationFailed = (): Response => response.json ({
             status: 400,
@@ -17,7 +16,6 @@ export async function activationController (request: Request, response: Response
 
         const activationSucceeded = async (profile: Profile): Promise<Response> => {
             const updatedProfile = { ...profile, profileActivationToken: null }
-            console.log(updatedProfile)
             await updateProfile(updatedProfile)
             return response.json({
                 status: 200,

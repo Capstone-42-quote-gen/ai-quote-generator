@@ -8,7 +8,6 @@ export async function signInController (request: Request, response: Response): P
     try {
         const {profileEmail, profilePassword} = request.body
         const profile: Profile | null = await selectProfileByProfileEmail(profileEmail)
-        console.log(profile)
 
         return (profile !== null) && await validatePassword(profile.profileHash, profilePassword)
             ? signInSuccessful(request, response, profile)
