@@ -17,7 +17,7 @@ export async function insertProfile (profile: Profile): Promise<string> {
 }
 
 export async function selectProfileByProfileEmail (profileEmail: string): Promise<Profile | null> {
-    const result = <Profile[]>await sql `SELECT profile_id, profile_username, profile_email, profile_photo_url FROM profile WHERE profile_email  = ${profileEmail}`
+    const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_username, profile_email, profile_hash, profile_photo_url FROM profile WHERE profile_email  = ${profileEmail}`
     return result?.length === 1 ? result[0] : null
 }
 

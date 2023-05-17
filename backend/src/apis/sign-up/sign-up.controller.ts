@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 import formData from 'form-data';
 import Mailgun from 'mailgun.js';
-import Client from 'mailgun.js/dist/lib/client';
 import {setActivationToken, setHash} from "../../utils/auth.utils";
 import {insertProfile, Profile} from "../../utils/models/Profile";
 import {Status} from "../../utils/interfaces/Status";
+import Client from "mailgun.js/client";
 
 
 export async function signUpProfileController (request: Request, response: Response): Promise<Response | undefined> {
