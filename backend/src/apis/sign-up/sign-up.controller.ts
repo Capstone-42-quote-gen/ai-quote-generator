@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 import formData from 'form-data';
 import Mailgun from 'mailgun.js';
-import Client from 'mailgun.js/dist/lib/client';
 import {setActivationToken, setHash} from "../../utils/auth.utils";
 import {insertProfile, Profile} from "../../utils/models/Profile";
 import {Status} from "../../utils/interfaces/Status";
+import Client from "mailgun.js/client";
 
 
 export async function signUpProfileController (request: Request, response: Response): Promise<Response | undefined> {
@@ -17,7 +17,7 @@ export async function signUpProfileController (request: Request, response: Respo
         const profileActivationToken = setActivationToken()
         const profilePhotoUrl = "https://placekitten.com/200/300"
 
-        const basePath: string = `${request.protocol}://${request.hostname}/${request.originalUrl}/activation/${profileActivationToken}`
+        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${profileActivationToken}`
         // TODO rename sign up message when we find a name change p too
         const message = `<h2>Thanks for signing into</h2> 
         <p>Copy and paste your link to activate your account</p>
@@ -26,9 +26,10 @@ export async function signUpProfileController (request: Request, response: Respo
         const mailgunMessage = {
             from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN as string}>`,
             to:profileEmail,
-            Subject:"Almost there!",
+            subject:"Activate your account",
             html: message
         }
+        console.log(mailgunMessage)
 
         const profile: Profile = {
         profileId: null,
@@ -51,6 +52,7 @@ export async function signUpProfileController (request: Request, response: Respo
         }
         return response.json(statgit mmus)
     }catch (error: any) {
+        console.log(error)
         const status: Status = {
             status: 500,
             message: error.message,

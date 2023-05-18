@@ -6,6 +6,7 @@ import session from 'express-session'
 import { createClient,  RedisClientType } from 'redis'
 import RedisStore from 'connect-redis'
 import SignUpRouter from "./apis/sign-up/sign-up.router";
+import {SignInRouter} from "./apis/sign-in/sign-in.route";
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -17,7 +18,7 @@ export class App {
         private readonly port?: number | string
     ) {
 
-        this.redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
+        this.redisClient = createClient({ socket: { host: process.env.REDIS_HOST } })
         this.redisClient.connect().catch(console.error)
 
         this.redisStore = new RedisStore({client: this.redisClient})
@@ -50,7 +51,7 @@ export class App {
     private routes (): void {
         this.app.use('/apis', indexRoute)
         this.app.use('/apis/sign-up', SignUpRouter)
-
+        this.app.use('/apis/sign-in', SignInRouter)
 
     }
 

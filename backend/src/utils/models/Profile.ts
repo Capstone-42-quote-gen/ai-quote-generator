@@ -16,6 +16,11 @@ export async function insertProfile (profile: Profile): Promise<string> {
     return 'Profile created.'
 }
 
+export async function selectProfileByProfileEmail (profileEmail: string): Promise<Profile | null> {
+    const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_username, profile_email, profile_hash, profile_photo_url FROM profile WHERE profile_email  = ${profileEmail}`
+    return result?.length === 1 ? result[0] : null
+}
+
 export async function selectProfileByProfileActivationToken (profileActivationToken: string): Promise<Profile|null> {
     const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_username, profile_photo_url, profile_password FROM profile WHERE profile_activation_token = ${profileActivationToken}`
     return result?.length === 1 ? result[0] : null
