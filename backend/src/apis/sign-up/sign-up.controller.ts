@@ -49,7 +49,7 @@ export async function signUpProfileController (request: Request, response: Respo
             message:'Profile successfully created. Please check your inbox.',
             data: null
         }
-        return response.json(status)
+        return response.json(statgit mmus)
     }catch (error: any) {
         const status: Status = {
             status: 500,
