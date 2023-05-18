@@ -17,7 +17,7 @@ export async function insertProfile (profile: Profile): Promise<string> {
 }
 
 export async function selectProfileByProfileEmail (profileEmail: string): Promise<Profile | null> {
-    const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_username, profile_email, profile_hash, profile_photo_url FROM profile WHERE profile_email  = ${profileEmail}`
+    const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_username, profile_email, profile_hash, profile_photo_url FROM profile WHERE profile_email = ${profileEmail}`
     return result?.length === 1 ? result[0] : null
 }
 
@@ -30,9 +30,4 @@ export async function updateProfile (profile: Profile): Promise<string> {
     const { profileId, profileActivationToken, profileEmail, profileHash, profileUsername} = profile
     await sql `UPDATE profile SET profile_activation_token = ${profileActivationToken}, profile_email = ${profileEmail}, profile_hash = ${profileHash}, profile_username = ${profileUsername} WHERE profile_id = ${profileId}`
     return 'Profile updated'
-}
-
-export async function selectProfileByProfileEmail (profileEmail: string): Promise<Profile|null> {
-    const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_username, profile_photo_url, profile_email, profile_hash FROM profile WHERE profile_email = ${profileEmail}`
-    return result?.length === 1 ? result [0]: null
 }

@@ -3,16 +3,17 @@ import 'express-session'
 import { v4 as uuid } from 'uuid'
 import {generateJwt, validatePassword} from "../../utils/auth.utils";
 import {Profile, selectProfileByProfileEmail} from "../../utils/models/Profile";
+import {Profiler} from "inspector";
 
 export async function signInController (request: Request, response: Response): Promise<Response> {
     try {
         const {profileEmail, profilePassword} = request.body
         const profile: Profile | null = await selectProfileByProfileEmail(profileEmail)
-
         return (profile !== null) && await validatePassword(profile.profileHash, profilePassword)
             ? signInSuccessful(request, response, profile)
             : signInFailed(response)
     } catch (error: any) {
+
         return response.json({ status: 500, data: null, message: error.message})
     }
 }

@@ -18,7 +18,7 @@ export async function signUpProfileController (request: Request, response: Respo
         const profilePhotoUrl = "https://placekitten.com/200/300"
 
         const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${profileActivationToken}`
-        // TODO rename sign up message when we find a name change p too
+
         const message = `<h2>Thanks for signing into</h2> 
         <p>Copy and paste your link to activate your account</p>
         <p><a href="${basePath}">${basePath}</a></p>`
@@ -50,7 +50,7 @@ export async function signUpProfileController (request: Request, response: Respo
             message:'Profile successfully created. Please check your inbox.',
             data: null
         }
-        return response.json(statgit mmus)
+        return response.json(status)
     }catch (error: any) {
         console.log(error)
         const status: Status = {
