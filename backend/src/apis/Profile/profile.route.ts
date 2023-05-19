@@ -1,4 +1,3 @@
-/**
 
 import {Router} from "express";
 import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
@@ -17,5 +16,3 @@ ProfileRoute.route('/:profileId')
     , getProfileById
 )
 .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
-
- **/

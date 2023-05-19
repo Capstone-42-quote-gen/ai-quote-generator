@@ -6,6 +6,7 @@ import crypto from 'crypto'
 export function generateJwt (payload: object, signature: string): string {
     const setExpInSecondsSinceEpoch = (currentTimestamp: number): number => {
         const oneHourInMilliseconds: number = 3600000 * 3
+
         const futureTimestamp: number = Math.round(currentTimestamp) + oneHourInMilliseconds
         const futureTimestampInSeconds: number = futureTimestamp / 1000
         return Math.round(futureTimestampInSeconds)
