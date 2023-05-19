@@ -47,7 +47,7 @@ export async function signUpProfileController (request: Request, response: Respo
 
         const status: Status = {
             status: 200,
-            message:'Profile successfully created. Please check your inbox.',
+            message:'profile successfully created. Please check your inbox.',
             data: null
         }
         return response.json(status)
