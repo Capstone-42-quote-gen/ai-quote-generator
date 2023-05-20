@@ -3,13 +3,11 @@ import {
     insertPost,
     selectAllPosts,
     selectPostByPostId,
-    getPostByPostId,
-    getPostsByPostProfileId,
+    selectPostsByPostProfileId,
     Post
 } from '../../utils/models/Post'
 import { Status } from '../../utils/interfaces/Status'
 import { Profile } from '../../utils/models/Profile'
-import {Stat} from "mailgun.js/interfaces/StatsOptions";
 
 export async function getAllPostsController (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -29,7 +27,7 @@ export async function getAllPostsController (request: Request, response: Respons
 export async function getPostsByPostProfileIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>>{
     try {
      const { postProfileId } = request.params
-        const data = await selectPostbyPostProfileId(postProfileId)
+        const data = await selectPostsByPostProfileId(postProfileId)
         return response.json({ status: 200, message: null, data})
     } catch (error){
         return response.json({
@@ -49,6 +47,35 @@ export async function getPostByPostIdController (request: Request, response: Res
         return response.json({
             status: 500,
             message: '',
+            data: null
+        })
+    }
+}
+
+export async function postPost (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const { postPhotoUrl, postQuote } = request.body
+        const profile: Profile = request.session.profile as Profile
+        const postProfileId: string = profile.profileId as string
+
+        const post: Post = {
+            postId: null,
+            postProfileId,
+            postPhotoUrl,
+            postQuote,
+            postCreationTime : null
+        }
+        const result = await insertPost(post)
+        const status: Status = {
+            status: 200,
+            message: result,
+            data: null
+        }
+        return response.json(status)
+    }catch (error) {
+        return response.json({
+            status: 500,
+            message: 'error creating post try again later',
             data: null
         })
     }

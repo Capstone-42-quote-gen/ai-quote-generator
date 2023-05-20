@@ -1,4 +1,5 @@
 import { sql } from '../database.utils'
+import {postPost} from "../../apis/post/post.controller";
 
 export interface Post {
     postId: string|null
@@ -10,19 +11,21 @@ export interface Post {
     // postPromptPostId: string
 }
 
-export async function insertPost()
+export async function insertPost(post: Post): Promise<string> {
+    const { postProfileId, postPhotoUrl, postQuote } = post
+    await sql`INSERT INTO post (post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_prompt_id) VALUES (gen_random_uuid(), ${postProfileId}, ${postPhotoUrl}, ${postQuote}, NOW())`
+    return 'post created successfully'
+}
 
-export async function selectAllPosts(): Promise<Post[]> {
-    return <post[]> await sql`SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time FROM post ORDER BY post_creation_time DESC`
+export async function selectAllPosts(profileId: string): Promise<Post []> {
+    const post: Post[] = await sql`SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time FROM post ORDER BY post_creation_time DESC`;
 }
 
 export async function selectPostByPostId(postId: string): Promise<Post | null > {
-    const result = <Post[]> await sql`SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time FROM post WHERE post_id = ${postId}`
+    const result = <Post []> await sql`SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time FROM post WHERE post_id = ${postId}`
     return result ?.length === 1 ? result[0] : null
 }
 
-export async function selectPostsByPostProfileId()
-
-export async function getPostByPostId()
-
-export async function getPostsByPostProfileId()
+export async function selectPostsByPostProfileId(postProfileId: string): Promise<Post[]> {
+    return <Post[]> await sql`SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time FROM post WHERE post_profile_id = ${postProfileId}`
+}

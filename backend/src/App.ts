@@ -8,6 +8,7 @@ import RedisStore from 'connect-redis'
 import SignUpRouter from "./apis/sign-up/sign-up.router";
 import {SignInRouter} from "./apis/sign-in/sign-in.route";
 import {ProfileRoute} from "./apis/profile/profile.route";
+import PostRoute from "./apis/post/post.route";
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -54,6 +55,7 @@ export class App {
         this.app.use('/apis/sign-up', SignUpRouter)
         this.app.use('/apis/sign-in', SignInRouter)
         this.app.use('/apis/profile', ProfileRoute)
+        this.app.use('/apis/post', PostRoute)
 
     }
 
