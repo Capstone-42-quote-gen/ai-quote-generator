@@ -11,6 +11,7 @@ import {Status} from "../../utils/interfaces/Status";
 
 export async function putProfileController (request: Request, response: Response): Promise<Response> {
     try {
+        // TODO: Do we want to allow password change??
         const {profileId} = request.params
         const {profileEmail, profilePhotoUrl, profileUsername} = request.body
         const profile = request.session.profile as Profile
