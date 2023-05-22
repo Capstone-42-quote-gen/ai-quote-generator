@@ -1,11 +1,11 @@
-import {NextFunction, Request, Response} from "express";
+import { Request, Response} from "express";
 import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/models/Profile";
 import {deleteVote, insertVote, selectVoteByVoteId, selectVotesByVotePostId, Vote} from "../../utils/models/Vote";
 
 
 // TODO What does nextFunction do??
-export async function getVotesByVotePostId(request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+export async function getVotesByVotePostId(request: Request, response: Response): Promise<Response<Status>> {
     try {
         const {votePostId} = request.params
         const data = await selectVotesByVotePostId(votePostId)

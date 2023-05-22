@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction} from 'express'
+import { Request, Response} from 'express'
 import {
     insertPost,
     selectAllPosts,
@@ -24,7 +24,7 @@ export async function getAllPostsController (request: Request, response: Respons
     }
 }
 
-export async function getPostsByPostProfileIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>>{
+export async function getPostsByPostProfileIdController (request: Request, response: Response): Promise<Response<Status>>{
     try {
      const { postProfileId } = request.params
         const data = await selectPostsByPostProfileId(postProfileId)
@@ -38,9 +38,9 @@ export async function getPostsByPostProfileIdController (request: Request, respo
     }
 }
 
-export async function getPostByPostIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+export async function getPostByPostIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const { PostId } = request.params
+        const { postId } = request.params
         const data = await selectPostByPostId(postId)
         return response.json({ status: 200, message: null, data})
     } catch (error) {
