@@ -11,7 +11,7 @@ import { Profile } from '../../utils/models/Profile'
 
 export async function getAllPostsController (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const data = await selectAllPostys()
+        const data = await selectAllPosts()
         //return the response
         const status: Status = { status:200, message: null, data}
         return response.json(status)
