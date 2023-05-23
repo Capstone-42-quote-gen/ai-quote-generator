@@ -1,16 +1,19 @@
-
-import { Router } from 'express'
+import {Router} from 'express'
 import {
-    getAllPrompts,
-    getPromptsByPromptId,
-    Prompts
+    getAllPromptsController,
+    getPromptsByPromptId
 } from './prompt.controller'
+import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
+import {check} from "express-validator";
 
-promptRoute.route('/')
+const router = Router()
+router.route('/')
     .get(getAllPromptsController)
-promptRoute.route('/:promptId')
+router.route('/:promptId')
     .get(
-
+        asyncValidatorController(
+            [check('promptId', 'Please provide a valid promptId').isUUID()]
+        ), getPromptsByPromptId
     )
 
 
