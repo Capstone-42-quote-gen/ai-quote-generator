@@ -1,6 +1,7 @@
 import {Request, Response} from "express"
 import {
-    // insertPostPrompt,
+    insertPostPromptPrompt,
+    PostPromptPrompt,
     selectPostPromptByPostIdAndPromptId,
     selectPostPromptsByPostId,
     selectPostPromptsByPromptId
@@ -46,27 +47,27 @@ export async function getPostPromptsByPromptIdController(request: Request, respo
         return response.json({ status: 500, message: 'internal server error', data: null})
     }
 }
-
-export async function postPostPromptController (request: Request, response: Response): Promise<Response> {
+export async function postPostPromptPromptController(request: Request, response: Response): Promise<Response> {
     try {
-        const {postPromptPrompt} = request.body
-        const postPromptPrompt: PostPromptPrompt = request
-        const postPromptPrompt: PostPromptPrompt = {
-        postPromptPostId: string,
-        postPromptPromptId: string
-        }
-        const result = await insertPostPromptPrompt(postPromptPrompt)
+        const { postPromptPrompt } = request.body;
+        const postPrompt: PostPromptPrompt = {
+            postPromptPromptId: "promptIdValue"
+        };
+
+        const result = await insertPostPromptPrompt(postPrompt);
+
         const status: Status = {
             status: 200,
             message: result,
             data: null
-        }
-        return response.json(status)
-    }catch (error) {
+        };
+
+        return response.json(status);
+    } catch (error) {
         return response.json({
             status: 500,
-            message: 'error creating post try again later',
+            message: 'Error creating post. Please try again later.',
             data: null
-        })
+        });
     }
 }

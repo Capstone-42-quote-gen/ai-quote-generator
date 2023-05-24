@@ -3,14 +3,14 @@ import {
     getPostPromptIdByPostIdAndPromptIdController,
     getPostPromptsByPostIdController,
     getPostPromptsByPromptIdController,
-    // postPostPromptController
+    postPostPromptPromptController
 } from "./post-prompt.controller"
 
 export const postPromptRoute = Router()
 
 postPromptRoute.route('/postId/:postId/promptId/:promptId')
     .get(getPostPromptIdByPostIdAndPromptIdController)
-    // .post(postPostPrompt)
+    .post(postPostPromptPromptController)
 
 postPromptRoute.route('/postId/:PostId')
     .get(getPostPromptsByPostIdController)
