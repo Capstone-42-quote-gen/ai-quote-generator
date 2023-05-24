@@ -1,6 +1,6 @@
 import {Request, Response} from "express"
 import {
-    insertPostPrompt, PostPrompt,
+    // insertPostPrompt,
     selectPostPromptByPostIdAndPromptId,
     selectPostPromptsByPostId,
     selectPostPromptsByPromptId
@@ -47,29 +47,26 @@ export async function getPostPromptsByPromptIdController(request: Request, respo
     }
 }
 
-export async function postPostPromptController (request: Request, response: Response): Promise<Response> {
-    try {
-        const {postPrompt} = request.body
-        const postPrompt: PostPrompt = request
-        const postPrompt: PostPrompt = {
-            postId: null,
-            postProfileId,
-            postPhotoUrl,
-            postQuote,
-            postCreationTime : null
-        }
-        const result = await insertPost(post)
-        const status: Status = {
-            status: 200,
-            message: result,
-            data: null
-        }
-        return response.json(status)
-    }catch (error) {
-        return response.json({
-            status: 500,
-            message: 'error creating post try again later',
-            data: null
-        })
-    }
-}
+// export async function postPostPromptController (request: Request, response: Response): Promise<Response> {
+//     try {
+//         const {postPrompt} = request.body
+//         const postPrompt: PostPrompt = request
+//         const postPrompt: PostPrompt = {
+//         postPromptPostId: string,
+//         postPromptPromptId: string
+//         }
+//         const result = await insertPost(postPrompt)
+//         const status: Status = {
+//             status: 200,
+//             message: result,
+//             data: null
+//         }
+//         return response.json(status)
+//     }catch (error) {
+//         return response.json({
+//             status: 500,
+//             message: 'error creating post try again later',
+//             data: null
+//         })
+//     }
+// }

@@ -21,8 +21,8 @@ export async function selectPostPromptsByPromptId (postPromptPromptId: string): 
     return result
 }
 
-export async function insertPostPrompt (postPrompt: PostPrompt): Promise<string> {
-    const {postPrompt} = postPrompt
-    await sql`INSERT INTO post_prompt(post_prompt_post_id, post_prompt_prompt_id) VALUES (gen_random_uuid(), gen_random_uuid())`
-    return "postPrompt inserted successfully"
-}
+// export async function insertPostPrompt (postPrompt: PostPrompt): Promise<string> {
+//     const {postPrompt} = postPrompt
+//     await sql`INSERT INTO post_prompt(post_prompt_post_id, post_prompt_prompt_id) VALUES (gen_random_uuid(), gen_random_uuid())`
+//     return "postPrompt inserted successfully"
+// }
