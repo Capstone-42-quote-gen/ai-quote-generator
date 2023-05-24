@@ -56,7 +56,7 @@ export class App {
         this.app.use('/apis', indexRoute)
         this.app.use('/apis/sign-up', SignUpRouter)
         this.app.use('/apis/sign-in', SignInRouter)
-        this.app.use('/apis/profile/profile', ProfileRoute)
+        this.app.use('/apis/profile', ProfileRoute)
         this.app.use('/apis/post', PostRoute)
         this.app.use('/apis/prompt', PromptRoute)
         // this.app.use('/apis/post-prompt', PostPromptRoute)

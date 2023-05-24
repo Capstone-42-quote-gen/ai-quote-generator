@@ -47,26 +47,26 @@ export async function getPostPromptsByPromptIdController(request: Request, respo
     }
 }
 
-// export async function postPostPromptController (request: Request, response: Response): Promise<Response> {
-//     try {
-//         const {postPrompt} = request.body
-//         const postPrompt: PostPrompt = request
-//         const postPrompt: PostPrompt = {
-//         postPromptPostId: string,
-//         postPromptPromptId: string
-//         }
-//         const result = await insertPost(postPrompt)
-//         const status: Status = {
-//             status: 200,
-//             message: result,
-//             data: null
-//         }
-//         return response.json(status)
-//     }catch (error) {
-//         return response.json({
-//             status: 500,
-//             message: 'error creating post try again later',
-//             data: null
-//         })
-//     }
-// }
+export async function postPostPromptController (request: Request, response: Response): Promise<Response> {
+    try {
+        const {postPromptPrompt} = request.body
+        const postPromptPrompt: PostPromptPrompt = request
+        const postPromptPrompt: PostPromptPrompt = {
+        postPromptPostId: string,
+        postPromptPromptId: string
+        }
+        const result = await insertPostPromptPrompt(postPromptPrompt)
+        const status: Status = {
+            status: 200,
+            message: result,
+            data: null
+        }
+        return response.json(status)
+    }catch (error) {
+        return response.json({
+            status: 500,
+            message: 'error creating post try again later',
+            data: null
+        })
+    }
+}
