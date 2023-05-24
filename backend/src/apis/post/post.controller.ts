@@ -63,7 +63,7 @@ export async function postPost (request: Request, response: Response): Promise<R
             postProfileId,
             postPhotoUrl,
             postQuote,
-            postCreationTime : null
+            postCreationTime: null
         }
         const result = await insertPost(post)
         const status: Status = {
@@ -73,6 +73,7 @@ export async function postPost (request: Request, response: Response): Promise<R
         }
         return response.json(status)
     }catch (error) {
+        console.log(error)
         return response.json({
             status: 500,
             message: 'error creating post try again later',
