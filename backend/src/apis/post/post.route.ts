@@ -13,7 +13,7 @@ import {postValidator} from "./post.validator";
 const router = Router()
 router.route('/:postId').get(asyncValidatorController([
 check('postId', 'please provide a valid postId').isUUID()
-]),getPostsByPostProfileIdController)
+]),getPostByPostIdController)
 
 router.route('/postProfileId/:postProfileId').get(asyncValidatorController([
     check('postProfileId','please provide a valid postProfileId').isUUID()

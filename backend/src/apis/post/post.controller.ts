@@ -11,6 +11,7 @@ import { Profile } from '../../utils/models/Profile'
 
 export async function getAllPostsController (request: Request, response: Response): Promise<Response<Status>> {
     try {
+
         const data = await selectAllPosts()
         //return the response
         const status: Status = { status:200, message: null, data}
@@ -44,6 +45,7 @@ export async function getPostByPostIdController (request: Request, response: Res
         const data = await selectPostByPostId(postId)
         return response.json({ status: 200, message: null, data})
     } catch (error) {
+        console.log(error)
         return response.json({
             status: 500,
             message: '',
@@ -73,7 +75,6 @@ export async function postPost (request: Request, response: Response): Promise<R
         }
         return response.json(status)
     }catch (error) {
-        console.log(error)
         return response.json({
             status: 500,
             message: 'error creating post try again later',
