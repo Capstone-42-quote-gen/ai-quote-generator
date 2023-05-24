@@ -26,16 +26,13 @@ CREATE TABLE if not exists post
 (
     post_id uuid NOT NULL PRIMARY KEY,
     post_profile_id uuid NOT NULL,
-    post_prompt_id uuid NOT NULL,
     post_creation_time timestamptz NOT NULL,
     post_photo_url VARCHAR(256) NOT NULL,
     post_quote VARCHAR(512) NOT NULL,
-    FOREIGN KEY (post_profile_id) REFERENCES profile(profile_id),
-    FOREIGN KEY (post_prompt_id) REFERENCES prompt(prompt_id)
+    FOREIGN KEY (post_profile_id) REFERENCES profile(profile_id)
 );
 
 CREATE INDEX ON post(post_profile_id);
-CREATE INDEX ON post(post_prompt_id);
 
 CREATE TABLE if not exists vote
 (
