@@ -29,7 +29,7 @@ export async function signUpProfileController (request: Request, response: Respo
             subject:"Activate your account",
             html: message
         }
-        console.log(mailgunMessage)
+
 
         const profile: Profile = {
         profileId: null,
