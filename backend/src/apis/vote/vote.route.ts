@@ -4,11 +4,12 @@ import {asyncValidatorController} from "../../utils/controllers/asyncValidator.c
 import {check} from "express-validator";
 import {getVotesByVotePostId, toggleVoteController} from "./vote.controller";
 
-const router = Router()
+export const VoteRoute: Router = Router ()
 
-router.route('/')
+
+VoteRoute.route('/')
 .post(isLoggedIn, toggleVoteController)
-router.route('/votePostId/:votePostId')
+VoteRoute.route('/votePostId/:votePostId')
 .get(asyncValidatorController([
     check('votePostId', 'Please provide a valid votePostID').isUUID()
     ]), getVotesByVotePostId)
@@ -22,5 +23,5 @@ router.route('/votePostId/:votePostId')
 //     ]), getVotesByVotePostId)
 
 
-export default  router
+
 
