@@ -21,8 +21,6 @@ router.route('/postProfileId/:postProfileId').get(asyncValidatorController([
 
 // Every new route is instantiated below. It will include the controller name and the type of action (get, post, delete, put, patch)
 router.route('/')
-    .get(getPostByPostIdController)
-    .get(getPostsByPostProfileIdController)
     .get(getAllPostsController)
     .post(isLoggedIn, asyncValidatorController(checkSchema((postValidator))), postPost)
 
