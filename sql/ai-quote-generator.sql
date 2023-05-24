@@ -60,3 +60,8 @@ CREATE TABLE if not exists post_prompt
 
 CREATE INDEX ON post_prompt(post_prompt_post_id);
 CREATE INDEX ON post_prompt(post_prompt_prompt_id);
+
+
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'yoda');
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'work');
+
