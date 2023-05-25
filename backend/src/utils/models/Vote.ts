@@ -9,7 +9,7 @@ export interface Vote {
 
     export async function insertVote (vote: Vote): Promise<string> {
     const {voteProfileId, votePostId, voteValue} = vote
-        await sql `INSERT INTO  vote (vote_post_id, vote_profile_id, vote_date, vote_value) VALUES(${voteProfileId}, ${votePostId}, NOW(), ${voteValue})`
+        await sql `INSERT INTO  vote (vote_profile_id, vote_post_id, vote_date, vote_value) VALUES(${voteProfileId}, ${votePostId}, NOW(), ${voteValue})`
         return 'Vote created successfully'
     }
 
