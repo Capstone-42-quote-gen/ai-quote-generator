@@ -52,4 +52,3 @@ export async function toggleVoteController(request: Request, response: Response)
 
     }
 }
-

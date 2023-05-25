@@ -49,12 +49,12 @@ export async function getPostPromptsByPromptIdController(request: Request, respo
 }
 export async function postPostPromptPromptController(request: Request, response: Response): Promise<Response> {
     try {
-        const { postPromptPrompt } = request.body;
-        const postPrompt: PostPromptPrompt = {
+        const { PostPromptPrompt } = request.body;
+        const postPromptPrompt: PostPromptPrompt = {
             postPromptPromptId: "promptIdValue"
         };
 
-        const result = await insertPostPromptPrompt(postPrompt);
+        const result = await insertPostPromptPrompt(postPromptPrompt);
 
         const status: Status = {
             status: 200,
