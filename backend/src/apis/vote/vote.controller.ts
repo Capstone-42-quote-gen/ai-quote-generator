@@ -26,8 +26,6 @@ export async function toggleVoteController(request: Request, response: Response)
         const {voteValue} = request.body
         const voteProfileId = profile.profileId as string
 
-
-
         const vote: Vote = {
             voteProfileId,
             votePostId,

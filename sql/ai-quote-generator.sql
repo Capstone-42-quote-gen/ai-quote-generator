@@ -39,7 +39,6 @@ CREATE TABLE if not exists vote
     vote_post_id uuid NOT NULL,
     vote_profile_id uuid NOT NULL,
     vote_date timestamptz NOT NULL,
-    vote_value VARCHAR(16),
     FOREIGN KEY (vote_post_id) REFERENCES post(post_id),
     FOREIGN KEY (vote_profile_id) REFERENCES profile(profile_id)
 );
@@ -63,5 +62,3 @@ INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uui
 INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'work');
 INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'mr t');
 INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'relationships');
-
-
