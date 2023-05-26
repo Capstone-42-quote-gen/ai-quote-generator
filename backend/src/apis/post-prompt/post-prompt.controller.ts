@@ -47,9 +47,9 @@ export async function getPostPromptsByPromptIdController(request: Request, respo
         return response.json({ status: 500, message: 'internal server error', data: null})
     }
 }
-export async function postPostPromptPromptController(request: Request, response: Response): Promise<Response> {
+export async function postPostPromptPromptController(request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const { PostPromptPrompt } = request.body;
+        const { } = request.body;
         const postPromptPrompt: PostPromptPrompt = {
             postPromptPromptId: "promptIdValue"
         };
