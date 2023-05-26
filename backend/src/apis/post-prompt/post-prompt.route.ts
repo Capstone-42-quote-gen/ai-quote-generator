@@ -3,7 +3,7 @@ import {
     getPostPromptIdByPostIdAndPromptIdController,
     getPostPromptsByPostIdController,
     getPostPromptsByPromptIdController,
-    postPostPromptPromptController
+    postPostPrompt
 } from "./post-prompt.controller"
 import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
 import {check} from "express-validator";
@@ -18,7 +18,7 @@ PostPromptRoute.route('/postId/:postId/promptId/:promptId')
 PostPromptRoute.route('/')
     .post (asyncValidatorController([
         check ('postId', 'please provide a valid postId').isUUID(), check ('promptId', 'please provide a valid promptId').isUUID()
-    ]),postPostPromptPromptController)
+    ]),postPostPrompt)
 
 
 PostPromptRoute.route('/postId/:PostId')

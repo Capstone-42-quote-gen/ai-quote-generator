@@ -1,7 +1,7 @@
 import {Request, Response} from "express"
 import {
     insertPostPromptPrompt,
-    PostPromptPrompt,
+    PostPrompt,
     selectPostPromptByPostIdAndPromptId,
     selectPostPromptsByPostId,
     selectPostPromptsByPromptId
@@ -47,15 +47,17 @@ export async function getPostPromptsByPromptIdController(request: Request, respo
         return response.json({ status: 500, message: 'internal server error', data: null})
     }
 }
-export async function postPostPromptPromptController(request: Request, response: Response): Promise<Response> {
+export async function postPostPrompt (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const { PostPromptPrompt } = request.body;
-        const postPromptPrompt: PostPromptPrompt = {
-            postPromptPromptId: "promptIdValue"
-        };
+        const { postPromptPostId, postPromptPromptId } = request.body;
+
+        const postPrompt: PostPrompt = {
+            postPromptPostId,
+            postPromptPromptId
+        }
 
 
-        const result = await insertPostPromptPrompt(postPromptPrompt);
+        const result = await insertPostPromptPrompt(postPrompt);
 
         const status: Status = {
             status: 200,
