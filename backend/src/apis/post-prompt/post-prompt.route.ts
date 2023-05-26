@@ -17,7 +17,7 @@ PostPromptRoute.route('/postId/:postId/promptId/:promptId')
 
 PostPromptRoute.route('/')
     .post (asyncValidatorController([
-        check ('postId', 'please provide a valid postId').isUUID(), check ('promptId', 'please provide a valid promptId').isUUID()
+        check ('postPromptPostId', 'please provide a valid postId').isUUID(), check ('postPromptPromptId', 'please provide a valid promptId').isUUID()
     ]),postPostPrompt)
 
 
