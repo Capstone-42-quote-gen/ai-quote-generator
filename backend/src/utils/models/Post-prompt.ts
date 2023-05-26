@@ -12,12 +12,12 @@ export async function selectPostPromptByPostIdAndPromptId (postPromptPostId: str
 
 
 export async function selectPostPromptsByPostId (postPromptPostId: string): Promise<PostPrompt[]> {
-    const result = await sql<PostPrompt[]>`SELECT post_prompt_post_id, post_prompt_prompt_id FROM post_prompt WHERE post_prompt_post_id = ${postPromptPostId}`
-    return result
+    return <PostPrompt[]> await sql`SELECT post_prompt_post_id FROM post_prompt WHERE post_prompt_post_id = ${postPromptPostId}`
+    // return result ?.length === 1 ? result[0] : null
 }
 
 export async function selectPostPromptsByPromptId (postPromptPromptId: string): Promise<PostPrompt[]> {
-    const result = await sql<PostPrompt[]>`SELECT post_prompt_post_id, post_prompt_prompt_id FROM post_prompt WHERE post_prompt_prompt_id = ${postPromptPromptId}`
+    const result = await sql<PostPrompt[]>`SELECT post_prompt_prompt_id FROM post_prompt WHERE post_prompt_prompt_id = ${postPromptPromptId}`
     return result
 }
 

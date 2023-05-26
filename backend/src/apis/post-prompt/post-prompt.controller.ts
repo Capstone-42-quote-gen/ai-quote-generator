@@ -30,6 +30,7 @@ export async function getPostPromptsByPostIdController(request: Request, respons
             data
         })
     }catch (error) {
+        console.log(error)
         return response.json({ status: 500, message: 'internal server error', data: null})
     }
 }
