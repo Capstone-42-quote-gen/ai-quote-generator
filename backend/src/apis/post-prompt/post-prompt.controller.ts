@@ -67,8 +67,9 @@ export async function postPostPrompt (request: Request, response: Response): Pro
 
         return response.json(status);
     } catch (error) {
+        console.log(error)
         return response.json({
-            status: 500,
+                        status: 500,
             message: 'Error creating post. Please try again later.',
             data: null
         });
