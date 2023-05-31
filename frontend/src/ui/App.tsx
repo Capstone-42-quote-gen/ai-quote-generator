@@ -5,6 +5,7 @@ import { Home } from './Home.tsx'
 import { FourOhFour } from './FourOhFour'
 import { ImageContent } from "./shared_components/ImageContent.tsx";
 import {Navigation} from "./shared_components/NavBar.tsx";
+import {CreateQuote} from "./CreateQuote.tsx";
 
 export function App() {
     return (
@@ -16,6 +17,7 @@ export function App() {
                     <Route  path='/' element={<Home />} />
                     <Route path={"*"} element={<FourOhFour />} />
                     <Route path='/ImageContent' element={<ImageContent/>} />
+                    <Route path={'/create-quote'} element={<CreateQuote />} />
                 </Routes>
             </BrowserRouter>
         </>
