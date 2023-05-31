@@ -6,6 +6,7 @@ import { FourOhFour } from './FourOhFour'
 import { ImageContent } from "./shared_components/ImageContent.tsx";
 import {CreateQuote} from "./CreateQuote.tsx";
 import {DisplayQuote} from "./DisplayQuote.tsx";
+import {Profile} from "./Profile.tsx";
 
 export function App() {
     return (
