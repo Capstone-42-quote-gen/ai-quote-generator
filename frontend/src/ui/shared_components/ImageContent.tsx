@@ -4,14 +4,16 @@ export function ImageContent() {
     return (
         <>
             <Container>
-                 <Row className={'mt-3'}>
-                     <Col lg={9} className={''}>
-            <img className={'ManyImages image-fluid m-2'} src={mountains} alt=""/>
-                     </Col>
-                     <Col lg={3} className={'text-center mt-3'} >
-                     <Button>button</Button>
+                 <Row className={'mt-3 mx-auto'}>
+                     <Col lg={12} className={''}>
+            <img className={'ManyImages image-fluid'} src={mountains} alt=""/>
                      </Col>
                  </Row>
+                  <Row>
+                     <Col lg={12} className={'text-center mt-3'} >
+                     <Button>button</Button>
+                     </Col>
+                  </Row>
             </Container>
         </>
     )}
