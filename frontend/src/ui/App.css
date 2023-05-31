@@ -1,0 +1,11 @@
+.custom-navbar {
+    background-color: #d7dada;
+}
+
+.navbar-divider {
+    height: 25px;
+    width: 1px;
+    background-color: black;
+    align-self: center;
+
+}
