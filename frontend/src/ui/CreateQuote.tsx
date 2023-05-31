@@ -2,7 +2,6 @@
 import {Button, Form, Container, Row, Col, Image} from "react-bootstrap";
 import createimg from "../assets/create-placeholder.jpg";
 
-
 export function CreateQuote() {
     return (
         <>
