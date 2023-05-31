@@ -12,8 +12,7 @@ export function App() {
         <>
             <BrowserRouter>
                 <Navigation/>
-                <ImageContent/>
-                <Routes>
+                 <Routes>
                     <Route  path='/' element={<Home />} />
                     <Route path={"*"} element={<FourOhFour />} />
                     <Route path='/ImageContent' element={<ImageContent/>} />
