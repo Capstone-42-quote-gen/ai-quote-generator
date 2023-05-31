@@ -4,8 +4,8 @@ export function ImageContent() {
     return (
         <>
             <Container>
-                 <Row className={'mt-3 mx-auto'}>
-                     <Col lg={12} className={''}>
+                 <Row className={'mt-3 justify-content-center'}>
+                     <Col md={4}>
             <img className={'ManyImages image-fluid'} src={mountains} alt=""/>
                      </Col>
                  </Row>
