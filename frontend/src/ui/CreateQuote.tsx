@@ -1,12 +1,19 @@
 
 import {Button, Form, Container, Row, Col, Image} from "react-bootstrap";
 import createimg from "../assets/create-placeholder.jpg";
+<<<<<<< HEAD
 import {Navigation} from "./shared_components/NavBar.tsx";
+=======
+>>>>>>> navbar
 
 export function CreateQuote() {
     return (
         <>
+<<<<<<< HEAD
             <Navigation/>
+=======
+
+>>>>>>> navbar
             <Container>
                 <Form>
                     <Row className="mb-3 justify-content-center">
@@ -93,9 +100,12 @@ export function CreateQuote() {
     <Col xs="auto">
                 <Button variant="secondary" size="lg" type="submit">Randomize</Button>
 </Col>
+<<<<<<< HEAD
     <Col xs="auto">
         <Button variant="secondary" size="lg" type="submit">Save Quote</Button>
     </Col>
+=======
+>>>>>>> navbar
 </Row>
                 </Form>
                 <Row className="justify-content-center">
