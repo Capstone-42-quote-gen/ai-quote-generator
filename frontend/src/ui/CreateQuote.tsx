@@ -1,14 +1,23 @@
 
-import React from "react";
-import {Button, Form, Container, Row, Col} from "react-bootstrap";
+import {Button, Form, Container, Row, Col, Image} from "react-bootstrap";
+import createimg from "../assets/create-placeholder.jpg";
+
+
 export function CreateQuote() {
     return (
         <>
 
             <Container>
-                <h1>Create A Quote</h1>
                 <Form>
-                    <Row className="mb-3">
+                    <Row className="mb-3 justify-content-center">
+                        <Col xs="auto">
+                            <h1>Generate a Quote</h1>
+                            <p>To generate your own custom GloomSmith quote image select a topic and optional voice and then generate.</p>
+                        </Col>
+                    </Row>
+
+                    <Row className="mb-3 justify-content-center">
+
                         <Col xs="auto">
                             <Form.Select defaultValue="- Choose a TOPIC - ">
                                 <option>Choose a TOPIC</option>
@@ -77,9 +86,21 @@ export function CreateQuote() {
 
                     </Row>
 
-
-                <Button variant="primary" size="lg" type="submit">Generate a Quote</Button>{' '}  <Button variant="secondary" size="lg" type="submit">Randomize</Button>{' '}
+<Row className="mb-3 justify-content-center">
+<Col xs="auto">
+                <Button variant="primary" size="lg" type="submit">Generate a Quote</Button>
+</Col>
+    <Col xs="auto">
+                <Button variant="secondary" size="lg" type="submit">Randomize</Button>
+</Col>
+</Row>
                 </Form>
+                <Row className="justify-content-center">
+                    <Col lg={4} className="py-4">
+                        <Image fluid src={createimg} alt="Temp Image" />
+                    </Col>
+
+                </Row>
                 </Container>
 
 
