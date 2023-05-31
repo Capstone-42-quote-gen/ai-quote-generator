@@ -6,7 +6,7 @@ import logo from "../../assets/logo-1.png";
 export function Navigation() {
     return (
         <Container>
-            <Image src={logo} className={'py-3'}/>
+            <a href="/"><Image src={logo} className={'py-3'}/></a>
             <Navbar className="custom-navbar">
                 <Container>
                     <Nav className="w-100 justify-content-evenly">
@@ -16,7 +16,7 @@ export function Navigation() {
                         <span className="navbar-divider"></span>
                         <Nav.Link href="#topics">Topics</Nav.Link>
                         <span className="navbar-divider"></span>
-                        <Nav.Link href="#create">Create</Nav.Link>
+                        <Nav.Link href="/create-quote">Create</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
