@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './Home.tsx'
 import { FourOhFour } from './FourOhFour'
-
+import { ImageContent } from "./shared_components/ImageContent.tsx";
 
 export function App() {
     return (
@@ -12,6 +12,7 @@ export function App() {
                 <Routes>
                     <Route  path='/' element={<Home />} />
                     <Route path={"*"} element={<FourOhFour />} />
+                    <Route path='/ImageContent' element={<ImageContent/>} />
                 </Routes>
             </BrowserRouter>
         </>
