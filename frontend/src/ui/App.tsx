@@ -17,6 +17,7 @@ export function App() {
                     <Route path='/ImageContent' element={<ImageContent/>} />
                     <Route path={'/create-quote'} element={<CreateQuote />} />
                     <Route path={'/display-quote'} element={<DisplayQuote />} />
+                    <Route path={'/display-quote'} element={<Profile />} />
                 </Routes>
             </BrowserRouter>
         </>
