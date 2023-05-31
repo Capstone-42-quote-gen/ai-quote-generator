@@ -93,6 +93,9 @@ export function CreateQuote() {
     <Col xs="auto">
                 <Button variant="secondary" size="lg" type="submit">Randomize</Button>
 </Col>
+    <Col xs="auto">
+        <Button variant="secondary" size="lg" type="submit">Save Quote</Button>
+    </Col>
 </Row>
                 </Form>
                 <Row className="justify-content-center">
