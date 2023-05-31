@@ -10,8 +10,8 @@ export function ImageContent() {
                      </Col>
                  </Row>
                   <Row>
-                     <Col lg={12} className={'text-center mt-3'} >
-                     <Button>button</Button>
+                     <Col md={12} className={'mt-3 text-center'} >
+                     <Button className={'voteButton'}>Vote</Button>
                      </Col>
                   </Row>
             </Container>
