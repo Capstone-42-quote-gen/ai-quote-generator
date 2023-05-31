@@ -10,12 +10,7 @@ export function App() {
     return (
         <>
             <BrowserRouter>
-<<<<<<< HEAD
                 <Routes>
-=======
-                <Navigation/>
-                 <Routes>
->>>>>>> 3c5258b6e951f41c077399f362d7831e8f8c496a
                     <Route  path='/' element={<Home />} />
                     <Route path={"*"} element={<FourOhFour />} />
                     <Route path='/ImageContent' element={<ImageContent/>} />
