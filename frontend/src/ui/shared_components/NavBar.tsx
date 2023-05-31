@@ -14,7 +14,7 @@ export function Navigation() {
                         <span className="navbar-divider"></span>
                         <Nav.Link href="#new">New</Nav.Link>
                         <span className="navbar-divider"></span>
-                        <Nav.Link href="#mood">Mood</Nav.Link>
+                        <Nav.Link href="#topics">Topics</Nav.Link>
                         <span className="navbar-divider"></span>
                         <Nav.Link href="#create">Create</Nav.Link>
                     </Nav>
