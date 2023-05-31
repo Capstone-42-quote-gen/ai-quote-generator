@@ -9,7 +9,7 @@ export function Navigation() {
             <Image src={logo} className={'py-3'}/>
             <Navbar className="custom-navbar">
                 <Container>
-                    <Nav fluid className="w-100 justify-content-evenly">
+                    <Nav className="w-100 justify-content-evenly">
                         <Nav.Link href="#popular">Popular</Nav.Link>
                         <span className="navbar-divider"></span>
                         <Nav.Link href="#new">New</Nav.Link>
