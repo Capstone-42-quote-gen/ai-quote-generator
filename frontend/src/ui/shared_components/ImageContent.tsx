@@ -26,7 +26,6 @@ export function ImageContent() {
                         <a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a>
                     </Col>
                 </Row>
-
             </Container>
         </>
     )}

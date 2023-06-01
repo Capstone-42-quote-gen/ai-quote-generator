@@ -14,25 +14,11 @@
     align-self: center;
 }
 
-<<<<<<< HEAD
+/*IMAGES*/
+
 .img-action-icons {
     margin-left: 20px;
     margin-top: 10px;
-}
-=======
-/*IMAGES*/
-
-.ManyImages {
-    width: 95%;
-    height: 95%
-}
-
-.redCheckButton {
-    font-size: 12px;
-    font-family: monospace;
-    height: 3em;
-    width: auto;
-    background-color: crimson;
 }
 
 .ProfileImage {
@@ -41,4 +27,3 @@
 }
 
 /*RENAME ME*/
->>>>>>> profile

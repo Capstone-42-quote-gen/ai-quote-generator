@@ -31,14 +31,7 @@ export function Profile() {
 
                 </Row>
             </Container>
-
-            <Container>
-                <Row className={'g-5'}>
-                    <Col md={4}>
                         <ImageOnly/>
-                    </Col>
-                </Row>
-            </Container>
         </>
     )
 }
