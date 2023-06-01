@@ -1,46 +1,42 @@
 import {Navigation} from "./shared_components/NavBar.tsx";
-import {ImageContent} from "./shared_components/ImageContent.tsx";
 import {Col, Container, Row} from "react-bootstrap";
+import {ImageOnly} from "./shared_components/imageOnly.tsx";
 
 export function Profile() {
     return (
         <>
 
             <Navigation/>
-            <Container>
+            <Container className={''} >
             <Row md={12}>
-                <Col>
-
-                </Col>
+                <Col md={3} className={''} ></Col>
+            </Row>
+                <Row md={12}>
+                <Col md={3} className={''} ></Col>
+            </Row>
+                <Row md={12}>
+                <Col md={3} className={''} ></Col>
             </Row>
             </Container>
-            <Row>
+
+            <Container>
+            <Row className={'g-5'}>
                 <Col md={4} >
-                    <ImageContent/>
+                    <ImageOnly/>
+                </Col>                <Col md={4} >
+                    <ImageOnly/>
+                </Col>                <Col md={4} >
+                    <ImageOnly/>
+                </Col>                <Col md={4} >
+                    <ImageOnly/>
+                </Col>                <Col md={4} >
+                    <ImageOnly/>
+                </Col>                <Col md={4} >
+                    <ImageOnly/>
                 </Col>
 
-                    <Col md={4}>
-                        <ImageContent/>
-                    </Col>
-
-                <Col md={4}>
-                    <ImageContent/>
-                </Col>
-           </Row>
-            <Row>
-                <Col md={4} >
-                    <ImageContent/>
-                </Col>
-
-                <Col md={4}>
-                    <ImageContent/>
-                </Col>
-
-                <Col md={4}>
-                    <ImageContent/>
-                </Col>
             </Row>
-            <h1>Profile</h1>
+            </Container>
         </>
     )
 }
