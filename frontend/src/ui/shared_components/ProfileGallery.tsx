@@ -1,9 +1,9 @@
-export function ProfileGallery(Props: any) {
-    const {profileImageSource} = Props
+import {Image} from "react-bootstrap"
+export function ProfileGallery(props: {profileImageSource: string}) {
+    const {profileImageSource} = props;
+
     return (
         <>
-            <div>
-                <img className={'profile-image img-fluid'} src={profileImageSource} alt=""/>
-            </div>
+                <Image className={'profile-image my-3'} src={profileImageSource}/>
         </>
     )}

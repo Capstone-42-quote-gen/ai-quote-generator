@@ -2,25 +2,20 @@ import {Navigation} from "./shared_components/NavBar.tsx";
 import {ProfileGallery} from "./shared_components/ProfileGallery.tsx";
 import logo from "../../src/assets/logo-1.png"
 import {Col, Container, Row, Image} from "react-bootstrap";
-
+import mountains from "/src/assets/mountains.png";
 
 export function Profile() {
     return (
         <>
-
             <Navigation/>
             <Container className={'my-3'}>
                 <Row md={12} className={'g-5'}>
+                    <Col>
                  <Image src={logo} className={'ProfileImage image-fluid'}/>
+                    </Col>
                  </Row>
             </Container>
-
             <Container className={'my-3'}>
-                <Row md={12} className={'g-5'}>
-                    <Col>
-                        <Image src={logo} className={'py-3'}/>
-                    </Col>
-                </Row>
                 <Row md={12}>
                     <Col md={6}>
                         <h4>About me</h4>
@@ -30,7 +25,14 @@ export function Profile() {
                     </Col>
                 </Row>
             </Container>
-            <ProfileGallery/>
+            <Container>
+                <Row>
+                <Col md={4} lg={4}>
+                <ProfileGallery profileImageSource={mountains}/>
+                </Col>
+                </Row>
+            </Container>
+
         </>
         )
   }
