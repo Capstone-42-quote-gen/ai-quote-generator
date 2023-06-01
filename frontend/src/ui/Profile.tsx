@@ -1,12 +1,19 @@
 import {Navigation} from "./shared_components/NavBar.tsx";
 import {ImageContent} from "./shared_components/ImageContent.tsx";
-import {Col, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 
 export function Profile() {
     return (
         <>
 
             <Navigation/>
+            <Container>
+            <Row md={12}>
+                <Col>
+
+                </Col>
+            </Row>
+            </Container>
             <Row>
                 <Col md={4} >
                     <ImageContent/>
