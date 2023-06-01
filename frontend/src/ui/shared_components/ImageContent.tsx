@@ -6,7 +6,7 @@ export function ImageContent() {
             <Container>
                  <Row className={'mt-3 mx-auto'}>
                      <Col lg={12} className={''}>
-            <img className={'ManyImages image-fluid'} src={mountains} alt=""/>
+                <img className={'ManyImages image-fluid'} src={mountains} alt=""/>
                      </Col>
                  </Row>
                   <Row>

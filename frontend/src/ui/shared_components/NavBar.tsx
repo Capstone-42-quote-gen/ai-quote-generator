@@ -2,7 +2,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import {Nav} from "react-bootstrap";
 import {Image} from "react-bootstrap";
-import logo from "../../assets/logo-1.png";
+// import gloomsmith from "../../assets/logo-1.png";
+import logo from "../../assets/logo.png";
+// import icon from "../../assets/icon-1.png";
 export function Navigation() {
     return (
         <Container>
