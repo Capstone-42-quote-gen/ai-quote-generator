@@ -6,7 +6,6 @@ export function Home() {
         <>
             <Navigation/>
             <ImageContent/>
-            <h1>Home</h1>
         </>
     )
 }
