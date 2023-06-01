@@ -1,7 +1,10 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import {Button, Col, Container,  Row} from "react-bootstrap";
 import mountains from "/src/assets/mountains.png"
 =======
+=======
+>>>>>>> Stashed changes
 import {Col, Container, Row} from "react-bootstrap";
 import mountains from "/src/assets/mountains.png";
 import img_share from "/src/assets/share.png";
@@ -16,6 +19,7 @@ export function ImageContent() {
         <>
             <Container>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                  <Row className={'mt-3 justify-content-center'}>
                      <Col md={4}>
             <img className={'ManyImages image-fluid'} src={mountains} alt=""/>
@@ -27,6 +31,8 @@ export function ImageContent() {
                      </Col>
                   </Row>
 =======
+=======
+>>>>>>> Stashed changes
                 <Row className={'mt-3 justify-content-center'}>
                     <Col md={4}>
                         <img className={'quote-image img-fluid'} src={mountains} alt="Quote Image"/>

@@ -31,6 +31,9 @@ export function Profile() {
                 </Row>
             </Container>
             <ImageOnly/>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </>
     )
