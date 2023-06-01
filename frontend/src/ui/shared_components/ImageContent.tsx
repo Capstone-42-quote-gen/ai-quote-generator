@@ -1,5 +1,6 @@
 import {Button, Col, Container,  Row} from "react-bootstrap";
-import mountains from "/src/assets/mountains.png"
+import mountains from "../../assets/mountains.png"
+import redCheck from "../../assets/Red Check.png"
 export function ImageContent() {
     return (
         <>
@@ -11,7 +12,7 @@ export function ImageContent() {
                  </Row>
                   <Row>
                      <Col md={12} className={'mt-3 text-center'} >
-                     <Button className={'voteButton'}>Vote</Button>
+                     <button><img className={'redCheckButton image-fluid'} src={redCheck} alt=""/></button>
                      </Col>
                   </Row>
             </Container>

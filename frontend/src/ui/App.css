@@ -16,10 +16,10 @@
     height: 95%
 }
 
-.voteButton {
-    text-wrap: normal;
+.redCheckButton {
     font-size: 12px;
     font-family: monospace;
     height: 3em;
+    width: auto;
     background-color: crimson;
 }
