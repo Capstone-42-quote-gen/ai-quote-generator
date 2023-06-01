@@ -1,4 +1,4 @@
-import {Button, Col, Container,  Row} from "react-bootstrap";
+import {Col, Container,  Row} from "react-bootstrap";
 import mountains from "../../assets/mountains.png"
 import redCheck from "../../assets/Red Check.png"
 export function ImageContent() {
