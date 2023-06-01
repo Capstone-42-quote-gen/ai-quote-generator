@@ -1,18 +1,19 @@
 import {Navigation} from "./shared_components/NavBar.tsx";
-import {ImageContent} from "./shared_components/ImageContent.tsx";
+import {Col, Container, Row, Image} from "react-bootstrap";
+import {ProfileGallery} from "./shared_components/ProfileGallery.tsx";
+import mountains from "../../assets/mountains.png"
+import logo from "../../src/assets/logo-1.png"
 
 export function Profile() {
     return (
         <>
             <Navigation/>
-<<<<<<< Updated upstream
-            <ImageContent/>
+            <ProfileGallery profileImageSource={mountains}/>
             <h1>Profile</h1>
-=======
             <Container className={'my-3'}>
                 <Row md={12} className={'g-5'}>
                     <Col>
-                        <Image src={logo} className={'ProfileImage image-fluid'}/>
+                        <Image src={logo} className={'py-3'}/>
                     </Col>
                 </Row>
                 <Row md={12}>
@@ -30,11 +31,7 @@ export function Profile() {
                 <Row>
                 </Row>
             </Container>
-            <ImageOnly/>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+            <ProfileGallery/>
         </>
     )
 }
