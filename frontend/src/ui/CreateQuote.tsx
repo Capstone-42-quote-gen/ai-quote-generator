@@ -9,16 +9,16 @@ export function CreateQuote() {
             <Navigation/>
             <Container>
                 <Form>
-                    <Row className="mb-3 justify-content-center">
+                    <Row className="justify-content-center pt-3">
                         <Col xs="auto">
                             <h1>Generate a Quote</h1>
                             <p>To generate your own custom GloomSmith quote image select a topic and optional voice and then generate.</p>
                         </Col>
                     </Row>
 
-                    <Row className="mb-3 justify-content-center">
+                    <Row className="justify-content-center">
 
-                        <Col xs="auto">
+                        <Col xs="auto" className="py-2">
                             <Form.Select defaultValue="- Choose a TOPIC - ">
                                 <option>Choose a TOPIC</option>
                                 <option>Being married</option>
@@ -59,7 +59,7 @@ export function CreateQuote() {
                         </Col>
 
 
-                        <Col xs="auto">
+                        <Col xs="auto" className="py-2">
                             <Form.Select defaultValue="Choose a VOICE">
                                 <option>Choose a VOICE</option>
                                 <option>Normal Voice</option>
@@ -87,13 +87,13 @@ export function CreateQuote() {
                     </Row>
 
 <Row className="mb-3 justify-content-center">
-<Col xs="auto">
+<Col xs="auto" className="py-2">
                 <Button variant="primary" size="lg" type="submit">Generate a Quote</Button>
 </Col>
-    <Col xs="auto">
+    <Col xs="auto" className="py-2">
                 <Button variant="secondary" size="lg" type="submit">Randomize</Button>
 </Col>
-    <Col xs="auto">
+    <Col xs="auto" className="py-2">
         <Button variant="secondary" size="lg" type="submit">Save Quote</Button>
     </Col>
 </Row>

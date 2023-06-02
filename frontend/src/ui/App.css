@@ -16,22 +16,19 @@
 
 /*IMAGES*/
 
-.ManyImages {
-    width: 95%;
-    height: 95%
-}
-
-.redCheckButton {
-    font-size: 12px;
-    font-family: monospace;
-    height: 3em;
-    width: auto;
-    background-color: crimson;
+.img-action-icons {
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .ProfileImage {
     width: 5em;
     height: 3em;
+}
+
+.profile-image {
+    width: 95%;
+    height: 95%;
 }
 
 /*RENAME ME*/
