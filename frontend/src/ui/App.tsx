@@ -6,6 +6,7 @@ import { FourOhFour } from './FourOhFour'
 import {CreateQuote} from "./CreateQuote.tsx";
 import {DisplayQuote} from "./DisplayQuote.tsx";
 import {Profile} from "./Profile.tsx";
+import {SignIn} from "./shared_components/SignIn";
 
 export function App() {
     return (
@@ -17,6 +18,7 @@ export function App() {
                     <Route path={'/create-quote'} element={<CreateQuote />} />
                     <Route path={'/display-quote'} element={<DisplayQuote />} />
                     <Route path={'/profile'} element={<Profile />} />
+                    <Route path={'/sign-in'} element={<SignIn/>} />
                 </Routes>
             </BrowserRouter>
         </>
