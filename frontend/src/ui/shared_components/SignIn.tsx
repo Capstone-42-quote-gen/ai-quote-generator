@@ -1,4 +1,5 @@
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
+import {SignUp} from "../SignUp";
 
 export function SignIn() {
     return (
@@ -6,11 +7,12 @@ export function SignIn() {
             <Container className={"align-items-center py-5"}>
                 <Row className={"justify-content-center"}>
                     <Col md={6}>
-                        <Card>
+                        <Card className={"sign-in-card"}>
                             <Card.Body>
                                 <Card.Title className="text-center py-4">
                                     <h1>Sign In</h1>
                                 </Card.Title>
+                                <hr className="center-hr"/>
                                 <Form>
                                     <Form.Group className="mb-3" controlId="formHorizontalEmail">
                                         <Form.Label column lg={2} className="ms-2">
@@ -48,7 +50,7 @@ export function SignIn() {
                 <Row className={"justify-content-center"}>
                     <Col lg={8}>
                     <div className={"d-grid"}>
-                        <Button variant={"secondary"} size={"lg"}>Click here</Button>
+                        <SignUp/>
                     </div>
                     </Col>
                 </Row>

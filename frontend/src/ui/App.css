@@ -39,4 +39,14 @@
 
 
 
-/*RENAME ME*/
+/*SIGN-IN*/
+
+.sign-in-card {
+    border: 1px solid grey;
+}
+
+.center-hr {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+}
