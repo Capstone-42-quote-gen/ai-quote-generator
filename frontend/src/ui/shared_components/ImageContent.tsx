@@ -5,22 +5,11 @@ import img_heart_0 from "/src/assets/heart-0.png";
 import img_download from "/src/assets/download.png";
 
 
+
 export function GalleryContent(props: { galleryImageSource: string}) {
     const { galleryImageSource } = props;
     return (
         <>
-            <Container>
-                 <Row className={'mt-3 mx-auto'}>
-                     <Col lg={12} className={''}>
-                <img className={'ManyImages image-fluid'} src={mountains} alt=""/>
-                     </Col>
-                 </Row>
-                  <Row>
-                     <Col lg={12} className={'text-center mt-3'} >
-                     <Button>button</Button>
-                     </Col>
-                  </Row>
-            </Container>
             <Card>
                 <Card.Body>
                     <Row className={'mt-3 justify-content-center'}>

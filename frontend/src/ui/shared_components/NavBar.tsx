@@ -8,8 +8,8 @@ import logo from "../../assets/logo.png";
 export function Navigation() {
     return (
         <Container>
-            <a href="/"><Image src={logo} className={'py-1'} roundedCircle/></a>
-            <Navbar className="custom-navbar">
+            <a href="/"><Image src={logo} className={'py-3'} roundedCircle/></a>
+            <Navbar className="custom-navbar mx-auto">
                 <Container>
                     <Nav className="w-100 justify-content-evenly">
                         <Nav.Link href="#popular">Popular</Nav.Link>
