@@ -3,7 +3,7 @@ import {
     getAllPromptsController,
     getPromptsByPromptId
 } from './prompt.controller'
-import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
+import {asyncValidatorController} from '../../utils/controllers/asyncValidator.controller';
 import {check} from "express-validator";
 
 const router = Router()
@@ -16,5 +16,4 @@ router.route('/:promptId')
         ), getPromptsByPromptId
     )
 
-
-
+export default router
