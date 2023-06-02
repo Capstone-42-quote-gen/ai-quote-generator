@@ -1,6 +1,6 @@
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import {Nav, Row} from "react-bootstrap";
+import {Col, Nav, Row} from "react-bootstrap";
 import {Image} from "react-bootstrap";
 import logo1 from "../../assets/home-logo.png";
 // import gloomsmith from "../../assets/logo-1.png";
@@ -9,8 +9,11 @@ import logo1 from "../../assets/home-logo.png";
 export function Navigation() {
     return (
         <Container>
-            <Row>
-            <a href="/"><Image src={logo1} className={'py-3'} /></a>
+            {/* Centering Logo */}
+            <Row className="align-items-center">
+                <Col className="text-center">
+                    <a href="/"><Image src={logo1} className={'py-3'} /></a>
+                </Col>
             </Row>
             <Navbar className="custom-navbar mx-auto">
                 <Container>
