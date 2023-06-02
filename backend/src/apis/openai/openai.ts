@@ -17,7 +17,7 @@ const completion = await openai.createCompletion(
 
 try {
     const completion = await openai.createCompletion({
-        model: "text-davinci-003",
+        model: "gpt-3.5-turbo",
         prompt: "Hello world",
     });
     console.log(completion.data.choices[0].text);
