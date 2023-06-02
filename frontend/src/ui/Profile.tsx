@@ -11,7 +11,7 @@ export function Profile() {
             <Container className={'my-3'}>
                 <Row md={12} className={'g-5'}>
                     <Col>
-                 <Image src={logo} className={'profile-phote img-fluid'}/>
+                 <Image src={logo} className={'profile-photo img-fluid'}/>
                     </Col>
                  </Row>
             </Container>

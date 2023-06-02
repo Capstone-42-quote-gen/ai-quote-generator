@@ -1,11 +1,12 @@
 import {Navigation} from "./shared_components/NavBar.tsx";
-import {ImageContent} from "./shared_components/ImageContent.tsx";
+import {GalleryContent} from "./shared_components/ImageContent.tsx";
+import mountains from "/src/assets/mountains.png";
 
 export function Home() {
     return (
         <>
             <Navigation/>
-            <ImageContent/>
+            <GalleryContent galleryImageSource={mountains}/>
         </>
     )
 }
