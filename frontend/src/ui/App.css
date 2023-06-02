@@ -89,4 +89,18 @@ a.nav-link:visited {
 /*    border: none;*/
 /*}*/
 
-/*RENAMEME*/
+/*SIGN-IN*/
+
+.sign-in-card {
+    border: 1px solid grey;
+}
+
+.center-hr {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+}
+.quote-image-card {
+    border: none;
+}
+
