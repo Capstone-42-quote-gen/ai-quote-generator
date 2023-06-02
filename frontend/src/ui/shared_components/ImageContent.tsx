@@ -9,7 +9,6 @@ export function GalleryContent(props: { galleryImageSource: string}) {
     const { galleryImageSource } = props;
     return (
         <>
-<<<<<<< HEAD
             <Container>
                  <Row className={'mt-3 mx-auto'}>
                      <Col lg={12} className={''}>
@@ -22,7 +21,6 @@ export function GalleryContent(props: { galleryImageSource: string}) {
                      </Col>
                   </Row>
             </Container>
-=======
             <Card>
                 <Card.Body>
                     <Row className={'mt-3 justify-content-center'}>
@@ -44,6 +42,5 @@ export function GalleryContent(props: { galleryImageSource: string}) {
                         </Row>
                 </Card.Body>
             </Card>
->>>>>>> develop
         </>
     )}
