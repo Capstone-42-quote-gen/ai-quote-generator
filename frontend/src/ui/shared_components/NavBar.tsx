@@ -8,7 +8,7 @@ import logo from "../../assets/logo.png";
 export function Navigation() {
     return (
         <Container>
-            <a href="/"><Image src={logo} className={'py-3'}/></a>
+            <a href="/"><Image src={logo} className={'py-3'} roundedCircle/></a>
             <Navbar className="custom-navbar">
                 <Container>
                     <Nav className="w-100 justify-content-evenly">

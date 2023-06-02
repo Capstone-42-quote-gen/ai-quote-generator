@@ -1,3 +1,6 @@
+
+/*NAVIGATION*/
+
 .custom-navbar {
     background-color: #d7dada;
     width: 95%;
@@ -11,7 +14,29 @@
     align-self: center;
 }
 
-.ManyImages {
-    width: 95%;
-    height: 95%
+/*IMAGES*/
+
+
+.img-action-icons {
+    margin-left: 20px;
+    margin-top: 10px;
 }
+
+.profile-photo {
+    width: 5em;
+    height: 3em;
+}
+
+.profile-gallery {
+    width: 95%;
+    height: 95%;
+}
+
+.profile-gallery-modal {
+    width: 100%;
+    height: auto;
+}
+
+
+
+/*RENAME ME*/
