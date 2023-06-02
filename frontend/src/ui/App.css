@@ -16,7 +16,6 @@
 
 /*IMAGES*/
 
-
 .img-action-icons {
     margin-left: 20px;
     margin-top: 10px;
@@ -38,5 +37,10 @@
 }
 
 
+/*Cards*/
 
-/*RENAME ME*/
+.quote-image-card {
+    border: none;
+}
+
+/*RENAMEME*/
