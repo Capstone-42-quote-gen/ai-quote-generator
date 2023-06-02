@@ -25,6 +25,8 @@ export function Navigation() {
                         <Nav.Link href="#topics">Topics</Nav.Link>
                         <span className="navbar-divider"></span>
                         <Nav.Link href="/create-quote">Create</Nav.Link>
+                        <span className="navbar-divider"></span>
+                        <Nav.Link href="/sign-in">Sign In</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

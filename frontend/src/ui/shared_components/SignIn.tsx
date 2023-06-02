@@ -17,7 +17,7 @@ export function SignIn() {
                                             Email
                                         </Form.Label>
                                         <Col lg={12}>
-                                            <Form.Control type="email" placeholder="Email"/>
+                                            <Form.Control type="email"/>
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
@@ -25,7 +25,7 @@ export function SignIn() {
                                             Password
                                         </Form.Label>
                                         <Col lg={12}>
-                                            <Form.Control type="password" placeholder="Password"/>
+                                            <Form.Control type="password"/>
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3">
