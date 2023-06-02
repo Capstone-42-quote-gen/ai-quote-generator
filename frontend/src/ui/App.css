@@ -5,7 +5,7 @@ body {
 }
 
 .card-body {
-    background-color: #C5D8D1;
+   background-color: #F2F7F6;
 }
 
 .custom-navbar {
@@ -85,8 +85,8 @@ a.nav-link:visited {
 
 /*Cards*/
 
-.quote-image-card {
-    border: none;
-}
+/*.quote-image-card {*/
+/*    border: none;*/
+/*}*/
 
 /*RENAMEME*/

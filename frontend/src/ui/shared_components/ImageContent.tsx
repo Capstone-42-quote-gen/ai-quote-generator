@@ -10,26 +10,33 @@ export function GalleryContent(props: { galleryImageSource: string}) {
     const { galleryImageSource } = props;
     return (
         <>
-            <Card className={'quote-image-card'}>
-                <Card.Body>
-                    <Row className={'mt-3 justify-content-center'}>
-                    <Col md={8} lg={3}>
-                        <Card.Img className={'quote-image img-fluid'} src={galleryImageSource} alt="Quote Image"/>
-                    </Col>
-                    </Row>
-                    <Row>
-                        <Col lg={12} className={'text-center'} >
-                            <a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a>
-                        </Col>
-                    </Row>
-                        <Row>
-                            <Col className={'text-center'}>
-                            <Image src={img_heart_0} className="img-action-icons" height="35" alt="Like"/>
-                            <Image src={img_download} className="img-action-icons" height="35" alt="Download"/>
-                            <Image src={img_share} className="img-action-icons" height="35" alt="Share"/>
+            <div className="d-flex justify-content-center rounded my-2">
+            <div className="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <Card className={'quote-image-card'}>
+                    <Card.Body className="text-center">
+                        <Row className={'justify-content-center'}>
+                            <Col>
+                                <Card.Img className={'quote-image img-fluid'} src={galleryImageSource} alt="Quote Image"/>
                             </Col>
                         </Row>
-                </Card.Body>
-            </Card>
+                        <Row>
+                            <Col className={'text-center'}>
+                                <Image src={img_heart_0} className="img-action-icons" height="35" alt="Like"/>
+                                <Image src={img_download} className="img-action-icons" height="35" alt="Download"/>
+                                <Image src={img_share} className="img-action-icons" height="35" alt="Share"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className={'text-center'}>
+                                <a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a>
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                </Card>
+            </div>
+            </div>
+
+
+
         </>
     )}
