@@ -5,7 +5,6 @@ import img_heart_0 from "/src/assets/heart-0.png";
 import img_download from "/src/assets/download.png";
 
 
-
 export function GalleryContent(props: { galleryImageSource: string}) {
     const { galleryImageSource } = props;
     return (
