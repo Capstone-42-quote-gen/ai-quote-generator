@@ -16,7 +16,7 @@ export function Profile() {
                  </Row>
             </Container>
             <Container className={'my-3'}>
-                <Row md={12}>
+                <Row>
                     <Col md={6}>
                         <h4>About me</h4>
                         <p>Something about me.Nullus pisces est maior quam amicitia inter Marlin et Dory. In via sua,
@@ -31,7 +31,7 @@ export function Profile() {
             </Container>
             <Container>
                 <Row>
-                <Col md={4} lg={4}>
+                <Col xs={4} lg={4}>
                 <ProfileGallery profileImageSource={mountains}/>
                 </Col>
                 </Row>
