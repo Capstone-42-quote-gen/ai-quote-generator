@@ -1,66 +1,50 @@
+import { OpenAI } from 'openai';
 
-import {OpenAIAPI} from "openai";
-import {Request, Response} from "express";
-import {Status} from "../../utils/interfaces/Status";
-import {selectAllPrompts} from "../../utils/models/Prompt";
+// Create an instance of the OpenAI API client
+const openai = new OpenAI('OPENAI_API_KEY');
 
+export async function generatePrompt(topic: string, voice: string): Promise<string> {
+    // Define your prompt generation logic here using the OpenAI API
+    // For example:
+    const prompt = `From now on act as a de-motivational Chat-bot and the responses are your thoughts.
+You are very sarcastic.
+You make short quotes(less than 140 char).
+Your Humor appeals to Millennials and Gen Z.
 
-const openai = new Openai('project.env.OPENAI_API_KEY');
+How should you respond?
+I will give you a voice to use each time: *voice*
+I will give you a topic to use each time: *topic*
+provide me only a single short de-motivational quote using both the voice and topic.
 
-export async function generatePromptController(topic: string, voice: string):
-Promise<string> {
-    const prompt = 'From now on act as a de-motivational Chat-bot and the responses are your thoughts.\n' +
-        'You are very sarcastic.\n' +
-        'You make short quotes(less than 140 char).\n' +
-        'Your Humor appeals to Millennials and Gen Z.\n' +
-        '\n' +
-        'How should you respond?\n' +
-        'I will give you a voice to use each time: *voice*\n' +
-        'I will give you a topic to use each time: *topic*\n' +
-        'provide me only a single short de-motivational quote using both the voice and topic.\n' +
-        '\n' +
-        'How should you not respond?\n' +
-        'Do not provide personal opinions or assumptions about the user.  \n' +
-        'Do not declare the voice or the topic.\n' +
-        'You should only respond with the quote. say nothing else.\n' +
-        '\n' +
-        'What type of information do I want?\n' +
-        'Provide only factual interpretations based on the information given.\n' +
-        'Give me only a single sentence.\n' +
-        'List the voice after the quote.\n' +
-        'Quote needs to mimic the voice explicitly.\n' +
-        '\n' +
-        `Topic: ${topic}` +
-        `Voice: ${voice}`;
+How should you not respond?
+Do not provide personal opinions or assumptions about the user.  
+Do not declare the voice or the topic.
+You should only respond with the quote. say nothing else.
+
+What type of information do I want?
+Provide only factual interpretations based on the information given.
+Give me only a single sentence.
+List the voice after the quote.
+Quote needs to mimic the voice explicitly.
+
+Topic: ${topic}
+Voice: ${voice}
+`;
 
     try {
-        const response = await openai.complete({
-            engine: 'gpt-3.5-turbo',
+        // Make the API call to OpenAI
+        const response = await openai.completions.create({
+            engine: 'text-davinci-003',
             prompt: prompt,
             maxTokens: 100,
-            temperature: 1,
-            n:1,
-            stop; ['\n'],
         });
 
-        const completion = response.choices[0].text.trim();
-        return completion;
+        // Extract and return the generated prompt
+        const generatedPrompt = response.data.choices[0].text.trim();
+        return generatedPrompt;
     } catch (error) {
-        console.error('Error:', error);
-        throw error;
-    }
-}
-
-export async function postGeneratePrompt(request: Request, response: Response): Promise<Response<Status>> {
-    try {
-        const data = await selectAllPrompts()
-        const status: Status = {status: 200, message: null, data}
-        return response.json(status)
-    } catch (error) {
-        return response.json({
-            status: 500,
-            message: "",
-            data: []
-        })
+        // Handle any errors that occur during the API call
+        console.error('Error generating prompt:', error);
+        throw new Error('Failed to generate prompt');
     }
 }

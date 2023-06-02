@@ -12,6 +12,7 @@ import PostRoute from "./apis/post/post.route";
 import PromptRoute from "./apis/prompt/prompt.route";
 
 
+
 // The following class creates the app and instantiates the server
 export class App {
     app: Application
@@ -59,6 +60,7 @@ export class App {
         this.app.use('/apis/profile', ProfileRoute)
         this.app.use('/apis/post', PostRoute)
         this.app.use('/apis/prompt', PromptRoute)
+        this.app.use('/apis/generate-prompt', GeneratePromptRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
