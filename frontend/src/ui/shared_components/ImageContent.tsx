@@ -10,7 +10,7 @@ export function GalleryContent(props: { galleryImageSource: string}) {
     const { galleryImageSource } = props;
     return (
         <>
-            <Card>
+            <Card className={'quote-image-card'}>
                 <Card.Body>
                     <Row className={'mt-3 justify-content-center'}>
                     <Col md={4}>

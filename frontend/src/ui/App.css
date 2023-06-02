@@ -1,10 +1,55 @@
 
-/*NAVIGATION*/
+/* COLORS */
+body {
+    background-color: #C5D8D1;
+}
+
+.card-body {
+    background-color: #C5D8D1;
+}
 
 .custom-navbar {
-    background-color: #d7dada;
+    background-color: #9DBEB2;
     width: 95%;
     height: 95%;
+}
+
+
+p, h4 {
+    color: #361F07;
+}
+
+a:link {
+    color: #00A676;
+}
+a:visited {
+    color: #601700;
+}
+a:hover {
+    color: #601700;
+}
+
+a.nav-link:link {
+    color: #361F07;
+}
+a.nav-link:hover {
+    color: #00A676;
+}
+a.nav-link:visited {
+    color: #361F07;
+}
+
+
+
+
+
+
+
+/*NAVIGATION*/
+
+.sign-in-icon {
+    width: 40px;
+    height: 40px;
 }
 
 .navbar-divider {
@@ -14,8 +59,8 @@
     align-self: center;
 }
 
-/*IMAGES*/
 
+/*IMAGES*/
 
 .img-action-icons {
     margin-left: 20px;
@@ -38,6 +83,7 @@
 }
 
 
+/*Cards*/
 
 /*SIGN-IN*/
 
@@ -50,3 +96,9 @@
     margin: 0 auto;
     width: 300px;
 }
+.quote-image-card {
+    border: none;
+}
+
+/*RENAMEME*/
+>>>>>>> develop
