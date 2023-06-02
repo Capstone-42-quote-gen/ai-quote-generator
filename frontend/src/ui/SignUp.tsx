@@ -9,7 +9,7 @@ export function SignUp() {
 
     return (
         <>
-            <Button variant={"secondary"} size={"lg"} onClick={handleShow}>Click here</Button>
+            <Button variant={"secondary"} size={"lg"} onClick={handleShow}>Register here</Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -24,6 +24,11 @@ export function SignUp() {
                         placeholder="name@example.com"
                         autoFocus
                         />
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control
+                        type="username"
+                        id="username"
+                    />
                     <Form.Label htmlFor="inputPassword5">Password</Form.Label>
                     <Form.Control
                         type="password"
@@ -36,6 +41,10 @@ export function SignUp() {
                 </Form.Group>
             </Form>
                 </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                    <Button variant="secondary" onClick={handleClose}>Submit</Button>
+                </Modal.Footer>
             </Modal>
         </>
     )
