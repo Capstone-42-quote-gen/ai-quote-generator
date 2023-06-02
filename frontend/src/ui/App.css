@@ -21,14 +21,21 @@
     margin-top: 10px;
 }
 
-.ProfileImage {
+.profile-phote {
     width: 5em;
     height: 3em;
 }
 
-.profile-image {
+.profile-gallery {
     width: 95%;
     height: 95%;
 }
+
+.profile-gallery-modal {
+    width: 100%;
+    height: auto;
+}
+
+
 
 /*RENAME ME*/
