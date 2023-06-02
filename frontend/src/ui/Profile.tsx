@@ -21,7 +21,7 @@ export function Profile() {
                         </p>
                     </Col>
                 </Row>
-                <Row md={12}>
+                <Row>
                     <Col md={3}></Col>
                 </Row>
             </Container>
