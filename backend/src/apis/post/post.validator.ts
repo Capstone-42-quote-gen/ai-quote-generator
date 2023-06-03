@@ -8,8 +8,8 @@ export const postValidator: Schema = {
     },
     postPhotoUrl: {
         isLength: {
-            errorMessage: 'Url cannot be longer than 256 characters',
-            options: {max: 256}
+            errorMessage: 'Url cannot be longer than 2000 characters',
+            options: {max: 2000}
         },
         trim: true,
         escape: true
@@ -24,5 +24,24 @@ export const postValidator: Schema = {
     },
     postCreationTime: {
         toDate: true
+        },
+
+    postPhotographerName: {
+        escape: true,
+        trim: true,
+        isLength: {
+            errorMessage: 'Unsplash Photographer Name must be less than 128 characters',
+            options: {max: 128}
         }
+    },
+
+    postPhotographerUrl: {
+        isLength: {
+            errorMessage: 'Unsplash Photographer Url cannot be longer than 2000 characters',
+            options: {max: 2000}
+        },
+        trim: true,
+        escape: true
+    },
+
     }

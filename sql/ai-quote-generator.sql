@@ -27,10 +27,10 @@ CREATE TABLE if not exists post
     post_id uuid NOT NULL PRIMARY KEY,
     post_profile_id uuid NOT NULL,
     post_creation_time timestamptz NOT NULL,
-    post_photo_url VARCHAR(256) NOT NULL,
+    post_photo_url VARCHAR(2000) NOT NULL,
     post_quote VARCHAR(512) NOT NULL,
     post_photographer_name VARCHAR(128) NOT NULL,
-    post_photographer_url VARCHAR(256) NOT NULL,
+    post_photographer_url VARCHAR(2000) NOT NULL,
     FOREIGN KEY (post_profile_id) REFERENCES profile(profile_id)
 );
 
@@ -62,7 +62,9 @@ CREATE INDEX ON post_prompt(post_prompt_prompt_id);
 
 ALTER TABLE post
 ADD COLUMN post_photographer_name VARCHAR(128),
-ADD COLUMN post_photographer_url VARCHAR(256);
+ADD COLUMN post_photographer_url VARCHAR(2000),
+ALTER COLUMN post_photo_url TYPE VARCHAR(2000);
+
 
 
 INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'yoda');
