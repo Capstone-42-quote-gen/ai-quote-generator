@@ -1,11 +1,14 @@
-import OpenAI from 'openai-api';
-
 // Create an instance of the OpenAI API client
-const openai = new OpenAI(project.env.OPENAI_API_KEY);
+import {} from "openai-api"
+import {Configuration, OpenAIApi} from "openai";
 
-export async function generatePrompt(topic: string, voice: string): Promise<string> {
+const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+export async function generatedPrompt(topic: string, voice: string): Promise<string> {
     // Define your prompt generation logic here using the OpenAI API
-    // For example:
     const prompt = `From now on act as a de-motivational Chat-bot and the responses are your thoughts.
 You are very sarcastic.
 Your Humor appeals to Millennials and Gen Z.
@@ -32,10 +35,9 @@ Voice: ${voice}
 
     try {
         // Make the API call to OpenAI
-        const response = await openai.completions.create({
-            engine: 'text-davinci-003',
+        const response = await openai.createCompletion({
+            model: 'text-davinci-003',
             prompt: prompt,
-            maxTokens: 100,
             temperature: 0.8, // Adjust the temperature to control the randomness of the output
             n: 1, // Specify the number of completions you want
         });
@@ -44,7 +46,7 @@ Voice: ${voice}
         return generatedPrompt;
     } catch (error) {
         // Handle any errors that occur during the API call
-        console.error('Error generating prompt:', error);
-        throw new Error('Failed to generate prompt');
+        console.error("Error generating prompt:", error);
+        throw new Error("Failed to generate prompt");
     }
 }
