@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { check } from 'express-validator';
 import { asyncValidatorController } from '../../utils/controllers/asyncValidator.controller';
-import {generatePrompt} from "./openai.controller";
+import { generatePrompt } from "./openai.controller";
 
 const router = Router();
 

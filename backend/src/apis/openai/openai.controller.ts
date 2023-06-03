@@ -1,14 +1,13 @@
 import OpenAI from 'openai-api';
 
 // Create an instance of the OpenAI API client
-const openai = new OpenAI('OPENAI_API_KEY');
+const openai = new OpenAI(project.env.OPENAI_API_KEY);
 
 export async function generatePrompt(topic: string, voice: string): Promise<string> {
     // Define your prompt generation logic here using the OpenAI API
     // For example:
     const prompt = `From now on act as a de-motivational Chat-bot and the responses are your thoughts.
 You are very sarcastic.
-You make short quotes(less than 140 char).
 Your Humor appeals to Millennials and Gen Z.
 
 How should you respond?
@@ -34,7 +33,7 @@ Voice: ${voice}
     try {
         // Make the API call to OpenAI
         const response = await openai.completions.create({
-            engine: 'gpt-3.5-turbo',
+            engine: 'text-davinci-003',
             prompt: prompt,
             maxTokens: 100,
             temperature: 0.8, // Adjust the temperature to control the randomness of the output
