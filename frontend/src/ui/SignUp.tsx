@@ -21,7 +21,7 @@ export function SignUp() {
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control
                         type="email"
-                        placeholder="name@example.com"
+                        id="email"
                         autoFocus
                         />
                     <Form.Label>Username</Form.Label>
