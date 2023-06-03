@@ -9,7 +9,7 @@ declare module 'express-session' {
     }
 }
 
-// instantiate new frontend and pass it a port as an argument to start with (4200)
+// instantiate new ui and pass it a port as an argument to start with (4200)
 async function main (): Promise<void> {
     const app = new App(4200)
     await app.listen()

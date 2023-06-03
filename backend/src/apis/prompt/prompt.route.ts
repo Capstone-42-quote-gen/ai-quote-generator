@@ -5,15 +5,16 @@ import {
 } from './prompt.controller'
 import {asyncValidatorController} from '../../utils/controllers/asyncValidator.controller';
 import {check} from "express-validator";
+import router from "../openai/openai.route";
 
-const router = Router()
-router.route('/')
+
+export const PromptRoute = Router()
+PromptRoute.route('/')
     .get(getAllPromptsController)
-router.route('/:promptId')
+PromptRoute.route('/:promptId')
     .get(
         asyncValidatorController(
             [check('promptId', 'Please provide a valid promptId').isUUID()]
         ), getPromptsByPromptId
     )
-
 export default router

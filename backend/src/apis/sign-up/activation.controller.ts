@@ -8,6 +8,7 @@ export async function activationController (request: Request, response: Response
         const { activation } = request.params
         const profile = await selectProfileByProfileActivationToken(activation)
 
+
         const activationFailed = (): Response => response.json ({
             status: 400,
             data: null,

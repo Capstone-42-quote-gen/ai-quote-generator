@@ -7,11 +7,11 @@ import { createClient,  RedisClientType } from 'redis'
 import RedisStore from 'connect-redis'
 import SignUpRouter from "./apis/sign-up/sign-up.router";
 import {SignInRouter} from "./apis/sign-in/sign-in.route";
-import {ProfileRoute} from "./apis/profile/profile.route";
 import PostRoute from "./apis/post/post.route";
-import PromptRoute from "./apis/prompt/prompt.route";
-
-
+import {PromptRoute} from "./apis/prompt/prompt.route";
+import {ProfileRoute} from "./apis/profile/profile.route";
+import {VoteRoute} from "./apis/vote/vote.route";
+import {PostPromptRoute} from "./apis/post-prompt/post-prompt.route";
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -61,6 +61,8 @@ export class App {
         this.app.use('/apis/post', PostRoute)
         this.app.use('/apis/prompt', PromptRoute)
         this.app.use('/apis/generate-prompt', GeneratePromptRoute)
+        this.app.use('/apis/vote', VoteRoute)
+        this.app.use('/apis/post-prompt', PostPromptRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port

@@ -7,8 +7,6 @@ export interface Post {
     postPhotoUrl: string
     postQuote: string
     postCreationTime: Date|null
-    // postPromptPromptId: string
-    // postPromptPostId: string
 }
 
 export async function insertPost(post: Post): Promise<string> {

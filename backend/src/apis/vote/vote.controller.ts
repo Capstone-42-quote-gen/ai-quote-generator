@@ -23,16 +23,12 @@ export async function toggleVoteController(request: Request, response: Response)
     try {
         const {votePostId} = request.body
         const profile = request.session.profile as Profile
-        const {voteValue} = request.body
         const voteProfileId = profile.profileId as string
-
-
 
         const vote: Vote = {
             voteProfileId,
             votePostId,
-            voteDate: null,
-            voteValue
+            voteDate: null
         }
         const status: Status = {
             status: 200,
@@ -52,4 +48,3 @@ export async function toggleVoteController(request: Request, response: Response)
 
     }
 }
-

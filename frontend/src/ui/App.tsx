@@ -1,0 +1,26 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.css'
+import './App.css'
+import { Home } from './Home.tsx'
+import { FourOhFour } from './FourOhFour'
+import {CreateQuote} from "./CreateQuote.tsx";
+import {DisplayQuote} from "./DisplayQuote.tsx";
+import {Profile} from "./Profile.tsx";
+import {SignIn} from "./shared_components/SignIn";
+
+export function App() {
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route  path='/' element={<Home />} />
+                    <Route path={"*"} element={<FourOhFour />} />
+                    <Route path={'/create-quote'} element={<CreateQuote />} />
+                    <Route path={'/display-quote'} element={<DisplayQuote />} />
+                    <Route path={'/profile'} element={<Profile />} />
+                    <Route path={'/sign-in'} element={<SignIn/>} />
+                </Routes>
+            </BrowserRouter>
+        </>
+    )
+}

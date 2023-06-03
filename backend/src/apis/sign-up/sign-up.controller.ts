@@ -15,6 +15,7 @@ export async function signUpProfileController (request: Request, response: Respo
         const {profileEmail, profilePassword, profileUsername} = request.body
         const profileHash = await setHash(profilePassword)
         const profileActivationToken = setActivationToken()
+       // TODO Update profilePhotoURL to allow user to actually upload the image if we still want to allow.
         const profilePhotoUrl = "https://placekitten.com/200/300"
 
         const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${profileActivationToken}`
@@ -29,7 +30,7 @@ export async function signUpProfileController (request: Request, response: Respo
             subject:"Activate your account",
             html: message
         }
-        console.log(mailgunMessage)
+
 
         const profile: Profile = {
         profileId: null,
