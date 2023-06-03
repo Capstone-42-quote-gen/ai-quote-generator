@@ -1,4 +1,4 @@
-import { OpenAI } from 'openai';
+import OpenAI from 'openai-api';
 
 // Create an instance of the OpenAI API client
 const openai = new OpenAI('OPENAI_API_KEY');
@@ -34,11 +34,12 @@ Voice: ${voice}
     try {
         // Make the API call to OpenAI
         const response = await openai.completions.create({
-            engine: 'text-davinci-003',
+            engine: 'gpt-3.5-turbo',
             prompt: prompt,
             maxTokens: 100,
+            temperature: 0.8, // Adjust the temperature to control the randomness of the output
+            n: 1, // Specify the number of completions you want
         });
-
         // Extract and return the generated prompt
         const generatedPrompt = response.data.choices[0].text.trim();
         return generatedPrompt;

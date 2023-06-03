@@ -4,7 +4,6 @@ import { asyncValidatorController } from '../../utils/controllers/asyncValidator
 import {generatePrompt} from "./openai.controller";
 
 const router = Router();
-// Other routes...
 
 router.route('/generate-prompt')
     .post(
