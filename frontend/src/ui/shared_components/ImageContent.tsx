@@ -28,7 +28,8 @@ export function GalleryContent(props: { galleryImageSource: string}) {
                         </Row>
                         <Row>
                             <Col className={'text-center'}>
-                                <a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a>
+                                <p><a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a></p>
+                                <div id="photo-credits">Photo by <a href={"#"}>Annie Spratt</a> from <a href='https://unsplash.com/?utm_source=Inspirational_Quotes&utm_medium=referral' target='_blank'>Unsplash</a></div>
                             </Col>
                         </Row>
                     </Card.Body>

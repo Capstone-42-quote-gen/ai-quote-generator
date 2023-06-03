@@ -39,7 +39,10 @@ a.nav-link:visited {
     color: #361F07;
 }
 
-
+#photo-credits {
+    font-size: 10px;
+    color: darkgrey;
+}
 
 
 
