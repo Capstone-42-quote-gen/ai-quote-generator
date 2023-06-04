@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import {Col, Nav, Row} from "react-bootstrap";
 import {Image} from "react-bootstrap";
 import signIn from "../../assets/sign-in-1.png";
-import logo1 from "../../assets/home-logo.png";
+import logo from "../../assets/gloomsmith.png";
 // import gloomsmith from "../../assets/logo-1.png";
 // import logo from "../../assets/logo.png";
 // import icon from "../../assets/icon-1.png";
@@ -13,7 +13,7 @@ export function Navigation() {
             {/* Centering Logo */}
             <Row className="align-items-center">
                 <Col className="text-center">
-                    <a href="/"><Image fluid src={logo1} className={'py-3'} /></a>
+                    <a href="/"><Image fluid src={logo} className={'py-3'} /></a>
                 </Col>
             </Row>
             <Row className="align-items-center">
