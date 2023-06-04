@@ -1,4 +1,3 @@
-import {Configuration, OpenAIApi} from "openai";
 import {Request, Response} from "express";
 
 export async function generatePromptController(request: Request, response: Response) {
