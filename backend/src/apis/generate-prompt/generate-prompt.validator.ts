@@ -6,7 +6,7 @@ export const generatePromptValidator: Schema = {
         isUUID: {
             errorMessage: 'please provide a valid promptId for topic'
         },
-        custom: {
+       custom: {
             errorMessage: 'Invalid topic',
             options: async (value: string, {req}) => {
                 // req.body.topicValue = "whatever"

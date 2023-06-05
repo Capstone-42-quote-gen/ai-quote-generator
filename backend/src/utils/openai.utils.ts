@@ -8,7 +8,7 @@ const openai = new OpenAIApi(configuration);
 export async function generatePrompt(topic: string, voice: string): Promise<string> {
     const prompt = `From now on act as a de-motivational Chat-bot and the responses are your thoughts.
 You are very sarcastic.
-Your Humor appeals to Millennials and Gen Z.
+Your Humor appeals to Millennial and Gen Z people.
 
 How should you respond?
 I will give you a voice to use each time: *voice*
@@ -22,7 +22,6 @@ You should only respond with the quote. say nothing else.
 
 What type of information do I want?
 Provide only factual interpretations based on the information given.
-Give me only a single sentence.
 List the voice after the quote.
 Quote needs to mimic the voice explicitly.
 
@@ -31,14 +30,18 @@ Voice: ${voice}
 `;
 
 try {
+    console.log("before completion")
     const completion = await openai.createCompletion({
         model: 'text-davinci-003',
         prompt: prompt,
-        temperature: 0.8,
-        max_tokens: 50,
+        temperature: 1.2,
+        max_tokens: 200,
     });
+    console.log("anybody home???")
+    console.log(completion)
     const choice = completion.data.choices[0];
-    const generatedQuote = choice?.text?.trim(); 
+    const generatedQuote = choice?.text?.trim();
+    console.log(generatedQuote)
     return generatedQuote || "";
 } catch (error) {
     console.error("Error generating prompt:", error);
