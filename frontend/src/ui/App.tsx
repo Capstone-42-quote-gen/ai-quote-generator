@@ -7,8 +7,10 @@ import {CreateQuote} from "./CreateQuote.tsx";
 import {DisplayQuote} from "./DisplayQuote.tsx";
 import {Profile} from "./Profile.tsx";
 import {SignIn} from "./shared_components/SignIn";
+import {Props} from "@fortawesome/react-fontawesome";
 
-export function App() {
+export function App(props: Props) {
+    const {store} = props
     return (
         <>
             <BrowserRouter>
