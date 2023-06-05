@@ -1,5 +1,5 @@
 import { sql } from '../database.utils'
-import {postPost} from "../../apis/post/post.controller";
+// import {postPost} from "../../apis/post/post.controller";
 
 export interface Post {
     postId: string|null
