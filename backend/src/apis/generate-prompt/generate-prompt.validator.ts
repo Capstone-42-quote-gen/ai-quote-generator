@@ -1,7 +1,6 @@
 import {Schema} from "express-validator";
 import {selectPromptByPromptId} from "../../utils/models/Prompt";
 
-//1. using "value" get promptByPromptId 2.make sure the prompt returned is not null and prompt type is "topic" 3. if not throw a new error 4. assign prompt value to request.body.topicValue 5. return true.
 export const generatePromptValidator: Schema = {
     topic: {
         isUUID: {

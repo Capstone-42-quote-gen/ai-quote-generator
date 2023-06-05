@@ -5,9 +5,9 @@ import {generatePromptController} from "./generate-prompt.controller";
 import {generatePromptValidator} from "./generate-prompt.validator";
 
 
-export const GeneratedPromptRoute = Router();
+export const GeneratePromptRoute = Router();
 
-GeneratedPromptRoute.route('/')
+GeneratePromptRoute.route('/')
     .get(
         asyncValidatorController(checkSchema(generatePromptValidator)),
         generatePromptController

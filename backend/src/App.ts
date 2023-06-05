@@ -12,7 +12,7 @@ import {PromptRoute} from "./apis/prompt/prompt.route";
 import {ProfileRoute} from "./apis/profile/profile.route";
 import {VoteRoute} from "./apis/vote/vote.route";
 import {PostPromptRoute} from "./apis/post-prompt/post-prompt.route";
-import {GeneratedPromptRoute} from "./apis/generate-prompt/generate-prompt.route";
+import {GeneratePromptRoute} from "./apis/generate-prompt/generate-prompt.route";
 
 
 // The following class creates the app and instantiates the server
@@ -62,7 +62,7 @@ export class App {
         this.app.use('/apis/profile', ProfileRoute)
         this.app.use('/apis/post', PostRoute)
         this.app.use('/apis/prompt', PromptRoute)
-        this.app.use('/apis/generate-prompt', GeneratedPromptRoute)
+        this.app.use('/apis/generate-prompt', GeneratePromptRoute)
         this.app.use('/apis/vote', VoteRoute)
         this.app.use('/apis/post-prompt', PostPromptRoute)
     }
