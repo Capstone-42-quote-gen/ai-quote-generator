@@ -15,10 +15,10 @@ export async function generatePromptController(request: Request, response: Respo
         const data = {quote, imageData}
 
         // console.log(data)
-
+console.log(data)
         return response.json({ status: 200, message: "success", data });
     } catch (error) {
+        console.log(error)
         response.json({ status: 500, message: 'Error generating prompt', data: null });
     }
 }
-
