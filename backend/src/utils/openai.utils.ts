@@ -31,21 +31,19 @@ Voice: ${voice}
 `;
 
 try {
-    console.log("before completion")
+
     const completion = await openai.createCompletion({
         model: 'text-davinci-003',
         prompt: prompt,
         temperature: 1.2,
         max_tokens: 200,
     });
-    console.log("anybody home???")
-    console.log(completion)
+
     const choice = completion.data.choices[0];
     const generatedQuote = choice?.text?.trim();
-    console.log(generatedQuote)
+
     return generatedQuote || "";
 } catch (error) {
-    console.error("Error generating prompt:", error);
     throw new Error("Failed to generate prompt");
 }
 }

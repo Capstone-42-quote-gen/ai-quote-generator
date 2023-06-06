@@ -7,11 +7,16 @@ export async function generatePromptController(request: Request, response: Respo
 
     try {
         const { topicValue, voiceValue } = request.body;
-        console.log(topicValue, voiceValue)
-        // const completion = await generatePrompt(topicValue, voiceValue);
-        const completion = await generateImage(topicValue);
-        console.log(completion)
-        return response.json({ status: 200, message: "success", data: completion });
+
+        // const quote = await generatePrompt(topicValue, voiceValue);
+        const quote = "Do or do not - Robert Yoda"
+        const imageData = await generateImage(topicValue);
+
+        const data = {quote, imageData}
+
+        // console.log(data)
+
+        return response.json({ status: 200, message: "success", data });
     } catch (error) {
         response.json({ status: 500, message: 'Error generating prompt', data: null });
     }
