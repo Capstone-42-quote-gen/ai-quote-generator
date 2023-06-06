@@ -13,6 +13,7 @@ import {ProfileRoute} from "./apis/profile/profile.route";
 import {VoteRoute} from "./apis/vote/vote.route";
 import {PostPromptRoute} from "./apis/post-prompt/post-prompt.route";
 import {GeneratePromptRoute} from "./apis/generate-prompt/generate-prompt.route";
+import {GenerateImageRoute} from "./apis/generate-image/generate-image.route";
 
 
 // The following class creates the app and instantiates the server
@@ -65,6 +66,7 @@ export class App {
         this.app.use('/apis/generate-prompt', GeneratePromptRoute)
         this.app.use('/apis/vote', VoteRoute)
         this.app.use('/apis/post-prompt', PostPromptRoute)
+        this.app.use('/apis/generate-images', GenerateImageRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
