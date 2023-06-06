@@ -33,6 +33,7 @@
     "redis": "^4.6.6",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
+    "unsplash-js": "^7.0.18",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
