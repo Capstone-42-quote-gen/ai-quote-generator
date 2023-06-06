@@ -7,12 +7,17 @@ import {CreateQuote} from "./CreateQuote.tsx";
 import {DisplayQuote} from "./DisplayQuote.tsx";
 import {Profile} from "./Profile.tsx";
 import {SignIn} from "./shared_components/SignIn";
-import {Props} from "@fortawesome/react-fontawesome";
+import {Provider} from "react-redux";
+import {ToolkitStore} from "@reduxjs/toolkit/dist/configureStore";
 
+interface Props {
+    store: ToolkitStore
+}
 export function App(props: Props) {
     const {store} = props
     return (
         <>
+         <Provider store={store}>
             <BrowserRouter>
                 <Routes>
                     <Route  path='/' element={<Home />} />
@@ -23,6 +28,7 @@ export function App(props: Props) {
                     <Route path={'/sign-in'} element={<SignIn/>} />
                 </Routes>
             </BrowserRouter>
+        </Provider>
         </>
     )
 }

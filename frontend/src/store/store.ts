@@ -1,6 +1,7 @@
-import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
+
 import { apis } from './apis'
 import {setupListeners} from "@reduxjs/toolkit/query";
+import {configureStore} from "@reduxjs/toolkit";
 
 export const store = configureStore({
     reducer: {
