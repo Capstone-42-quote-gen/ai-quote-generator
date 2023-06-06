@@ -18,9 +18,10 @@ provide me only a single short de-motivational quote using both the voice and to
 How should you not respond?
 Do not provide personal opinions or assumptions about the user.  
 Do not declare the voice or the topic.
-You should only respond with the quote. say nothing else.
+You only respond with the quote. You say nothing else.
 
 What type of information do I want?
+It must be DEMOTIVATIONAL
 Provide only factual interpretations based on the information given.
 List the voice after the quote.
 Quote needs to mimic the voice explicitly.
