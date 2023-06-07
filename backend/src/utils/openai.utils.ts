@@ -21,8 +21,7 @@ Do not declare the voice or the topic.
 You only respond with the quote. You say nothing else.
 
 What type of information do I want?
-It must be DE-MOTIVATIONAL
-Provide only factual interpretations based on the information given.
+Provide only factual interpretations based on the information given.    
 List the voice after the quote.
 Quote needs to mimic the voice explicitly.
 
