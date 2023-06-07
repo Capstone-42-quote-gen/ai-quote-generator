@@ -2,7 +2,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import {Col, Nav, Row} from "react-bootstrap";
 import {Image} from "react-bootstrap";
-import signIn from "../../assets/sign-in-icon.png";
 import signIn from "../../assets/sign-in-1.png";
 import logo from "../../assets/gloomsmith.png";
 // import gloomsmith from "../../assets/logo-1.png";
