@@ -1,9 +1,25 @@
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import {SignUp} from "../SignUp";
 import signInIcon from "../../assets/icon-1.png";
+// import * as Yup from "yup";
 
 
-export function SignIn() {
+export function SignInForm() {
+
+    // const validator = Yup.object().shape({
+    //     signInEmail: Yup.string()
+    //         .required("A sign in email is required to create a sign in")
+    //         .max(128, "sign in email cannot be over 64 characters"),
+    //     signInPassword: Yup.string()
+    //         .required("sign in password is required to create a sign in")
+    //         .min(8, "password must be at least 8 characters")
+    // })
+    //
+    // const handleSubmit = (values, {resetForm, setStatus}) => {
+    //     redux
+    // }
+
+
     return (
         <>
             <Container className={"align-items-center py-5"}>
