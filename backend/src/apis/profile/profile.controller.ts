@@ -21,7 +21,7 @@ export async function putProfileController (request: Request, response: Response
             const previousProfile: Profile = await selectWholeProfileByProfileId(partialProfile.profileId as string) as Profile
             const newProfile: Profile = {...previousProfile, ...partialProfile}
             await updateProfile(newProfile)
-            return response.json({status: 200, data: null, message: 'Profile successfully updated'})
+            return response.json({status: 200, data: null, message: 'SignUp successfully updated'})
         }
         const updateFailed = (message: string): Response => {
             return response.json({status: 400, data: null, message})

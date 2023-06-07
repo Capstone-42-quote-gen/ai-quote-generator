@@ -21,7 +21,7 @@ export function ProfileGallery(props: { profileImageSource: string }) {
 
             <Modal show={showModal} onHide={closeModal} className={' img-fluid'} onClick={closeModal}>
                 <Modal.Body>
-                    <img src={profileImageSource} alt="Profile Image" className={'profile-image-modal img-fluid'} />
+                    <img src={profileImageSource} alt="SignUp Image" className={'profile-image-modal img-fluid'} />
                 </Modal.Body>
                 {/*<Modal.Footer>*/}
                 {/*</Modal.Footer>*/}

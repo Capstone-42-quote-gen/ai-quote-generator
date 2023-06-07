@@ -1,21 +1,21 @@
-import { Button, Form, Modal } from "react-bootstrap";
+import {Button, Form, Modal} from "react-bootstrap";
 import {useState} from "react";
 import * as Yup from "yup";
-import {Formik, FormikHelpers} from "formik";
-import {PartialProfile} from "./shared/interfaces/Profile";
-import {Simulate} from "react-dom/test-utils";
-import submit = Simulate.submit;
+import {Formik, FormikHelpers, FormikProps} from "formik";
+import {PartialProfile} from "./shared/interfaces/SignUp";
+import {MutationResponse, usePostProfileMutation} from "../store/apis";
 
 
 export function SignUpForm() {
 
-    // const dispatch = useDipatch()
+    // const dispatch = useDispatch()
+    const [submit] = usePostProfileMutation()
 
     const validator = Yup.object().shape({
         profileUsername: Yup.string()
             .required("Username is required for sign up")
-            .min(1, "Profile username must be at least 1 character")
-            .max(32, "Profile username must be at max"),
+            .min(1, "SignUp username must be at least 1 character")
+            .max(32, "SignUp username must be at max"),
         profileEmail: Yup.string()
             .required("An email is required to sign up")
             .max(256, "Email cannot be over 64 characters"),
@@ -24,21 +24,21 @@ export function SignUpForm() {
             .min(8, "password must be at least 8 characters")
     })
 
-    const initialValues:  PartialProfile = {
+    const initialValues: PartialProfile = {
         profileUsername: "",
         profileEmail: "",
         profilePassword: ""
     }
 
-    async function handleSubmit(values: PartialProfile, actions: FormikHelpers<PartialProfile> ) {
+    async function handleSubmit(values: PartialProfile, actions: FormikHelpers<PartialProfile>) {
         const {resetForm, setStatus} = actions
         console.log(values)
         const result = await submit(values) as MutationResponse
         const {data: response, error} = result
 
-        if(error) {
+        if (error) {
             setStatus({type: error.type, message: error.message})
-        } else if(response?.status === 200) {
+        } else if (response?.status === 200) {
             resetForm()
             setStatus({type: response.type, message: response.message})
         } else {
@@ -53,7 +53,7 @@ export function SignUpForm() {
                 initialValues={PartialProfile}
                 validationSchema={validator}
             >
-                {SignUpForm}
+                {SignUpFormContent}
             </Formik>
         </>
     )
@@ -63,18 +63,18 @@ export function SignUpForm() {
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    function SignUpFormContent(props FormikProps<PartialSignUp>) {
+    function SignUpFormContent(props: FormikProps<PartialSignUp>) {
         const {
-            status,
+            // status,
             values,
-            errors,
-            touched,
-            dirty,
-            isSubmitting,
+            // errors,
+            // touched,
+            // dirty,
+            // isSubmitting,
             handleChange,
             handleBlur,
-            handleSubmit,
-            handleReset
+            handleSubmit
+            // handleReset
         } = props;
         return (
             <>
@@ -85,24 +85,33 @@ export function SignUpForm() {
                         <Modal.Title>Sign Up</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="Form.ControlInput1">
                                 <Form.Label>Email Address</Form.Label>
                                 <Form.Control
-                                    type="email"
-                                    id="email"
-                                    autoFocus
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder={"Email"}
+                                    value={values.profileEmail}
+                                    name="profileEmail"
+                                    // autoFocus
                                 />
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
-                                    type="username"
-                                    id="username"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder={"Username"}
+                                    value={values.profileUsername}
+                                    name="profileUsername"
                                 />
-                                <Form.Label htmlFor="inputPassword5">Password</Form.Label>
+                                <Form.Label htmlFor="profilePassword">Password</Form.Label>
                                 <Form.Control
-                                    type="password"
-                                    id="inputPassword5"
-                                    aria-describedby="passwordHelpBlock"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder={"Password"}
+                                    value={values.profilePassword}
+                                    name="profilePassword"
+                                    // aria-describedby="passwordHelpBlock"
                                 />
                                 <Form.Text id="passwordHelpBlock" muted>
                                     Your password must be 8-20 characters long

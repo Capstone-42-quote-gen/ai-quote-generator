@@ -1,5 +1,5 @@
 
-export interface Profile extends PartialProfile {
+export interface SignUp extends PartialProfile {
     profileId: string,
 }
 
