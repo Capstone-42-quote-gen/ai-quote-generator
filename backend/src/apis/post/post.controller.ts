@@ -56,7 +56,7 @@ export async function getPostByPostIdController (request: Request, response: Res
 
 export async function postPost (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const { postPhotoUrl, postQuote } = request.body
+        const { postPhotoUrl, postQuote,  postPhotographerName, postPhotographerUrl } = request.body
         const profile: Profile = request.session.profile as Profile
         const postProfileId: string = profile.profileId as string
 
@@ -65,7 +65,9 @@ export async function postPost (request: Request, response: Response): Promise<R
             postProfileId,
             postPhotoUrl,
             postQuote,
-            postCreationTime: null
+            postCreationTime: null,
+            postPhotographerName,
+            postPhotographerUrl
         }
         const result = await insertPost(post)
         const status: Status = {
@@ -75,6 +77,7 @@ export async function postPost (request: Request, response: Response): Promise<R
         }
         return response.json(status)
     }catch (error) {
+        console.log(error)
         return response.json({
             status: 500,
             message: 'error creating post try again later',

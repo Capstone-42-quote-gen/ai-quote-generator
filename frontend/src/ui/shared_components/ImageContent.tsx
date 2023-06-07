@@ -23,12 +23,16 @@ export function GalleryContent(props: { galleryImageSource: string}) {
                             <Col className={'text-center'}>
                                 <Image src={img_heart_0} className="img-action-icons" height="35" alt="Like"/>
                                 <Image src={img_download} className="img-action-icons" height="35" alt="Download"/>
+                                 {/*TODO: When a user in your application uses a photo, it triggers an event to the download endpoint -
+                                 https://help.unsplash.com/en/articles/2511258-guideline-triggering-a-download */}
+
                                 <Image src={img_share} className="img-action-icons" height="35" alt="Share"/>
                             </Col>
                         </Row>
                         <Row>
                             <Col className={'text-center'}>
-                                <a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a>
+                                <p><a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a></p>
+                                <div id="photo-credits">Photo by <a href={"#"}>Annie Spratt</a> from <a href='https://unsplash.com/?utm_source=Inspirational_Quotes&utm_medium=referral' target='_blank'>Unsplash</a></div>
                             </Col>
                         </Row>
                     </Card.Body>

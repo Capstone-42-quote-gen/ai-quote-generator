@@ -3,9 +3,8 @@ import {
     getAllPromptsController,
     getPromptsByPromptId
 } from './prompt.controller'
-import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
+import {asyncValidatorController} from '../../utils/controllers/asyncValidator.controller';
 import {check} from "express-validator";
-
 
 export const PromptRoute = Router()
 PromptRoute.route('/')
