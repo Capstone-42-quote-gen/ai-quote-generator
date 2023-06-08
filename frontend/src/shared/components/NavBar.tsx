@@ -4,9 +4,7 @@ import {Col, Nav, Row} from "react-bootstrap";
 import {Image} from "react-bootstrap";
 import signIn from "../../assets/sign-in-icon.png";
 import logo from "../../assets/gloomsmith.png";
-// import gloomsmith from "../../assets/logo-1.png";
-// import logo from "../../assets/logo.png";
-// import icon from "../../assets/icon-1.png";
+
 export function Navigation() {
     return (
         <Container>
@@ -34,9 +32,6 @@ export function Navigation() {
                 </Container>
             </Navbar>
                 </Col>
-            {/*    <Col lg={1}>*/}
-            {/*        <Nav.Link href="/sign-in"><Image src={signIn} className={"sign-in-icon"} /></Nav.Link>*/}
-            {/*    </Col>*/}
             </Row>
         </Container>
     );

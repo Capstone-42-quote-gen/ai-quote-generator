@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {MutationResponse, usePostProfileMutation} from "../../store/apis";
 import {PartialSignUp} from "../../shared/interfaces/SignUp";
+import {DisplayStatus} from "../../shared/components/display-status/DisplayStatus";
 
 
 export function SignUpForm() {
