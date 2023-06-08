@@ -1,6 +1,10 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {PartialSignUp, SignUp} from "../shared/interfaces/SignUp";
+<<<<<<< HEAD
 import {PartialSignIn} from "../shared/interfaces/SignIn.ts";
+=======
+import {Prompt} from "../shared/interfaces/Prompt.ts";
+>>>>>>> develop
 
 export interface ServerResponse {
     status: number,
@@ -24,13 +28,20 @@ export interface ClientResponseForSignIn extends ClientResponse {
 export const apis = createApi({
     reducerPath:"api",
     baseQuery: fetchBaseQuery({baseUrl:'/apis'}),
-    tagTypes: ["SignUp"],
+    tagTypes: ["SignUp","Prompt"],
     endpoints: (builder) => ({
         getProfile: builder.query<SignUp[], string>({
             query: () => '/profile',
             transformResponse: (response: { data: SignUp[]}) => response.data,
             providesTags: ["SignUp"]
         }),
+
+        getAllPrompts: builder.query<Prompt[], string>({
+            query: () => '/prompt',
+            transformResponse: (response: { data: Prompt[]}) => response.data,
+            providesTags: ["Prompt"]
+        }),
+
         PostSignUp: builder.mutation<ClientResponse, PartialSignUp>({
             transformErrorResponse: transformErrorResponses,
             query (body: PartialSignUp) {
@@ -104,5 +115,4 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             type: 'alert alert-danger',
         }
     }
-    export const {useGetProfileQuery, usePostSignUpMutation, usePostSignInMutation} = apis
-    console.log(usePostSignUpMutation)
+    export const {useGetProfileQuery, usePostSignUpMutation, usePostSignInMutation, useGetAllPromptsQuery} = apis

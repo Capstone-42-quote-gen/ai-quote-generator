@@ -1,9 +1,27 @@
-
-import {Button, Form, Container, Row, Col, Image} from "react-bootstrap";
-import createimg from "../assets/create-placeholder.jpg";
+import {Button, Form, Container, Row, Col, Image, Spinner} from "react-bootstrap";
 import {Navigation} from "../shared/components/NavBar.tsx";
+import {useGetAllPromptsQuery} from "../store/apis.ts";
+import {Prompt} from "../shared/interfaces/Prompt.ts";
+
 
 export function CreateQuote() {
+
+    const {data: prompts, error, isLoading} = useGetAllPromptsQuery("")
+    if (isLoading || prompts === undefined) {
+        return (
+            <div className="d-flex justify-content-center align-items-center vh-100">
+                <Spinner animation="border" variant="primary" />
+            </div>
+        )
+    }
+
+    let voices: Prompt[] = prompts.filter(prompt => prompt.promptType === "voice")
+
+
+    let topics: Prompt[] = prompts.filter(prompt => prompt.promptType === "topic")
+
+
+
     return (
         <>
             <Navigation/>
@@ -11,104 +29,95 @@ export function CreateQuote() {
                 <Form>
                     <Row className="justify-content-center pt-3">
                         <Col xs="auto">
-                            <h1>Generate a Quote</h1>
-                            <p>To generate your own custom GloomSmith quote image select a topic and optional voice and then generate.</p>
+                            <h1>Create an AI Quote Image</h1>
+                            <p>Select your topic and voice to let the AI work its magic! Once the quote is generated
+                                choose from 6 draft images, each showcasing the same quote with different layouts. Click
+                                to save your favorite to your profile. Let the AI amuse and astound you with its
+                                whimsical creations!</p>
                         </Col>
                     </Row>
 
                     <Row className="justify-content-center">
 
                         <Col xs="auto" className="py-2">
-                            <Form.Select defaultValue="- Choose a TOPIC - ">
-                                <option>Choose a TOPIC</option>
-                                <option>Being married</option>
-                                <option>Coworkers at the office</option>
-                                <option>Work and productivity</option>
-                                <option>Health and Fitness</option>
-                                <option>Relationships and dating</option>
-                                <option>Education and learning</option>
-                                <option>Technology and social media</option>
-                                <option>Travel and adventure</option>
-                                <option>Money and finance</option>
-                                <option>Self-improvement & personal growth</option>
-                                <option>Politics and current events</option>
-                                <option>Pop culture and entertainment</option>
-                                <option>Hobbies and Interests</option>
-                                <option>Food and Diet</option>
-                                <option>Parenting and Family</option>
-                                <option>School and Education</option>
-                                <option>Love and Relationships</option>
-                                <option>Sports and Fitness</option>
-                                <option>Government</option>
-                                <option>Men</option>
-                                <option>Women</option>
-                                <option>The pandemic</option>
-                                <option>Family Christmas vacation</option>
-                                <option>Thanksgiving holidays</option>
-                                <option>Valentine's Day</option>
-                                <option>Halloween</option>
-                                <option>Mother's Day</option>
-                                <option>Father's Day</option>
-                                <option>Christmas</option>
-                                <option>New Year's Eve</option>
-                                <option>Graduation</option>
-                                <option>Wedding</option>
-                                <option>Baby Shower</option>
-                                <option>Retirement party</option>
+                            <Form.Select defaultValue="Choose a TOPIC">
+                                <option value="">Choose a TOPIC</option>
+                                {topics.map(topic => <option value={topic.promptId}>{topic.promptValue}</option>)}
                             </Form.Select>
                         </Col>
 
 
                         <Col xs="auto" className="py-2">
                             <Form.Select defaultValue="Choose a VOICE">
-                                <option>Choose a VOICE</option>
-                                <option>Normal Voice</option>
-                                <option>Valley girl</option>
-                                <option>California surfer</option>
-                                <option>Morgan Freeman</option>
-                                <option>Samuel L. Jackson</option>
-                                <option>The Rock</option>
-                                <option>Gordon Ramsay</option>
-                                <option>Sean Connery</option>
-                                <option>Christopher Walken</option>
-                                <option>Yoda</option>
-                                <option>The Joker</option>
-                                <option>SpongeBob</option>
-                                <option>Kermit the Frog</option>
-                                <option>Gollum</option>
-                                <option>Darth Vader</option>
-                                <option>Forrest Gump</option>
-                                <option>Borat</option>
-                                <option>Arnold Schwarzenegger</option>
+                                <option value="">Choose a VOICE</option>
+                                {voices.map(voice => <option value={voice.promptId}>{voice.promptValue}</option>)}
 
                             </Form.Select>
                         </Col>
 
                     </Row>
 
-<Row className="mb-3 justify-content-center">
-<Col xs="auto" className="py-2">
-                <Button variant="primary" size="lg" type="submit">Generate a Quote</Button>
-</Col>
-    <Col xs="auto" className="py-2">
-                <Button variant="secondary" size="lg" type="submit">Randomize</Button>
-</Col>
-    <Col xs="auto" className="py-2">
-        <Button variant="secondary" size="lg" type="submit">Save Quote</Button>
-    </Col>
-</Row>
+                    <Row className="mb-3 justify-content-center">
+                        <Col xs="auto" className="py-2">
+                            <Button variant="primary" size="lg" type="submit">Generate a Quote</Button>
+                        </Col>
+                        {/*<Col xs="auto" className="py-2">*/}
+                        {/*    <Button variant="secondary" size="lg" type="submit">Randomize</Button>*/}
+                        {/*</Col>*/}
+
+                    </Row>
                 </Form>
                 <Row className="justify-content-center">
-                    <Col lg={4} className="py-4">
-                        <Image fluid src={createimg} alt="Temp Image" />
+                    <Col lg={4} xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/1" alt="Gloomsmith Generated Quote Image" className="border border-dark" />
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="light" size="lg" type="submit">Save</Button>
+                        </Col>
                     </Col>
 
+                    <Col lg={4} xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/2" alt="Gloomsmith Generated Quote Image" className="border border-dark"/>
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="light" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+                    <Col lg={4} xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/3" alt="Gloomsmith Generated Quote Image" className="border border-dark"/>
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="light" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+                    <Col lg={4} xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/4" alt="Gloomsmith Generated Quote Image" className="border border-dark"/>
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="light" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+
+                    <Col lg={4} xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/5" alt="Gloomsmith Generated Quote Image" className="border border-dark"/>
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="light" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+                    <Col lg={4} xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/6" alt="Gloomsmith Generated Quote Image" className="border border-dark" />
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="light" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+
                 </Row>
-                </Container>
 
-
+            </Container>
 
 
         </>
     )
 }
+
