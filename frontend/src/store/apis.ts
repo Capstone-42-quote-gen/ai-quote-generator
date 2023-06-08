@@ -66,6 +66,5 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             type: 'alert alert-danger',
         }
     }
-
     export const {useGetProfilesQuery, usePostSignUpMutation} = apis
     console.log(useGetProfilesQuery)
