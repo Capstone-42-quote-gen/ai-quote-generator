@@ -1,5 +1,5 @@
-import {Navigation} from "./shared_components/NavBar.tsx";
-import {ProfileGallery} from "./shared_components/ProfileGallery.tsx";
+import {Navigation} from "../shared/components/NavBar.tsx";
+import {ProfileGallery} from "../shared/components/ProfileGallery.tsx";
 import logo from "../../src/assets/logo-1.png"
 import {Col, Container, Row, Image} from "react-bootstrap";
 import mountains from "/src/assets/mountains.png";

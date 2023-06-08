@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query";
-import {PartialSignUp, SignUp} from "../ui/shared/interfaces/SignUp";
+import {PartialSignUp, SignUp} from "../shared/interfaces/SignUp";
 
 export interface ServerResponse {
     status: number,

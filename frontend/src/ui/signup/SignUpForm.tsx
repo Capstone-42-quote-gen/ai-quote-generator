@@ -2,8 +2,8 @@ import {Button, Form, Modal} from "react-bootstrap";
 import {useState} from "react";
 import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
-import {MutationResponse, usePostProfileMutation} from "../store/apis";
-import {PartialSignUp} from "./shared/interfaces/SignUp";
+import {MutationResponse, usePostProfileMutation} from "../../store/apis";
+import {PartialSignUp} from "../../shared/interfaces/SignUp";
 
 
 export function SignUpForm() {
@@ -65,12 +65,12 @@ export function SignUpForm() {
             values,
             errors,
             touched,
-            dirty,
-            isSubmitting,
+            // dirty,
+            // isSubmitting,
             handleChange,
             handleBlur,
             handleSubmit,
-            handleReset
+            // handleReset
         } = props;
 
         return (

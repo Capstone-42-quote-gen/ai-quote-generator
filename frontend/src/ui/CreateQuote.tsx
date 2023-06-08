@@ -1,7 +1,7 @@
 
 import {Button, Form, Container, Row, Col, Image} from "react-bootstrap";
 import createimg from "../assets/create-placeholder.jpg";
-import {Navigation} from "./shared_components/NavBar.tsx";
+import {Navigation} from "../shared/components/NavBar.tsx";
 
 export function CreateQuote() {
     return (

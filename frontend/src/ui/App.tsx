@@ -6,7 +6,7 @@ import { FourOhFour } from './FourOhFour'
 import {CreateQuote} from "./CreateQuote.tsx";
 import {DisplayQuote} from "./DisplayQuote.tsx";
 import {Profile} from "./Profile.tsx";
-import {SignIn} from "./shared_components/SignIn";
+import {SignIn} from "../shared/components/SignIn";
 import {Provider} from "react-redux";
 import {ToolkitStore} from "@reduxjs/toolkit/dist/configureStore";
 

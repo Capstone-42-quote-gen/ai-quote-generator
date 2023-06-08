@@ -1,5 +1,5 @@
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
-import {SignUpForm} from "../SignUp";
+import {SignUpForm} from "../../ui/signup/SignUpForm";
 import signInIcon from "../../assets/icon-1.png";
 // import * as Yup from "yup";
 
