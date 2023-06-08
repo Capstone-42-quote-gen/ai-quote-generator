@@ -90,7 +90,7 @@ export function SignUpForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder={"Email"}
-                                    values={values.profileEmail}
+                                    value={values.profileEmail}
                                     name="profileEmail"
                                     // autoFocus
                                 />
@@ -100,7 +100,7 @@ export function SignUpForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder={"Username"}
-                                    values={values.profileUsername}
+                                    value={values.profileUsername}
                                     name="profileUsername"
                                 />
                                 <DisplayError error={errors} touched={touched} field={"profileUsername"} />
@@ -109,7 +109,7 @@ export function SignUpForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder={"Password"}
-                                    values={values.profilePassword}
+                                    value={values.profilePassword}
                                     name="profilePassword"
                                     // aria-describedby="passwordHelpBlock"
                                 />
