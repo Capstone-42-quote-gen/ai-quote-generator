@@ -2,11 +2,16 @@ import {Button, Form, Modal} from "react-bootstrap";
 import {useState} from "react";
 import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
-import {PartialProfile} from "./shared/interfaces/SignUp";
 import {MutationResponse, usePostProfileMutation} from "../store/apis";
+import {PartialSignUp} from "./shared/interfaces/SignUp";
 
 
 export function SignUpForm() {
+
+    const [show, setShow] = useState(false)
+
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
 
     // const dispatch = useDispatch()
     const [submit] = usePostProfileMutation()
@@ -24,13 +29,13 @@ export function SignUpForm() {
             .min(8, "password must be at least 8 characters")
     })
 
-    const initialValues: PartialProfile = {
+    const initialValues: PartialSignUp = {
         profileUsername: "",
         profileEmail: "",
         profilePassword: ""
     }
 
-    async function handleSubmit(values: PartialProfile, actions: FormikHelpers<PartialProfile>) {
+    async function handleSubmit(values: PartialSignUp, actions: FormikHelpers<PartialSignUp>) {
         const {resetForm, setStatus} = actions
         console.log(values)
         const result = await submit(values) as MutationResponse
@@ -48,34 +53,26 @@ export function SignUpForm() {
 
     return (
         <>
-            <Formik
-                onSubmit={handleSubmit}
-                initialValues={PartialProfile}
-                validationSchema={validator}
-            >
+            <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validator}>
                 {SignUpFormContent}
             </Formik>
         </>
     )
 
-    const [show, setShow] = useState(false)
-
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
-
     function SignUpFormContent(props: FormikProps<PartialSignUp>) {
         const {
-            // status,
+            status,
             values,
-            // errors,
-            // touched,
-            // dirty,
-            // isSubmitting,
+            errors,
+            touched,
+            dirty,
+            isSubmitting,
             handleChange,
             handleBlur,
-            handleSubmit
-            // handleReset
+            handleSubmit,
+            handleReset
         } = props;
+
         return (
             <>
                 <Button variant={"secondary"} size={"lg"} onClick={handleShow}>Register here</Button>
@@ -92,38 +89,43 @@ export function SignUpForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder={"Email"}
-                                    value={values.profileEmail}
+                                    values={values.profileEmail}
                                     name="profileEmail"
                                     // autoFocus
                                 />
+                                <DisplayError error={errors} touched={touched} field={"profileEmail"} />
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder={"Username"}
-                                    value={values.profileUsername}
+                                    values={values.profileUsername}
                                     name="profileUsername"
                                 />
+                                <DisplayError error={errors} touched={touched} field={"profileUsername"} />
                                 <Form.Label htmlFor="profilePassword">Password</Form.Label>
                                 <Form.Control
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder={"Password"}
-                                    value={values.profilePassword}
+                                    values={values.profilePassword}
                                     name="profilePassword"
                                     // aria-describedby="passwordHelpBlock"
                                 />
+                                <DisplayError error={errors} touched={touched} field={"profilePassword"} />
                                 <Form.Text id="passwordHelpBlock" muted>
                                     Your password must be 8-20 characters long
                                 </Form.Text>
                             </Form.Group>
                         </Form>
+
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>Close</Button>
                         <Button variant="secondary" onClick={handleClose}>Submit</Button>
                     </Modal.Footer>
                 </Modal>
+                <DisplayStatus status={status} />
             </>
         )
     }

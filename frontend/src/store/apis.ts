@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query";
-import {PartialProfile, SignUp} from "../ui/shared/interfaces/SignUp";
+import {PartialSignUp, SignUp} from "../ui/shared/interfaces/SignUp";
 
 export interface ServerResponse {
     status: number,
@@ -26,8 +26,8 @@ export const apis = createApi({
             transformResponse: (response: { data: SignUp[]}) => response.data,
             providesTags: ["SignUp"]
         }),
-        PostProfile: builder.mutation<ClientResponse, PartialProfile>({
-            query (body: PartialProfile) {
+        PostProfile: builder.mutation<ClientResponse, PartialSignUp>({
+            query (body: PartialSignUp) {
                 return{
                     url:'/profile',
                     method: "POST",

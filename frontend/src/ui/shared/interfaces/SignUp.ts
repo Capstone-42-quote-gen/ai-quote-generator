@@ -1,9 +1,9 @@
 
-export interface SignUp extends PartialProfile {
+export interface SignUp extends PartialSignUp {
     profileId: string,
 }
 
-export interface PartialProfile {
+export interface PartialSignUp {
     profileUsername: string,
     profileEmail: string,
     profilePassword: string
