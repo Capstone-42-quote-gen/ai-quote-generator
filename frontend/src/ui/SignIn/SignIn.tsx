@@ -1,18 +1,16 @@
 // import {useGetProfilesQuery} from "../../store/apis";
-
-import {SignInForm} from "./SignInForm";
-import {useGetProfilesQuery} from "../../store/apis";
 // import {Spinner} from "react-bootstrap";
 
-export const SignIn = () => {
+import {SignInForm} from "./SignInForm.tsx";
 
-    const {data, error, isLoading} = useGetProfilesQuery("")
-    if(isLoading || data === undefined) {
-        if (error) {
-            error.message
-        }
+export function SignIn() {
+
+    // const {data, error, isLoading} = useGetSignUpQuery("")
+    // if(isLoading || data === undefined) {
+    //     if (error) {
+    //         error.message
+    //     }
         // return( <Spinner animation="border" />)
-    }
     return (
         <>
             <SignInForm />
