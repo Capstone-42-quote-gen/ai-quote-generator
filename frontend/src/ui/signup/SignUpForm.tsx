@@ -1,4 +1,4 @@
-import { Form } from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {MutationResponse, usePostSignUpMutation} from "../../store/apis";
@@ -72,48 +72,43 @@ export function SignUpForm() {
 
         return (
             <>
-
-
-
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group className="mb-3" controlId="Form.ControlInput1">
-                                <Form.Label>Email Address</Form.Label>
-                                <Form.Control
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    placeholder={"Email"}
-                                    value={values.profileEmail}
-                                    name="profileEmail"
-                                    // autoFocus
-                                />
-                                <DisplayError errors={errors} touched={touched} field={"profileEmail"} />
-                                <Form.Label>Username</Form.Label>
-                                <Form.Control
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    placeholder={"Username"}
-                                    value={values.profileUsername}
-                                    name="profileUsername"
-                                />
-                                <DisplayError errors={errors} touched={touched} field={"profileUsername"} />
-                                <Form.Label htmlFor="profilePassword">Password</Form.Label>
-                                <Form.Control
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    placeholder={"Password"}
-                                    value={values.profilePassword}
-                                    name="profilePassword"
-                                    // aria-describedby="passwordHelpBlock"
-                                />
-                                <DisplayError errors={errors} touched={touched} field={"profilePassword"} />
-                                <Form.Text id="passwordHelpBlock" muted>
-                                    Your password must be 8-20 characters long
-                                </Form.Text>
-                            </Form.Group>
-                        </Form>
-
-
-                <DisplayStatus status={status} />
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="Form.ControlInput1">
+                        <Form.Label>Email Address</Form.Label>
+                        <Form.Control
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder={"Email"}
+                            value={values.profileEmail}
+                            name="profileEmail"
+                            // autoFocus
+                        />
+                        <DisplayError errors={errors} touched={touched} field={"profileEmail"}/>
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder={"Username"}
+                            value={values.profileUsername}
+                            name="profileUsername"
+                        />
+                        <DisplayError errors={errors} touched={touched} field={"profileUsername"}/>
+                        <Form.Label htmlFor="profilePassword">Password</Form.Label>
+                        <Form.Control
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder={"Password"}
+                            value={values.profilePassword}
+                            name="profilePassword"
+                            // aria-describedby="passwordHelpBlock"
+                        />
+                        <DisplayError errors={errors} touched={touched} field={"profilePassword"}/>
+                        <Form.Text id="passwordHelpBlock" muted>
+                            Your password must be 8-20 characters long
+                        </Form.Text>
+                    </Form.Group>
+                </Form>
+                <DisplayStatus status={status}/>
                 <FormDebugger {...props}/>
             </>
         )
