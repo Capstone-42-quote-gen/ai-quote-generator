@@ -1,10 +1,8 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {PartialSignUp, SignUp} from "../shared/interfaces/SignUp";
-<<<<<<< HEAD
 import {PartialSignIn} from "../shared/interfaces/SignIn.ts";
-=======
 import {Prompt} from "../shared/interfaces/Prompt.ts";
->>>>>>> develop
+
 
 export interface ServerResponse {
     status: number,
