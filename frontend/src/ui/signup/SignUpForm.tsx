@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap";
 import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
-import {MutationResponse, usePostSignUpMutation} from "../../store/apis";
+import {MutationResponse, usePostProfileMutation} from "../../store/apis";
 import {PartialSignUp} from "../../shared/interfaces/SignUp";
 import {DisplayStatus} from "../../shared/components/display-status/DisplayStatus";
 import {DisplayError} from "../../shared/components/display-error/DisplayError";
@@ -10,8 +10,7 @@ import {FormDebugger} from "../../shared/components/FormDebugger";
 
 export function SignUpForm() {
 
-    // const dispatch = useDispatch()
-    const [submit] = usePostSignUpMutation()
+    const [submit] = usePostProfileMutation()
 
     const validator = Yup.object().shape({
         profileUsername: Yup.string()

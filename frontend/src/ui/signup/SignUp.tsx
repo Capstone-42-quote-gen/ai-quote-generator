@@ -21,7 +21,7 @@ export function SignUp() {
                     <Modal.Title>Sign Up</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-        <SignUpForm.SignUpFormContent />
+        <SignUpForm />
         </Modal.Body>
     <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>Close</Button>
