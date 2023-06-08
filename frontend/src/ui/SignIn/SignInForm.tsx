@@ -2,6 +2,7 @@
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import signInIcon from "../../assets/icon-1.png";
 import {SignUp} from "../signup/SignUp";
+import {SignUpForm} from "../signup/SignUpForm";
 
 export function SignInForm() {
 
@@ -68,7 +69,7 @@ export function SignInForm() {
                 <Row className={"justify-content-center"}>
                     <Col lg={8}>
                         <div className={"d-grid"}>
-                            <SignUp />
+                            <SignUpForm />
                         </div>
                     </Col>
                 </Row>
