@@ -1,7 +1,7 @@
 // import {useGetProfilesQuery} from "../../store/apis";
 // import {Spinner} from "react-bootstrap";
 
-import {SignInForm} from "./SignInForm.tsx";
+import {SignInForm} from "./SignInForm";
 
 export function SignIn() {
 
