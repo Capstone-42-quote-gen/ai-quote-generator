@@ -1,5 +1,4 @@
 import {Button, Form, Container, Row, Col, Image, Spinner} from "react-bootstrap";
-import { useState } from 'react';
 import {Navigation} from "../shared/components/NavBar.tsx";
 import {useGetAllPromptsQuery} from "../store/apis.ts";
 import {Prompt} from "../shared/interfaces/Prompt.ts";
@@ -17,10 +16,10 @@ export function CreateQuote() {
     }
 
     let voices: Prompt[] = prompts.filter(prompt => prompt.promptType === "voice")
-    console.log(voices)
+
 
     let topics: Prompt[] = prompts.filter(prompt => prompt.promptType === "topic")
-    console.log(topics)
+
 
 
     return (
