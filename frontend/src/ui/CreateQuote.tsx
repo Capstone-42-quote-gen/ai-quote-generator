@@ -1,7 +1,12 @@
 
+<<<<<<< HEAD
 import {Button, Form, Container, Row, Col, Image} from "react-bootstrap";
 import createimg from "../assets/create-placeholder.jpg";
 import {Navigation} from "../shared/components/NavBar.tsx";
+=======
+import {Button, Form, Container, Row, Col, Image, Modal} from "react-bootstrap";
+import {Navigation} from "./shared_components/NavBar.tsx";
+>>>>>>> 2921d97a8641eb919911f51082e8c54f705059cd
 
 export function CreateQuote() {
     return (
@@ -11,8 +16,8 @@ export function CreateQuote() {
                 <Form>
                     <Row className="justify-content-center pt-3">
                         <Col xs="auto">
-                            <h1>Generate a Quote</h1>
-                            <p>To generate your own custom GloomSmith quote image select a topic and optional voice and then generate.</p>
+                            <h1>Create an AI Quote Image</h1>
+                            <p>Select your topic and voice to let the AI work its magic! Once the quote is generated choose from 6 draft images, each showcasing the same quote with different layouts. Click to save your favorite to your profile. Let the AI amuse and astound you with its whimsical creations!</p>
                         </Col>
                     </Row>
 
@@ -93,17 +98,56 @@ export function CreateQuote() {
     <Col xs="auto" className="py-2">
                 <Button variant="secondary" size="lg" type="submit">Randomize</Button>
 </Col>
-    <Col xs="auto" className="py-2">
-        <Button variant="secondary" size="lg" type="submit">Save Quote</Button>
-    </Col>
+
 </Row>
                 </Form>
                 <Row className="justify-content-center">
-                    <Col lg={4} className="py-4">
-                        <Image fluid src={createimg} alt="Temp Image" />
+                    <Col lg={4}  xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/1" alt="Gloomsmith Generated Quote Image" />
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="secondary" size="lg" type="submit">Save</Button>
+                        </Col>
                     </Col>
 
+                    <Col lg={4}  xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/2" alt="Gloomsmith Generated Quote Image" />
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="secondary" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+                    <Col lg={4}  xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/3" alt="Gloomsmith Generated Quote Image" />
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="secondary" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+                    <Col lg={4}  xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/4" alt="Gloomsmith Generated Quote Image" />
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="secondary" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+
+                    <Col lg={4}  xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/5" alt="Gloomsmith Generated Quote Image" />
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="secondary" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+                    <Col lg={4}  xs={6} className="py-4">
+                        <Image fluid src="https://placebeard.it/1080/1400/6" alt="Gloomsmith Generated Quote Image" />
+                        <Col xs="auto" className="d-flex justify-content-center py-2">
+                            <Button variant="secondary" size="lg" type="submit">Save</Button>
+                        </Col>
+                    </Col>
+
+
                 </Row>
+
                 </Container>
 
 
@@ -112,3 +156,4 @@ export function CreateQuote() {
         </>
     )
 }
+
