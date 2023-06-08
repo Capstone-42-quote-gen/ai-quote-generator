@@ -67,5 +67,5 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
         }
     }
 
-    export const {useGetProfileQuery, usePostProfileMutation} = apis
-    console.log(useGetProfileQuery)
+    export const {useGetProfilesQuery, usePostSignUpMutation} = apis
+    console.log(useGetProfilesQuery)

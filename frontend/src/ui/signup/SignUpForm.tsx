@@ -2,9 +2,11 @@ import {Button, Form, Modal} from "react-bootstrap";
 import {useState} from "react";
 import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
-import {MutationResponse, usePostProfileMutation} from "../../store/apis";
+import {MutationResponse, usePostSignUpMutation} from "../../store/apis";
 import {PartialSignUp} from "../../shared/interfaces/SignUp";
 import {DisplayStatus} from "../../shared/components/display-status/DisplayStatus";
+import {DisplayError} from "../../shared/components/display-error/DisplayError";
+import {FormDebugger} from "../../shared/components/FormDebugger";
 
 
 export function SignUpForm() {
@@ -15,7 +17,7 @@ export function SignUpForm() {
     const handleShow = () => setShow(true)
 
     // const dispatch = useDispatch()
-    const [submit] = usePostProfileMutation()
+    const [submit] = usePostSignUpMutation()
 
     const validator = Yup.object().shape({
         profileUsername: Yup.string()
@@ -94,7 +96,7 @@ export function SignUpForm() {
                                     name="profileEmail"
                                     // autoFocus
                                 />
-                                <DisplayError error={errors} touched={touched} field={"profileEmail"} />
+                                <DisplayError errors={errors} touched={touched} field={"profileEmail"} />
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     onChange={handleChange}
@@ -103,7 +105,7 @@ export function SignUpForm() {
                                     value={values.profileUsername}
                                     name="profileUsername"
                                 />
-                                <DisplayError error={errors} touched={touched} field={"profileUsername"} />
+                                <DisplayError errors={errors} touched={touched} field={"profileUsername"} />
                                 <Form.Label htmlFor="profilePassword">Password</Form.Label>
                                 <Form.Control
                                     onChange={handleChange}
@@ -113,7 +115,7 @@ export function SignUpForm() {
                                     name="profilePassword"
                                     // aria-describedby="passwordHelpBlock"
                                 />
-                                <DisplayError error={errors} touched={touched} field={"profilePassword"} />
+                                <DisplayError errors={errors} touched={touched} field={"profilePassword"} />
                                 <Form.Text id="passwordHelpBlock" muted>
                                     Your password must be 8-20 characters long
                                 </Form.Text>
@@ -127,8 +129,8 @@ export function SignUpForm() {
                     </Modal.Footer>
                 </Modal>
                 <DisplayStatus status={status} />
+                <FormDebugger {...props}/>
             </>
         )
     }
 }
-
