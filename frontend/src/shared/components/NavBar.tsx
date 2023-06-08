@@ -23,11 +23,11 @@ export function Navigation() {
                         <span className="navbar-divider"></span>
                         <Nav.Link href="#new">New</Nav.Link>
                         <span className="navbar-divider"></span>
-                        <Nav.Link href="#topics">Topics</Nav.Link>
-                        <span className="navbar-divider"></span>
+                        {/*<Nav.Link href="#topics">Topics</Nav.Link>*/}
+                        {/*<span className="navbar-divider"></span>*/}
                         <Nav.Link href="/create-quote">Create</Nav.Link>
                         <span className="navbar-divider"></span>
-                        <Nav.Link href="/sign-in"><Image src={signIn} className={"sign-in-icon p-0 mb-1 me-2"} />Profile</Nav.Link>
+                        <Nav.Link href="/sign-in">Profile<Image fluid src={signIn} className={"sign-in-icon p-0 mb-1 "} /></Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

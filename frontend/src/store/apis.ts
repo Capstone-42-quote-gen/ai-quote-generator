@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {PartialSignUp, SignUp} from "../shared/interfaces/SignUp";
+import {PartialSignIn} from "../shared/interfaces/SignIn.ts";
 
 export interface ServerResponse {
     status: number,
@@ -16,6 +17,10 @@ export interface MutationResponse {
     error: ClientResponse | undefined
 }
 
+export interface ClientResponseForSignIn extends ClientResponse {
+    authorization: string | undefined
+}
+
 export const apis = createApi({
     reducerPath:"api",
     baseQuery: fetchBaseQuery({baseUrl:'/apis'}),
@@ -27,6 +32,7 @@ export const apis = createApi({
             providesTags: ["SignUp"]
         }),
         PostSignUp: builder.mutation<ClientResponse, PartialSignUp>({
+            transformErrorResponse: transformErrorResponses,
             query (body: PartialSignUp) {
                 return{
                     url:'/profile',
@@ -35,11 +41,43 @@ export const apis = createApi({
                 }
             },
             transformResponse: transformMutationResponses,
-            transformErrorResponse: transformErrorResponses,
             invalidatesTags: ["SignUp"]
-            })
+            }),
+        PostSignIn: builder.mutation<ClientResponse, PartialSignIn>({
+            query (body: PartialSignIn) {
+                return {
+                    url:'/profile',
+                    method: "POST",
+                    body
+                }
+            },
+            transformErrorResponse: transformErrorResponses,
+            transformResponse: (response: ServerResponse, meta): ClientResponseForSignIn => {
+
+                const authorization = meta?.response?.headers.get('authorization') ?? undefined
+
+                    if(response.status === 200) {
+                    return {
+                        status: response.status,
+                        data: response.data,
+                        message: response.message,
+                        type: 'alert alert-success',
+                        authorization
+                    }
+                }
+                return {
+                    status: response.status,
+                    data: response.data,
+                    message: response.message,
+                    type: 'alert alert-danger',
+                    authorization
+                }
+            }
         })
     })
+})
+
+
 
 function transformMutationResponses(response: ServerResponse): ClientResponse {
     if (response.status === 200) {
@@ -66,5 +104,5 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             type: 'alert alert-danger',
         }
     }
-    export const {useGetProfileQuery, usePostSignUpMutation} = apis
+    export const {useGetProfileQuery, usePostSignUpMutation, usePostSignInMutation} = apis
     console.log(usePostSignUpMutation)
