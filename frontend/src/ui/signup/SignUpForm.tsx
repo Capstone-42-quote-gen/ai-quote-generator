@@ -1,5 +1,4 @@
-import {Button, Form, Modal} from "react-bootstrap";
-import {useState} from "react";
+import { Form } from "react-bootstrap";
 import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {MutationResponse, usePostSignUpMutation} from "../../store/apis";
@@ -10,11 +9,6 @@ import {FormDebugger} from "../../shared/components/FormDebugger";
 
 
 export function SignUpForm() {
-
-    const [show, setShow] = useState(false)
-
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
 
     // const dispatch = useDispatch()
     const [submit] = usePostSignUpMutation()
@@ -78,13 +72,9 @@ export function SignUpForm() {
 
         return (
             <>
-                <Button variant={"secondary"} size={"lg"} onClick={handleShow}>Register here</Button>
 
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Sign Up</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
+
+
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="Form.ControlInput1">
                                 <Form.Label>Email Address</Form.Label>
@@ -122,12 +112,7 @@ export function SignUpForm() {
                             </Form.Group>
                         </Form>
 
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>Close</Button>
-                        <Button variant="secondary" onClick={handleClose}>Submit</Button>
-                    </Modal.Footer>
-                </Modal>
+
                 <DisplayStatus status={status} />
                 <FormDebugger {...props}/>
             </>

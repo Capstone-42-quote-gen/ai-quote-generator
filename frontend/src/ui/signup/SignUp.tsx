@@ -1,16 +1,33 @@
-import {Spinner} from "react-bootstrap";
-import {useGetProfilesQuery} from "../../store/apis";
+import {Button, Modal} from "react-bootstrap";
 import {SignUpForm} from "./SignUpForm";
+import {useState} from "react";
 
-export const SignUp = () => {
-        const {data, error, isLoading} = useGetProfilesQuery("")
-        if(isLoading || data === undefined) {
-            if(error){error.message}
-        return( <Spinner animation="border" />)
-    }
+export function SignUp() {
+    //     const {data, error, isLoading} = useGetProfilesQuery("")
+    //     if(isLoading || data === undefined) {
+    //         if(error){error.message}
+    //     return( <Spinner animation="border" />)
+    // }
+    const [show, setShow] = useState(false)
+
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
+
     return (
         <>
-        <SignUpForm />
+            <Button variant={"secondary"} size={"lg"} onClick={handleShow}>Register here</Button>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Sign Up</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+        <SignUpForm.SignUpFormContent />
+        </Modal.Body>
+    <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>Close</Button>
+        <Button variant="secondary" onClick={handleClose}>Submit</Button>
+    </Modal.Footer>
+</Modal>
         </>
     )
 }
