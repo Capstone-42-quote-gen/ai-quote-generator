@@ -1,4 +1,4 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query";
+import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {PartialSignUp, SignUp} from "../shared/interfaces/SignUp";
 
 export interface ServerResponse {
@@ -26,7 +26,7 @@ export const apis = createApi({
             transformResponse: (response: { data: SignUp[]}) => response.data,
             providesTags: ["SignUp"]
         }),
-        PostProfile: builder.mutation<ClientResponse, PartialSignUp>({
+        PostSignUp: builder.mutation<ClientResponse, PartialSignUp>({
             query (body: PartialSignUp) {
                 return{
                     url:'/profile',
@@ -66,5 +66,5 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             type: 'alert alert-danger',
         }
     }
-    export const {useGetProfilesQuery, usePostSignUpMutation} = apis
-    console.log(useGetProfilesQuery)
+    export const {useGetProfileQuery, usePostSignUpMutation} = apis
+    console.log(usePostSignUpMutation)
