@@ -1,11 +1,13 @@
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {ClientResponseForSignIn, usePostSignInMutation} from "../../store/apis";
 import * as Yup from "yup";
-import {PartialSignIn, SignIn} from "../../shared/interfaces/SignIn";
+import {SignIn} from "../../shared/interfaces/SignIn";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {DisplayStatus} from "../../shared/components/display-status/DisplayStatus";
 import {FormDebugger} from "../../shared/components/FormDebugger";
 import jwtDecode from "jwt-decode";
+import {AppDispatch, useAppDispatch} from "../../store/store.ts";
+import {getAuth, JwtToken} from "../../store/auth.ts";
 
 export function SignInForm() {
 
@@ -57,8 +59,8 @@ return (
         const {
             status,
             values,
-            errors,
-            touched,
+            // errors,
+            // touched,
             // dirty,
             // isSubmitting,
             handleChange,
