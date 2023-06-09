@@ -48,7 +48,7 @@ export const { setAllPosts } = postSlice.actions;
 export const fetchPostsAndProfiles = () => async (dispatch, getState) => {
     await dispatch(fetchAllPosts());
 
-    const { post } = getState().post;
+    const { posts } = getState().post;
     const profileIdSet = new Sett<string>();
 
     for (const post of posts) {
@@ -62,23 +62,3 @@ export const fetchPostsAndProfiles = () => async (dispatch, getState) => {
 }
 
 export default postSlice.reducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
