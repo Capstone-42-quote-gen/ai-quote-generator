@@ -15,9 +15,10 @@ export function Navigation() {
                 </Col>
             </Row>
             <Row className="align-items-center">
-                <Col lg={11}>
-            <Navbar className="custom-navbar mx-auto">
+            <Navbar expand={"lg"} className={"custom-navbar mx-auto}"}>
                 <Container>
+                    <Navbar.Toggle aria-controls={"responsive-navbar-nav"} />
+                    <Navbar.Collapse id={"responsive-navbar-nav"}>
                     <Nav className="w-100 justify-content-evenly">
                         <Nav.Link href="#popular">Popular</Nav.Link>
                         <span className="navbar-divider"></span>
@@ -29,9 +30,9 @@ export function Navigation() {
                         <span className="navbar-divider"></span>
                         <Nav.Link href="/sign-in"><Image src={signIn} className={"sign-in-icon p-0 mb-1 me-2"} />Profile</Nav.Link>
                     </Nav>
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
-                </Col>
             </Row>
         </Container>
     );
