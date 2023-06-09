@@ -15,7 +15,7 @@ export function Navigation() {
                 </Col>
             </Row>
             <Row className="align-items-center">
-            <Navbar expand={"lg"} className={"custom-navbar mx-auto}"}>
+            <Navbar expand={"sm"} className={"custom-navbar mx-auto}"}>
                 <Container>
                     <Navbar.Toggle aria-controls={"responsive-navbar-nav"} />
                     <Navbar.Collapse id={"responsive-navbar-nav"}>
@@ -24,7 +24,7 @@ export function Navigation() {
                         <span className="navbar-divider"></span>
                         <Nav.Link href="#new">New</Nav.Link>
                         <span className="navbar-divider"></span>
-                        <Nav.Link href="#topics">Topics</Nav.Link>
+                        <Nav.Link href="#topics">Tags</Nav.Link>
                         <span className="navbar-divider"></span>
                         <Nav.Link href="/create-quote">Create</Nav.Link>
                         <span className="navbar-divider"></span>
