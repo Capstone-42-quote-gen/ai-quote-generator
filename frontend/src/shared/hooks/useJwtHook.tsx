@@ -1,5 +1,4 @@
 import React from "react";
-import {RootState} from "@reduxjs/toolkit/dist/query/core/apiState";
 import {Profile} from "../interfaces/Profile.ts";
 import {useAppDispatch, useAppSelector, RootState} from "../../store/store.ts";
 import {fetchAuth} from "../../store/auth.ts";
@@ -21,7 +20,8 @@ export function useJwtToken (): { profile: Profile | null, isLoading: boolean } 
         return state.auth
     })
 
-    const profile: Profile | null = auth ? {
+    const profile: Profile | null = auth
+  ? {
     profileId: auth.profileId,
     profileEmail: auth.profileEmail,
     profilePassword: auth.profilePassword,

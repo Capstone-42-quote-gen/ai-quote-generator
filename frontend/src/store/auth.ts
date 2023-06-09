@@ -10,7 +10,7 @@ export interface JwtToken extends Profile {
 
 }
 
-const intialState: JwtToken | null = null
+const initialState: JwtToken | null = null
 const slice = createSlice({
     name: "auth",
     initialState,
