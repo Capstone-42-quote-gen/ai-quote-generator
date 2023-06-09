@@ -110,7 +110,7 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
                                 </option>
                             ))}
                         </Form.Select>
-                        <DisplayError errors={errors} touched={touched} field="topicContent" />
+                        <DisplayError errors={errors} touched={touched} field="topic" />
                     </Col>
 
                     <Col xs="auto" className="py-2">
@@ -127,7 +127,7 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
                                 </option>
                             ))}
                         </Form.Select>
-                        <DisplayError errors={errors} touched={touched} field="voiceContent" />
+                        <DisplayError errors={errors} touched={touched} field="voice" />
                     </Col>
                 </Row>
 
@@ -141,6 +141,8 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
             </Form>
             <DisplayStatus status={status} />
             <FormDebugger {...props} />
+
+
         </>
     );
 };
