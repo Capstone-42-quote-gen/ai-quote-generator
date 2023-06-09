@@ -1,17 +1,8 @@
 import { Button, Col, Form, Row, Spinner } from "react-bootstrap";
-import {
-    MutationResponse,
-    useGetAllPromptsQuery,
-    usePostCreateQuoteGenerateMutation,
-} from "../../store/apis";
+import { MutationResponse, useGetAllPromptsQuery,usePostCreateQuoteGenerateMutation,} from "../../store/apis";
 import { Prompt } from "../../shared/interfaces/Prompt";
 import * as Yup from "yup";
-import {
-    Formik,
-    FormikHelpers,
-    FormikProps,
-    FormikValues,
-} from "formik";
+import { Formik, FormikHelpers,FormikProps} from "formik";
 import { CreateQuote } from "../../shared/interfaces/CreateQuote";
 import { DisplayStatus } from "../../shared/components/display-status/DisplayStatus";
 import { FormDebugger } from "../../shared/components/FormDebugger";
@@ -28,11 +19,10 @@ export const CreateQuoteFormLogic = () => {
         voice: Yup.string().required("Voice is required"),
     });
 
-    const submitQuote = async (
-        createQuote: CreateQuote,
-        formikHelpers: FormikHelpers<CreateQuote>
-    ) => {
+    const submitQuote = async ( values: CreateQuote, formikHelpers: FormikHelpers<CreateQuote>) => {
         const { resetForm, setStatus } = formikHelpers;
+        const createQuote: CreateQuote = {topic: values.topic, voice: values.voice}
+
         const result = (await submit(createQuote)) as MutationResponse;
 
         const { data: response, error } = result;
@@ -61,9 +51,7 @@ export const CreateQuoteFormLogic = () => {
     );
 };
 
-export const CreateQuoteFormContent = (
-    props: FormikProps<CreateQuote>
-) => {
+export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
     const {
         status,
         values,
@@ -110,7 +98,7 @@ export const CreateQuoteFormContent = (
                 <Row className="justify-content-center">
                     <Col xs="auto" className="py-2">
                         <Form.Select
-                            name="topicContent"
+                            name="topic"
                             value={values.topic}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -127,7 +115,7 @@ export const CreateQuoteFormContent = (
 
                     <Col xs="auto" className="py-2">
                         <Form.Select
-                            name="voiceContent"
+                            name="voice"
                             value={values.voice}
                             onChange={handleChange}
                             onBlur={handleBlur}
