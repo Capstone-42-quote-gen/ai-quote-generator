@@ -2,7 +2,7 @@ import {Button, Form, Container, Row, Col, Image, Spinner} from "react-bootstrap
 import {Navigation} from "../../shared/components/NavBar.tsx";
 import {useGetAllPromptsQuery} from "../../store/apis.ts";
 import {Prompt} from "../../shared/interfaces/Prompt.ts";
-import {CreateQuoteForm} from "./CreateQuoteForm.tsx";
+import {CreateQuoteFormLogic} from "./CreateQuoteForm.tsx";
 
 
 export function CreateQuote() {
@@ -12,6 +12,7 @@ export function CreateQuote() {
         <>
             <Navigation/>
             <Container>
+                <CreateQuoteForm/>
 
 
                 <Row className="justify-content-center">
