@@ -45,8 +45,9 @@ export function SignInForm() {
     }
 
     return (
-        <formik initialValues={initialValues} on submit={handleSubmit} validationSchema={validator} onChange={handleChange}>
-
+        <formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validator} onChange={handleChange}>
+            </>
+        </formik>
     )
 
     return (
