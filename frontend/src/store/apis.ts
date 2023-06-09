@@ -2,6 +2,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {PartialSignUp, SignUp} from "../shared/interfaces/SignUp";
 import {PartialSignIn} from "../shared/interfaces/SignIn.ts";
 import {Prompt} from "../shared/interfaces/Prompt.ts";
+import {CreateQuote} from "../shared/interfaces/CreateQuote.ts";
 
 
 export interface ServerResponse {
@@ -26,7 +27,7 @@ export interface ClientResponseForSignIn extends ClientResponse {
 export const apis = createApi({
     reducerPath:"api",
     baseQuery: fetchBaseQuery({baseUrl:'/apis'}),
-    tagTypes: ["SignUp","Prompt"],
+    tagTypes: ["SignUp","Prompt","CreateQuote"],
     endpoints: (builder) => ({
         getProfile: builder.query<SignUp[], string>({
             query: () => '/profile',
@@ -52,6 +53,23 @@ export const apis = createApi({
             transformResponse: transformMutationResponses,
             invalidatesTags: ["SignUp"]
             }),
+
+
+        PostCreateQuoteGenerate: builder.mutation<ClientResponse, CreateQuote>({
+            transformErrorResponse: transformErrorResponses,
+            query (body: CreateQuote) {
+                return{
+                    url:'/post-prompt',
+                    method: "POST",
+                    body
+                }
+            },
+            transformResponse: transformMutationResponses,
+            invalidatesTags: ["CreateQuote"]
+        }),
+
+
+
         PostSignIn: builder.mutation<ClientResponse, PartialSignIn>({
             query (body: PartialSignIn) {
                 return {
@@ -113,4 +131,4 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             type: 'alert alert-danger',
         }
     }
-    export const {useGetProfileQuery, usePostSignUpMutation, usePostSignInMutation, useGetAllPromptsQuery} = apis
+    export const {useGetProfileQuery, usePostSignUpMutation, usePostSignInMutation, useGetAllPromptsQuery, usePostCreateQuoteMutation } = apis
