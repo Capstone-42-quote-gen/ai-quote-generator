@@ -131,4 +131,4 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             type: 'alert alert-danger',
         }
     }
-    export const {useGetProfileQuery, usePostSignUpMutation, usePostSignInMutation, useGetAllPromptsQuery, usePostCreateQuoteMutation } = apis
+    export const {useGetProfileQuery, usePostSignUpMutation, usePostSignInMutation, useGetAllPromptsQuery, usePostCreateQuoteGenerateMutation } = apis
