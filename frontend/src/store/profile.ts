@@ -19,5 +19,5 @@ export const { setProfile } = slice.actions;
 
 export const fetchProfileByProfileId = (profileId: string) => {
     const state = getState();
-    const profiles
+    const profiles =
 }
