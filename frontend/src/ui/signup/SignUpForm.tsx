@@ -16,7 +16,7 @@ export function SignUpForm() {
         profileUsername: Yup.string()
             .required("Username is required for sign up")
             .min(1, "SignUp username must be at least 1 character")
-            .max(32, "SignUp username must be at max"),
+            .max(32, "SignUp username must be at least 32 characters"),
         profileEmail: Yup.string()
             .required("An email is required to sign up")
             .max(256, "Email cannot be over 64 characters"),
@@ -49,7 +49,7 @@ export function SignUpForm() {
 
     return (
         <>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validator}>
+            <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validator} onChange={handleChange}>
                 {SignUpFormContent}
             </Formik>
         </>
