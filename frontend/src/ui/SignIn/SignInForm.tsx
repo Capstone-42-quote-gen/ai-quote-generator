@@ -1,78 +1,114 @@
-
-import {MutationResponse, usePostSignInMutation} from "../../store/apis.ts";
-import {Col, Container, Row} from "react-bootstrap";
-import {SignInCard} from "./SignInCard.tsx";
-import {SignUp} from "../signup/SignUp.tsx";
+import {Button, Col, Form, Row} from "react-bootstrap";
+import {ClientResponseForSignIn, usePostSignInMutation} from "../../store/apis";
 import * as Yup from "yup";
-import {PartialSignIn} from "../../shared/interfaces/SignIn";
-import {FormikHelpers} from "formik";
-import {Simulate} from "react-dom/test-utils";
-import submit = Simulate.submit;
+import {PartialSignIn, SignIn} from "../../shared/interfaces/SignIn";
+import {Formik, FormikHelpers, FormikProps} from "formik";
+import {DisplayStatus} from "../../shared/components/display-status/DisplayStatus";
+import {FormDebugger} from "../../shared/components/FormDebugger";
+import jwtDecode from "jwt-decode";
 
 export function SignInForm() {
 
-    const [ submitRequest ] = usePostSignInMutation()
+const [ submitRequest ] = usePostSignInMutation()
+    const dispatch: AppDispatch = useAppDispatch()
 
-    const validator = Yup.object().shape({
-        profileEmail: Yup.string()
-            .required("Email is required for sign in")
-            .min(1, "Sign in email must be at least 1 character")
-            .max(32, "Sign in email  must be at least 32 characters"),
-        profilePassword: Yup.string()
-            .required("A password is required to sign up")
-            .max(256, "Password  cannot be over 64 characters"),
-    })
+const validator = Yup.object().shape({
+    profileEmail: Yup.string()
+        .email("Please provide a valid email")
+        .required("Email is required"),
+    profilePassword: Yup.string()
+        .required("A password is required to sign up")
+        .min(8, "Password  cannot be under 8 characters"),
+})
 
-    const intialValues: PartialSignIn = {
-        profileEmail: "",
-        profilePassword: ""
-    }
+const signIn = SignIn = {
+    profileEmail: "",
+    profilePassword: ""
+};
 
-    async function handleSubmit(Values: PartialSignIn, actions: FormikHelpers<PartialSignIn>) {
-        const {resetForm, setStatus} = actions
-        console.log(values)
-        const result = await submit(values) as MutationResponse
-        const {data: response, error} = result
+const submitSignIn = async (values: SignIn, formikHelpers: FormikHelpers<SignIn>) => {
+    const {resetForm, setStatus} = formikHelpers
+    const = await submitRequest(values)
+    const {
+        data: response, error
+    } = result as { data: ClientResponseForSignIn, error: ClientResponseForSignIn }
+    if (error) {
+        setStatus({type: error.type, message: error.message})
+    } else if(response?.status === 200){
+        window.localStorage.removeItem("authorization");
+        window.localStorage.setItem("authorization", response.authorization as string);
+        const decodedToken = jwtDecode<JwtToken>(response.authorization as string)
+        dispatch(getAuth(decodedToken))
+        resetForm()
+        setStatus({type: response.type, message: response.message})
+    } else {
+    setStatus({type: response?.type, message: response?.message})}
+}
 
-        if (error) {
-            setStatus({type: error.type, message: error.message})
-        } else if (response?.status === 200) {
-            resetForm()
-            setStatus({type: response.type, message: response.message})
-        } else {
-            setStatus({type: response?.type, message: response?.message})
-        }
-    }
+return (
+    <>
+        <Formik initialValues={initialValues} onSubmit={submitSignIn} validationSchema={validator}>
+        {SignInFormContent}
+        </Formik>
+    </>
+)
 
-    return (
-        <formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validator} onChange={handleChange}>
-            </>
-        </formik>
-    )
+    function SignInFormContent(props: FormikProps<SignIn>) {
+        const {
+            status,
+            values,
+            errors,
+            touched,
+            // dirty,
+            // isSubmitting,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            // handleReset
+        } = props;
 
     return (
         <>
-            <Container className={"align-items-center py-5"}>
-                <Row className={"justify-content-center"}>
-                    <Col md={6}>
-                        <SignInCard />
-                    </Col>
-                </Row>
-                <Row className={"justify-content-center mt-4"}>
-                    <Col lg={8}>
-                        <div className={"text-center"}>
-                            <span className={"divider-text"}><hr/>Not signed up yet?<hr/></span>
-                        </div>
-                    </Col>
-                </Row>
-                <Row className={"justify-content-center"}>
-                    <Col lg={8}>
-                        <div className={"d-grid"}>
-                            <SignUp />
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className={"mb-3"} controlId="formHorizontalEmail">
+                            <Form.Label column lg={2} className="ms-2">
+                                Email
+                            </Form.Label>
+                            <Col lg={12}>
+                                <Form.Control
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                placeholder={"Email"}
+                                value={values.profileEmail}
+                                name={"profileEmail"}
+                                type="email"
+                                />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+                            <Form.Label column lg={4} className="ms-2">
+                                Password
+                            </Form.Label>
+                            <Col lg={12}>
+                                <Form.Control
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                placeholder={"Password"}
+                                value={values.profileEmail}
+                                name={"profilePassword"}
+                                type="password"
+                                />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} className="mb-3">
+                            <Col lg={"12"}>
+                                <Button variant={"secondary"} type={"submit"}>Sign in</Button>
+                            </Col>
+                        </Form.Group>
+                    </Form>
+                    <DisplayStatus status={status}/>
+                    <FormDebugger {...props}/>
         </>
     )
+}
 }

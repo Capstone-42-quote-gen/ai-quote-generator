@@ -49,7 +49,7 @@ export function SignUpForm() {
 
     return (
         <>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validator} onChange={handleChange}>
+            <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validator}>
                 {SignUpFormContent}
             </Formik>
         </>
