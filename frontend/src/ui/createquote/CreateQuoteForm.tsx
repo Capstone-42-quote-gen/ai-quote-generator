@@ -1,8 +1,13 @@
 import {Button, Col, Form, Row, Spinner} from "react-bootstrap";
-import {useGetAllPromptsQuery, usePostCreateQuoteMutation} from "../../store/apis.ts";
+import {MutationResponse, useGetAllPromptsQuery, usePostCreateQuoteMutation} from "../../store/apis.ts";
 import {Prompt} from "../../shared/interfaces/Prompt.ts";
 import * as Yup from "yup";
-import { useJwtToken } from '../../shared/hooks/useJwtHook.js'
+// import { useJwtToken } from '../../shared/hooks/useJwtHook.js'
+import {CreateQuote} from "../../shared/interfaces/CreateQuote.ts";
+import {Formik, FormikHelpers, FormikProps} from "formik";
+import {DisplayStatus} from "../../shared/components/display-status/DisplayStatus.tsx";
+import {FormDebugger} from "../../shared/components/FormDebugger.tsx";
+import {DisplayError} from "../../shared/components/display-error/DisplayError.tsx";
 
 
 export const CreateQuoteFormLogic = () => {
@@ -11,28 +16,57 @@ export const CreateQuoteFormLogic = () => {
         topic:"",
         voice:""
     };
-    const {profile} = useJwtToken()
+    // const {profile} = useJwtToken()
     const validator = Yup.object().shape({
         topic: Yup.string()
             .required("Topic is required"),
         voice: Yup.string()
             .required("Voice is required")
-        }
-    )
-}
+        });
+    const submitQuote = async(values: CreateQuote, formikHelpers: FormikHelpers<CreateQuote> ) => {
+        const {resetForm, setStatus} = formikHelpers
+        const result = await submit(createQuote) as MutationResponse
 
-export const CreateQuoteFormContent = () => {
+        const {
+            data: response, error} = result
+
+        if(error) {
+            setStatus({type: error.type, message: error.message})
+        }
+        else if(response?.status === 200) {
+            resetForm()
+            setStatus({type: response.type, message: response.message})
+
+        } else {
+            setStatus({type: response?.type,  message: response?.message})
+        }
+
+    };
+
+    return (
+        <Formik
+            initialValues={createQuote}
+            onSubmit={submitQuote}
+            validationSchema={validator}
+        >
+            {CreateQuoteFormContent}
+        </Formik>
+
+    )
+};
+
+function CreateQuoteFormContent(props: FormikProps<CreateQuote>) {
     const {
         status,
         values,
         errors,
         touched,
-        dirty,
-        isSubmitting,
+        // dirty,
+        // isSubmitting,
         handleChange,
         handleBlur,
-        handleSubmit,
-        handleReset
+        handleSubmit
+        // handleReset
     } = props;
 
 
@@ -49,7 +83,8 @@ export const CreateQuoteFormContent = () => {
     let topics: Prompt[] = prompts.filter(prompt => prompt.promptType === "topic")
 
    return (
-    <Form>
+       <>
+    <Form onSubmit={handleSubmit}>
         <Row className="justify-content-center pt-3">
             <Col xs="auto">
                 <h1>Create an AI Quote Image</h1>
@@ -66,6 +101,16 @@ export const CreateQuoteFormContent = () => {
                 <Form.Select defaultValue="Choose a TOPIC">
                     <option value="">Choose a TOPIC</option>
                     {topics.map(topic => <option value={topic.promptId}>{topic.promptValue}</option>)}
+                    <Form.Control
+                        className="form-control"
+                        name="topicContent"
+                        type="text"
+                        value={values.topic}
+                        placeholder="Choose a TOPIC"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                    <DisplayError errors={errors} touched={touched} field={"topicContent"} />
                 </Form.Select>
             </Col>
 
@@ -74,6 +119,17 @@ export const CreateQuoteFormContent = () => {
                 <Form.Select defaultValue="Choose a VOICE">
                     <option value="">Choose a VOICE</option>
                     {voices.map(voice => <option value={voice.promptId}>{voice.promptValue}</option>)}
+
+                    <Form.Control
+                        className="form-control"
+                        name="voiceContent"
+                        type="text"
+                        value={values.voice}
+                        placeholder="Choose a VOICE"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                    <DisplayError errors={errors} touched={touched} field={"voiceContent"} />
 
                 </Form.Select>
             </Col>
@@ -90,5 +146,8 @@ export const CreateQuoteFormContent = () => {
 
         </Row>
     </Form>
-   )}
+           <DisplayStatus status={status} />
+           <FormDebugger {...props} />
+       </>
+   )};
 
