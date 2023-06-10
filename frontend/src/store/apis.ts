@@ -1,8 +1,8 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {SignUp} from "../shared/interfaces/SignUp";
-import {PartialSignIn} from "../shared/interfaces/SignIn";
 import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote} from "../shared/interfaces/CreateQuote";
+import {SignIn} from "../shared/interfaces/Profile.ts";
 
 
 export interface ServerResponse {
@@ -70,8 +70,8 @@ export const apis = createApi({
 
 
 
-        PostSignIn: builder.mutation<ClientResponse, PartialSignIn>({
-            query (body: PartialSignIn) {
+        PostSignIn: builder.mutation<ClientResponse, SignIn>({
+            query (body: SignIn) {
                 return {
                     url:'/profile',
                     method: "POST",
@@ -140,4 +140,3 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             useGetAllPromptsQuery,
             usePostCreateQuoteGenerateMutation
         } = apis
-
