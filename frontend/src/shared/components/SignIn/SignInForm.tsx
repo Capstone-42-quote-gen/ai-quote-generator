@@ -1,15 +1,17 @@
 import {Button, Col, Form, Row} from "react-bootstrap";
-import {ClientResponseForSignIn, usePostSignInMutation} from "../../store/apis";
 import * as Yup from "yup";
-import {SignIn} from "../../shared/interfaces/SignIn";
 import {Formik, FormikHelpers, FormikProps} from "formik";
-import {DisplayStatus} from "../../shared/components/display-status/DisplayStatus";
-import {FormDebugger} from "../../shared/components/FormDebugger";
 import jwtDecode from "jwt-decode";
-import {AppDispatch, useAppDispatch} from "../../store/store.ts";
-import {getAuth, JwtToken} from "../../store/auth.ts";
+import {AppDispatch, useAppDispatch} from "../../../store/store";
+import {ClientResponseForSignIn, usePostSignInMutation} from "../../../store/apis";
+import {DisplayStatus} from "../display-status/DisplayStatus";
+import {FormDebugger} from "../FormDebugger";
+import {string} from "yup";
+import {getAuth, JwtToken} from "../../../store/auth";
 
 export function SignInForm() {
+
+
 
 const [ submitRequest ] = usePostSignInMutation()
     const dispatch: AppDispatch = useAppDispatch()
@@ -18,25 +20,26 @@ const validator = Yup.object().shape({
     profileEmail: Yup.string()
         .email("Please provide a valid email")
         .required("Email is required"),
-    profilePassword: Yup.string()
+    profilePassword: string()
         .required("A password is required to sign up")
         .min(8, "Password  cannot be under 8 characters"),
 })
 
-const signIn = SignIn = {
+const signIn: SignIn = {
     profileEmail: "",
     profilePassword: ""
-};
+}
 
 const submitSignIn = async (values: SignIn, formikHelpers: FormikHelpers<SignIn>) => {
     const {resetForm, setStatus} = formikHelpers
-    const = await submitRequest(values)
+    const result = await submitRequest(values)
     const {
         data: response, error
     } = result as { data: ClientResponseForSignIn, error: ClientResponseForSignIn }
     if (error) {
         setStatus({type: error.type, message: error.message})
-    } else if(response?.status === 200){
+    }
+    else if(response?.status === 200) {
         window.localStorage.removeItem("authorization");
         window.localStorage.setItem("authorization", response.authorization as string);
         const decodedToken = jwtDecode<JwtToken>(response.authorization as string)
@@ -49,7 +52,7 @@ const submitSignIn = async (values: SignIn, formikHelpers: FormikHelpers<SignIn>
 
 return (
     <>
-        <Formik initialValues={initialValues} onSubmit={submitSignIn} validationSchema={validator}>
+        <Formik initialValues={signIn} onSubmit={submitSignIn} validationSchema={validator}>
         {SignInFormContent}
         </Formik>
     </>
