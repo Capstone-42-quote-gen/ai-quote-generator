@@ -1,4 +1,5 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {httpConfig} from "../shared/utils/http-config";
 
 interface VoteState {
     [votePostId: string]: any;
@@ -7,7 +8,7 @@ interface VoteState {
 interface VotePayLoad {
     votePostId: string;
     data: any;
-    vote: date | null
+    vote: Date | null
 }
 
 const initialState: VoteState = {};

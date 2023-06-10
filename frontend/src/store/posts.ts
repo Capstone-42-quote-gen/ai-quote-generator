@@ -2,6 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../shared/utils/http-config";
 import {fetchProfileByProfileId} from "./profile";
 import {Post} from "../shared/interfaces/Post";
+import {fetchVotesByVotePostId} from "./vote";
 
 interface State {
     post: Post[],
@@ -48,7 +49,7 @@ export const fetchPostsAndProfiles = () => async (dispatch, getState) => {
             profileIdSet.add(postProfileId);
             await dispatch(fetchProfileByProfileId(postProfileId));
         }
-        await dispatch(fetchVotesByVotesId(postId));
+        await dispatch(fetchVotesByVotePostId(postId));
     }
 }
 
