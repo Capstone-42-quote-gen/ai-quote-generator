@@ -1,14 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../shared/utils/http-config";
+import {VotePayLoad} from "../shared/interfaces/Vote";
 
 interface VoteState {
     [votePostId: string]: any;
-}
-
-interface VotePayLoad {
-    votePostId: string;
-    data: string;
-    isVote: Date
 }
 
 const initialState: VoteState = {};
