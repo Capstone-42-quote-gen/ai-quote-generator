@@ -8,6 +8,7 @@ export function SignUp() {
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+    const handleSubmit = (vales: SignUp) =>
 
     return (
         <>
@@ -17,11 +18,10 @@ export function SignUp() {
                     <Modal.Title>Sign Up</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <SignUpForm/>
+                    <SignUpForm onSubmit={handleSubmit} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
-                    <Button variant="secondary" onClick={handleClose}>Submit</Button>
                 </Modal.Footer>
             </Modal>
         </>
