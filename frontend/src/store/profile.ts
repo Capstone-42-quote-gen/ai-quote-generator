@@ -1,12 +1,11 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {httpConfig} from "../shared/utils/http-config";
 import {AppDispatch, RootState} from "./store";
-import {ProfileState} from "./currentUser";
 
 
 const slice = createSlice({
     name: "profiles",
-    initialState: {} as ProfileState,
+    initialState: {},
     reducers: {
         setProfile: (Profiles, action: PayloadAction<{ profileId: string, data: any }>) => {
             Profiles[action.payload.profileId] = action.payload.data
