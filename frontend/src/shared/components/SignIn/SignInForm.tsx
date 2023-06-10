@@ -8,9 +8,8 @@ import {DisplayStatus} from "../display-status/DisplayStatus";
 import {FormDebugger} from "../FormDebugger";
 import {string} from "yup";
 import {getAuth, JwtToken} from "../../../store/auth";
-
+import {SignIn} from "../../interfaces/Profile.ts";
 export function SignInForm() {
-
 
 
 const [ submitRequest ] = usePostSignInMutation()
