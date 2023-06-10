@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {PartialSignUp, SignUp} from "../shared/interfaces/SignUp";
+import {SignUp} from "../shared/interfaces/SignUp";
 import {PartialSignIn} from "../shared/interfaces/SignIn";
 import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote} from "../shared/interfaces/CreateQuote";
@@ -41,9 +41,9 @@ export const apis = createApi({
             providesTags: ["Prompt"]
         }),
 
-        PostSignUp: builder.mutation<ClientResponse, PartialSignUp>({
+        PostSignUp: builder.mutation<ClientResponse, SignUp>({
             transformErrorResponse: transformErrorResponses,
-            query (body: PartialSignUp) {
+            query (body: SignUp) {
                 return{
                     url:'/profile',
                     method: "POST",
