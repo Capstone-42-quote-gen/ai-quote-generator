@@ -1,21 +1,22 @@
-import {Form} from "react-bootstrap";
+import {Button, Form} from "react-bootstrap";
 import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {DisplayError} from "../display-error/DisplayError";
 import {DisplayStatus} from "../display-status/DisplayStatus";
 import {FormDebugger} from "../FormDebugger";
 import {ClientResponseForSignIn, MutationResponse, usePostSignUpMutation} from "../../../store/apis";
-import {SignUp} from "../../interfaces/SignUp";
+import {SignUp} from "../../interfaces/Profile";
+
 
 
 export function SignUpForm() {
 
     const signUp: SignUp = {
         profileUsername: "",
-        profilePhotoUrl: null,
+        profilePhotoUrl: "",
         profileEmail: "",
         profilePassword: ""
-    };
+    }
 
     const [submit] = usePostSignUpMutation()
 
@@ -36,7 +37,10 @@ export function SignUpForm() {
         const {resetForm, setStatus} = actions
         console.log(values)
         const result = await submit(values) as MutationResponse
-        const {data: response, error} = result as {data: ClientResponseForSignIn, error: ClientResponseForSignIn}
+        const {data: response, error} = result as {
+            data: ClientResponseForSignIn,
+            error: ClientResponseForSignIn
+        }
 
         if (error) {
             setStatus({type: error.type, message: error.message})
@@ -49,11 +53,9 @@ export function SignUpForm() {
     }
 
     return (
-        <>
             <Formik initialValues={signUp} onSubmit={submitSignUp} validationSchema={validator}>
                 {SignUpFormContent}
             </Formik>
-        </>
     )
 
     function SignUpFormContent(props: FormikProps<SignUp>) {
@@ -62,12 +64,12 @@ export function SignUpForm() {
             values,
             errors,
             touched,
-            // dirty,
-            // isSubmitting,
+            dirty,
+            isSubmitting,
             handleChange,
             handleBlur,
             handleSubmit,
-            // handleReset
+            handleReset
         } = props;
 
         return (
@@ -106,6 +108,11 @@ export function SignUpForm() {
                         <Form.Text id="passwordHelpBlock" muted>
                             Your password must be 8-20 characters long
                         </Form.Text>
+                    </Form.Group>
+                    <Form.Group>
+                        <Button variant="secondary" type={"submit"}>Submit</Button>
+                        {""}
+                        <Button variant="secondary" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>
                     </Form.Group>
                 </Form>
                 <DisplayStatus status={status}/>
