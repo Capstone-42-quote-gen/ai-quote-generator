@@ -52,4 +52,4 @@ export const fetchPostsAndProfiles = () => async (dispatch, getState) => {
     }
 }
 
-export default postSlice.reducer;
+export default postSlice.reducer
