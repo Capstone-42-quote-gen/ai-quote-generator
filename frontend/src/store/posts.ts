@@ -20,7 +20,7 @@ export const fetchAllPosts = createAsyncThunk(
     }
 )
 
-export const postSlice = createSlice({
+export const slice = createSlice({
     name: "posts",
     initialState,
     reducers: {
@@ -35,7 +35,7 @@ export const postSlice = createSlice({
     }
 });
 
-export const { setAllPosts } = postSlice.actions;
+export const { setAllPosts } = slice.actions;
 
 export const fetchPostsAndProfiles = () => async (dispatch, getState) => {
     await dispatch(fetchAllPosts());
@@ -53,4 +53,4 @@ export const fetchPostsAndProfiles = () => async (dispatch, getState) => {
     }
 }
 
-export default postSlice.reducer
+export default slice.reducer

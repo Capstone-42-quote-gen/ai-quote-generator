@@ -1,14 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../shared/utils/http-config";
+import {VotePayLoad} from "../shared/interfaces/Vote";
 
 interface VoteState {
     [votePostId: string]: any;
-}
-
-interface VotePayLoad {
-    votePostId: string;
-    data: any;
-    vote: Date | null
 }
 
 const initialState: VoteState = {};
@@ -21,7 +16,7 @@ export const fetchVotesByVotePostId = createAsyncThunk(
     }
 );
 
-const voteSlice = createSlice({
+const slice = createSlice({
     name: "votes",
     initialState,
     reducers: {
@@ -46,9 +41,9 @@ const voteSlice = createSlice({
     }
 });
 
-export const { upVote, downVote } = voteSlice.actions;
+export const { addVote, removeVote } = slice.actions;
 
-export default voteSlice.reducer
+export default slice.reducer
 
 
 

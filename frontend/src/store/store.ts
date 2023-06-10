@@ -8,13 +8,6 @@ import {TypedUseSelectorHook, useDispatch,
 import auth from "./auth";
 import {Profile} from "../ui/Profile";
 
-// type CustomDispatch = (action: CustomAction) => void
-//
-// interface CustomAction {
-//     type:string
-//     payload: any
-// }
-
 const reducer = combineReducers({api: apis.reducer, auth, Profile,})
 export const store: ToolkitStore =  configureStore({
     reducer: reducer,
@@ -25,7 +18,6 @@ setupListeners(store.dispatch)
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
-    // & CustomDispatch
 
 export const useAppDispatch: () => AppDispatch = useDispatch
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
