@@ -7,8 +7,8 @@ interface VoteState {
 
 interface VotePayLoad {
     votePostId: string;
-    data: any;
-    vote: Date | null
+    data: string;
+    isVote: Date
 }
 
 const initialState: VoteState = {};
@@ -21,7 +21,7 @@ export const fetchVotesByVotePostId = createAsyncThunk(
     }
 );
 
-const voteSlice = createSlice({
+const slice = createSlice({
     name: "votes",
     initialState,
     reducers: {
@@ -46,9 +46,9 @@ const voteSlice = createSlice({
     }
 });
 
-export const { upVote, downVote } = voteSlice.actions;
+export const { addVote, removeVote } = slice.actions;
 
-export default voteSlice.reducer
+export default slice.reducer
 
 
 
