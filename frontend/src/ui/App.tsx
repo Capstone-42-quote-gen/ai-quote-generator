@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './Home.tsx'
 import { FourOhFour } from './FourOhFour'
-import {CreateQuote} from "./createquote/CreateQuote.tsx";
 import {DisplayQuote} from "./DisplayQuote.tsx";
 import {Profile} from "./Profile.tsx";
 import {Provider} from "react-redux";
 import {ToolkitStore} from "@reduxjs/toolkit/dist/configureStore";
+import {CreateQuote} from "../shared/components/createquote/CreateQuote.tsx";
 // import {SignIn} from "./SignIn/SignIn";
 
 interface Props {

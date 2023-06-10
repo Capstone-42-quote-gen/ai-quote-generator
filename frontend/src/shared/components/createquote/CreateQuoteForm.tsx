@@ -1,12 +1,13 @@
 import { Button, Col, Form, Row, Spinner } from "react-bootstrap";
-import { MutationResponse, useGetAllPromptsQuery,usePostCreateQuoteGenerateMutation,} from "../../store/apis";
-import { Prompt } from "../../shared/interfaces/Prompt";
 import * as Yup from "yup";
 import { Formik, FormikHelpers,FormikProps} from "formik";
-import { CreateQuote } from "../../shared/interfaces/CreateQuote";
-import { DisplayStatus } from "../../shared/components/display-status/DisplayStatus";
-import { FormDebugger } from "../../shared/components/FormDebugger";
-import { DisplayError } from "../../shared/components/display-error/DisplayError";
+import {MutationResponse, useGetAllPromptsQuery, usePostCreateQuoteGenerateMutation} from "../../../store/apis.ts";
+import {CreateQuote} from "../../interfaces/CreateQuote.ts";
+import {Prompt} from "../../interfaces/Prompt.ts";
+import {DisplayError} from "../display-error/DisplayError.tsx";
+import {FormDebugger} from "../FormDebugger.tsx";
+import {DisplayStatus} from "../display-status/DisplayStatus.tsx";
+
 
 export const CreateQuoteFormLogic = () => {
     const [submit] = usePostCreateQuoteGenerateMutation({fixedCacheKey:"SubmitQuote"});
@@ -20,7 +21,7 @@ export const CreateQuoteFormLogic = () => {
     });
 
     const submitQuote = async ( values: CreateQuote, formikHelpers: FormikHelpers<CreateQuote>) => {
-        const { resetForm, setStatus } = formikHelpers;
+        const { setStatus } = formikHelpers;
         const createQuote: CreateQuote = {topic: values.topic, voice: values.voice}
 
         const result = (await submit(createQuote)) as MutationResponse;
@@ -30,7 +31,8 @@ export const CreateQuoteFormLogic = () => {
         if (error) {
             setStatus({ type: error.type, message: error.message });
         } else if (response?.status === 200) {
-            resetForm();
+
+            // resetForm();
             setStatus({ type: response.type, message: response.message });
         } else {
             setStatus({

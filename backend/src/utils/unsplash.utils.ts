@@ -1,7 +1,7 @@
 import {createApi} from "unsplash-js";
 import * as nodeFetch from 'node-fetch';
 import {Random} from "unsplash-js/dist/methods/photos/types";
-import {json} from "express";
+
 
 // @ts-ignore
 const unsplash = createApi({
@@ -18,9 +18,9 @@ export async function generateImage(topic: string): Promise<{
     const result = await unsplash.photos.getRandom({
         query: topic,
         orientation: "portrait",
-        count: 10
+        count: 6
     })
-
+    console.log(result)
     if (result.errors) {
         console.log('error occurred: ', result.errors[0]);
         throw new Error("error occurred fetching images from unsplash")

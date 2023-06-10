@@ -1,6 +1,9 @@
-import {Button, Container, Row, Col, Image} from "react-bootstrap";
+import {Container, Row} from "react-bootstrap";
 import {CreateQuoteFormLogic} from "./CreateQuoteForm";
 import {useAppSelector} from "../../../store/store.ts";
+import {Navigation} from "../NavBar.tsx";
+import {PreviewQuote} from "./PreviewQuote.tsx";
+import {QuoteImage} from "../../interfaces/CreateQuote.ts";
 
 export function CreateQuote() {
 
@@ -17,15 +20,12 @@ console.log(data)
                 <CreateQuoteFormLogic/>
 
                 <Row className="justify-content-center">
-
-                  //IMAGE BLOCK TO REPEAT
-                    <Col lg={4} xs={6} className="py-4">
-                        <Image fluid src="https://placebeard.it/1080/1400/1" alt="Gloomsmith Generated Quote Image" className="border border-dark" />
-                        <Col xs="auto" className="d-flex justify-content-center py-2">
-                            <Button variant="light" size="lg" type="submit">Save</Button>
-                        </Col>
-                    </Col>
-
+                    {data &&
+                    <>
+                        {data.imageData.map((image: QuoteImage)=> <PreviewQuote key={image.regularUrl} quote={data.quote} image={image} /> )
+                        }
+                    </>
+                    }
 
                 </Row>
 

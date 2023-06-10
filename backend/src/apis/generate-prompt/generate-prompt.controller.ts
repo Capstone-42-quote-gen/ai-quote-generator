@@ -9,13 +9,13 @@ export async function generatePromptController(request: Request, response: Respo
         const { topicValue, voiceValue } = request.body;
 
         // const quote = await generatePrompt(topicValue, voiceValue);
-        const quote = "Do or do not - Robert Yoda"
+        const quote = "Like, why even bother trying to be productive when you can just binge-watch Netflix and eat snacks all day? - Valley Girl"
         const imageData = await generateImage(topicValue);
 
         const data = {quote, imageData}
 
         // console.log(data)
-console.log(data)
+
         return response.json({ status: 200, message: "success", data });
     } catch (error) {
         console.log(error)
