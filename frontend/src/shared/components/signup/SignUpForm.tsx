@@ -1,14 +1,21 @@
 import {Form} from "react-bootstrap";
 import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
-import {MutationResponse, usePostSignUpMutation} from "../../store/apis";
-import {PartialSignUp} from "../../shared/interfaces/SignUp";
-import {DisplayStatus} from "../../shared/components/display-status/DisplayStatus";
-import {DisplayError} from "../../shared/components/display-error/DisplayError";
-import {FormDebugger} from "../../shared/components/FormDebugger";
+import {DisplayError} from "../display-error/DisplayError";
+import {DisplayStatus} from "../display-status/DisplayStatus";
+import {FormDebugger} from "../FormDebugger";
+import {ClientResponseForSignIn, MutationResponse, usePostSignUpMutation} from "../../../store/apis";
+import {SignUp} from "../../interfaces/SignUp";
 
 
 export function SignUpForm() {
+
+    const signUp: SignUp = {
+        profileUsername: "",
+        profilePhotoUrl: null,
+        profileEmail: "",
+        profilePassword: ""
+    };
 
     const [submit] = usePostSignUpMutation()
 
@@ -25,17 +32,11 @@ export function SignUpForm() {
             .min(8, "password must be at least 8 characters")
     })
 
-    const initialValues: PartialSignUp = {
-        profileUsername: "",
-        profileEmail: "",
-        profilePassword: ""
-    }
-
-    async function handleSubmit(values: PartialSignUp, actions: FormikHelpers<PartialSignUp>) {
+    const submitSignUp = async (values: SignUp, actions: FormikHelpers<SignUp>) => {
         const {resetForm, setStatus} = actions
         console.log(values)
         const result = await submit(values) as MutationResponse
-        const {data: response, error} = result
+        const {data: response, error} = result as {data: ClientResponseForSignIn, error: ClientResponseForSignIn}
 
         if (error) {
             setStatus({type: error.type, message: error.message})
@@ -49,13 +50,13 @@ export function SignUpForm() {
 
     return (
         <>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validator}>
+            <Formik initialValues={signUp} onSubmit={submitSignUp} validationSchema={validator}>
                 {SignUpFormContent}
             </Formik>
         </>
     )
 
-    function SignUpFormContent(props: FormikProps<PartialSignUp>) {
+    function SignUpFormContent(props: FormikProps<SignUp>) {
         const {
             status,
             values,
