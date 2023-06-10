@@ -9,7 +9,7 @@ import { FormDebugger } from "../../shared/components/FormDebugger";
 import { DisplayError } from "../../shared/components/display-error/DisplayError";
 
 export const CreateQuoteFormLogic = () => {
-    const [submit] = usePostCreateQuoteGenerateMutation();
+    const [submit] = usePostCreateQuoteGenerateMutation({fixedCacheKey:"SubmitQuote"});
     const createQuote: CreateQuote = {
         topic: "",
         voice: "",
@@ -26,7 +26,7 @@ export const CreateQuoteFormLogic = () => {
         const result = (await submit(createQuote)) as MutationResponse;
 
         const { data: response, error } = result;
-
+    console.log(response)
         if (error) {
             setStatus({ type: error.type, message: error.message });
         } else if (response?.status === 200) {
@@ -83,10 +83,9 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
         <>
             <Form onSubmit={handleSubmit}>
                 <Row className="justify-content-center pt-3">
-                    <Col xs="auto">
+                    <Col xs="auto" className="text-center" >
                         <h1>Create an AI Quote Image</h1>
-                        <p>
-                            Select your topic and voice to let the AI work its magic! Once
+                        <p>Select your topic and voice to let the AI work its magic! Once
                             the quote is generated choose from 6 draft images, each
                             showcasing the same quote with different layouts. Click to save
                             your favorite to your profile. Let the AI amuse and astound you
@@ -141,8 +140,6 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
             </Form>
             <DisplayStatus status={status} />
             <FormDebugger {...props} />
-
-
         </>
     );
 };

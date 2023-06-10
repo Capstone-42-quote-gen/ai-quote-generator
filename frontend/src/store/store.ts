@@ -2,13 +2,12 @@
 import { apis } from './apis'
 import {setupListeners} from "@reduxjs/toolkit/query";
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {TypedUseSelectorHook, useDispatch} from "react-redux";
+import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import auth from "./auth.ts";
 
-const reducer = combineReducers({auth, votes, currentUser, posts, profiles, api: apis.reducer})
+const reducer = combineReducers({auth, api: apis.reducer})
 export const store = configureStore({
-    reducer: {
-        [apis.reducerPath]: apis.reducer
-    },
+    reducer,
     middleware:(getDefaultMiddleware) => getDefaultMiddleware().concat(apis.middleware)
 })
 
