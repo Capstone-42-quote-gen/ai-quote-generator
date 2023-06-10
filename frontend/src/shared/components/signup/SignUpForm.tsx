@@ -5,17 +5,18 @@ import {DisplayError} from "../display-error/DisplayError";
 import {DisplayStatus} from "../display-status/DisplayStatus";
 import {FormDebugger} from "../FormDebugger";
 import {ClientResponseForSignIn, MutationResponse, usePostSignUpMutation} from "../../../store/apis";
-import {SignUp} from "../../interfaces/SignUp";
+import {SignUp} from "../../interfaces/Profile";
 
 
-export function SignUpForm({ onSubmit }: { onSubmit: (values: SignUp) => void }) {
+
+export function SignUpForm() {
 
     const signUp: SignUp = {
         profileUsername: "",
-        profilePhotoUrl: null,
+        profilePhotoUrl: "",
         profileEmail: "",
         profilePassword: ""
-    };
+    }
 
     const [submit] = usePostSignUpMutation()
 
