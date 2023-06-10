@@ -95,8 +95,14 @@ a.nav-link:visited {
 /*SIGN-IN*/
 
 .sign-in-card {
-    border: 1.5px solid grey;
+    border: 1.5px solid #646363;
 }
+
+.sign-in-card-resize {
+    width: 75%;
+    height: 50%;
+}
+
 
 .center-hr {
     display: block;
