@@ -1,8 +1,8 @@
 import {Button, Form, Container, Row, Col, Image, Spinner} from "react-bootstrap";
 import {Navigation} from "../../shared/components/NavBar.tsx";
-import {useGetAllPromptsQuery} from "../../store/apis.ts";
-import {Prompt} from "../../shared/interfaces/Prompt.ts";
-import {CreateQuoteFormLogic} from "./CreateQuoteForm.tsx";
+import {useGetAllPromptsQuery} from "../../store/apis";
+import {Prompt} from "../../shared/interfaces/Prompt";
+import {CreateQuoteFormLogic} from "./CreateQuoteForm";
 
 
 export function CreateQuote() {
@@ -68,4 +68,3 @@ export function CreateQuote() {
         </>
     )
 }
-

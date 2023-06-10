@@ -1,7 +1,7 @@
 import React from "react";
-import {Profile} from "../interfaces/Profile.ts";
-import {useAppDispatch, useAppSelector, RootState} from "../../store/store.ts";
-import {fetchAuth} from "../../store/auth.ts";
+import {Profile} from "../interfaces/Profile";
+import {useAppDispatch, useAppSelector, RootState} from "../../store/store";
+import {fetchAuth} from "../../store/auth";
 
 
 /**
@@ -15,12 +15,9 @@ import {fetchAuth} from "../../store/auth.ts";
 export function useJwtToken (): { profile: Profile | null, isLoading: boolean } {
 
     const [isLoading, setIsLoading]: [boolean, React.Dispatch<boolean>] = React.useState(true)
-    const auth = useAppSelector((state: RootState) => {
+    const auth = useAppSelector((state: RootState) => state.auth)
 
-        return state.auth
-    })
-
-    const profile: Profile | null = auth
+    const profile: Profile | null = auth;
   ? {
     profileId: auth.profileId,
     profileEmail: auth.profileEmail,
@@ -39,11 +36,12 @@ export function useJwtToken (): { profile: Profile | null, isLoading: boolean } 
 
         }
 
-        getAuthFromRedux().catch(onerror => {console.error(onerror)})
-    }
+        getAuthFromRedux().catch(onerror => {console.error(onerror)
+        });
+    };
 
-    React.useEffect(initialEffects, [dispatch])
-    return { profile, isLoading}
+    React.useEffect(initialEffects, [dispatch]);
+    return { profile, isLoading };
 
 
 }

@@ -1,16 +1,7 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../shared/utils/http-config";
 import {fetchProfileByProfileId} from "./profile";
-
-interface Post {
-    postId: string,
-    postProfileId: string,
-    postPhotoUrl: string,
-    postQuote: string,
-    postCreationTime: Date | null,
-    postPhotographerName: string,
-    postPhotographerUrl: string
-}
+import {Post} from "../shared/interfaces/Post";
 
 interface State {
     post: Post[],
@@ -49,7 +40,7 @@ export const fetchPostsAndProfiles = () => async (dispatch, getState) => {
     await dispatch(fetchAllPosts());
 
     const { posts } = getState().post;
-    const profileIdSet = new Sett<string>();
+    const profileIdSet = new Set<string>();
 
     for (const post of posts) {
         const { postId, postProfileId } = post;
