@@ -1,8 +1,8 @@
 
 export interface Profile {
-    profileId: string | null ,
-    profileUsername: string,
+    profileId: string | null,
+    profileEmail: string,
+    profileUsername: string | null,
     profilePassword: string,
     profilePhotoUrl: string,
-    profileEmail: string,
 }

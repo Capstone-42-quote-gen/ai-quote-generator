@@ -1,8 +1,8 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {PartialSignUp, SignUp} from "../shared/interfaces/SignUp";
-import {PartialSignIn} from "../shared/interfaces/SignIn.ts";
-import {Prompt} from "../shared/interfaces/Prompt.ts";
-import {CreateQuote} from "../shared/interfaces/CreateQuote.ts";
+import {PartialSignIn} from "../shared/interfaces/SignIn";
+import {Prompt} from "../shared/interfaces/Prompt";
+import {CreateQuote} from "../shared/interfaces/CreateQuote";
 
 
 export interface ServerResponse {
@@ -131,4 +131,13 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             type: 'alert alert-danger',
         }
     }
-    export const {useGetProfileQuery, usePostSignUpMutation, usePostSignInMutation, useGetAllPromptsQuery, usePostCreateQuoteGenerateMutation } = apis
+
+
+    export const {
+            useGetProfileQuery,
+            usePostSignUpMutation,
+            usePostSignInMutation,
+            useGetAllPromptsQuery,
+            usePostCreateQuoteGenerateMutation
+        } = apis
+

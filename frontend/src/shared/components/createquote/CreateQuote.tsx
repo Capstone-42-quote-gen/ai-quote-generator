@@ -1,8 +1,6 @@
 import {Button, Container, Row, Col, Image} from "react-bootstrap";
-import {Navigation} from "../../shared/components/NavBar.tsx";
-import {CreateQuoteFormLogic} from "./CreateQuoteForm.tsx";
-import {useAppSelector} from "../../store/store.ts";
-
+import {CreateQuoteFormLogic} from "./CreateQuoteForm";
+import {useAppSelector} from "../../../store/store.ts";
 
 export function CreateQuote() {
 
@@ -37,4 +35,3 @@ console.log(data)
         </>
     )
 }
-
