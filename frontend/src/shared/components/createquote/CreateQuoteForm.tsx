@@ -1,12 +1,13 @@
 import { Button, Col, Form, Row, Spinner } from "react-bootstrap";
-import { MutationResponse, useGetAllPromptsQuery,usePostCreateQuoteGenerateMutation,} from "../../store/apis";
-import { Prompt } from "../../shared/interfaces/Prompt";
 import * as Yup from "yup";
 import { Formik, FormikHelpers,FormikProps} from "formik";
-import { CreateQuote } from "../../shared/interfaces/CreateQuote";
-import { DisplayStatus } from "../../shared/components/display-status/DisplayStatus";
-import { FormDebugger } from "../../shared/components/FormDebugger";
-import { DisplayError } from "../../shared/components/display-error/DisplayError";
+import {MutationResponse, useGetAllPromptsQuery, usePostCreateQuoteGenerateMutation} from "../../../store/apis";
+import {CreateQuote} from "../../interfaces/CreateQuote";
+import {Prompt} from "../../interfaces/Prompt.ts";
+import {DisplayError} from "../display-error/DisplayError";
+import {DisplayStatus} from "../display-status/DisplayStatus";
+import {FormDebugger} from "../FormDebugger";
+
 
 export const CreateQuoteFormLogic = () => {
     const [submit] = usePostCreateQuoteGenerateMutation({fixedCacheKey:"SubmitQuote"});
@@ -62,7 +63,7 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
         handleSubmit,
     } = props;
 
-    const { data: prompts, error, isLoading } = useGetAllPromptsQuery("");
+    const { data: prompts, isLoading } = useGetAllPromptsQuery("");
 
     if (isLoading || prompts === undefined) {
         return (

@@ -95,7 +95,7 @@ a.nav-link:visited {
 /*SIGN-IN*/
 
 .sign-in-card {
-    border: 1px solid grey;
+    border: 1.5px solid grey;
 }
 
 .center-hr {
@@ -106,4 +106,3 @@ a.nav-link:visited {
 .quote-image-card {
     border: none;
 }
-

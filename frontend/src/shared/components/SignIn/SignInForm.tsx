@@ -73,7 +73,7 @@ return (
 
     return (
         <>
-                    <Form onSubmit={handleSubmit}>
+                    <Form  onSubmit={handleSubmit}>
                         <Form.Group className={"mb-3"} controlId="formHorizontalEmail">
                             <Form.Label column lg={2} className="ms-2">
                                 Email

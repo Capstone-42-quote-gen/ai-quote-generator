@@ -1,8 +1,8 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {SignUp} from "../shared/interfaces/SignUp";
+
 import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote} from "../shared/interfaces/CreateQuote";
-import {SignIn} from "../shared/interfaces/Profile.ts";
+import {SignIn, SignUp} from "../shared/interfaces/Profile.ts";
 
 
 export interface ServerResponse {

@@ -3,12 +3,14 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './Home.tsx'
 import { FourOhFour } from './FourOhFour'
-import {CreateQuote} from "./createquote/CreateQuote";
-import {DisplayQuote} from "./DisplayQuote.tsx";
-import {Profile} from "./Profile.tsx";
+import {DisplayQuote} from "./DisplayQuote";
+import {Profile} from "./Profile";
 import {Provider} from "react-redux";
 import {ToolkitStore} from "@reduxjs/toolkit/dist/configureStore";
-// import {SignIn} from "./SignIn/SignIn";
+import {CreateQuote} from "../shared/components/createquote/CreateQuote";
+import {SignIn} from "../shared/components/SignIn/SignIn";
+import {SignUp} from "../shared/components/signup/SignUp";
+
 
 interface Props {
     store: ToolkitStore
@@ -25,7 +27,8 @@ export function App(props: Props) {
                     <Route path={'/create-quote'} element={<CreateQuote />} />
                     <Route path={'/display-quote'} element={<DisplayQuote />} />
                     <Route path={'/profile'} element={<Profile />} />
-                    {/*<Route path={'/sign-in'} element={<SignIn />} />*/}
+                    <Route path={'/sign-in'} element={<SignIn />} />
+                    <Route path={'/sign-up'} element={<SignUp />} />
                 </Routes>
             </BrowserRouter>
         </Provider>
