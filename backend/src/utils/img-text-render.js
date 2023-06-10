@@ -8,6 +8,7 @@
 
 
 
+//props.image.regularUrl
 unSplashImageUrl = "https://images.unsplash.com/photo-1492707317997-96ae440f1878?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTMzNDJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODYxODQ5MDh8&ixlib=rb-4.0.3&q=80&w=1080"
 
 openAiQuote = "Like, why even bother trying to be productive when you can just binge-watch Netflix and eat snacks all day? - Valley Girl"
