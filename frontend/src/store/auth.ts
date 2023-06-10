@@ -8,18 +8,18 @@ export interface JwtToken extends Profile {
     iat: number;
 }
 
-const initialState: JwtToken | null = null;
+const initialState: JwtToken | null = null
 const slice = createSlice({
     name: "auth",
     initialState,
     reducers: {
         getAuth: (_, action) => {
-            return action.payload;
-        },
-    },
-});
+            return action.payload
+        }
+    }
+})
 
-export const { getAuth } = slice.actions;
+export const { getAuth } = slice.actions
 
 export const fetchAuth = () => async (dispatch: AppDispatch, getState: RootState) => {
     const state = getState();

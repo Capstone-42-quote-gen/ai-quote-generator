@@ -12,13 +12,13 @@ const currentUserSlice = createSlice({
     name:'profile',
     initialState: null as null,
     reducers: {
-        getCurrentUserByProfileId:(state, action: PayloadAction<any>) => {
+        getCurrentUserByProfileId:(profile, action: PayloadAction<any>) => {
             return action.payload
         },
     },
 });
 
-export const { getCurrentUserByProfileId} = currentUserSlice.actions;
+export const {getCurrentUserByProfileId} = currentUserSlice.actions;
 
 export default currentUserSlice.reducer
 
