@@ -8,7 +8,7 @@ import {DisplayQuote} from "./DisplayQuote.tsx";
 import {Profile} from "./Profile.tsx";
 import {Provider} from "react-redux";
 import {ToolkitStore} from "@reduxjs/toolkit/dist/configureStore";
-import {SignIn} from "./SignIn/SignIn";
+// import {SignIn} from "./SignIn/SignIn";
 
 interface Props {
     store: ToolkitStore
@@ -25,7 +25,7 @@ export function App(props: Props) {
                     <Route path={'/create-quote'} element={<CreateQuote />} />
                     <Route path={'/display-quote'} element={<DisplayQuote />} />
                     <Route path={'/profile'} element={<Profile />} />
-                    <Route path={'/sign-in'} element={<SignIn />} />
+                    {/*<Route path={'/sign-in'} element={<SignIn />} />*/}
                 </Routes>
             </BrowserRouter>
         </Provider>

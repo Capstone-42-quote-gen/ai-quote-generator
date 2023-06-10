@@ -6,9 +6,9 @@ import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import {TypedUseSelectorHook, useDispatch,
     useSelector} from "react-redux";
 import auth from "./auth";
-import {Profile} from "../ui/Profile";
 
-const reducer = combineReducers({api: apis.reducer, auth, Profile,})
+
+const reducer = combineReducers({auth, api: apis.reducer})
 export const store: ToolkitStore =  configureStore({
     reducer: reducer,
     middleware:(getDefaultMiddleware) => getDefaultMiddleware().concat(apis.middleware),

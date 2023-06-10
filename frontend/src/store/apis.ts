@@ -59,7 +59,7 @@ export const apis = createApi({
             transformErrorResponse: transformErrorResponses,
             query (body: CreateQuote) {
                 return{
-                    url:'/post-prompt',
+                    url:'/generate-prompt',
                     method: "POST",
                     body
                 }
@@ -131,10 +131,13 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             type: 'alert alert-danger',
         }
     }
+
+
     export const {
             useGetProfileQuery,
             usePostSignUpMutation,
             usePostSignInMutation,
             useGetAllPromptsQuery,
-            // usePostCreateQuoteMutation
+            usePostCreateQuoteGenerateMutation
         } = apis
+
