@@ -4,10 +4,9 @@ export interface Profile {
 }
 
 export interface PartialProfile {
-
+    profileEmail: string|null
+    profilePhotoUrl: string
     profileUsername: string
-    profilePhotoUrl: string|null
-    profileEmail: string
     profilePassword: string
 }
 
