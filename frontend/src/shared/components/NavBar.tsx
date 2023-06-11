@@ -7,33 +7,33 @@ import logo from "../../assets/gloomsmith.png";
 
 export function Navigation() {
     return (
-        <Container>
+        <Container fluid>
             {/* Centering Logo */}
             <Row className="align-items-center">
                 <Col className="text-center">
                     <a href="/"><Image fluid src={logo} className={'py-3'} /></a>
                 </Col>
             </Row>
-            <Row className="align-items-center">
-            <Navbar expand={"sm"} className={"custom-navbar mx-auto}"}>
-                <Container>
-                    <Navbar.Toggle aria-controls={"responsive-navbar-nav"} />
-                    <Navbar.Collapse id={"responsive-navbar-nav"}>
-                    <Nav className="w-100 justify-content-evenly">
+            {/*<Row className="align-items-center">*/}
+            <Navbar className={"custom-navbar mx-auto}"}>
+                {/*<Container>*/}
+                {/*    <Navbar.Toggle aria-controls={"responsive-navbar-nav"} />*/}
+                    {/*<Navbar.Collapse id={"responsive-navbar-nav"}>*/}
+                    <Nav className={"w-100 justify-content-evenly"}>
                         <Nav.Link href="#popular">Popular</Nav.Link>
-                        <span className="navbar-divider"></span>
+                        <span className={"navbar-divider"}></span>
                         <Nav.Link href="#new">New</Nav.Link>
-                        <span className="navbar-divider"></span>
+                        <span className={"navbar-divider"}></span>
                         <Nav.Link href="#topics">Tags</Nav.Link>
-                        <span className="navbar-divider"></span>
+                        <span className={"navbar-divider"}></span>
                         <Nav.Link href="/create-quote">Create</Nav.Link>
-                        <span className="navbar-divider"></span>
+                        <span className={"navbar-divider"}></span>
                         <Nav.Link href="/sign-in"><Image src={signIn} className={"sign-in-icon p-0 mb-1 me-2"} />Profile</Nav.Link>
                     </Nav>
-                    </Navbar.Collapse>
-                </Container>
+                    {/*</Navbar.Collapse>*/}
+                {/*</Container>*/}
             </Navbar>
-            </Row>
+            {/*</Row>*/}
         </Container>
     );
 }
