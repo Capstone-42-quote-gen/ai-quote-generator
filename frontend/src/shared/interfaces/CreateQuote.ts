@@ -7,8 +7,8 @@ export interface CreateQuote {
 
 // Interface for pulling in data for previewing the quote images
 export interface QuoteImage {
-    photographerName: string,
-    photographerUrl: string,
+    userName: string,
+    userHtmlLink: string,
     regularUrl: string
 }
 // Interface for saving the quote image that is selected by the user

@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 import {Prompt} from "../shared/interfaces/Prompt";
-import {CreateQuote, SaveQuote} from "../shared/interfaces/CreateQuote";
+import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
 import {SignIn, SignUp} from "../shared/interfaces/Profile.ts";
 
 
@@ -69,7 +69,7 @@ export const apis = createApi({
         }),
 
 
-        PostSaveQuote: builder.mutation<ClientResponse, SaveQuote>({
+        PostSaveQuote: builder.mutation<ClientResponse, PartialPost >({
             transformErrorResponse: transformErrorResponses,
             query (body: SaveQuote) {
                 return{

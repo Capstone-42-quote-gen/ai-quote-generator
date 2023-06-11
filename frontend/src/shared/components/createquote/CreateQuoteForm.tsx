@@ -28,7 +28,7 @@ export const CreateQuoteFormLogic = () => {
         const result = (await submit(createQuote)) as MutationResponse;
 
         const { data: response, error } = result;
-    console.log(response)
+    // console.log(response)
         if (error) {
             setStatus({ type: error.type, message: error.message });
         } else if (response?.status === 200) {

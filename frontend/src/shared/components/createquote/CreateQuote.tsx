@@ -11,7 +11,7 @@ export function CreateQuote() {
     const data = useAppSelector(
     (state) => state.api.mutations?.SubmitQuote?.data?.data
 )
-console.log(data)
+// console.log(data)
 
     return (
         <>
