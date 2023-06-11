@@ -4,10 +4,10 @@ export interface Profile {
 }
 
 export interface PartialProfile {
+    profileEmail: string,
 
     profileUsername: string
     // profilePhotoUrl: string|null
-    profileEmail: string
     profilePassword: string
 }
 
@@ -16,7 +16,7 @@ export interface SignIn {
     profilePassword: string
 }
 export interface SignUp extends PartialProfile {
-    profileUsername: string,
     profileEmail: string,
+    profileUsername: string,
     profilePassword: string
 }
