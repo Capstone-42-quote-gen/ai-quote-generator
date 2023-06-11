@@ -19,9 +19,6 @@ export function SignUp() {
                 <Modal.Body>
                     <SignUpForm />
                 </Modal.Body>
-                <Modal.Footer>
-
-                </Modal.Footer>
             </Modal>
         </>
     )

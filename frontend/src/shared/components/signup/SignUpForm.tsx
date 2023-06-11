@@ -64,12 +64,12 @@ export function SignUpForm() {
             values,
             errors,
             touched,
-            dirty,
-            isSubmitting,
+            // dirty,
+            // isSubmitting,
             handleChange,
             handleBlur,
             handleSubmit,
-            handleReset
+            // handleReset
         } = props;
 
         return (
@@ -83,6 +83,7 @@ export function SignUpForm() {
                             placeholder={"Email"}
                             value={values.profileEmail}
                             name="profileEmail"
+                            type="email"
                             // autoFocus
                         />
                         <DisplayError errors={errors} touched={touched} field={"profileEmail"}/>
@@ -93,6 +94,7 @@ export function SignUpForm() {
                             placeholder={"Username"}
                             value={values.profileUsername}
                             name="profileUsername"
+                            type="username"
                         />
                         <DisplayError errors={errors} touched={touched} field={"profileUsername"}/>
                         <Form.Label htmlFor="profilePassword">Password</Form.Label>
@@ -102,6 +104,7 @@ export function SignUpForm() {
                             placeholder={"Password"}
                             value={values.profilePassword}
                             name="profilePassword"
+                            type="password"
                             // aria-describedby="passwordHelpBlock"
                         />
                         <DisplayError errors={errors} touched={touched} field={"profilePassword"}/>
@@ -111,8 +114,8 @@ export function SignUpForm() {
                     </Form.Group>
                     <Form.Group>
                         <Button variant="secondary" type={"submit"}>Submit</Button>
-                        {""}
-                        <Button variant="secondary" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>
+                        {/*{""}*/}
+                        {/*<Button variant="secondary" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>*/}
                     </Form.Group>
                 </Form>
                 <DisplayStatus status={status}/>
