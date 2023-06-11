@@ -10,39 +10,47 @@ export function SignIn() {
 
     return (
         <>
-            <Container className={"align-items-center py-5"}>
-                <Card className={"sign-in-card m-5"}>
-                    <Card.Body className={"rounded"}>
-                        <Card.Title className={"text-center py-4"}>
-                            <a href="/"><img src={signInIcon} alt={"logo"} /></a>
+            <Container
+                className={"align-items-center sign-in-card-resize py-5"}>
+                <Card
+                    className={"sign-in-card  m-5"}>
+                    <Card.Body
+                        className={"rounded"}>
+                        <Card.Title
+                            className={"text-center py-4"}>
+                            <a
+                                href="/"><img
+                                src={signInIcon}
+                                alt={"logo"} />
+                            </a>
                             <h1 className={"pt-3"}>Sign In</h1>
                         </Card.Title>
-                        <hr className={"center-hr"}/>
-                <Row className={"justify-content-center"}>
-                    <Col md={6}>
-                        <SignInForm />
-                    </Col>
-                </Row>
+                            <hr className={"center-hr"}/>
+                            <Row className={"justify-content-center"}>
+                                <Col md={6}>
+                                <SignInForm />
+                                </Col>
+                            </Row>
+                        </Card.Body>
 
-            </Card.Body>
-        </Card>
+                </Card>
                 <Row className={"justify-content-center mt-4"}>
                     <Col lg={8}>
                         <div className={"text-center"}>
                             <span className={"divider-text"}>
-                                <hr/>Not signed up yet?<hr/>
+                            <hr/>Not signed up yet?<hr/>
                             </span>
                         </div>
                     </Col>
                 </Row>
                 <Row className={"justify-content-center"}>
-                    <Col lg={8}>
-                        <div className={"d-grid"}>
-                            <SignUp />
-                        </div>
-                    </Col>
-                </Row>
-    </Container>
+                            <Col lg={8}>
+                                <div className={"d-grid"}>
+                                <SignUp />
+                                </div>
+                            </Col>
+                        </Row>
+            </Container>
     </>
     )
 }

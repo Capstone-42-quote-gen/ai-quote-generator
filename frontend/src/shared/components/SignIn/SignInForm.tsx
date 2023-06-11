@@ -1,22 +1,23 @@
-import {Button, Col, Form, Row} from "react-bootstrap";
-import * as Yup from "yup";
+import {Button, Col, Form, InputGroup, Row} from "react-bootstrap";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import jwtDecode from "jwt-decode";
 import {AppDispatch, useAppDispatch} from "../../../store/store";
 import {ClientResponseForSignIn, usePostSignInMutation} from "../../../store/apis";
 import {DisplayStatus} from "../display-status/DisplayStatus";
 import {FormDebugger} from "../FormDebugger";
-import {string} from "yup";
+import {object, string} from "yup";
 import {getAuth, JwtToken} from "../../../store/auth";
-import {SignIn} from "../../interfaces/Profile.ts";
+import {SignIn} from "../../interfaces/Profile";
+import {DisplayError} from "../display-error/DisplayError.tsx";
+
 export function SignInForm() {
 
 
-const [ submitRequest ] = usePostSignInMutation()
+    const [ submitRequest ] = usePostSignInMutation()
     const dispatch: AppDispatch = useAppDispatch()
 
-const validator = Yup.object().shape({
-    profileEmail: Yup.string()
+    const validator = object().shape({
+    profileEmail: string()
         .email("Please provide a valid email")
         .required("Email is required"),
     profilePassword: string()
@@ -24,12 +25,12 @@ const validator = Yup.object().shape({
         .min(8, "Password  cannot be under 8 characters"),
 })
 
-const signIn: SignIn = {
+    const signIn: SignIn = {
     profileEmail: "",
     profilePassword: ""
 }
 
-const submitSignIn = async (values: SignIn, formikHelpers: FormikHelpers<SignIn>) => {
+    const submitSignIn = async (values: SignIn, formikHelpers: FormikHelpers<SignIn>) => {
     const {resetForm, setStatus} = formikHelpers
     const result = await submitRequest(values)
     const {
@@ -61,44 +62,48 @@ return (
         const {
             status,
             values,
-            // errors,
-            // touched,
-            // dirty,
-            // isSubmitting,
+            errors,
+            touched,
+            dirty,
+            isSubmitting,
             handleChange,
             handleBlur,
             handleSubmit,
-            // handleReset
+            handleReset
         } = props;
 
-    return (
-        <>
-                    <Form  onSubmit={handleSubmit}>
-                        <Form.Group className={"mb-3"} controlId="formHorizontalEmail">
-                            <Form.Label column lg={2} className="ms-2">
-                                Email
-                            </Form.Label>
-                            <Col lg={12}>
-                                <Form.Control
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                placeholder={"Email"}
-                                value={values.profileEmail}
-                                name={"profileEmail"}
-                                type="email"
-                                />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-                            <Form.Label column lg={4} className="ms-2">
+return (
+       <>
+         <Form onSubmit={handleSubmit}>
+            <Form.Group className={"mb-3"} controlId="formHorizontalEmail">
+              <Form.Label column lg={2} className="ms-2">
+              <p>Email</p>
+                </Form.Label>
+                    <Col lg={12}>
+                        <InputGroup>
+                            <Form.Control
+                             name={"profileEmail"}
+                             type="email"
+                             onChange={handleChange}
+                             onBlur={handleBlur}
+                             placeholder={"Email"}
+                             value={values.profileEmail}
+                             />
+                        </InputGroup>
+                        <DisplayError errors={errors} touched={touched} field={"profileEmail"} />
+                    </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+                        <Form.Label column lg={4} className="ms-2">
                                 Password
-                            </Form.Label>
+                        </Form.Label>
                             <Col lg={12}>
                                 <Form.Control
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder={"Password"}
-                                value={values.profileEmail}
+                                value={values.profilePassword}
                                 name={"profilePassword"}
                                 type="password"
                                 />
@@ -106,13 +111,19 @@ return (
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3">
                             <Col lg={"12"}>
-                                <Button variant={"secondary"} type={"submit"}>Sign in</Button>
+                                <Button
+                                    variant={"secondary"}
+                                    type={"submit"}
+                                    onClick={handleReset}
+                                    disabled={!dirty || isSubmitting}>
+                                    Sign in
+                                </Button>
                             </Col>
-                        </Form.Group>
-                    </Form>
-                    <DisplayStatus status={status}/>
-                    <FormDebugger {...props}/>
-        </>
-    )
-}
+            </Form.Group>
+         </Form>
+       <DisplayStatus status={status}/>
+     <FormDebugger {...props}/>
+       </>
+        )
+    }
 }
