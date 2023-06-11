@@ -98,15 +98,12 @@ a.nav-link:visited {
 }
 
 .sign-in-card-resize {
-    width: 75%;
+    width: 80%;
     height: 50%;
 }
 
 
 .center-hr {
-    display: block;
-    margin: 0 auto;
-    width: 300px;
 }
 .quote-image-card {
     border: none;

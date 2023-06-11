@@ -10,8 +10,7 @@ import {getAuth, JwtToken} from "../../../store/auth";
 import {SignIn} from "../../interfaces/Profile";
 import {DisplayError} from "../display-error/DisplayError.tsx";
 
-export function SignInForm() {
-
+export const SignInForm = () => {
 
     const [ submitRequest ] = usePostSignInMutation()
     const dispatch: AppDispatch = useAppDispatch()
@@ -75,8 +74,11 @@ return (
 return (
        <>
          <Form onSubmit={handleSubmit}>
-            <Form.Group className={"mb-3"} controlId="formHorizontalEmail">
-              <Form.Label column lg={2} className="ms-2">
+            <Form.Group
+                className={"mb-3"}
+                controlId="formHorizontalEmail">
+              <Form.Label column lg={2}
+                          className="ms-2">
               <p>Email</p>
                 </Form.Label>
                     <Col lg={12}>
@@ -90,12 +92,16 @@ return (
                              value={values.profileEmail}
                              />
                         </InputGroup>
-                        <DisplayError errors={errors} touched={touched} field={"profileEmail"} />
+                        <DisplayError errors={errors}
+                                      touched={touched}
+                                      field={"profileEmail"} />
                     </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-                        <Form.Label column lg={4} className="ms-2">
+            <Form.Group as={Row} className="mb-3"
+                        controlId="formHorizontalPassword">
+                        <Form.Label column lg={4}
+                                    className="ms-2">
                                 Password
                         </Form.Label>
                             <Col lg={12}>
@@ -116,7 +122,7 @@ return (
                                     type={"submit"}
                                     onClick={handleReset}
                                     disabled={!dirty || isSubmitting}>
-                                    Sign in
+                                   <p>Sign in</p>
                                 </Button>
                             </Col>
             </Form.Group>

@@ -25,7 +25,7 @@ export function SignIn() {
                             </a>
                             <h1 className={"pt-3"}>Sign In</h1>
                         </Card.Title>
-                            <hr className={"center-hr"}/>
+                            <hr className={"center-hr m-2"}/>
                             <Row className={"justify-content-center"}>
                                 <Col md={6}>
                                 <SignInForm />
