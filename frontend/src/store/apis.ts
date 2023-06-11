@@ -42,16 +42,15 @@ export const apis = createApi({
         }),
 
         PostSignUp: builder.mutation<ClientResponse, SignUp>({
+            transformResponse: transformMutationResponses,
             transformErrorResponse: transformErrorResponses,
             query (body: SignUp) {
                 return{
-                    url:'/profile',
+                    url:'/sign-up',
                     method: "POST",
                     body
                 }
             },
-            transformResponse: transformMutationResponses,
-            invalidatesTags: ["SignUp"]
             }),
 
 
