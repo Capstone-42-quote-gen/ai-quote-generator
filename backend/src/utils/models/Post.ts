@@ -12,8 +12,8 @@ export interface Post {
 }
 
 export async function insertPost(post: Post): Promise<string> {
-    const { postProfileId, postPhotoUrl, postQuote, postPhotographerName, postPhotographerUrl } = post
-    await sql`INSERT INTO post (post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_photographer_name, post_photographer_url) VALUES (gen_random_uuid(), ${postProfileId}, ${postPhotoUrl}, ${postQuote}, NOW(), ${postPhotographerName}, ${postPhotographerUrl})`
+    const { postId, postProfileId, postPhotoUrl, postQuote, postPhotographerName, postPhotographerUrl } = post
+    await sql`INSERT INTO post (post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_photographer_name, post_photographer_url) VALUES (${postId}, ${postProfileId}, ${postPhotoUrl}, ${postQuote}, NOW(), ${postPhotographerName}, ${postPhotographerUrl})`
     return 'post created successfully'
 }
 

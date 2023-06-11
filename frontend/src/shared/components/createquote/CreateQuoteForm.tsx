@@ -9,6 +9,7 @@ import {DisplayStatus} from "../display-status/DisplayStatus";
 import {FormDebugger} from "../FormDebugger";
 
 
+
 export const CreateQuoteFormLogic = () => {
     const [submit] = usePostCreateQuoteGenerateMutation({fixedCacheKey:"SubmitQuote"});
     const createQuote: CreateQuote = {
@@ -21,17 +22,18 @@ export const CreateQuoteFormLogic = () => {
     });
 
     const submitQuote = async ( values: CreateQuote, formikHelpers: FormikHelpers<CreateQuote>) => {
-        const { resetForm, setStatus } = formikHelpers;
+        const { setStatus } = formikHelpers;
         const createQuote: CreateQuote = {topic: values.topic, voice: values.voice}
 
         const result = (await submit(createQuote)) as MutationResponse;
 
         const { data: response, error } = result;
-    console.log(response)
+    // console.log(response)
         if (error) {
             setStatus({ type: error.type, message: error.message });
         } else if (response?.status === 200) {
-            resetForm();
+
+            // resetForm();
             setStatus({ type: response.type, message: response.message });
         } else {
             setStatus({

@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {Prompt} from "../shared/interfaces/Prompt";
-import {CreateQuote} from "../shared/interfaces/CreateQuote";
-import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile.ts";
+import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
+import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile";
 // import {SignUpForm} from "../shared/components/signup/SignUpForm";
 
 
@@ -27,7 +27,8 @@ export interface ClientResponseForSignIn extends ClientResponse {
 export const apis = createApi({
     reducerPath:"api",
     baseQuery: fetchBaseQuery({baseUrl:'/apis'}),
-    tagTypes: ["SignUp", "SignIn", "Prompt", "CreateQuote"],
+
+    tagTypes: ["SignUp", "SignIn" ,"Prompt","CreateQuote","SaveQuote"],
     endpoints: (builder) => ({
 
         getProfile: builder.query<SignUp[], string>({
@@ -66,6 +67,20 @@ export const apis = createApi({
             },
             transformResponse: transformMutationResponses,
             invalidatesTags: ["CreateQuote"]
+        }),
+
+
+        PostSaveQuote: builder.mutation<ClientResponse, PartialPost >({
+            transformErrorResponse: transformErrorResponses,
+            query (body: PartialPost ) {
+                return{
+                    url:'/post',
+                    method: "POST",
+                    body
+                }
+            },
+            transformResponse: transformMutationResponses,
+            invalidatesTags: ["SaveQuote"]
         }),
 
 
@@ -135,11 +150,10 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
 
 
     export const {
-                    // useGetProfileQuery,
+                    useGetProfileQuery,
                     usePostSignUpMutation,
                     usePostSignInMutation,
                     useGetAllPromptsQuery,
-                    usePostCreateQuoteGenerateMutation
-                 } = apis
-
-console.log(usePostSignInMutation)
+                    usePostCreateQuoteGenerateMutation,
+                    usePostSaveQuoteMutation
+                } = apis
