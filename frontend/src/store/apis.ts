@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 import {Prompt} from "../shared/interfaces/Prompt";
-import {CreateQuote} from "../shared/interfaces/CreateQuote";
+import {CreateQuote, SaveQuote} from "../shared/interfaces/CreateQuote";
 import {SignIn, SignUp} from "../shared/interfaces/Profile.ts";
 
 
@@ -27,7 +27,7 @@ export interface ClientResponseForSignIn extends ClientResponse {
 export const apis = createApi({
     reducerPath:"api",
     baseQuery: fetchBaseQuery({baseUrl:'/apis'}),
-    tagTypes: ["SignUp","Prompt","CreateQuote"],
+    tagTypes: ["SignUp","Prompt","CreateQuote","SaveQuote"],
     endpoints: (builder) => ({
         getProfile: builder.query<SignUp[], string>({
             query: () => '/profile',
@@ -66,6 +66,20 @@ export const apis = createApi({
             },
             transformResponse: transformMutationResponses,
             invalidatesTags: ["CreateQuote"]
+        }),
+
+
+        PostSaveQuote: builder.mutation<ClientResponse, SaveQuote>({
+            transformErrorResponse: transformErrorResponses,
+            query (body: SaveQuote) {
+                return{
+                    url:'/post',
+                    method: "POST",
+                    body
+                }
+            },
+            transformResponse: transformMutationResponses,
+            invalidatesTags: ["SaveQuote"]
         }),
 
 
@@ -138,5 +152,6 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
             usePostSignUpMutation,
             usePostSignInMutation,
             useGetAllPromptsQuery,
-            usePostCreateQuoteGenerateMutation
+            usePostCreateQuoteGenerateMutation,
+            usePostSaveQuoteMutation
         } = apis

@@ -1,5 +1,6 @@
 import {Button, Col, Image} from "react-bootstrap";
-import {QuoteImage} from "../../interfaces/CreateQuote.ts";
+import {PartialPost, QuoteImage, SaveQuote} from "../../interfaces/CreateQuote.ts";
+import {usePostSaveQuoteMutation} from "../../../store/apis.ts";
 interface PreviewQuoteProps{
     image: QuoteImage,
     quote: string
@@ -15,6 +16,24 @@ export function PreviewQuote(props: PreviewQuoteProps) {
     let imgTemplate3 = props.image.regularUrl +"&usm=20&exp=-10&mark64="+btoa("https://assets.imgix.net/~text?w=1000&txtclr=fff&txt="+props.quote+"&w=1000&txtsize=80&txtlead=0&txtpad=150&txtfont=Impact&txtalign=center") + "&markalign=center%2Cbottom&txt64=aHR0cHM6Ly9nbG9vbXNtaXRoLmxvbA&txtalign=center&txtclr=fff&txtsize=30&txtpad=40&blend64=NjM3NDk3&balph=50&bm=screen&bs=inherit&fit=crop"
 
     console.log(props)
+
+  const [submitQuote] = usePostSaveQuoteMutation ()
+
+    async function savePost(){
+        const partialPost: PartialPost = {
+            //TODO: change the profile ID using - const {profile} = useJwtToken() - once login is working
+            postProfileID:"ff324d87-e3b6-4653-9f60-52b9e516950a" ,
+            // TODO: change the photo url to be the value that is based on the mapped value to this field.
+                postPhotoUrl: imgTemplate1,
+                postQuote: props.quote,
+                postPhotographerName: props.image.regularUrl,
+                postPhotographerUrl: props.image.regularUrl
+        }
+        await submitQuote(partialPost)
+
+    }
+
+
     return (
         <>
 
@@ -22,7 +41,7 @@ export function PreviewQuote(props: PreviewQuoteProps) {
         <Image fluid src={imgTemplate1} alt="Gloomsmith Generated Quote Image"
                className="border border-dark"/>
         <Col xs="auto" className="d-flex justify-content-center py-2">
-            <Button variant="light" size="lg" type="submit">Save</Button>
+            <Button variant="light" size="lg" onClick={savePost}>Save</Button>
         </Col>
     </Col>
 
