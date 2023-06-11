@@ -2,8 +2,8 @@ import {Container, Row} from "react-bootstrap";
 import {CreateQuoteFormLogic} from "./CreateQuoteForm";
 import {useAppSelector} from "../../../store/store.ts";
 import {Navigation} from "../NavBar.tsx";
-import {PreviewQuote} from "./PreviewQuote.tsx";
 import {QuoteImage} from "../../interfaces/CreateQuote.ts";
+import {PreviewQuote} from "./PreviewQuote.tsx";
 
 export function CreateQuote() {
 

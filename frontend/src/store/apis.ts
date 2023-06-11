@@ -71,7 +71,7 @@ export const apis = createApi({
 
         PostSaveQuote: builder.mutation<ClientResponse, PartialPost >({
             transformErrorResponse: transformErrorResponses,
-            query (body: SaveQuote) {
+            query (body: PartialPost ) {
                 return{
                     url:'/post',
                     method: "POST",
