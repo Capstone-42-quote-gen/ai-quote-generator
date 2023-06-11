@@ -3,6 +3,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote} from "../shared/interfaces/CreateQuote";
 import {SignIn, SignUp} from "../shared/interfaces/Profile.ts";
+// import {SignUpForm} from "../shared/components/signup/SignUpForm";
 
 
 export interface ServerResponse {
@@ -42,16 +43,15 @@ export const apis = createApi({
         }),
 
         PostSignUp: builder.mutation<ClientResponse, SignUp>({
+            transformResponse: transformMutationResponses,
             transformErrorResponse: transformErrorResponses,
             query (body: SignUp) {
                 return{
-                    url:'/profile',
+                    url:'/sign-up',
                     method: "POST",
                     body
                 }
             },
-            transformResponse: transformMutationResponses,
-            invalidatesTags: ["SignUp"]
             }),
 
 

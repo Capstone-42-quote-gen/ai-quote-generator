@@ -9,11 +9,11 @@ import {SignUp} from "../../interfaces/Profile";
 
 
 
-export function SignUpForm() {
+export const SignUpForm = () => {
 
     const signUp: SignUp = {
         profileUsername: "",
-        profilePhotoUrl: "",
+        // profilePhotoUrl: "",
         profileEmail: "",
         profilePassword: ""
     }
@@ -64,12 +64,11 @@ export function SignUpForm() {
             values,
             errors,
             touched,
-            // dirty,
-            // isSubmitting,
+            dirty,
+            isSubmitting,
             handleChange,
             handleBlur,
             handleSubmit,
-            // handleReset
         } = props;
 
         return (
@@ -113,7 +112,7 @@ export function SignUpForm() {
                         </Form.Text>
                     </Form.Group>
                     <Form.Group>
-                        <Button variant="secondary" type={"submit"}>Submit</Button>
+                        <Button variant="secondary" type={"submit"} disabled={!dirty || isSubmitting}>Submit</Button>
                         {/*{""}*/}
                         {/*<Button variant="secondary" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>*/}
                     </Form.Group>
