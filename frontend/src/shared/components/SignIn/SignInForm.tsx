@@ -9,6 +9,7 @@ import {object, string} from "yup";
 import {getAuth, JwtToken} from "../../../store/auth";
 import {SignIn} from "../../interfaces/Profile";
 import {DisplayError} from "../display-error/DisplayError.tsx";
+import {Link} from "react-router-dom";
 
 export const SignInForm = () => {
 
@@ -122,7 +123,7 @@ return (
                                     type={"submit"}
                                     onClick={handleReset}
                                     disabled={!dirty || isSubmitting}>
-                                   <p>Sign in</p>
+                                    <Link to="/profile">Sign in</Link>
                                 </Button>
                             </Col>
             </Form.Group>

@@ -11,9 +11,9 @@ export function SignIn() {
     return (
         <>
             <Container
-                className={"align-items-center sign-in-card-resize py-5"}>
+                className={"align-items-center sign-in-card-resize mx-auto m-3 py-5"}>
                 <Card
-                    className={"sign-in-card  m-5"}>
+                    className={"sign-in-card"}>
                     <Card.Body
                         className={"rounded"}>
                         <Card.Title
