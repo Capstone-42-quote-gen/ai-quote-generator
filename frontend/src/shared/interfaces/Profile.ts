@@ -7,7 +7,7 @@ export interface PartialProfile {
     profileEmail: string,
 
     profileUsername: string
-    // profilePhotoUrl: string|null
+    profilePhotoUrl: string|null
     profilePassword: string
 }
 
