@@ -1,11 +1,11 @@
 import {Button, Form} from "react-bootstrap";
-import * as Yup from "yup";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {DisplayError} from "../display-error/DisplayError";
 import {DisplayStatus} from "../display-status/DisplayStatus";
 import {FormDebugger} from "../FormDebugger";
 import {ClientResponseForSignIn, MutationResponse, usePostSignUpMutation} from "../../../store/apis";
 import {SignUp} from "../../interfaces/Profile";
+import {object, string} from "yup";
 
 
 
@@ -20,15 +20,15 @@ export const SignUpForm = () => {
 
     const [submit] = usePostSignUpMutation()
 
-    const validator = Yup.object().shape({
-        profileUsername: Yup.string()
+    const validator = object().shape({
+        profileEmail: string()
+            .required("An email is required to sign up")
+            .max(256, "Email cannot be over 64 characters"),
+        profileUsername: string()
             .required("Username is required for sign up")
             .min(1, "SignUp username must be at least 1 character")
             .max(32, "SignUp username must be at least 32 characters"),
-        profileEmail: Yup.string()
-            .required("An email is required to sign up")
-            .max(256, "Email cannot be over 64 characters"),
-        profilePassword: Yup.string()
+        profilePassword: string()
             .required("Password is required to create a sign up")
             .min(8, "password must be at least 8 characters")
     })
@@ -113,8 +113,6 @@ export const SignUpForm = () => {
                     </Form.Group>
                     <Form.Group>
                         <Button variant="secondary" type={"submit"} disabled={!dirty || isSubmitting}>Submit</Button>
-                        {/*{""}*/}
-                        {/*<Button variant="secondary" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>*/}
                     </Form.Group>
                 </Form>
                 <DisplayStatus status={status}/>
