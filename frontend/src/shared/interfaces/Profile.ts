@@ -1,21 +1,22 @@
 
 export interface Profile {
-    profileId: string | null,
+    profileId: string | null
 }
 
 export interface PartialProfile {
-    profileEmail: string|null
-    profilePhotoUrl: string
+    profileId: string | null
+    profileEmail: string
     profileUsername: string
-    profilePassword: string
+    profilePhotoUrl: string
 }
 
 export interface SignIn {
     profileEmail: string,
     profilePassword: string
 }
-export interface SignUp extends PartialProfile {
-    profileUsername: string,
-    profileEmail: string,
+export interface SignUp {
+    profileId: string | null
+    profileUsername: string
+    profileEmail: string
     profilePassword: string
 }
