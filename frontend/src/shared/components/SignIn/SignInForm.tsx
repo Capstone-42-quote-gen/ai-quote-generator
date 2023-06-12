@@ -9,9 +9,10 @@ import {object, string} from "yup";
 import {getAuth, JwtToken} from "../../../store/auth";
 import {SignIn} from "../../interfaces/Profile";
 import {DisplayError} from "../display-error/DisplayError.tsx";
+import { useNavigate } from "react-router-dom";
 
 export const SignInForm = () => {
-
+    const navigate = useNavigate()
     const [ submitRequest ] = usePostSignInMutation()
     const dispatch: AppDispatch = useAppDispatch()
 
@@ -45,6 +46,7 @@ export const SignInForm = () => {
         dispatch(getAuth(decodedToken))
         resetForm()
         setStatus({type: response.type, message: response.message})
+        navigate("/")
     } else {
     setStatus({type: response?.type, message: response?.message})}
     console.log(formikHelpers)
