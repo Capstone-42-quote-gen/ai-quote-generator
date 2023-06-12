@@ -3,6 +3,7 @@ import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
 import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile";
 import {Post} from "../shared/interfaces/Post.ts";
+import {PostPrompt} from "../shared/interfaces/PostPrompt.ts";
 
 
 
@@ -40,7 +41,7 @@ export const apis = createApi({
         },
     }),
 
-    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote"],
+    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "PostPostPrompt"],
     endpoints: (builder) => ({
 
         getProfile: builder.query<SignUp[], string>({
@@ -60,6 +61,8 @@ export const apis = createApi({
             transformResponse: (response: { data: Post}) => response.data,
 
         }),
+
+
 
 
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
@@ -121,6 +124,19 @@ export const apis = createApi({
             invalidatesTags: ["CreateQuote"]
         }),
 
+        PostPostPrompt: builder.mutation<ClientResponse, PostPrompt >({
+            transformErrorResponse: transformErrorResponses,
+            query (body: PostPrompt ) {
+                return{
+                    url:'/post-prompt',
+                    method: "POST",
+                    body
+                }
+            },
+            transformResponse: transformMutationResponses,
+            invalidatesTags: ["PostPostPrompt"]
+        }),
+
 
         PostSaveQuote: builder.mutation<ClientResponse, PartialPost >({
             transformErrorResponse: transformErrorResponses,
@@ -173,5 +189,6 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     useGetAllPromptsQuery,
                     usePostCreateQuoteGenerateMutation,
                     usePostSaveQuoteMutation,
+                    usePostPostPromptMutation,
                     useGetPostByPostIdQuery
                 } = apis

@@ -13,7 +13,7 @@ export function CreateQuote() {
     );
 
 const profile = useJwtToken()
-    console.log(profile)
+
 
     return (
         <>
