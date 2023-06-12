@@ -12,6 +12,7 @@ interface GalleryContentProps {
 
 export function GalleryContent(props: GalleryContentProps) {
     const { post} = props;
+    console.log(post)
 
     return (
         <>
