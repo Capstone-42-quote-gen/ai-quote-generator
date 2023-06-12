@@ -38,6 +38,5 @@ export const postValidator: Schema = {
             options: {max: 2000}
         },
         trim: true,
-        escape: true
     },
 }
