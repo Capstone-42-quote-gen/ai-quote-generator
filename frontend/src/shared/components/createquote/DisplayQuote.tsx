@@ -1,9 +1,7 @@
-
 import {useParams} from "react-router-dom";
 import {useGetPostByPostIdQuery} from "../../../store/apis.ts";
 import {Navigation} from "../NavBar.tsx";
 import {GalleryContent} from "../HomeGallery/GalleryContent.tsx";
-
 
 
 

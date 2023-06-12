@@ -10,6 +10,7 @@ import {CreateQuote} from "../shared/components/createquote/CreateQuote";
 import {SignIn} from "../shared/components/SignIn/SignIn";
 import {SignUp} from "../shared/components/signup/SignUp";
 import {DisplayQuote} from "../shared/components/createquote/DisplayQuote";
+import {DisplayByNew} from "../shared/components/navbar-functions/New";
 
 
 interface Props {
@@ -29,6 +30,7 @@ export function App(props: Props) {
                     <Route path={'/profile'} element={<Profile />} />
                     <Route path={'/sign-in'} element={<SignIn />} />
                     <Route path={'/sign-up'} element={<SignUp />} />
+                    <Route path={'/new'} element={<DisplayByNew />} />
                 </Routes>
             </BrowserRouter>
         </Provider>
