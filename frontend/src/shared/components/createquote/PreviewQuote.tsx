@@ -35,9 +35,10 @@ export function PreviewQuote(props: PreviewQuoteProps) {
             postPhotographerUrl: props.image.userHtmlLink,
         };
 
-        console.log("partialPost: ", partialPost);
+
 
         const result = await submitQuote(partialPost) as MutationResponse;
+        console.log(result.data.data.postId)
     }
 
 

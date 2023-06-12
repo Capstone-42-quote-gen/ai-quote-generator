@@ -1,5 +1,5 @@
 import {Navigation} from "../shared/components/NavBar.tsx";
-import {GalleryContent} from "../shared/components/ImageContent.tsx";
+import {GalleryContent} from "../shared/components/GalleryContent.tsx";
 import {useParams} from "react-router-dom";
 import {useGetPostByPostIdQuery} from "../store/apis.ts";
 

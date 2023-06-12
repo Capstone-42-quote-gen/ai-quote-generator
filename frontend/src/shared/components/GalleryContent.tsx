@@ -38,7 +38,7 @@ export function GalleryContent(props: GalleryContentProps) {
                         <Row>
                             <Col className={'text-center'}>
                                 <p><a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a></p>
-                                <div id="photo-credits">Photo by <a href={"#"}>Annie Spratt</a> from <a href='https://unsplash.com/?utm_source=Inspirational_Quotes&utm_medium=referral' target='_blank'>Unsplash</a></div>
+                                <div id="photo-credits">Photo by <a href={post.postPhotographerUrl}>{post.postPhotographerName}</a> from <a href='https://unsplash.com/?utm_source=Inspirational_Quotes&utm_medium=referral' target='_blank'>Unsplash</a></div>
                             </Col>
                         </Row>
                     </Card.Body>
