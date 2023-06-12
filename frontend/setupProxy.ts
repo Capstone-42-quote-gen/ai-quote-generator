@@ -1,5 +1,5 @@
 export const setupProxy = {
-    target: 'http://gkhalsa8.ddfullstack.xyz:8080',
+    target: 'http://144.126.222.57:8080',
     changeOrigin: true,
     logLevel: 'debug'
 }
