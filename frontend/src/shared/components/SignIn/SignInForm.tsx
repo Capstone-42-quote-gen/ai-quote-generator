@@ -47,6 +47,7 @@ export const SignInForm = () => {
         setStatus({type: response.type, message: response.message})
     } else {
     setStatus({type: response?.type, message: response?.message})}
+    console.log(formikHelpers)
 }
 
 return (
@@ -103,8 +104,7 @@ return (
             </Form.Group>
 
             <Form.Group as={Row}
-                        className="mb-3"
-                        controlId="formHorizontalPassword">
+                        className="mb-3">
                         <Form.Label column lg={4}
                                     className="ms-2">
                                 Password
@@ -128,11 +128,12 @@ return (
                             <Col lg={"12"}>
                                 <InputGroup>
                                     <Button
-                                    variant = {"secondary"}
-                                    type={"submit"}>
+                                    variant = "secondary"
+                                    type="submit">
                                     Sign In
                                     </Button>
                                 </InputGroup>
+                                <br/>
                               <InputGroup>
                                 <Button
                                     variant={"secondary"}

@@ -15,7 +15,5 @@ export interface SignIn {
     profilePassword: string
 }
 export interface SignUp extends PartialProfile {
-    profileEmail: string,
-    profileUsername: string,
     profilePassword: string
 }

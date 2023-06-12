@@ -2,7 +2,6 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
 import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile";
-// import {SignUpForm} from "../shared/components/signup/SignUpForm";
 
 
 export interface ServerResponse {
@@ -150,7 +149,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
 
 
     export const {
-                    useGetProfileQuery,
+                    // useGetProfileQuery,
                     usePostSignUpMutation,
                     usePostSignInMutation,
                     useGetAllPromptsQuery,
