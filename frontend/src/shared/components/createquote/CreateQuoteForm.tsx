@@ -7,10 +7,13 @@ import {Prompt} from "../../interfaces/Prompt.ts";
 import {DisplayError} from "../display-error/DisplayError";
 import {DisplayStatus} from "../display-status/DisplayStatus";
 import {FormDebugger} from "../FormDebugger";
+import {Dispatch, SetStateAction} from "react";
 
+interface CreateQuoteFormLogicProps {
+    setCreateQuote: Dispatch<SetStateAction<CreateQuote | null>>
+}
 
-
-export const CreateQuoteFormLogic = () => {
+export const CreateQuoteFormLogic = (props: CreateQuoteFormLogicProps) => {
     const [submit] = usePostCreateQuoteGenerateMutation({fixedCacheKey:"SubmitQuote"});
     const createQuote: CreateQuote = {
         topic: "",

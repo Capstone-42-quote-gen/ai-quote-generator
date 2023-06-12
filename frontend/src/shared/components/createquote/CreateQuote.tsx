@@ -2,24 +2,22 @@ import { Container, Row } from "react-bootstrap";
 import { CreateQuoteFormLogic } from "./CreateQuoteForm";
 import { useAppSelector } from "../../../store/store.ts";
 import { Navigation } from "../NavBar.tsx";
-import { QuoteImage } from "../../interfaces/CreateQuote.ts";
+import { QuoteImage, CreateQuote } from "../../interfaces/CreateQuote.ts";
 import { PreviewQuote } from "./PreviewQuote.tsx";
-import {useJwtToken} from "../../hooks/useJwtHook.tsx";
+import {useState} from "react";
 
 export function CreateQuote() {
 
         const data = useAppSelector(
         (state) => state.api.mutations?.SubmitQuote?.data?.data
     );
-
-const profile = useJwtToken()
-
+ const [createQuote, setCreateQuote] = useState <CreateQuote | null > (null)
 
     return (
         <>
             <Navigation />
             <Container>
-                <CreateQuoteFormLogic />
+                <CreateQuoteFormLogic setCreateQuote={setCreateQuote} />
 
                 <Row className="justify-content-center">
                     {data &&
