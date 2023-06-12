@@ -27,7 +27,7 @@ export const apis = createApi({
     reducerPath:"api",
     baseQuery: fetchBaseQuery({baseUrl:'/apis'}),
 
-    tagTypes: ["SignUp", "SignIn" ,"Prompt","CreateQuote","SaveQuote"],
+    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote"],
     endpoints: (builder) => ({
 
         getProfile: builder.query<SignUp[], string>({
@@ -53,6 +53,39 @@ export const apis = createApi({
                 }
             },
             }),
+
+        PostSignIn: builder.mutation<ClientResponseForSignIn, SignIn>({
+            query (body: SignIn) {
+                return {
+                    url:'/sign-in',
+                    method: "POST",
+                    body
+                }
+            },
+
+            transformErrorResponse: transformErrorResponses,
+            transformResponse: (response: ServerResponse, meta): ClientResponseForSignIn => {
+
+                const authorization = meta?.response?.headers.get('authorization') ?? undefined
+
+                if(response.status === 200) {
+                    return {
+                        status: response.status,
+                        data: response.data,
+                        message: response.message,
+                        type: 'alert alert-success',
+                        authorization
+                    }
+                }
+                return {
+                    status: response.status,
+                    data: response.data,
+                    message: response.message,
+                    type: 'alert alert-danger',
+                    authorization
+                }
+            }
+        }),
 
 
         PostCreateQuoteGenerate: builder.mutation<ClientResponse, CreateQuote>({
@@ -81,41 +114,6 @@ export const apis = createApi({
             transformResponse: transformMutationResponses,
             invalidatesTags: ["SaveQuote"]
         }),
-
-
-
-        PostSignIn: builder.mutation<ClientResponseForSignIn, SignIn>({
-            query (body: SignIn) {
-                return {
-                    url:'/sign-in',
-                    method: "POST",
-                    body
-                }
-            },
-
-            transformErrorResponse: transformErrorResponses,
-            transformResponse: (response: ServerResponse, meta): ClientResponseForSignIn => {
-
-                const authorization = meta?.response?.headers.get('authorization') ?? undefined
-
-                    if(response.status === 200) {
-                    return {
-                        status: response.status,
-                        data: response.data,
-                        message: response.message,
-                        type: 'alert alert-success',
-                        authorization
-                    }
-                }
-                return {
-                    status: response.status,
-                    data: response.data,
-                    message: response.message,
-                    type: 'alert alert-danger',
-                    authorization
-                }
-            }
-        })
     })
 })
 
