@@ -69,12 +69,9 @@ return (
             values,
             errors,
             touched,
-            dirty,
-            isSubmitting,
             handleChange,
             handleBlur,
-            handleSubmit,
-            handleReset
+            handleSubmit
         } = props;
 
 return (
