@@ -1,16 +1,15 @@
 
 /* COLORS */
 body {
-    background-color: #C5D8D1;
+    background-color: #9d0ad7;
 }
 
 .card-body {
-    background-color: #F2F7F6;
+    background-color: #C1F6FF;
 }
 
 .custom-navbar {
-    background-color: #9DBEB2;
-    width: 95%;
+    background-color: #8AFAEE;
     height: 95%;
 }
 
@@ -95,7 +94,7 @@ a.nav-link:visited {
 /*SIGN-IN*/
 
 .sign-in-card {
-    border: 1.5px solid #646363;
+    border: 2px #646363;
 }
 
 .sign-in-card-resize {
@@ -105,9 +104,6 @@ a.nav-link:visited {
 
 
 .center-hr {
-    display: block;
-    margin: 0 auto;
-    width: 300px;
 }
 .quote-image-card {
     border: none;
