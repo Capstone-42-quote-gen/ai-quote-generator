@@ -46,7 +46,7 @@ export const SignInForm = () => {
         dispatch(getAuth(decodedToken))
         resetForm()
         setStatus({type: response.type, message: response.message})
-        navigate("/")
+        navigate("/profile")
     } else {
     setStatus({type: response?.type, message: response?.message})}
     console.log(formikHelpers)

@@ -1,7 +1,8 @@
 import {Card, Modal} from "react-bootstrap";
 import { useState } from "react";
+import {ProfileGallery} from "./ProfileGallery.tsx";
 
-export function ProfileGallery(props: { profileImageSource: string }) {
+export function ProfileGalleryModal(props: { profileImageSource: string }) {
     const { profileImageSource } = props;
     const [showModal, setShowModal] = useState(false);
 
@@ -21,10 +22,8 @@ export function ProfileGallery(props: { profileImageSource: string }) {
 
             <Modal show={showModal} onHide={closeModal} className={' img-fluid'} onClick={closeModal}>
                 <Modal.Body>
-                    <img src={profileImageSource} alt="SignUp Image" className={'profile-image-modal img-fluid'} />
+                    <ProfileGallery/>
                 </Modal.Body>
-                {/*<Modal.Footer>*/}
-                {/*</Modal.Footer>*/}
             </Modal>
         </>
     )

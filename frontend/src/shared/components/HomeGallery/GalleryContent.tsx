@@ -3,15 +3,14 @@ import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
 // import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
-import {Post} from "../interfaces/Post.ts";
+import {Post} from "../../interfaces/Post";
 
 interface GalleryContentProps {
     post: Post
 }
 
-
 export function GalleryContent(props: GalleryContentProps) {
-    const { post} = props;
+    const { post } = props;
 
     return (
         <>
@@ -44,8 +43,5 @@ export function GalleryContent(props: GalleryContentProps) {
                 </Card>
             </div>
             </div>
-
-
-
         </>
     )}
