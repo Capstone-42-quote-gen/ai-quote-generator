@@ -4,11 +4,16 @@ import { useAppSelector } from "../../../store/store.ts";
 import { Navigation } from "../NavBar.tsx";
 import { QuoteImage } from "../../interfaces/CreateQuote.ts";
 import { PreviewQuote } from "./PreviewQuote.tsx";
+import {useJwtToken} from "../../hooks/useJwtHook.tsx";
 
 export function CreateQuote() {
-    const data = useAppSelector(
+
+        const data = useAppSelector(
         (state) => state.api.mutations?.SubmitQuote?.data?.data
     );
+
+const profile = useJwtToken()
+    console.log(profile)
 
     return (
         <>

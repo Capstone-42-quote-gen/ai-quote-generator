@@ -22,6 +22,7 @@ export const CreateQuoteFormLogic = () => {
     });
 
     const submitQuote = async ( values: CreateQuote, formikHelpers: FormikHelpers<CreateQuote>) => {
+
         const { setStatus } = formikHelpers;
         const createQuote: CreateQuote = {topic: values.topic, voice: values.voice}
 

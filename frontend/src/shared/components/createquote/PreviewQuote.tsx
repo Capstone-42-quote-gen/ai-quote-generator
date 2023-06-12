@@ -2,6 +2,7 @@
 import {Button, Col, Image} from "react-bootstrap";
 import {PartialPost, QuoteImage} from "../../interfaces/CreateQuote.ts";
 import {MutationResponse, usePostSaveQuoteMutation} from "../../../store/apis.ts";
+import {useJwtToken} from "../../hooks/useJwtHook.tsx";
 
 interface PreviewQuoteProps {
     image: QuoteImage;
@@ -23,10 +24,11 @@ export function PreviewQuote(props: PreviewQuoteProps) {
     // console.log(props)
 
     const [submitQuote] = usePostSaveQuoteMutation ()
+    const {profile} = useJwtToken()
 
     async function savePost() {
-        const partialPost: PartialPost = {
-            postProfileID: "ff324d87-e3b6-4653-9f60-52b9e516950a",
+            const partialPost: PartialPost = {
+            postProfileId: profile?.profileId as string,
             postPhotoUrl: imgTemplates[props.index],
             postQuote: props.quote,
             postPhotographerName: props.image.userName,
