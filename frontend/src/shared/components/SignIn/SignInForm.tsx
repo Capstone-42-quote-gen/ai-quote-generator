@@ -135,15 +135,6 @@ return (
                                     Sign In
                                     </Button>
                                 </InputGroup>
-                                <br/>
-                              <InputGroup>
-                                <Button
-                                    variant={"secondary"}
-                                    onClick={handleReset}
-                                    disabled={!dirty || isSubmitting}>
-                                    Reset
-                                </Button>
-                              </InputGroup>
                             </Col>
             </Form.Group>
          </Form>
