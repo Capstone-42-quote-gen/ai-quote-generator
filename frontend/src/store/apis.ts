@@ -2,6 +2,8 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
 import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile";
+import {Post} from "../shared/interfaces/Post.ts";
+
 
 
 export interface ServerResponse {
@@ -25,7 +27,18 @@ export interface ClientResponseForSignIn extends ClientResponse {
 
 export const apis = createApi({
     reducerPath:"api",
-    baseQuery: fetchBaseQuery({baseUrl:'/apis'}),
+    baseQuery: fetchBaseQuery({baseUrl:'/apis',
+        prepareHeaders: (headers, {}) => {
+            const token = window.localStorage.getItem("authorization")
+
+            // If we have a token set in state, let's assume that we should be passing it.
+            if (token) {
+                headers.set('authorization', token)
+            }
+
+            return headers
+        },
+    }),
 
     tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote"],
     endpoints: (builder) => ({
@@ -41,6 +54,13 @@ export const apis = createApi({
             transformResponse: (response: { data: Prompt[]}) => response.data,
             providesTags: ["Prompt"]
         }),
+
+        getPostByPostId: builder.query<Post, string>({
+            query: (postId: string ) => `/post/${postId}`,
+            transformResponse: (response: { data: Post}) => response.data,
+
+        }),
+
 
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
             transformResponse: transformMutationResponses,
@@ -152,5 +172,6 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     usePostSignInMutation,
                     useGetAllPromptsQuery,
                     usePostCreateQuoteGenerateMutation,
-                    usePostSaveQuoteMutation
+                    usePostSaveQuoteMutation,
+                    useGetPostByPostIdQuery
                 } = apis

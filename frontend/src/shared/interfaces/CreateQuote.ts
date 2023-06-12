@@ -13,7 +13,7 @@ export interface QuoteImage {
 }
 // Interface for saving the quote image that is selected by the user
 export interface PartialPost {
-    postProfileID: string,
+    postProfileId: string,
     postPhotoUrl: string,
     postQuote: string,
     postPhotographerName: string,
