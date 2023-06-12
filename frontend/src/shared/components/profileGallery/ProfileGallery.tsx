@@ -3,15 +3,15 @@ import {ProfileGalleryImage} from "./ProfileGalleryImage";
 import {useParams} from "react-router-dom";
 import {useGetPostByPostIdQuery} from "../../../store/apis.ts";
 
-
 export function ProfileGallery(){
         const { postId } = useParams()
         const { data: post, isLoading } = useGetPostByPostIdQuery(postId as string)
         console.log(post)
         if ( isLoading || post === undefined ) {
-            return <>
-
+            return (
+            <>
             </>
+            )
             return (
                 <>
                     <Container className={'my-3'}>
