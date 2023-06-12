@@ -1,7 +1,8 @@
 import React from "react";
 import {useAppDispatch, useAppSelector, RootState} from "../../store/store";
 import {fetchAuth} from "../../store/auth";
-import {Profile} from "../interfaces/Profile";
+import {PartialProfile} from "../interfaces/Profile";
+
 
 
 
@@ -13,7 +14,7 @@ import {Profile} from "../interfaces/Profile";
 
 
 
-export function useJwtToken (): { profile: Profile | null, isLoading: boolean } {
+export function useJwtToken (): { profile: PartialProfile | null, isLoading: boolean } {
 
     const [isLoading, setIsLoading]: [boolean, React.Dispatch<boolean>] = React.useState(true)
     const auth = useAppSelector((state: RootState) => {
@@ -21,9 +22,12 @@ export function useJwtToken (): { profile: Profile | null, isLoading: boolean } 
     return state.auth
 })
 
-    const profile: Profile | null = auth
+    const profile: PartialProfile | null = auth
   ? {
-        profileId: auth.profileId
+        profileId: auth.profileId,
+        profileEmail: auth.profileEmail,
+        profilePhotoUrl: auth.profilePhotoUrl,
+        profileUsername: auth
     }
     : null
 

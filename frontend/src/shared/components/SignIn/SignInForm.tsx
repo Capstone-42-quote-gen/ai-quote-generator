@@ -9,7 +9,6 @@ import {object, string} from "yup";
 import {getAuth, JwtToken} from "../../../store/auth";
 import {SignIn} from "../../interfaces/Profile";
 import {DisplayError} from "../display-error/DisplayError.tsx";
-import {Link} from "react-router-dom";
 
 export const SignInForm = () => {
 
@@ -48,11 +47,15 @@ export const SignInForm = () => {
         setStatus({type: response.type, message: response.message})
     } else {
     setStatus({type: response?.type, message: response?.message})}
+    console.log(formikHelpers)
 }
 
 return (
     <>
-        <Formik initialValues={signIn} onSubmit={submitSignIn} validationSchema={validator}>
+        <Formik
+            initialValues={signIn}
+            onSubmit={submitSignIn}
+            validationSchema={validator}>
         {SignInFormContent}
         </Formik>
     </>
@@ -74,7 +77,8 @@ return (
 
 return (
        <>
-         <Form onSubmit={handleSubmit}>
+         <Form
+             onSubmit={handleSubmit}>
             <Form.Group
                 className={"mb-3"}
                 controlId="formHorizontalEmail">
@@ -99,32 +103,45 @@ return (
                     </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-3"
-                        controlId="formHorizontalPassword">
+            <Form.Group as={Row}
+                        className="mb-3">
                         <Form.Label column lg={4}
                                     className="ms-2">
                                 Password
                         </Form.Label>
                             <Col lg={12}>
+                              <InputGroup>
                                 <Form.Control
+                                name={"profilePassword"}
+                                type="password"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder={"Password"}
                                 value={values.profilePassword}
-                                name={"profilePassword"}
-                                type="password"
+
+
                                 />
+                              </InputGroup>
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3">
                             <Col lg={"12"}>
+                                <InputGroup>
+                                    <Button
+                                    variant = "secondary"
+                                    type="submit">
+                                    Sign In
+                                    </Button>
+                                </InputGroup>
+                                <br/>
+                              <InputGroup>
                                 <Button
                                     variant={"secondary"}
-                                    type={"submit"}
                                     onClick={handleReset}
                                     disabled={!dirty || isSubmitting}>
-                                    <Link to="/profile">Sign in</Link>
+                                    Reset
                                 </Button>
+                              </InputGroup>
                             </Col>
             </Form.Group>
          </Form>

@@ -1,9 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-
 import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
-import {SignIn, SignUp} from "../shared/interfaces/Profile.ts";
-// import {SignUpForm} from "../shared/components/signup/SignUpForm";
+import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile";
 
 
 export interface ServerResponse {
@@ -28,8 +26,10 @@ export interface ClientResponseForSignIn extends ClientResponse {
 export const apis = createApi({
     reducerPath:"api",
     baseQuery: fetchBaseQuery({baseUrl:'/apis'}),
-    tagTypes: ["SignUp","Prompt","CreateQuote","SaveQuote"],
+
+    tagTypes: ["SignUp", "SignIn" ,"Prompt","CreateQuote","SaveQuote"],
     endpoints: (builder) => ({
+
         getProfile: builder.query<SignUp[], string>({
             query: () => '/profile',
             transformResponse: (response: { data: SignUp[]}) => response.data,
@@ -42,10 +42,10 @@ export const apis = createApi({
             providesTags: ["Prompt"]
         }),
 
-        PostSignUp: builder.mutation<ClientResponse, SignUp>({
+        PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
             transformResponse: transformMutationResponses,
             transformErrorResponse: transformErrorResponses,
-            query (body: SignUp) {
+            query (body: PartialProfile) {
                 return{
                     url:'/sign-up',
                     method: "POST",
@@ -84,14 +84,15 @@ export const apis = createApi({
 
 
 
-        PostSignIn: builder.mutation<ClientResponse, SignIn>({
+        PostSignIn: builder.mutation<ClientResponseForSignIn, SignIn>({
             query (body: SignIn) {
                 return {
-                    url:'/profile',
+                    url:'/sign-in',
                     method: "POST",
                     body
                 }
             },
+
             transformErrorResponse: transformErrorResponses,
             transformResponse: (response: ServerResponse, meta): ClientResponseForSignIn => {
 
@@ -148,10 +149,10 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
 
 
     export const {
-            useGetProfileQuery,
-            usePostSignUpMutation,
-            usePostSignInMutation,
-            useGetAllPromptsQuery,
-            usePostCreateQuoteGenerateMutation,
-            usePostSaveQuoteMutation
-        } = apis
+                    // useGetProfileQuery,
+                    usePostSignUpMutation,
+                    usePostSignInMutation,
+                    useGetAllPromptsQuery,
+                    usePostCreateQuoteGenerateMutation,
+                    usePostSaveQuoteMutation
+                } = apis
