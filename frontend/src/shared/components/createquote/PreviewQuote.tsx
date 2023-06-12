@@ -2,6 +2,7 @@
 import {Button, Col, Image} from "react-bootstrap";
 import {PartialPost, QuoteImage} from "../../interfaces/CreateQuote.ts";
 import {MutationResponse, usePostSaveQuoteMutation} from "../../../store/apis.ts";
+
 interface PreviewQuoteProps {
     image: QuoteImage;
     quote: string;
