@@ -3,11 +3,16 @@ import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
 // import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
+import {Post} from "../interfaces/Post.ts";
+
+interface GalleryContentProps {
+    post: Post
+}
 
 
+export function GalleryContent(props: GalleryContentProps) {
+    const { post} = props;
 
-export function GalleryContent(props: { galleryImageSource: string}) {
-    const { galleryImageSource } = props;
     return (
         <>
             <div className="d-flex justify-content-center rounded my-2">
@@ -16,7 +21,7 @@ export function GalleryContent(props: { galleryImageSource: string}) {
                     <Card.Body className="text-center">
                         <Row className={'justify-content-center'}>
                             <Col>
-                                <Card.Img className={'quote-image img-fluid'} src={galleryImageSource} alt="Quote Image"/>
+                                <Card.Img className={'quote-image img-fluid'} src={post.postPhotoUrl} alt="Quote Image"/>
                             </Col>
                         </Row>
                         <Row>

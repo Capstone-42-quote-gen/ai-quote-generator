@@ -4,8 +4,6 @@ import {fetchAuth} from "../../store/auth";
 import {PartialProfile} from "../interfaces/Profile";
 
 
-
-
 /**
  * A custom hook to handle grabbing pertinent information from the jwt token stored in redux
  *

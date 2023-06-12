@@ -6,13 +6,15 @@ export const postValidator: Schema = {
             errorMessage: "please provide a valid postProfileId"
         }
     },
+    postCreationTime: {
+        toDate: true
+    },
     postPhotoUrl: {
         isLength: {
             errorMessage: 'Url cannot be longer than 2000 characters',
             options: {max: 2000}
         },
         trim: true,
-        escape: true
     },
     postQuote: {
         isLength: {
@@ -22,10 +24,6 @@ export const postValidator: Schema = {
         trim: true,
         escape: true,
     },
-    postCreationTime: {
-        toDate: true
-        },
-
     postPhotographerName: {
         escape: true,
         trim: true,
@@ -34,14 +32,11 @@ export const postValidator: Schema = {
             options: {max: 128}
         }
     },
-
     postPhotographerUrl: {
         isLength: {
             errorMessage: 'Unsplash Photographer Url cannot be longer than 2000 characters',
             options: {max: 2000}
         },
         trim: true,
-        escape: true
     },
-
-    }
+}
