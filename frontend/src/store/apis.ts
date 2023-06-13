@@ -60,7 +60,7 @@ export const apis = createApi({
 
 
         getAllPromptsByPostId: builder.query<Prompt[], string>({
-            query: (postId) => `/prompt/postid/${postId}`,
+            query: (postId) => `/prompt/postId/${postId}`,
             transformResponse: (response: { data: Prompt[]}) => response.data,
             providesTags: ["PostPrompt"]
         }),
