@@ -1,9 +1,17 @@
 import {Card, Col, Container, Modal, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom";
-import {useGetPostByPostIdQuery} from "../../../store/apis.ts";
+import {useGetPostByPostProfileIdQuery} from "../../../store/apis";
 import {useState} from "react";
+import {Post} from "../../interfaces/Post";
 
-export function ProfileGalleryContent(){
+interface ProfileGalleryContentProps {
+    profilePost: Post
+}
+
+export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
+    const { profilePost } = props
+    console.log(profilePost)
+
     const [showModal, setShowModal] = useState(false);
     const openModal = () => {
         setShowModal(true);
@@ -13,11 +21,11 @@ export function ProfileGalleryContent(){
         setShowModal(false);
     };
 
-        const { postId } = useParams()
-        const { data: post, isLoading } = useGetPostByPostIdQuery(postId as string)
+        const { postProfileId } = useParams()
+        const { data: profilePosts, isLoading } = useGetPostByPostProfileIdQuery(postProfileId as string)
 
-        console.log(post)
-        if ( isLoading || post === undefined ) {
+        console.log(profilePosts)
+        if ( isLoading || profilePost === undefined ) {
             return <>
 
             </>
@@ -55,7 +63,7 @@ export function ProfileGalleryContent(){
                 <Col xs={4} lg={4}>
                <Card>
                <Card.Img variant=''
-                         src={post.postPhotoUrl}
+                         src={profilePost.postPhotoUrl}
                          onClick={openModal} />
                </Card>
 
@@ -71,7 +79,7 @@ export function ProfileGalleryContent(){
                            <Row className={'justify-content-center'}>
                             <Col>
                             <Card.Img className={'quote-image img-fluid'}
-                            src={post.postPhotoUrl}
+                            src={profilePost.postPhotoUrl}
                             alt="Quote Image"/>
                             </Col>
                           </Row>

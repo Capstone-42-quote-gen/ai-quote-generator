@@ -1,11 +1,13 @@
-import {useGetPostByPostCreationTimeQuery} from "../../../store/apis.ts";
-import {Navigation} from "../NavBar.tsx";
-import {Post} from "../../interfaces/Post.ts";
-import {ProfileGalleryContent} from "./ProfileGalleryContent.tsx";
 
 
-export function DisplayByNew() {
-    const { data , isLoading } = useGetPostByPostCreationTimeQuery("")
+import {useGetPostByPostProfileIdQuery} from "../../../store/apis.ts";
+import {Navigation} from "../NavBar";
+import {Post} from "../../interfaces/Post";
+import {ProfileGalleryContent} from "./ProfileGalleryContent";
+
+
+export function DisplayByProfileId() {
+    const { data , isLoading } = useGetPostByPostProfileIdQuery("")
     const posts = data ?? []
     console.log(posts)
     if (isLoading) {
@@ -18,9 +20,8 @@ export function DisplayByNew() {
     return (
         <>
             <Navigation/>
-            {posts &&
-                posts.map((posts: Post) => (
-                    <ProfileGalleryContent post={posts}/>
+            {posts.map((post: Post) => (
+                    <ProfileGalleryContent key={post.postProfileId} profilePost={post}/>
                 ))}
         </>
     )

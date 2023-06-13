@@ -1,12 +1,10 @@
-import {Navigation} from "../shared/components/NavBar.tsx";
-import {ProfileGalleryContent} from "../shared/components/profileGallery/ProfileGalleryContent.tsx";
+import {DisplayByProfileId} from "../shared/components/profileGallery/DisplayProfileGallery";
 
 
 export function Profile() {
     return (
         <>
-            <Navigation/>
-            <ProfileGalleryContent/>
+            <DisplayByProfileId/>
         </>
         )
   }

@@ -67,6 +67,12 @@ export const apis = createApi({
             providesTags: ["Posts"]
         }),
 
+        getPostByPostProfileId: builder.query<Post[], string> ({
+            query: (postProfileId: string) => `/Post/${postProfileId}`,
+            transformResponse: (response: { data: Post[] }) => {
+                return response.data;
+            },
+        }),
 
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
             transformResponse: transformMutationResponses,
@@ -174,6 +180,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
 
     export const {
                     // useGetProfileQuery,
+                    useGetPostByPostProfileIdQuery,
                     usePostSignUpMutation,
                     usePostSignInMutation,
                     useGetAllPromptsQuery,
