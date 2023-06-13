@@ -18,7 +18,9 @@ export function DisplayByProfileId() {
     return (
         <>
             {posts.map((profilePost: Post) => (
-                    <ProfileGalleryContent key={profilePost.postProfileId} profilePost={profilePost}/>
+                    <ProfileGalleryContent
+                        key={profilePost.postProfileId}
+                        profilePost={profilePost}/>
                 ))}
         </>
     )
