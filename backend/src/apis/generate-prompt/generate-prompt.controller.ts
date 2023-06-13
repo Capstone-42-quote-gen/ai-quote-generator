@@ -8,8 +8,8 @@ export async function generatePromptController(request: Request, response: Respo
     try {
         const { topicValue, voiceValue } = request.body;
 
-        // const quote = await generatePrompt(topicValue, voiceValue);
-        const quote = "Like, why even bother trying to be productive when you can just binge-watch Netflix and eat snacks all day? - Valley Girl"
+         const quote = await generatePrompt(topicValue, voiceValue);
+        // const quote = "Like, why even bother trying to be productive when you can just binge-watch Netflix and eat snacks all day? - Valley Girl"
         const imageData = await generateImage(topicValue);
 
         const data = {quote, imageData}
