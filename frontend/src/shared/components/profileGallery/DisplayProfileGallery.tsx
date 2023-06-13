@@ -1,9 +1,9 @@
 
 
 import {useGetPostByPostProfileIdQuery} from "../../../store/apis.ts";
-import {Navigation} from "../NavBar";
 import {Post} from "../../interfaces/Post";
 import {ProfileGalleryContent} from "./ProfileGalleryContent";
+import {Navigation} from "../navbar-functions/NavBar";
 
 
 export function DisplayByProfileId() {
