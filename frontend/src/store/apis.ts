@@ -77,8 +77,6 @@ export const apis = createApi({
             },
         }),
 
-
-
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
             transformResponse: transformMutationResponses,
             transformErrorResponse: transformErrorResponses,

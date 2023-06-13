@@ -135,8 +135,8 @@ return (
                             </Col>
             </Form.Group>
          </Form>
-       <DisplayStatus status={status}/>
-     <FormDebugger {...props}/>
+     {/*  <DisplayStatus status={status}/>*/}
+     {/*<FormDebugger {...props}/>*/}
        </>
         )
     }
