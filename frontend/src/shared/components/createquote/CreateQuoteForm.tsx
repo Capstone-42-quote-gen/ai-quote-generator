@@ -147,7 +147,7 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
                     </Col>
                 </Row>
             </Form>
-            <DisplayStatus status={status} />
+            {/*<DisplayStatus status={status} />*/}
             {/*<FormDebugger {...props} />*/}
         </>
     );
