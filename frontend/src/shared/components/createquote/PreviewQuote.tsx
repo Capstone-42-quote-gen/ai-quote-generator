@@ -1,6 +1,6 @@
 
 import {Button, Col, Image} from "react-bootstrap";
-import {PartialPost, QuoteImage} from "../../interfaces/CreateQuote.ts";
+import {CreateQuote, PartialPost, QuoteImage} from "../../interfaces/CreateQuote.ts";
 import {MutationResponse, usePostPostPromptMutation, usePostSaveQuoteMutation} from "../../../store/apis.ts";
 import {useJwtToken} from "../../hooks/useJwtHook.tsx";
 import {useNavigate} from "react-router-dom";
@@ -10,6 +10,7 @@ interface PreviewQuoteProps {
     image: QuoteImage;
     quote: string;
     index: number;
+    createQuote: CreateQuote
 }
 export function PreviewQuote(props: PreviewQuoteProps) {
     const navigate = useNavigate()
@@ -23,13 +24,13 @@ export function PreviewQuote(props: PreviewQuoteProps) {
         props.image.regularUrl +"&usm=20&exp=-10&mark64="+btoa("https://assets.imgix.net/~text?w=1000&txtclr=fff&txt="+props.quote+"&w=1000&txtsize=80&txtlead=0&txtpad=150&txtfont=Impact&txtalign=center") + "&markalign=center%2Cbottom&txt64=aHR0cHM6Ly9nbG9vbXNtaXRoLmxvbA&txtalign=center&txtclr=fff&txtsize=30&txtpad=40&blend64=NjM3NDk3&balph=50&bm=screen&bs=inherit&fit=crop",
     ];
 
-    // console.log(props)
 
     const [submitQuote] = usePostSaveQuoteMutation ()
-    // const [savePrompt] = usePostPostPromptMutation()
+    const [savePrompt] = usePostPostPromptMutation()
     const {profile} = useJwtToken()
 
-    console.log("save prompt:")
+    console.log("Props create quote: Topic ", props.createQuote?.topic)
+    console.log("Props create quote: Voice ", props.createQuote?.voice)
     async function savePost() {
             const partialPost: PartialPost = {
             postProfileId: profile?.profileId as string,
@@ -37,16 +38,28 @@ export function PreviewQuote(props: PreviewQuoteProps) {
             postQuote: props.quote,
             postPhotographerName: props.image.userName,
             postPhotographerUrl: props.image.userHtmlLink,
+
         };
 
+        const result = await submitQuote(partialPost ) as MutationResponse;
+        console.log(result)
+        const TopicPostPrompt: PostPrompt = {
+             postPromptPromptId: props.createQuote?.topic,
+             postPromptPostId: result.data.data.postId
 
-        const result = await submitQuote(partialPost) as MutationResponse;
+     };
+        // Save the post prompt for Voice
+        const voiceResult = await savePrompt(TopicPostPrompt ) as MutationResponse;
 
+        const VoicePostPrompt: PostPrompt = {
+            postPromptPromptId: props.createQuote?.voice,
+            postPromptPostId: result.data.data.postId
 
-    //     const postPrompt: PostPrompt = {
-    //         postPromptPostId: result.data.data.postId,
-    //         postPromptPromptId:
-    // };
+        };
+
+        // Save the post prompt for Topic
+        const topicResult = await savePrompt(VoicePostPrompt ) as MutationResponse;
+
         console.log(result.data.data.postId)
         navigate(`/display-quote/${result.data.data.postId}`)
     }

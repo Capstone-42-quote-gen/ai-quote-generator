@@ -6,12 +6,13 @@ import { QuoteImage, CreateQuote } from "../../interfaces/CreateQuote.ts";
 import { PreviewQuote } from "./PreviewQuote.tsx";
 import {useState} from "react";
 
-export function CreateQuote() {
+export function CreateQuotePage() {
 
         const data = useAppSelector(
         (state) => state.api.mutations?.SubmitQuote?.data?.data
     );
  const [createQuote, setCreateQuote] = useState <CreateQuote | null > (null)
+
 
     return (
         <>
@@ -20,13 +21,14 @@ export function CreateQuote() {
                 <CreateQuoteFormLogic setCreateQuote={setCreateQuote} />
 
                 <Row className="justify-content-center">
-                    {data &&
+                    {data && createQuote !== null &&
                         data.imageData.map((image: QuoteImage, index: number) => (
                             <PreviewQuote
                                 key={image.regularUrl}
                                 quote={data.quote}
                                 image={image}
                                 index={index}
+                                createQuote={createQuote}
                             />
                         ))}
                 </Row>
