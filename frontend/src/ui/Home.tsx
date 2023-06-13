@@ -1,6 +1,6 @@
 import {Navigation} from "../shared/components/NavBar.tsx";
-import {GalleryContent} from "../shared/components/GalleryContent.tsx";
 import mountains from "/src/assets/mountains.png";
+import {GalleryContent} from "../shared/components/GalleryContent";
 
 export function Home() {
     return (

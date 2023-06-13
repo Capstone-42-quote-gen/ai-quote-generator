@@ -24,7 +24,6 @@ export function Profile() {
                         </p>
                     </Col>
                 </Row>
-
                 <Row>
                     <Col md={3}></Col>
                 </Row>
