@@ -1,7 +1,7 @@
 import {Request, Response} from 'express'
 import {
     selectAllPrompts,
-    selectPromptByPromptId
+    selectPromptByPromptId, selectPromptsByPostId
 } from "../../utils/models/Prompt";
 import {Status} from "../../utils/interfaces/Status";
 
@@ -23,6 +23,21 @@ export async function getPromptsByPromptId(request: Request, response: Response)
     try {
         const {promptId} = request.params
         const data = await selectPromptByPromptId(promptId)
+        return response.json({status: 200, message: null, data})
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: "",
+            data: null
+        })
+    }
+}
+
+
+export async function getPromptsByPostId(request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const {postId} = request.params
+        const data = await selectPromptsByPostId(postId)
         return response.json({status: 200, message: null, data})
     } catch (error) {
         return response.json({
