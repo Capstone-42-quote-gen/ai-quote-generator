@@ -32,13 +32,13 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
         }
             return (
                 <>
-            <Row>
+
               <Col lg={3} xs={6} className="py-4 m-5">
                <Image className={"img-fluid"}
                          src={profilePost.postPhotoUrl}
                          onClick={openModal}/>
               </Col>
-            </Row>
+
                <Modal show={showModal}
                       onHide={closeModal}
                       onClick={closeModal}>
