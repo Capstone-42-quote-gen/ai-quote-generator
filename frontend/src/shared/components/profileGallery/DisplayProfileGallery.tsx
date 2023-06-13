@@ -1,9 +1,8 @@
-import {useGetPostByPostCreationTimeQuery} from "../../../store/apis";
-import {Navigation} from "../NavBar";
-// import {QuoteImage} from "../../interfaces/CreateQuote";
+import {useGetPostByPostCreationTimeQuery} from "../../../store/apis.ts";
+import {Navigation} from "../NavBar.tsx";
+import {Post} from "../../interfaces/Post.ts";
+import {ProfileGalleryContent} from "./ProfileGalleryContent.tsx";
 
-import {Post} from "../../interfaces/Post";
-import {GalleryContent} from "../HomeGallery/GalleryContent.tsx";
 
 export function DisplayByNew() {
     const { data , isLoading } = useGetPostByPostCreationTimeQuery("")
@@ -21,8 +20,8 @@ export function DisplayByNew() {
             <Navigation/>
             {posts &&
                 posts.map((posts: Post) => (
-                    <GalleryContent post={posts}/>
+                    <ProfileGalleryContent post={posts}/>
                 ))}
-            </>
+        </>
     )
 }
