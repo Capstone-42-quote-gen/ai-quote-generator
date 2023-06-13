@@ -4,13 +4,12 @@ import jwtDecode from "jwt-decode";
 import {AppDispatch, useAppDispatch} from "../../../store/store";
 import {ClientResponseForSignIn, usePostSignInMutation} from "../../../store/apis";
 import {DisplayStatus} from "../display-status/DisplayStatus";
-import {FormDebugger} from "../FormDebugger";
 import {object, string} from "yup";
 import {getAuth, JwtToken} from "../../../store/auth";
 import {SignIn} from "../../interfaces/Profile";
 import {DisplayError} from "../display-error/DisplayError.tsx";
 import { useNavigate } from "react-router-dom";
-
+// import {FormDebugger} from "../FormDebugger";
 export const SignInForm = () => {
     const navigate = useNavigate()
     const [ submitRequest ] = usePostSignInMutation()
@@ -135,7 +134,7 @@ return (
                             </Col>
             </Form.Group>
          </Form>
-     {/*  <DisplayStatus status={status}/>*/}
+       <DisplayStatus status={status}/>
      {/*<FormDebugger {...props}/>*/}
        </>
         )

@@ -3,26 +3,18 @@ import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
 // import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
-<<<<<<< HEAD:frontend/src/shared/components/HomeGallery/GalleryContent.tsx
-import {Post} from "../../interfaces/Post";
-=======
-import {Post} from "../interfaces/Post.ts";
 import {Link} from "react-router-dom";
->>>>>>> origin/develop:frontend/src/shared/components/GalleryContent.tsx
+import {Post} from "../../interfaces/Post.ts";
+
 
 interface GalleryContentProps {
     post: Post
 }
 
 export function GalleryContent(props: GalleryContentProps) {
-<<<<<<< HEAD:frontend/src/shared/components/HomeGallery/GalleryContent.tsx
 
     const { post } = props;
-    console.log(post)
-=======
-    const { post} = props;
-    console.log(post.postId)
->>>>>>> origin/develop:frontend/src/shared/components/GalleryContent.tsx
+
 
     return (
         <>
