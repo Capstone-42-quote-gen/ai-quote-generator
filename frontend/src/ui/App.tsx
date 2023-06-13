@@ -11,6 +11,7 @@ import {SignIn} from "../shared/components/SignIn/SignIn";
 import {SignUp} from "../shared/components/signup/SignUp";
 import {DisplayQuote} from "../shared/components/createquote/DisplayQuote";
 import {DisplayByNew} from "../shared/components/navbar-functions/New";
+import {DisplayTags} from "../shared/components/navbar-functions/Tags.tsx";
 
 
 interface Props {
@@ -31,6 +32,7 @@ export function App(props: Props) {
                     <Route path={'/sign-in'} element={<SignIn />} />
                     <Route path={'/sign-up'} element={<SignUp />} />
                     <Route path={'/new'} element={<DisplayByNew />} />
+                    <Route path={'/tags/:promptId'} element={<DisplayTags />} />
                 </Routes>
             </BrowserRouter>
         </Provider>

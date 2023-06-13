@@ -90,6 +90,13 @@ export const apis = createApi({
             },
         }),
 
+        getPostsByPromptId: builder.query<Post[], string> ({
+            query: (promptId: string) => `/post/promptId/${promptId}`,
+            transformResponse: (response: { data: Post[] }) => {
+                return response.data;
+            },
+        }),
+
 
 
 
@@ -222,5 +229,6 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     usePostSaveQuoteMutation,
                     usePostPostPromptMutation,
                     useGetPostByPostIdQuery,
-                    useGetPostByPostCreationTimeQuery
+                    useGetPostByPostCreationTimeQuery,
+                    useGetPostsByPromptIdQuery
                 } = apis

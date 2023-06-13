@@ -1,4 +1,5 @@
 import { sql } from '../database.utils'
+import {Prompt} from "./Prompt";
 // import {postPost} from "../../apis/post/post.controller";
 
 export interface Post {
@@ -28,4 +29,9 @@ export async function selectPostByPostId(postId: string): Promise<Post | null > 
 
 export async function selectPostsByPostProfileId(postProfileId: string): Promise<Post[]> {
     return <Post[]> await sql`SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_photographer_name, post_photographer_url FROM post WHERE post_profile_id = ${postProfileId}`
+}
+
+export async function selectPostsByPromptId(promptId: string): Promise<Post[]> {
+    const result = await sql<Post[]>`SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_photographer_name, post_photographer_url FROM post INNER JOIN post_prompt on post.post_id = post_prompt.post_prompt_post_id  WHERE post_prompt.post_prompt_prompt_id = ${promptId}`;
+    return result
 }
