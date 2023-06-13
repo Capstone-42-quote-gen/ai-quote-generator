@@ -40,7 +40,7 @@ export const CreateQuoteFormLogic = (props: CreateQuoteFormLogicProps) => {
         } else if (response?.status === 200) {
 
             // resetForm();
-            setStatus({ type: response.type, message: response.message });
+            setStatus({ type: response.type, message: response.message })
         } else {
             setStatus({
                 type: response?.type,

@@ -32,32 +32,6 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
         }
             return (
                 <>
-                    <Container className={'my-3'}>
-                        <Row md={12} className={'g-5'}>
-                            <Col>
-                                {/*<Profile/>*/}
-                            </Col>
-                        </Row>
-                    </Container>
-
-                    <Container className={'my-3'}>
-                        <Row>
-                            <Col md={6}>
-                                <br/>
-                                <h4>About me</h4>
-                                <p>Something about me.Nullus pisces est maior quam amicitia inter Marlin et Dory. In via
-                                    sua,
-                                    per mundum submari, rebus mirabilibus plena, inveniunt multos habitatores marinos.
-                                </p>
-                                <br/>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col md={3}></Col>
-                        </Row>
-                  </Container>
-
                   <Container>
                         <Row>
                 <Col xs={4} lg={4}>
@@ -74,7 +48,6 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
                   <Modal.Body>
                     <div className="d-flex justify-content-center rounded my-2">
                       <Card className={'quote-image-card'}>
-
                         <Card.Body className="text-center">
                            <Row className={'justify-content-center'}>
                             <Col>

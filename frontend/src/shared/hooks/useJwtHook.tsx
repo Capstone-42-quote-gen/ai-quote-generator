@@ -15,17 +15,14 @@ import {PartialProfile} from "../interfaces/Profile";
 export function useJwtToken (): { profile: PartialProfile | null, isLoading: boolean } {
 
     const [isLoading, setIsLoading]: [boolean, React.Dispatch<boolean>] = React.useState(true)
-    const auth = useAppSelector((state: RootState) => {
-
-    return state.auth
-})
+    const auth = useAppSelector((state: RootState) => state.auth)
 
     const profile: PartialProfile | null = auth
   ? {
         profileId: auth.profileId,
         profileEmail: auth.profileEmail,
         profilePhotoUrl: auth.profilePhotoUrl,
-        profileUsername: auth
+        profileUsername: auth.profileUsername
     }
     : null
 

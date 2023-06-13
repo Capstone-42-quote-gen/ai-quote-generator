@@ -1,9 +1,7 @@
 
-
 import {useGetPostByPostProfileIdQuery} from "../../../store/apis.ts";
 import {Post} from "../../interfaces/Post";
 import {ProfileGalleryContent} from "./ProfileGalleryContent";
-import {Navigation} from "../navbar-functions/NavBar";
 
 
 export function DisplayByProfileId() {
@@ -19,9 +17,8 @@ export function DisplayByProfileId() {
 
     return (
         <>
-            <Navigation/>
-            {posts.map((post: Post) => (
-                    <ProfileGalleryContent key={post.postProfileId} profilePost={post}/>
+            {posts.map((profilePost: Post) => (
+                    <ProfileGalleryContent key={profilePost.postProfileId} profilePost={profilePost}/>
                 ))}
         </>
     )
