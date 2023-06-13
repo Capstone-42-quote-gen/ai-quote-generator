@@ -41,11 +41,9 @@ export const apis = createApi({
         },
     }),
 
-<<<<<<< HEAD
-    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "PostPostPrompt"],
-=======
-    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "Posts"],
->>>>>>> origin/navbar
+
+    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "Posts","PostPostPrompt"],
+
     endpoints: (builder) => ({
 
         getProfile: builder.query<SignUp[], string>({
