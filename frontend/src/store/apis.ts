@@ -42,7 +42,7 @@ export const apis = createApi({
     }),
 
 
-    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "Posts","PostPostPrompt"],
+    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "Posts","PostPostPrompt","PostPrompt"],
 
     endpoints: (builder) => ({
 
@@ -56,6 +56,13 @@ export const apis = createApi({
             query: () => '/prompt',
             transformResponse: (response: { data: Prompt[]}) => response.data,
             providesTags: ["Prompt"]
+        }),
+
+
+        getAllPromptsByPostId: builder.query<Prompt[], string>({
+            query: (postId) => `/prompt/postid/${postId}`,
+            transformResponse: (response: { data: Prompt[]}) => response.data,
+            providesTags: ["PostPrompt"]
         }),
 
         getPostByPostId: builder.query<Post, string>({
@@ -82,6 +89,10 @@ export const apis = createApi({
                 return response.data;
             },
         }),
+
+
+
+
 
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
             transformResponse: transformMutationResponses,
@@ -206,6 +217,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     usePostSignUpMutation,
                     usePostSignInMutation,
                     useGetAllPromptsQuery,
+                    useGetAllPromptsByPostIdQuery,
                     usePostCreateQuoteGenerateMutation,
                     usePostSaveQuoteMutation,
                     usePostPostPromptMutation,

@@ -1,19 +1,39 @@
-import {Col, Row, Image, Card} from "react-bootstrap";
+import {Col, Row, Image, Card, Spinner} from "react-bootstrap";
 import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
 // import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
 import {Link} from "react-router-dom";
 import {Post} from "../../interfaces/Post.ts";
+import {useGetAllPromptsByPostIdQuery} from "../../../store/apis.ts";
+import {Prompt} from "../../interfaces/Prompt.ts";
 
 
 interface GalleryContentProps {
     post: Post
+    prompts: Prompt
 }
 
 export function GalleryContent(props: GalleryContentProps) {
 
     const { post } = props;
+
+    const { data: prompts, isLoading } = useGetAllPromptsByPostIdQuery(post.postId);
+    if (isLoading || prompts === undefined) {
+        return (
+            <div className="d-flex justify-content-center align-items-center vh-100">
+                <Spinner animation="border" variant="primary" />
+            </div>
+        );
+    }
+
+    let voice: Prompt[] = prompts.filter(
+        (prompt) => prompt.promptType === "voice"
+    );
+    let topic: Prompt[] = prompts.filter(
+        (prompt) => prompt.promptType === "topic"
+    );
+    console.log(topic, voice)
 
 
     return (
@@ -43,7 +63,8 @@ export function GalleryContent(props: GalleryContentProps) {
                             </Row>
                             <Row>
                                 <Col className={'text-center'}>
-                                    <p><a href={"#"}>#Yoda</a> - <a href={"#"}>#Relationships and Dating</a></p>
+                                    <p><a href={"#"}>#{voice.length > 0 ? voice[0].promptValue : ""}</a>
+                                        - <a href={"#"}>#{topic.length > 0 ? topic[0].promptValue : ""}</a></p>
                                     <div id="photo-credits">Photo by <a href={post.postPhotographerUrl} target={"_blank"}>{post.postPhotographerName}</a> from <a href='https://unsplash.com/?utm_source=Inspirational_Quotes&utm_medium=referral' target={"_blank"}>Unsplash</a></div>
                                 </Col>
                             </Row>
