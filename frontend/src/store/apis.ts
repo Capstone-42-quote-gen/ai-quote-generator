@@ -4,6 +4,7 @@ import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
 import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile";
 import {Post} from "../shared/interfaces/Post.ts";
 import {PostPrompt} from "../shared/interfaces/PostPrompt.ts";
+import {Vote} from "../shared/interfaces/Vote";
 
 
 
@@ -82,6 +83,10 @@ export const apis = createApi({
             transformResponse: (response: { data: Post[] }) => response.data,
             providesTags: ["Posts"]
     }),
+        getVotesByVotePostId: builder.query<Vote[], string>({
+            query: (postId: string) => `/vote/votePostId/${postId}`,
+            transformResponse: (response: { data: Vote[] }) => response.data,
+        }),
 
         getPostByPostProfileId: builder.query<Post[], string> ({
             query: (postProfileId: string) => `/Post/${postProfileId}`,
@@ -90,9 +95,16 @@ export const apis = createApi({
             },
         }),
 
-
-
-
+        PostVote: builder.mutation<ClientResponse, Vote>({
+           transformResponse: transformMutationResponses,
+           query (body: Vote) {
+               return{
+                   url: '/vote',
+                   method: "POST",
+                   body
+               }
+           }
+        }),
 
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
             transformResponse: transformMutationResponses,
@@ -222,5 +234,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     usePostSaveQuoteMutation,
                     usePostPostPromptMutation,
                     useGetPostByPostIdQuery,
-                    useGetPostByPostCreationTimeQuery
+                    useGetPostByPostCreationTimeQuery,
+                    useGetPostByVotePostIdQuery,
+                    usePostVoteMutation
                 } = apis
