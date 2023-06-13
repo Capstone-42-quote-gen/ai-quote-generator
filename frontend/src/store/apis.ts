@@ -70,14 +70,18 @@ export const apis = createApi({
             providesTags: ["Posts"]
         }),
 
+        getPostByVotePostId: builder.query<Post[], string> ({
+            query: () => '/post',
+            transformResponse: (response: { data: Post[] }) => response.data,
+            providesTags: ["Posts"]
+    }),
+
         getPostByPostProfileId: builder.query<Post[], string> ({
             query: (postProfileId: string) => `/Post/${postProfileId}`,
             transformResponse: (response: { data: Post[] }) => {
                 return response.data;
             },
         }),
-
-
 
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
             transformResponse: transformMutationResponses,

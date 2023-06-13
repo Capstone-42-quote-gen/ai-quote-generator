@@ -13,7 +13,6 @@ export const SignUpForm = () => {
 
     const signUp: SignUp = {
         profileUsername: "",
-        // profilePhotoUrl: "",
         profileEmail: "",
         profilePassword: ""
     }
