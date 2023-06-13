@@ -4,6 +4,7 @@ import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
 import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile";
 import {Post} from "../shared/interfaces/Post.ts";
 import {PostPrompt} from "../shared/interfaces/PostPrompt.ts";
+import {Vote} from "../shared/interfaces/Vote";
 
 
 
@@ -60,7 +61,7 @@ export const apis = createApi({
 
 
         getAllPromptsByPostId: builder.query<Prompt[], string>({
-            query: (postId) => `/prompt/postid/${postId}`,
+            query: (postId) => `/prompt/postId/${postId}`,
             transformResponse: (response: { data: Prompt[]}) => response.data,
             providesTags: ["PostPrompt"]
         }),
@@ -82,6 +83,10 @@ export const apis = createApi({
             transformResponse: (response: { data: Post[] }) => response.data,
             providesTags: ["Posts"]
     }),
+        getVotesByVotePostId: builder.query<Vote[], string>({
+            query: (postId: string) => `/vote/votePostId/${postId}`,
+            transformResponse: (response: { data: Vote[] }) => response.data,
+        }),
 
         getPostByPostProfileId: builder.query<Post[], string> ({
             query: (postProfileId: string) => `/Post/${postProfileId}`,
@@ -89,6 +94,7 @@ export const apis = createApi({
                 return response.data;
             },
         }),
+
 
         getPostsByPromptId: builder.query<Post[], string> ({
             query: (promptId: string) => `/post/promptId/${promptId}`,
@@ -98,7 +104,16 @@ export const apis = createApi({
         }),
 
 
-
+        PostVote: builder.mutation<ClientResponse, Vote>({
+           transformResponse: transformMutationResponses,
+           query (body: Vote) {
+               return{
+                   url: '/vote',
+                   method: "POST",
+                   body
+               }
+           }
+        }),
 
 
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
@@ -230,5 +245,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     usePostPostPromptMutation,
                     useGetPostByPostIdQuery,
                     useGetPostByPostCreationTimeQuery,
-                    useGetPostsByPromptIdQuery
+                    useGetPostsByPromptIdQuery,
+                    useGetPostByVotePostIdQuery,
+                    usePostVoteMutation
                 } = apis

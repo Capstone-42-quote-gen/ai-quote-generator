@@ -1,4 +1,4 @@
-import {Card, Col, Container, Modal, Row} from "react-bootstrap";
+import {Card, Col, Image, Modal, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import {useGetPostByPostProfileIdQuery} from "../../../store/apis";
 import {useState} from "react";
@@ -32,38 +32,22 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
         }
             return (
                 <>
-                  <Container>
-                        <Row>
-                <Col xs={4} lg={4}>
-               <Card>
-               <Card.Img variant=''
+
+              <Col lg={3} xs={6} className="py-4 m-5">
+               <Image className={"img-fluid"}
                          src={profilePost.postPhotoUrl}
-                         onClick={openModal} />
-               </Card>
+                         onClick={openModal}/>
+              </Col>
 
                <Modal show={showModal}
                       onHide={closeModal}
-                      className={' img-fluid'}
                       onClick={closeModal}>
                   <Modal.Body>
-                    <div className="d-flex justify-content-center rounded my-2">
-                      <Card className={'quote-image-card'}>
-                        <Card.Body className="text-center">
-                           <Row className={'justify-content-center'}>
-                            <Col>
                             <Card.Img className={'quote-image img-fluid'}
                             src={profilePost.postPhotoUrl}
                             alt="Quote Image"/>
-                            </Col>
-                          </Row>
-                        </Card.Body>
-                      </Card>
-                    </div>
                  </Modal.Body>
               </Modal>
-            </Col>
-          </Row>
-        </Container>
     </>
   )
 }

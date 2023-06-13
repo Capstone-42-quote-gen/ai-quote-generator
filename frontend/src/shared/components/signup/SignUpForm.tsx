@@ -114,8 +114,8 @@ export const SignUpForm = () => {
                         <Button variant="secondary" type={"submit"} disabled={!dirty || isSubmitting}>Submit</Button>
                     </Form.Group>
                 </Form>
-                <DisplayStatus status={status}/>
-                <FormDebugger {...props}/>
+                {/*<DisplayStatus status={status}/>*/}
+                {/*<FormDebugger {...props}/>*/}
             </>
         )
     }
