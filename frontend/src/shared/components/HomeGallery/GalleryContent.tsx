@@ -1,10 +1,15 @@
-import {Col, Row, Image, Card} from "react-bootstrap";
+import {Col, Row, Image, Card, Button} from "react-bootstrap";
 import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
 // import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
 import {Link} from "react-router-dom";
 import {Post} from "../../interfaces/Post.ts";
+import {
+    useGetProfileByProfileIdQuery,
+    useGetVotesByVotePostIdQuery,
+    usePostVoteMutation
+} from "../../../store/apis";
 
 
 interface GalleryContentProps {
@@ -15,6 +20,27 @@ export function GalleryContent(props: GalleryContentProps) {
 
     const { post } = props;
 
+    const [submitVote] = usePostVoteMutation()
+    const {data: profile, isLoading} = useGetProfileByProfileIdQuery(post.postProfileId)
+    const {data: votes, isLoading: votesIsLoading, refetch} =
+        useGetVotesByVotePostIdQuery(post.postProfileId)
+
+    if(isLoading || profile === undefined) {
+        return <></>
+    }
+
+    if(votesIsLoading || votes === undefined) {
+        return <></>
+    }
+
+    const clickVote = async () => {
+        await submitVote({votePostId: post.postId})
+        await refetch()
+    }
+
+    if (profile === null) {
+        return(<></>)
+    }
 
     return (
         <>
@@ -29,7 +55,8 @@ export function GalleryContent(props: GalleryContentProps) {
                             </Row>
                             <Row>
                                 <Col className={'text-center'}>
-                                    <Image src={img_heart_0} className="img-action-icons" height="35" alt="Like"/>
+                                    <Button onClick={clickVote}>
+                                        {votes.length}<span><Image src={img_heart_0} className="img-action-icons" height="35" alt="Like"/></span></Button>
                                     <Link to={post.postPhotoUrl} download>
                                         <Image src={img_download} className="img-action-icons" height="35" alt="Download"/></Link>
 

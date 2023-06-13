@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './Home.tsx'
 import { FourOhFour } from './FourOhFour'
-import {Profile} from "./Profile";
+// import {Profile} from "./Profile";
 import {Provider} from "react-redux";
 import {ToolkitStore} from "@reduxjs/toolkit/dist/configureStore";
 import {CreateQuotePage} from "../shared/components/createquote/CreateQuotePage.tsx";
@@ -11,6 +11,7 @@ import {SignIn} from "../shared/components/SignIn/SignIn";
 import {SignUp} from "../shared/components/signup/SignUp";
 import {DisplayQuote} from "../shared/components/createquote/DisplayQuote";
 import {DisplayByNew} from "../shared/components/navbar-functions/New";
+import {DisplayByPopular} from "../shared/components/navbar-functions/Popular";
 
 
 interface Props {
@@ -27,10 +28,11 @@ export function App(props: Props) {
                     <Route path={"*"} element={<FourOhFour />} />
                     <Route path={'/create-quote'} element={<CreateQuotePage />} />
                     <Route path={'/display-quote/:postId'} element={<DisplayQuote />} />
-                    <Route path={'/profile'} element={<Profile />} />
+                    {/*<Route path={'/profile'} element={<Profile />} />*/}
                     <Route path={'/sign-in'} element={<SignIn />} />
                     <Route path={'/sign-up'} element={<SignUp />} />
                     <Route path={'/new'} element={<DisplayByNew />} />
+                    <Route path={'/popular'} element={<DisplayByPopular />} />
                 </Routes>
             </BrowserRouter>
         </Provider>
