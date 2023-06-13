@@ -23,8 +23,6 @@
 */npm-debug.log*!
 */yarn-debug.log*
 */yarn-error.log*
-<<<<<<< HEAD
-setupProxy.ts
-=======
 */setupProxy.ts
->>>>>>> origin/formik
+setupProxy.ts
+

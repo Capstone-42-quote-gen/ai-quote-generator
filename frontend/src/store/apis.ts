@@ -41,11 +41,9 @@ export const apis = createApi({
         },
     }),
 
-<<<<<<< HEAD
-    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "PostPostPrompt"],
-=======
-    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "Posts"],
->>>>>>> origin/navbar
+
+    tagTypes: ["SignUp", "SignIn" , "Prompt", "CreateQuote", "SaveQuote", "Posts","PostPostPrompt"],
+
     endpoints: (builder) => ({
 
         getProfile: builder.query<SignUp[], string>({
@@ -72,6 +70,12 @@ export const apis = createApi({
             providesTags: ["Posts"]
         }),
 
+        getPostByPostProfileId: builder.query<Post[], string> ({
+            query: (postProfileId: string) => `/Post/${postProfileId}`,
+            transformResponse: (response: { data: Post[] }) => {
+                return response.data;
+            },
+        }),
 
 
 
@@ -194,6 +198,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
 
     export const {
                     // useGetProfileQuery,
+                    useGetPostByPostProfileIdQuery,
                     usePostSignUpMutation,
                     usePostSignInMutation,
                     useGetAllPromptsQuery,

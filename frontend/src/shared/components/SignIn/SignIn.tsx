@@ -1,8 +1,8 @@
 
 import {Card, Col, Container, Row} from "react-bootstrap";
 import signInIcon from "../../../assets/icon-1.png";
-import {SignInForm} from "./SignInForm";
-import {SignUp} from "../signup/SignUp";
+import {SignInForm} from "./SignInForm"
+import {SignUp} from "../signup/SignUp"
 
 
 export function SignIn() {

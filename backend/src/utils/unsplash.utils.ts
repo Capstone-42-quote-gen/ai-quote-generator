@@ -20,7 +20,7 @@ export async function generateImage(topic: string): Promise<{
         orientation: "portrait",
         count: 6
     })
-    console.log(result)
+    // console.log(result)
     if (result.errors) {
         console.log('error occurred: ', result.errors[0]);
         throw new Error("error occurred fetching images from unsplash")
