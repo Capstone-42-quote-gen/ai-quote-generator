@@ -7,7 +7,7 @@ export interface PartialProfile {
     profileId: string | null
     profileEmail: string
     profileUsername: string
-    profilePhotoUrl: string
+    profilePhotoUrl: string | null
 }
 
 export interface SignIn {

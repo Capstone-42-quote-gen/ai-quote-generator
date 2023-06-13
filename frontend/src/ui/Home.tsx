@@ -1,9 +1,9 @@
-import {Navigation} from "../shared/components/NavBar.tsx";
+import {DisplayByNew} from "../shared/components/navbar-functions/New";
 
 export function Home() {
     return (
         <>
-            <Navigation/>
+            <DisplayByNew />
         </>
     )
 }
