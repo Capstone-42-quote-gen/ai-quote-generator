@@ -6,11 +6,15 @@ import {CreateQuote} from "../../interfaces/CreateQuote";
 import {Prompt} from "../../interfaces/Prompt.ts";
 import {DisplayError} from "../display-error/DisplayError";
 import {DisplayStatus} from "../display-status/DisplayStatus";
-import {FormDebugger} from "../FormDebugger";
+// import {FormDebugger} from "../FormDebugger";
+import {Dispatch, SetStateAction} from "react";
 
+interface CreateQuoteFormLogicProps {
+    setCreateQuote: Dispatch<SetStateAction<CreateQuote | null>>
+}
 
-
-export const CreateQuoteFormLogic = () => {
+export const CreateQuoteFormLogic = (props: CreateQuoteFormLogicProps) => {
+    const {setCreateQuote} = props
     const [submit] = usePostCreateQuoteGenerateMutation({fixedCacheKey:"SubmitQuote"});
     const createQuote: CreateQuote = {
         topic: "",
@@ -25,6 +29,7 @@ export const CreateQuoteFormLogic = () => {
 
         const { setStatus } = formikHelpers;
         const createQuote: CreateQuote = {topic: values.topic, voice: values.voice}
+        setCreateQuote(createQuote)
 
         const result = (await submit(createQuote)) as MutationResponse;
 
@@ -142,8 +147,8 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
                     </Col>
                 </Row>
             </Form>
-            <DisplayStatus status={status} />
-            <FormDebugger {...props} />
+            {/*<DisplayStatus status={status} />*/}
+            {/*<FormDebugger {...props} />*/}
         </>
     );
 };

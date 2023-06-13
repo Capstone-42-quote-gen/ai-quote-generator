@@ -74,7 +74,7 @@ export async function postPost (request: Request, response: Response): Promise<R
         const status: Status = {
             status: 200,
             message: result,
-            data: {postID:post.postId}
+            data: {postId:post.postId}
         }
         return response.json(status)
     }catch (error) {
