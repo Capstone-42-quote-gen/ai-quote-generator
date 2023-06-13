@@ -1,10 +1,10 @@
 import { Container, Row } from "react-bootstrap";
 import { CreateQuoteFormLogic } from "./CreateQuoteForm";
 import { useAppSelector } from "../../../store/store.ts";
-import { Navigation } from "../NavBar.tsx";
-import { QuoteImage, CreateQuote } from "../../interfaces/CreateQuote.ts";
 import { PreviewQuote } from "./PreviewQuote.tsx";
 import {useState} from "react";
+import {CreateQuote, QuoteImage} from "../../interfaces/CreateQuote";
+import {Navigation} from "../navbar-functions/NavBar";
 
 export function CreateQuotePage() {
 
