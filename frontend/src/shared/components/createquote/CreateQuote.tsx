@@ -1,7 +1,7 @@
 import { Container, Row } from "react-bootstrap";
 import { CreateQuoteFormLogic } from "./CreateQuoteForm";
 import { useAppSelector } from "../../../store/store.ts";
-import { Navigation } from "../NavBar.tsx";
+import { Navigation } from "../navbar-functions/NavBar.tsx";
 import { QuoteImage } from "../../interfaces/CreateQuote.ts";
 import { PreviewQuote } from "./PreviewQuote.tsx";
 import {useJwtToken} from "../../hooks/useJwtHook.tsx";

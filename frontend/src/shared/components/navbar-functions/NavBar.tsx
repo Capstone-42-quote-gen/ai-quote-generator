@@ -2,8 +2,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import {Col, Nav, Row} from "react-bootstrap";
 import {Image} from "react-bootstrap";
-import signIn from "../../assets/sign-in-icon.png";
-import logo from "../../assets/gloomsmith.png";
+import signIn from "../../../assets/sign-in-icon.png";
+import logo from "../../../assets/gloomsmith.png";
 
 export function Navigation() {
     return (
@@ -22,7 +22,7 @@ export function Navigation() {
                     <Nav className={"w-100 justify-content-evenly"}>
                         <Nav.Link href="#popular">Popular</Nav.Link>
                         <span className={"navbar-divider"}></span>
-                        <Nav.Link href="#new">New</Nav.Link>
+                        <Nav.Link href="/new">New</Nav.Link>
                         <span className={"navbar-divider"}></span>
                         <Nav.Link href="#topics">Tags</Nav.Link>
                         <span className={"navbar-divider"}></span>

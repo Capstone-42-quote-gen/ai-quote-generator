@@ -1,4 +1,4 @@
-import {Navigation} from "../shared/components/NavBar.tsx";
+import {Navigation} from "../shared/components/navbar-functions/NavBar.tsx";
 import {ProfileGallery} from "../shared/components/ProfileGallery.tsx";
 import logo from "../../src/assets/logo-1.png"
 import {Col, Container, Row, Image} from "react-bootstrap";
