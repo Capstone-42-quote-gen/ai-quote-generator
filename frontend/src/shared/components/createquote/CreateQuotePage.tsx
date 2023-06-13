@@ -1,34 +1,34 @@
 import { Container, Row } from "react-bootstrap";
 import { CreateQuoteFormLogic } from "./CreateQuoteForm";
 import { useAppSelector } from "../../../store/store.ts";
-import { Navigation } from "../navbar-functions/NavBar.tsx";
-import { QuoteImage } from "../../interfaces/CreateQuote.ts";
 import { PreviewQuote } from "./PreviewQuote.tsx";
-import {useJwtToken} from "../../hooks/useJwtHook.tsx";
+import {useState} from "react";
+import {CreateQuote, QuoteImage} from "../../interfaces/CreateQuote";
+import {Navigation} from "../navbar-functions/NavBar";
 
-export function CreateQuote() {
+export function CreateQuotePage() {
 
         const data = useAppSelector(
         (state) => state.api.mutations?.SubmitQuote?.data?.data
     );
+ const [createQuote, setCreateQuote] = useState <CreateQuote | null > (null)
 
-const profile = useJwtToken()
-    console.log(profile)
 
     return (
         <>
             <Navigation />
             <Container>
-                <CreateQuoteFormLogic />
+                <CreateQuoteFormLogic setCreateQuote={setCreateQuote} />
 
                 <Row className="justify-content-center">
-                    {data &&
+                    {data && createQuote !== null &&
                         data.imageData.map((image: QuoteImage, index: number) => (
                             <PreviewQuote
                                 key={image.regularUrl}
                                 quote={data.quote}
                                 image={image}
                                 index={index}
+                                createQuote={createQuote}
                             />
                         ))}
                 </Row>

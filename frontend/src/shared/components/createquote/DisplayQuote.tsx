@@ -1,7 +1,7 @@
-import {Navigation} from "../shared/components/navbar-functions/NavBar.tsx";
 import {useParams} from "react-router-dom";
-import {useGetPostByPostIdQuery} from "../store/apis.ts";
-import {GalleryContent} from "../shared/components/GalleryContent";
+import {useGetPostByPostIdQuery} from "../../../store/apis.ts";
+import {GalleryContent} from "../HomeGallery/GalleryContent.tsx";
+import {Navigation} from "../navbar-functions/NavBar";
 
 
 

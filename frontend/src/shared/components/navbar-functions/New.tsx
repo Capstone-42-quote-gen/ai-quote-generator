@@ -1,8 +1,8 @@
 import {useGetPostByPostCreationTimeQuery} from "../../../store/apis";
 import {Navigation} from "./NavBar";
 // import {QuoteImage} from "../../interfaces/CreateQuote";
-import {GalleryContent} from "../GalleryContent";
 import {Post} from "../../interfaces/Post";
+import {GalleryContent} from "../HomeGallery/GalleryContent";
 
 export function DisplayByNew() {
     const { data , isLoading } = useGetPostByPostCreationTimeQuery("")
