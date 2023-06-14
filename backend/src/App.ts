@@ -13,6 +13,7 @@ import {ProfileRoute} from "./apis/profile/profile.route";
 import {VoteRoute} from "./apis/vote/vote.route";
 import {PostPromptRoute} from "./apis/post-prompt/post-prompt.route";
 import {GeneratePromptRoute} from "./apis/generate-prompt/generate-prompt.route";
+import {SignOutRoute} from "./apis/sign-out/sign-out.route";
 
 
 // The following class creates the app and instantiates the server
@@ -59,6 +60,7 @@ export class App {
         this.app.use('/apis', indexRoute)
         this.app.use('/apis/sign-up', SignUpRouter)
         this.app.use('/apis/sign-in', SignInRouter)
+        this.app.use('/apis/sign-out', SignOutRoute)
         this.app.use('/apis/profile', ProfileRoute)
         this.app.use('/apis/post', PostRoute)
         this.app.use('/apis/prompt', PromptRoute)
