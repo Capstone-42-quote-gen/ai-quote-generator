@@ -40,7 +40,7 @@ a.nav-link:visited {
 
 #photo-credits {
     font-size: 10px;
-    color: darkgrey;
+    color: #852814;
 }
 
 
@@ -82,6 +82,21 @@ a.nav-link:visited {
 .profile-gallery-modal {
     width: 100%;
     height: auto;
+}
+
+.post-vote-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.post-vote-btn:hover {
+    background-color: #C1F6FF;
+    color: #C1F6FF;
+}
+
+.vote-count {
+    color: black;
 }
 
 

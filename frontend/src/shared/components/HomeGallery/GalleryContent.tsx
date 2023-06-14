@@ -73,18 +73,13 @@ export function GalleryContent(props: GalleryContentProps) {
                                 <Col className={'text-center'}>
                                     <Button disabled={isLoading}
                                             onClick={clickVote}
-                                            className={"post-vote-btn btn-outline-light mt-3"}
+                                            className={"post-vote-btn mt-3"}
                                             size={"sm"}
                                         >
-                                        {votes.length > 0 ? (
-                                        <>
-                                            {votes.length} <Image src={img_heart_1} height="35"/>
-                                        </>
-                                            ) : (
-                                                <>
-                                                    {votes.length} <Image src={img_heart_0} height="35"/>
-                                                </>
-                                            )}
+                                        {votes.length > 0 && (
+                                            <span className={"vote-count me-2"}>{votes.length}</span>
+                                        )}
+                                            <Image src={votes.length > 0 ? img_heart_1 : img_heart_0} height="35" className={"vote-icon"}/>
                                     </Button>
                                     <Link to={post.postPhotoUrl} download>
                                         <Image src={img_download} className="img-action-icons" height="35" alt="Download" />
