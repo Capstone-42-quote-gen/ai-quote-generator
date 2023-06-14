@@ -15,6 +15,7 @@ import {DisplayTags} from "../shared/components/navbar-functions/Tags.tsx";
 import {PrivateRoute} from "../shared/components/RouteGuard";
 import {DisplayByPopular} from "../shared/components/navbar-functions/Popular";
 import {Profile} from "./Profile";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 
 interface Props {

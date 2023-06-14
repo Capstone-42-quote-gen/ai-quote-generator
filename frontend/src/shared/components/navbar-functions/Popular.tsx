@@ -14,6 +14,8 @@ export function DisplayByPopular() {
 
     }
 
+    console.log(posts)
+
     return (
         <>
             <Navigation/>

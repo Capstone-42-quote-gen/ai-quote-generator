@@ -19,7 +19,7 @@ export function DisplayByProfileId() {
     return (
         <>
             <Container>
-            <Row>
+                <Row className="justify-content-center">
             {posts.map((profilePost: Post) => (
                     <ProfileGalleryContent
                         key={profilePost.postProfileId}

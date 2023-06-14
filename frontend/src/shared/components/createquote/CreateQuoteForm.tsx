@@ -141,7 +141,7 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
 
                 <Row className="mb-3 justify-content-center">
                     <Col xs="auto" className="py-2">
-                        <Button variant="primary" size="lg" type="submit">
+                        <Button size="lg" type="submit" className="generate-button">
                             Generate a Quote
                         </Button>
                     </Col>

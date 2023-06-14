@@ -1,7 +1,7 @@
-import {Col, Row, Image, Card, Spinner} from "react-bootstrap";
+import {Col, Row, Image, Card, Spinner, Button} from "react-bootstrap";
 import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
-// import img_heart_1 from "/src/assets/heart-1.png";
+import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
 import {Link} from "react-router-dom";
 import {Post} from "../../interfaces/Post.ts";
@@ -12,6 +12,7 @@ import {
     usePostVoteMutation
 } from "../../../store/apis";
 import {Prompt} from "../../interfaces/Prompt";
+import {useState} from "react";
 
 interface GalleryContentProps {
     post: Post;
@@ -19,7 +20,7 @@ interface GalleryContentProps {
 
 export function GalleryContent(props: GalleryContentProps) {
     const { post } = props;
-
+    const [voted, setVoted] = useState(false)
     const { data: prompts, isLoading } = useGetAllPromptsByPostIdQuery(post.postId);
     const [submitVote] = usePostVoteMutation()
     const {data: profile, isLoading: profileIsLoading} = useGetProfileByProfileIdQuery(post.postProfileId)
@@ -46,6 +47,11 @@ export function GalleryContent(props: GalleryContentProps) {
     const clickVote = async () => {
         await submitVote({votePostId: post.postId})
         await refetch()
+        if (voted) {
+            setVoted(false);
+        } else {
+            setVoted(true)
+        }
     }
 
     if (profile === null) {
@@ -68,7 +74,16 @@ export function GalleryContent(props: GalleryContentProps) {
                             </Row>
                             <Row>
                                 <Col className={'text-center'}>
-                                        {votes.length}<span><Image src={img_heart_0} onClick={clickVote} className="img-action-icons" height="35" alt="Like"/></span>
+                                    <Button disabled={isLoading}
+                                            onClick={clickVote}
+                                            className={"post-vote-btn mt-3"}
+                                            size={"sm"}
+                                        >
+                                        {votes.length > 0 && (
+                                            <span className={"vote-count me-2"}>{votes.length}</span>
+                                        )}
+                                            <Image src={votes.length > 0 ? img_heart_1 : img_heart_0} height="35" className={"vote-icon"}/>
+                                    </Button>
                                     <Link to={post.postPhotoUrl} download>
                                         <Image src={img_download} className="img-action-icons" height="35" alt="Download" />
                                     </Link>
