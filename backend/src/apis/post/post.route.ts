@@ -6,7 +6,7 @@ import {
     getPostsByPostProfileIdController,
     getPostsByPromptIdController,
     postPost,
-    getPostByVoteCountController
+    getPostByPopularController
 } from './post.controller'
 
 import { asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
@@ -19,9 +19,7 @@ router.route('/:postId').get(asyncValidatorController([
 check('postId', 'please provide a valid postId').isUUID()
 ]),getPostByPostIdController)
 
-router.route('/voteCount').get(asyncValidatorController([
-check('postId', 'please provide a valid postId').isUUID(),
-]),getPostByVoteCountController)
+router.route('/popular/voteCount').get(getPostByPopularController)
 
 router.route('/:postId').get(asyncValidatorController([
 check('postId', 'please provide a valid postId').isUUID()

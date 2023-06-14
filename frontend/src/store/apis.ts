@@ -84,7 +84,7 @@ export const apis = createApi({
         }),
 
         getPostByVotePostId: builder.query<Post[], string> ({
-            query: () => '/post/',
+            query: () => '/post/popular/voteCount',
             transformResponse: (response: { data: Post[] }) => response.data,
             providesTags: ["Posts"]
     }),
@@ -250,7 +250,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     useGetPostByPostIdQuery,
                     useGetPostByPostCreationTimeQuery,
                     useGetPostsByPromptIdQuery,
-                    useGetPostByPostIdAndVoteIdQuery,
+                    useGetPostByVotePostIdQuery,
                     usePostVoteMutation,
                     useGetVotesByVotePostIdQuery,
                     useGetProfileByProfileIdQuery

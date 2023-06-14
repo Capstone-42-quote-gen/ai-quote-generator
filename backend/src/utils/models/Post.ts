@@ -75,7 +75,7 @@ export async function selectPostsByPromptId(promptId: string): Promise<Post[]> {
         WHERE post_prompt.post_prompt_prompt_id = ${promptId}`;
 }
 
-export async function selectPostsByVotePostId (votePostId: string): Promise<Post[]> {
+export async function selectPostsByPopular(): Promise<Post[]> {
     return sql <Post[]>
         `SELECT 
         post_id,  
@@ -85,8 +85,7 @@ export async function selectPostsByVotePostId (votePostId: string): Promise<Post
         post_creation_time, 
         post_photographer_name, 
         post_photographer_url 
-        FROM vote
-        INNER JOIN (vote.vote_post_id) ON vote_post_id
-        WHERE post.votePostId= ${votePostId}
-        ORDER BY votePostId DESC`;
+        FROM post
+        INNER JOIN vote on vote.vote_post_id = post.post_id
+        ORDER BY (SELECT count(*) FROM vote WHERE vote_post_id = post_id)  DESC`;
 }

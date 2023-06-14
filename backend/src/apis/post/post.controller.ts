@@ -5,7 +5,7 @@ import {
     selectPostByPostId,
     selectPostsByPostProfileId,
     selectPostsByPromptId,
-    Post, selectPostsByVotePostId
+    Post, selectPostsByPopular
 } from '../../utils/models/Post'
 import { Status } from '../../utils/interfaces/Status'
 import { Profile } from '../../utils/models/Profile'
@@ -41,10 +41,9 @@ export async function getPostsByPostProfileIdController (request: Request, respo
         })
     }
 
-}export async function getPostByVoteCountController (request: Request, response: Response): Promise<Response<Status>>{
+}export async function getPostByPopularController (request: Request, response: Response): Promise<Response<Status>>{
     try {
-     const { votePostId } = request.params
-        const data = await selectPostsByVotePostId(votePostId)
+        const data = await selectPostsByPopular()
         return response.json({ status: 200, message: null, data})
     } catch (error){
         return response.json({
