@@ -1,4 +1,5 @@
 import { Schema } from 'express-validator'
+import {selectWholeProfileByProfileId} from "../../utils/models/Profile";
 
     export const signUpValidator: Schema = {
     profileUsername: {
@@ -7,6 +8,22 @@ import { Schema } from 'express-validator'
         isLength: {
             errorMessage: 'ProfileUsername must be between seven and thirty two characters',
             options: {min: 1, max: 32 }
+        },
+        custom: {
+            errorMessage: 'Username already in use',
+            options: async (value: string, {req}) => {
+                try {
+                    const profile = await selectWholeProfileByProfileId(value)
+
+                    if (profile?.profileUsername !== 'username') {
+                        throw new Error('Invalid username')
+                    }
+                    req.body.profile = profile.profileUsername
+                    return true;
+                } catch (error) {
+                    throw new Error('Invalid username');
+                }
+            },
         }
     },
         profilePhotoUrl: {
@@ -20,6 +37,22 @@ import { Schema } from 'express-validator'
                 errorMessage: 'Please provide a valid email'
             },
             trim: true,
+            custom: {
+                errorMessage: 'Email already in use',
+                options: async (value: string, {req}) => {
+                    try {
+                        const profile = await selectWholeProfileByProfileId(value)
+
+                        if (profile?.profileEmail !== 'email') {
+                            throw new Error('Invalid email')
+                        }
+                        req.body.profile = profile.profileEmail
+                        return true;
+                    } catch (error) {
+                        throw new Error('Invalid email');
+                    }
+                },
+            }
         },
         profilePassword: {
         isLength: {

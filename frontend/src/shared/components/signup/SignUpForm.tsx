@@ -1,15 +1,17 @@
 import {Button, Form} from "react-bootstrap";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {DisplayError} from "../display-error/DisplayError";
-import {DisplayStatus} from "../display-status/DisplayStatus";
-import {FormDebugger} from "../FormDebugger";
 import {ClientResponseForSignIn, MutationResponse, usePostSignUpMutation} from "../../../store/apis";
 import {SignUp} from "../../interfaces/Profile";
 import {object, string} from "yup";
+import {useNavigate} from "react-router-dom";
+import {DisplayStatus} from "../display-status/DisplayStatus";
 
 
 
 export const SignUpForm = () => {
+
+    const navigate = useNavigate()
 
     const signUp: SignUp = {
         profileUsername: "",
@@ -46,6 +48,7 @@ export const SignUpForm = () => {
         } else if (response?.status === 200) {
             resetForm()
             setStatus({type: response.type, message: response.message})
+            navigate( "/sign-in")
         } else {
             setStatus({type: response?.type, message: response?.message})
         }
@@ -78,7 +81,7 @@ export const SignUpForm = () => {
                         <Form.Control
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            placeholder={"Email"}
+                            placeholder={""}
                             value={values.profileEmail}
                             name="profileEmail"
                             type="email"
@@ -89,7 +92,7 @@ export const SignUpForm = () => {
                         <Form.Control
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            placeholder={"Username"}
+                            placeholder={""}
                             value={values.profileUsername}
                             name="profileUsername"
                             type="username"
@@ -99,7 +102,7 @@ export const SignUpForm = () => {
                         <Form.Control
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            placeholder={"Password"}
+                            placeholder={""}
                             value={values.profilePassword}
                             name="profilePassword"
                             type="password"
@@ -111,10 +114,10 @@ export const SignUpForm = () => {
                         </Form.Text>
                     </Form.Group>
                     <Form.Group>
-                        <Button variant="secondary" type={"submit"} disabled={!dirty || isSubmitting}>Submit</Button>
+                        <Button className={"mb-3"} variant="secondary" type={"submit"} disabled={!dirty || isSubmitting}>Submit</Button>
                     </Form.Group>
                 </Form>
-                {/*<DisplayStatus status={status}/>*/}
+                <DisplayStatus status={status}/>
                 {/*<FormDebugger {...props}/>*/}
             </>
         )

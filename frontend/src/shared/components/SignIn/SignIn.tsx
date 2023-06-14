@@ -11,13 +11,13 @@ export function SignIn() {
     return (
         <>
             <Container
-                className={"align-items-center sign-in-card-resize mx-auto m-3 py-5"}>
+                className={"align-items-center sign-in-card-resize mx-auto m-3"}>
                 <Card
                     className={"sign-in-card"}>
                     <Card.Body
                         className={"rounded"}>
                         <Card.Title
-                            className={"text-center py-4"}>
+                            className={"text-center py-1"}>
                             <a
                                 href="/"><img
                                 src={signInIcon}
