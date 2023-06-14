@@ -57,6 +57,7 @@ export function Navigation() {
                         <Nav.Link href="#popular">
                             Popular
                         </Nav.Link>
+                        <Nav.Link href="/popular">Popular</Nav.Link>
                         <span className={"navbar-divider"}></span>
                         <Nav.Link href="/new">
                             New

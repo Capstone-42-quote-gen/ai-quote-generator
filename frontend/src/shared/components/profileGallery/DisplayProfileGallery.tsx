@@ -1,5 +1,5 @@
 
-import {useGetPostByPostProfileIdQuery} from "../../../store/apis.ts";
+import {useGetPostsByPostProfileIdQuery} from "../../../store/apis.ts";
 import {Post} from "../../interfaces/Post";
 import {ProfileGalleryContent} from "./ProfileGalleryContent";
 import {Container, Row} from "react-bootstrap";
@@ -7,7 +7,7 @@ import {Container, Row} from "react-bootstrap";
 
 export function DisplayByProfileId() {
 
-    const { data , isLoading } = useGetPostByPostProfileIdQuery("")
+    const { data , isLoading } = useGetPostsByPostProfileIdQuery("")
     const posts = data ?? []
     if (isLoading) {
 

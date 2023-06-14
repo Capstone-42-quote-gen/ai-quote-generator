@@ -1,12 +1,17 @@
-import { Col, Row, Image, Card, Spinner } from "react-bootstrap";
+import {Col, Row, Image, Card, Button, Spinner} from "react-bootstrap";
 import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
 // import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
-import { Link } from "react-router-dom";
-import { Post } from "../../interfaces/Post.ts";
-import { useGetAllPromptsByPostIdQuery } from "../../../store/apis.ts";
-import { Prompt } from "../../interfaces/Prompt.ts";
+import {Link} from "react-router-dom";
+import {Post} from "../../interfaces/Post.ts";
+import {
+    useGetAllPromptsByPostIdQuery,
+    useGetProfileByProfileIdQuery,
+    useGetVotesByVotePostIdQuery,
+    usePostVoteMutation
+} from "../../../store/apis";
+import {Prompt} from "../../interfaces/Prompt";
 
 interface GalleryContentProps {
     post: Post;
@@ -16,6 +21,11 @@ export function GalleryContent(props: GalleryContentProps) {
     const { post } = props;
 
     const { data: prompts, isLoading } = useGetAllPromptsByPostIdQuery(post.postId);
+    const [submitVote] = usePostVoteMutation()
+    const {data: profile, isLoading: profileIsLoading} = useGetProfileByProfileIdQuery(post.postProfileId)
+    const {data: votes, isLoading: votesIsLoading, refetch} =
+        useGetVotesByVotePostIdQuery(post.postId)
+
     if (isLoading || prompts === undefined) {
         return (
             <div className="d-flex justify-content-center align-items-center vh-100">
@@ -23,9 +33,24 @@ export function GalleryContent(props: GalleryContentProps) {
             </div>
         );
     }
-
     let voice: Prompt[] = prompts.filter((prompt) => prompt.promptType === "voice");
     let topic: Prompt[] = prompts.filter((prompt) => prompt.promptType === "topic");
+    if(profileIsLoading || profile === undefined) {
+        return <></>
+    }
+
+    if(votesIsLoading || votes === undefined) {
+        return <></>
+    }
+
+    const clickVote = async () => {
+        await submitVote({votePostId: post.postId})
+        await refetch()
+    }
+
+    if (profile === null) {
+        return(<></>)
+    }
 
     return (
         <>
@@ -40,7 +65,7 @@ export function GalleryContent(props: GalleryContentProps) {
                             </Row>
                             <Row>
                                 <Col className={'text-center'}>
-                                    <Image src={img_heart_0} className="img-action-icons" height="35" alt="Like" />
+                                        {votes.length}<span><Image src={img_heart_0} onClick={clickVote} className="img-action-icons" height="35" alt="Like"/></span>
                                     <Link to={post.postPhotoUrl} download>
                                         <Image src={img_download} className="img-action-icons" height="35" alt="Download" />
                                     </Link>
