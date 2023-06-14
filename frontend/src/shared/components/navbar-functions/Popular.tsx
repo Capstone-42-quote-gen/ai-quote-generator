@@ -1,10 +1,10 @@
-import {useGetPostByVotePostIdQuery} from "../../../store/apis";
+import {useGetPostByPostIdAndVoteIdQuery} from "../../../store/apis";
 import {Navigation} from "./NavBar";
 import {GalleryContent} from "../HomeGallery/GalleryContent";
 import {Post} from "../../interfaces/Post";
 
 export function DisplayByPopular() {
-    const {data, isLoading} = useGetPostByVotePostIdQuery("")
+    const {data, isLoading} = useGetPostByPostIdAndVoteIdQuery("")
     const posts = data ?? []
     console.log(posts)
     if (isLoading) {

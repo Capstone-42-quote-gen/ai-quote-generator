@@ -83,8 +83,8 @@ export const apis = createApi({
             providesTags: ["Posts"]
         }),
 
-        getPostByVotePostId: builder.query<Post[], string> ({
-            query: () => '/post',
+        getPostByPostIdAndVoteId: builder.query<Post[], string> ({
+            query: () => '/post/',
             transformResponse: (response: { data: Post[] }) => response.data,
             providesTags: ["Posts"]
     }),
@@ -112,7 +112,7 @@ export const apis = createApi({
            transformErrorResponse: transformErrorResponses,
            query (body: PartialVote) {
                return{
-                   url: '/vote',
+                   url: '/vote/',
                    method: "POST",
                    body
                }
@@ -250,7 +250,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     useGetPostByPostIdQuery,
                     useGetPostByPostCreationTimeQuery,
                     useGetPostsByPromptIdQuery,
-                    useGetPostByVotePostIdQuery,
+                    useGetPostByPostIdAndVoteIdQuery,
                     usePostVoteMutation,
                     useGetVotesByVotePostIdQuery,
                     useGetProfileByProfileIdQuery
