@@ -60,7 +60,10 @@ export function GalleryContent(props: GalleryContentProps) {
                         <Card.Body className="text-center">
                             <Row className={'justify-content-center'}>
                                 <Col>
-                                    <Card.Img className={'quote-image img-fluid'} src={post.postPhotoUrl} alt="Quote Image" />
+                                    <Card.Img
+                                        className={'quote-image img-fluid'}
+                                        src={post.postPhotoUrl}
+                                        alt="Quote Image" />
                                 </Col>
                             </Row>
                             <Row>

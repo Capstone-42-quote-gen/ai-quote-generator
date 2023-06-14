@@ -14,11 +14,13 @@ export function DisplayByPopular() {
 
     }
 
+    const voteSortedPosts = [...posts].sort(( a, b ) => b.voteCount - a.voteCount)
+
     return (
         <>
             <Navigation/>
             {posts &&
-                posts.map((posts: Post) => (
+                voteSortedPosts.map((posts: Post) => (
                     <GalleryContent post={posts}/>
                 ))}
         </>
