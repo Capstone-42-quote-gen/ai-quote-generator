@@ -23,7 +23,7 @@ export function CreateQuotePage() {
                 <CreateQuoteFormLogic setCreateQuote={setCreateQuote} />
 
 
-                { data === undefined ? <><Row className="mb-3 justify-content-center"><Col className="text-center col-lg-7"><h4>Please allow 4-6 seconds for quote to generate after clicking...</h4><p>...while our AI comedy maestro combs through terabytes of comedic genius, please sit back and enjoy the anticipation. Your funny quote, curated by artificial intelligence, is moments away!</p></Col></Row></>:
+                { data === undefined ? <><Row className="mb-3 justify-content-center"><Col className="text-center col-lg-7 "><h4>Please allow 4-6 seconds for quote to generate after clicking...</h4><p>...while our AI comedy maestro combs through terabytes of comedic genius, please sit back and enjoy the anticipation. Your funny quote, curated by artificial intelligence, is moments away!</p></Col></Row></>:
                     <Row className="justify-content-center">
                     {data && createQuote !== null &&
                         data.imageData.map((image: QuoteImage, index: number) => (
