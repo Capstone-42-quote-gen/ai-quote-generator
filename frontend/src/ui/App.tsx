@@ -28,7 +28,8 @@ export function App(props: Props) {
                 <Routes>
                     <Route  path='/' element={<Home />} />
                     <Route path={"*"} element={<FourOhFour />} />
-                    <Route path={'/create-quote'} element={<CreateQuotePage />} />
+                    <Route path={'/create-quote'} element={
+                        <PrivateRoute><CreateQuotePage/></PrivateRoute>} />
                     <Route path={'/display-quote/:postId'} element={<DisplayQuote />} />
                     <Route path={'/profile'} element={
                         <PrivateRoute><Profile/></PrivateRoute>
