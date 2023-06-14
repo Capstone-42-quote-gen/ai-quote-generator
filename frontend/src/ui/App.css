@@ -1,31 +1,42 @@
 
 /* COLORS */
 body {
-    background-color: #9d0ad7;
+    background-color: #687A8F;
+
+}
+
+.signup-text {
+    color: white;
+}
+
 }
 
 .card-body {
-    background-color: #C1F6FF;
+    background-color: #f4f4f4;
 }
 
 .custom-navbar {
-    background-color: #8AFAEE;
+    background-color: #f4f4f4;
     height: 95%;
 }
 
 
-p, h4 {
-    color: #361F07;
+.generate-button {
+    background-color: #6454B2;
+    --bs-btn-hover-bg: #9B93BF;
+}
+p, h1, h4 {
+    color: #f4f4f4;
 }
 
 a:link {
-    color: #00A676;
+    color: #0097B2;
 }
 a:visited {
-    color: #601700;
+    color: #0097B2;
 }
 a:hover {
-    color: #601700;
+    color: #6454B2;
 }
 
 a.nav-link:link {
@@ -43,6 +54,9 @@ a.nav-link:visited {
     color: darkgrey;
 }
 
+.sign-in-h1 {
+    color:black;
+}
 
 
 
@@ -109,7 +123,7 @@ a.nav-link:visited {
 
 @media (min-width: 768px) {
     .sign-in-card-resize {
-        width: 65%;
+        width: 40%;
     }
 }
 

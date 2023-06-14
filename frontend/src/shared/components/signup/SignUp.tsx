@@ -11,7 +11,7 @@ export function SignUp() {
 
     return (
         <>
-            <Button variant={"secondary"} size={"lg"} onClick={handleShow}>Register here</Button>
+            <Button className="generate-button" size={"lg"} onClick={handleShow}>Register here</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Sign Up</Modal.Title>

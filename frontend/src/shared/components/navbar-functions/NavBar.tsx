@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import {Col, Nav, Row} from "react-bootstrap";
 import {Image} from "react-bootstrap";
 import signIn from "../../../assets/sign-in-icon.png";
-import logo from "../../../assets/gloomsmith.png";
+import logo from "../../../assets/gloomSmithLogo-blue.png";
 import {Link} from "react-router-dom";
 import {useJwtToken} from "../../hooks/useJwtHook.tsx";
 
