@@ -60,7 +60,7 @@ export function GalleryContent(props: GalleryContentProps) {
 
     return (
         <>
-            <div className="d-flex justify-content-center rounded my-2">
+            <div className="d-flex justify-content-center rounded my-4">
                 <div className="col-sm-6 col-md-5 col-lg-4 col-xl-3">
                     <Card className={'quote-image-card'}>
                         <Card.Body className="text-center">
