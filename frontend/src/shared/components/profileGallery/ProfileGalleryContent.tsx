@@ -1,4 +1,4 @@
-import {Card, Col, Image, Modal} from "react-bootstrap";
+import {Card, Col, Image, Modal, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import {useState} from "react";
 import {Post} from "../../interfaces/Post";
@@ -33,11 +33,13 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
             return (
                 <>
 
-              <Col lg={3} xs={6} className="py-4 m-5">
+              <Col xl={2} md={3} xs={5} className="py-4 m-1">
                <Image className={"img-fluid"}
                          src={profilePost.postPhotoUrl}
                          onClick={openModal}/>
               </Col>
+
+
 
                <Modal show={showModal}
                       onHide={closeModal}

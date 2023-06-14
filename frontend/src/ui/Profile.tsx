@@ -15,21 +15,12 @@ export function Profile() {
             </Container>
 
             <Container className={'my-3'}>
-                <Row>
-                    <Col md={6}>
-                        <br/>
-                        <h4>About me</h4>
-                        <p>Something about me.Nullus pisces est maior quam amicitia inter Marlin et Dory. In via
-                            sua,
-                            per mundum submari, rebus mirabilibus plena, inveniunt multos habitatores marinos.
-                        </p>
-                        <br/>
+                <Row className="justify-content-center">
+                    <Col xs="auto" className="text-center" >
+                        <h1>My Profile: GloomSmith Quotes</h1>
                     </Col>
                 </Row>
 
-                <Row>
-                    <Col md={3}></Col>
-                </Row>
             </Container>
             <DisplayByProfileId/>
         </>
