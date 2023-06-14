@@ -4,27 +4,28 @@ import {ServerResponse} from "../../store/apis.ts";
 import {AxiosResponse} from "axios";
 import {getAuth} from "../../store/auth";
 import {httpConfig} from "../utils/http-config";
+import {Button, Image} from "react-bootstrap";
+import signOutIcon from "../../assets/sign-out.png";
 
 export const SignOutButton = () => {
     const dispatch: AppDispatch = useDispatch()
     const signOut = () => {
-        httpConfig.get('/apis/sign-out/').then((reply:AxiosResponse<ServerResponse>) => {
+        httpConfig.get('/apis/sign-out/').then((reply: AxiosResponse<ServerResponse>) => {
 
-        if (reply.status === 200) {
-            window.localStorage.removeItem('authorization')
-            dispatch(getAuth(null))
-            window.location.href = "/"
-        }
-    })
+            if (reply.status === 200) {
+                window.localStorage.removeItem('authorization')
+                dispatch(getAuth(null))
+                window.location.href = "/"
+            }
+        })
+    }
+
+    return (
+        <>
+            <div className="dropdown-item sign-out-dropdown">
+                <Button className={"post-vote-btn"} onClick={signOut}><Image src={signOutIcon} /></Button>
+            </div>
+
+        </>
+    )
 }
-
-return(
-    <>
-        <div className="dropdown-item sign-out-dropdown">
-            <button className={"btn btn-outline-dark"} onClick={signOut}>
-
-            </button>
-        </div>
-
-    </>
-)
