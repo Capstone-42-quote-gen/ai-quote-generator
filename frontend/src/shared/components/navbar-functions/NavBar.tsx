@@ -27,7 +27,7 @@ export function Navigation() {
         navLink = (
             <Nav.Link
                 as={Link}
-                to="sign-in" >
+                to="/sign-in" >
                 <Image
                     src={signIn}
                     className={"sign-in-icon p-0 mb-1 me-2"}
