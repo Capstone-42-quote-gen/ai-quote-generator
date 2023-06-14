@@ -7,5 +7,6 @@ export interface Post {
     postQuote: string,
     postCreationTime: Date | null,
     postPhotographerName: string,
-    postPhotographerUrl: string
+    postPhotographerUrl: string,
+    voteCount: number
 }

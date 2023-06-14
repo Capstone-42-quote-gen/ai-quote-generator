@@ -1,7 +1,7 @@
-import {useGetPostByVotePostIdQuery} from "../../../store/apis";
 import {Navigation} from "./NavBar";
 import {GalleryContent} from "../HomeGallery/GalleryContent";
-import {Post} from "../../interfaces/Post";
+import {useGetPostByVotePostIdQuery} from "../../../store/apis.ts";
+import {Post} from "../../interfaces/Post.ts";
 
 export function DisplayByPopular() {
     const {data, isLoading} = useGetPostByVotePostIdQuery("")
@@ -21,8 +21,8 @@ export function DisplayByPopular() {
             <Navigation/>
             {posts &&
                 posts.map((posts: Post) => (
-                    <GalleryContent post={posts}/>
-                ))}
+                    <GalleryContent  post={posts}/>
+    ))}
         </>
     )
 }

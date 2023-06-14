@@ -84,7 +84,7 @@ export const apis = createApi({
         }),
 
         getPostByVotePostId: builder.query<Post[], string> ({
-            query: () => '/post',
+            query: () => '/post/popular/voteCount',
             transformResponse: (response: { data: Post[] }) => response.data,
             providesTags: ["Posts"]
     }),
@@ -112,7 +112,7 @@ export const apis = createApi({
            transformErrorResponse: transformErrorResponses,
            query (body: PartialVote) {
                return{
-                   url: '/vote',
+                   url: '/vote/',
                    method: "POST",
                    body
                }

@@ -4,7 +4,6 @@ import {Profile} from "../../utils/models/Profile";
 import {deleteVote, insertVote, selectVoteByVoteId, selectVotesByVotePostId, Vote} from "../../utils/models/Vote";
 
 
-// TODO What does nextFunction do??
 export async function getVotesByVotePostId(request: Request, response: Response): Promise<Response<Status>> {
     try {
         const {votePostId} = request.params
