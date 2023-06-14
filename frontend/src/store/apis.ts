@@ -83,7 +83,7 @@ export const apis = createApi({
             providesTags: ["Posts"]
         }),
 
-        getPostByPostIdAndVoteId: builder.query<Post[], string> ({
+        getPostByVotePostId: builder.query<Post[], string> ({
             query: () => '/post/',
             transformResponse: (response: { data: Post[] }) => response.data,
             providesTags: ["Posts"]

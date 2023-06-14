@@ -1,5 +1,4 @@
 import { sql } from '../database.utils'
-import {Prompt} from "./Prompt";
 // import {postPost} from "../../apis/post/post.controller";
 
 export interface Post {
@@ -12,10 +11,6 @@ export interface Post {
     postPhotographerUrl: string
 }
 
-export interface PostWithVotes extends Post {
-    voteCount: number
-}
-
 export async function insertPost(post: Post): Promise<string> {
     const { postId, postProfileId, postPhotoUrl, postQuote, postPhotographerName, postPhotographerUrl } = post
     await sql`INSERT INTO post (post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_photographer_name, post_photographer_url) VALUES (${postId}, ${postProfileId}, ${postPhotoUrl}, ${postQuote}, NOW(), ${postPhotographerName}, ${postPhotographerUrl})`
@@ -23,11 +18,32 @@ export async function insertPost(post: Post): Promise<string> {
 }
 
 export async function selectAllPosts(): Promise<Post []> {
-    return sql<Post[]> `SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time,post_photographer_name, post_photographer_url  FROM post ORDER BY post_creation_time DESC`;
+    return sql<Post[]>
+        `SELECT 
+        post_id, 
+        post_profile_id, 
+        post_photo_url, 
+        post_quote, 
+        post_creation_time,
+        post_photographer_name, 
+        post_photographer_url  
+        FROM post 
+        ORDER BY 
+        post_creation_time DESC`;
 }
 
 export async function selectPostByPostId(postId: string): Promise<Post | null > {
-    const result = await sql<Post[]> `SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_photographer_name, post_photographer_url FROM post WHERE post_id = ${postId}`
+    const result = await sql<Post[]>
+        `SELECT 
+         post_id, 
+         post_profile_id, 
+         post_photo_url, 
+         post_quote, 
+         post_creation_time, 
+         post_photographer_name, 
+         post_photographer_url 
+         FROM post 
+         WHERE post_id = ${postId}`
     return result ?.length === 1 ? result[0] : null
 }
 
@@ -45,7 +61,7 @@ export async function selectPostsByPostProfileId(postProfileId: string): Promise
 }
 
 export async function selectPostsByPromptId(promptId: string): Promise<Post[]> {
-    const result = await sql<Post[]>
+    return sql<Post[]>
         `SELECT 
         post_id, 
         post_profile_id, 
@@ -57,27 +73,20 @@ export async function selectPostsByPromptId(promptId: string): Promise<Post[]> {
         FROM post 
         INNER JOIN post_prompt on post.post_id = post_prompt.post_prompt_post_id  
         WHERE post_prompt.post_prompt_prompt_id = ${promptId}`;
-    return result
 }
 
-export async function selectPostsByPostIdAndVoteId(postId: string): Promise<PostWithVotes | null > {
-    const result = await sql<PostWithVotes[]>
-        `SELECT post_id, 
+export async function selectPostsByVotePostId (votePostId: string): Promise<Post[]> {
+    return sql <Post[]>
+        `SELECT 
+        post_id,  
         post_profile_id, 
         post_photo_url, 
         post_quote, 
         post_creation_time, 
         post_photographer_name, 
         post_photographer_url 
-        FROM post 
-        LEFT JOIN (vote.vote_id) ON vote_post_id
-        WHERE post_id = ${postId}
-        GROUP BY
-        post_id`
-    if (result.length > 0 ) {
-        const { voteCount, ...post } = result[0]
-        return { ...post, voteCount }
-
-        }
-    return null
-    }
+        FROM vote
+        INNER JOIN (vote.vote_post_id) ON vote_post_id
+        WHERE post.votePostId= ${votePostId}
+        ORDER BY votePostId DESC`;
+}
