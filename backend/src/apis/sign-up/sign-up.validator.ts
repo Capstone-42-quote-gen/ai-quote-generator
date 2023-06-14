@@ -21,7 +21,7 @@ import {selectWholeProfileByProfileId} from "../../utils/models/Profile";
                     req.body.profile = profile.profileUsername
                     return true;
                 } catch (error) {
-                    throw new Error('Invalid topic');
+                    throw new Error('Invalid username');
                 }
             },
         }
@@ -37,6 +37,22 @@ import {selectWholeProfileByProfileId} from "../../utils/models/Profile";
                 errorMessage: 'Please provide a valid email'
             },
             trim: true,
+            custom: {
+                errorMessage: 'Email already in use',
+                options: async (value: string, {req}) => {
+                    try {
+                        const profile = await selectWholeProfileByProfileId(value)
+
+                        if (profile?.profileEmail !== 'email') {
+                            throw new Error('Invalid email')
+                        }
+                        req.body.profile = profile.profileEmail
+                        return true;
+                    } catch (error) {
+                        throw new Error('Invalid email');
+                    }
+                },
+            }
         },
         profilePassword: {
         isLength: {

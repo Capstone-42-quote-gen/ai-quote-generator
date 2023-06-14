@@ -1,15 +1,17 @@
 import {Button, Form} from "react-bootstrap";
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {DisplayError} from "../display-error/DisplayError";
-import {DisplayStatus} from "../display-status/DisplayStatus";
-import {FormDebugger} from "../FormDebugger";
 import {ClientResponseForSignIn, MutationResponse, usePostSignUpMutation} from "../../../store/apis";
 import {SignUp} from "../../interfaces/Profile";
 import {object, string} from "yup";
+import {useNavigate} from "react-router-dom";
+import {DisplayStatus} from "../display-status/DisplayStatus";
 
 
 
 export const SignUpForm = () => {
+
+    const navigate = useNavigate()
 
     const signUp: SignUp = {
         profileUsername: "",
@@ -46,6 +48,7 @@ export const SignUpForm = () => {
         } else if (response?.status === 200) {
             resetForm()
             setStatus({type: response.type, message: response.message})
+            navigate( "/sign-in")
         } else {
             setStatus({type: response?.type, message: response?.message})
         }
@@ -114,7 +117,7 @@ export const SignUpForm = () => {
                         <Button variant="secondary" type={"submit"} disabled={!dirty || isSubmitting}>Submit</Button>
                     </Form.Group>
                 </Form>
-                {/*<DisplayStatus status={status}/>*/}
+                <DisplayStatus status={status}/>
                 {/*<FormDebugger {...props}/>*/}
             </>
         )
