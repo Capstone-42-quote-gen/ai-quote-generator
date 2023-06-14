@@ -114,7 +114,7 @@ export const SignUpForm = () => {
                         </Form.Text>
                     </Form.Group>
                     <Form.Group>
-                        <Button variant="secondary" type={"submit"} disabled={!dirty || isSubmitting}>Submit</Button>
+                        <Button className={"mb-3"} variant="secondary" type={"submit"} disabled={!dirty || isSubmitting}>Submit</Button>
                     </Form.Group>
                 </Form>
                 <DisplayStatus status={status}/>
