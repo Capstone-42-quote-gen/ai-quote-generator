@@ -98,8 +98,19 @@ a.nav-link:visited {
 }
 
 .sign-in-card-resize {
-    width: 65%;
     height: 45%;
+}
+
+@media (max-width: 767px) {
+    .sign-in-card-resize {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .sign-in-card-resize {
+        width: 65%;
+    }
 }
 
 

@@ -85,7 +85,7 @@ return (
                 controlId="formHorizontalEmail">
               <Form.Label column lg={2}
                           className="ms-2">
-              <p>Email</p>
+
                 </Form.Label>
                     <Col lg={12}>
                         <InputGroup>
@@ -108,7 +108,7 @@ return (
                         className="mb-3">
                         <Form.Label column lg={4}
                                     className="ms-2">
-                                Password
+
                         </Form.Label>
                             <Col lg={12}>
                               <InputGroup>
