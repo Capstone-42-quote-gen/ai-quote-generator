@@ -1,8 +1,8 @@
-import {Card, Col, Image, Modal, Row} from "react-bootstrap";
+import {Card, Col, Image, Modal} from "react-bootstrap";
 import {useParams} from "react-router-dom";
-import {useGetPostByPostProfileIdQuery} from "../../../store/apis";
 import {useState} from "react";
 import {Post} from "../../interfaces/Post";
+import {useGetPostsByPostProfileIdQuery} from "../../../store/apis";
 
 interface ProfileGalleryContentProps {
     profilePost: Post
@@ -22,7 +22,7 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
     };
 
         const { postProfileId } = useParams()
-        const { data: profilePosts, isLoading } = useGetPostByPostProfileIdQuery(postProfileId as string)
+        const { data: profilePosts, isLoading } = useGetPostsByPostProfileIdQuery(postProfileId as string)
 
         console.log(profilePosts)
         if ( isLoading || profilePost === undefined ) {

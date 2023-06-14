@@ -4,11 +4,12 @@ import {
     selectAllPosts,
     selectPostByPostId,
     selectPostsByPostProfileId,
-    Post
+    Post, selectPostsByPromptId
 } from '../../utils/models/Post'
 import { Status } from '../../utils/interfaces/Status'
 import { Profile } from '../../utils/models/Profile'
 import { v4 as uuid } from 'uuid'
+
 
 export async function getAllPostsController (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -82,6 +83,21 @@ export async function postPost (request: Request, response: Response): Promise<R
         return response.json({
             status: 500,
             message: 'error creating post try again later',
+            data: null
+        })
+    }
+}
+
+
+export async function getPostsByPromptIdController(request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const {promptId} = request.params
+        const data = await selectPostsByPromptId(promptId)
+        return response.json({status: 200, message: null, data})
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: "",
             data: null
         })
     }

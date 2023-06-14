@@ -8,7 +8,9 @@ export const VoteRoute: Router = Router ()
 
 
 VoteRoute.route('/')
-.post(isLoggedIn, toggleVoteController)
+.post(isLoggedIn, asyncValidatorController([
+    check('votePostId', 'Please provide a valid votePostID').isUUID()
+]), toggleVoteController)
 VoteRoute.route('/votePostId/:votePostId')
 .get(asyncValidatorController([
     check('votePostId', 'Please provide a valid votePostID').isUUID()

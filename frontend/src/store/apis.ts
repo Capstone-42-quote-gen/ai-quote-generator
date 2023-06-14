@@ -1,10 +1,10 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {Prompt} from "../shared/interfaces/Prompt";
 import {CreateQuote, PartialPost } from "../shared/interfaces/CreateQuote";
-import {PartialProfile, SignIn, SignUp} from "../shared/interfaces/Profile";
+import {PartialProfile, Profile, SignIn, SignUp} from "../shared/interfaces/Profile";
 import {Post} from "../shared/interfaces/Post.ts";
 import {PostPrompt} from "../shared/interfaces/PostPrompt.ts";
-import {Vote} from "../shared/interfaces/Vote";
+import {PartialVote, Vote} from "../shared/interfaces/Vote";
 
 
 
@@ -72,6 +72,11 @@ export const apis = createApi({
 
         }),
 
+        getProfileByProfileId: builder.query<Profile, string>({
+            query: (profileId) => `/profile/${profileId}`,
+            transformResponse: (response: {data: Profile}) => response.data,
+        }),
+
         getPostByPostCreationTime: builder.query<Post[], string> ({
             query: () => '/post/',
             transformResponse: (response: { data: Post[]}) => response.data,
@@ -88,16 +93,24 @@ export const apis = createApi({
             transformResponse: (response: { data: Vote[] }) => response.data,
         }),
 
-        getPostByPostProfileId: builder.query<Post[], string> ({
+        getPostsByPostProfileId: builder.query<Post[], string> ({
             query: (postProfileId: string) => `/Post/${postProfileId}`,
             transformResponse: (response: { data: Post[] }) => {
                 return response.data;
             },
         }),
 
-        PostVote: builder.mutation<ClientResponse, Vote>({
+        getPostsByPromptId: builder.query<Post[], string> ({
+            query: (promptId: string) => `/post/promptId/${promptId}`,
+            transformResponse: (response: { data: Post[] }) => {
+                return response.data;
+            },
+        }),
+
+        PostVote: builder.mutation<ClientResponse, PartialVote>({
            transformResponse: transformMutationResponses,
-           query (body: Vote) {
+           transformErrorResponse: transformErrorResponses,
+           query (body: PartialVote) {
                return{
                    url: '/vote',
                    method: "POST",
@@ -105,6 +118,7 @@ export const apis = createApi({
                }
            }
         }),
+
 
         PostSignUp: builder.mutation<ClientResponse, PartialProfile>({
             transformResponse: transformMutationResponses,
@@ -225,7 +239,7 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
 
     export const {
                     // useGetProfileQuery,
-                    useGetPostByPostProfileIdQuery,
+                    useGetPostsByPostProfileIdQuery,
                     usePostSignUpMutation,
                     usePostSignInMutation,
                     useGetAllPromptsQuery,
@@ -235,6 +249,9 @@ function transformMutationResponses(response: ServerResponse): ClientResponse {
                     usePostPostPromptMutation,
                     useGetPostByPostIdQuery,
                     useGetPostByPostCreationTimeQuery,
+                    useGetPostsByPromptIdQuery,
                     useGetPostByVotePostIdQuery,
-                    usePostVoteMutation
+                    usePostVoteMutation,
+                    useGetVotesByVotePostIdQuery,
+                    useGetProfileByProfileIdQuery
                 } = apis

@@ -2,7 +2,7 @@ import { Router } from 'express'
 import {
     getAllPostsController,
     getPostByPostIdController,
-    getPostsByPostProfileIdController,
+    getPostsByPostProfileIdController, getPostsByPromptIdController,
     postPost
 } from './post.controller'
 import { asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
@@ -18,6 +18,10 @@ check('postId', 'please provide a valid postId').isUUID()
 router.route('/postProfileId/:postProfileId').get(asyncValidatorController([
     check('postProfileId','please provide a valid postProfileId').isUUID()
 ]), getPostsByPostProfileIdController)
+
+router.route('/promptId/:promptId').get(asyncValidatorController([
+    check('promptId','please provide a valid promptId').isUUID()
+]), getPostsByPromptIdController)
 
 // Every new route is instantiated below. It will include the controller name and the type of action (get, post, delete, put, patch)
 router.route('/')
