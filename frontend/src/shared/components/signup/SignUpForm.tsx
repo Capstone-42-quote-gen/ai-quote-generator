@@ -78,7 +78,7 @@ export const SignUpForm = () => {
                         <Form.Control
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            placeholder={"Email"}
+                            placeholder={""}
                             value={values.profileEmail}
                             name="profileEmail"
                             type="email"
@@ -89,7 +89,7 @@ export const SignUpForm = () => {
                         <Form.Control
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            placeholder={"Username"}
+                            placeholder={""}
                             value={values.profileUsername}
                             name="profileUsername"
                             type="username"
@@ -99,7 +99,7 @@ export const SignUpForm = () => {
                         <Form.Control
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            placeholder={"Password"}
+                            placeholder={""}
                             value={values.profilePassword}
                             name="profilePassword"
                             type="password"
