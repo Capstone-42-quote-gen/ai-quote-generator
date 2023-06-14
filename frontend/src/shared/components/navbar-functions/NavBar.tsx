@@ -54,17 +54,10 @@ export function Navigation() {
                 {/*    <Navbar.Toggle aria-controls={"responsive-navbar-nav"} />*/}
                     {/*<Navbar.Collapse id={"responsive-navbar-nav"}>*/}
                     <Nav className={"w-100 justify-content-evenly"}>
-                        <Nav.Link href="#popular">
-                            Popular
-                        </Nav.Link>
                         <Nav.Link href="/popular">Popular</Nav.Link>
                         <span className={"navbar-divider"}></span>
                         <Nav.Link href="/new">
                             New
-                        </Nav.Link>
-                        <span className={"navbar-divider"}></span>
-                        <Nav.Link href="#topics">
-                            Tags
                         </Nav.Link>
                         <span className={"navbar-divider"}></span>
                         <Nav.Link href="/create-quote">
