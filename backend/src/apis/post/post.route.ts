@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import {
     getAllPostsController,
-    getPostByPostIdController,
+    getPostByPostIdController, getPostsByPostIdAndVoteIdController,
     getPostsByPostProfileIdController, getPostsByPromptIdController,
     postPost
 } from './post.controller'
@@ -11,6 +11,15 @@ import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 import {postValidator} from "./post.validator";
 
 const router = Router()
+router.route('/:postId').get(asyncValidatorController([
+check('postId', 'please provide a valid postId').isUUID()
+]),getPostByPostIdController)
+
+router.route('/:postId:postId/VoteId:voteId').get(asyncValidatorController([
+check('postId', 'please provide a valid postId').isUUID(),
+check('voteId', 'please provide a valid postId').isUUID()
+]),getPostsByPostIdAndVoteIdController)
+
 router.route('/:postId').get(asyncValidatorController([
 check('postId', 'please provide a valid postId').isUUID()
 ]),getPostByPostIdController)

@@ -12,6 +12,10 @@ export interface Post {
     postPhotographerUrl: string
 }
 
+export interface PostWithVotes extends Post {
+    voteCount: number
+}
+
 export async function insertPost(post: Post): Promise<string> {
     const { postId, postProfileId, postPhotoUrl, postQuote, postPhotographerName, postPhotographerUrl } = post
     await sql`INSERT INTO post (post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_photographer_name, post_photographer_url) VALUES (${postId}, ${postProfileId}, ${postPhotoUrl}, ${postQuote}, NOW(), ${postPhotographerName}, ${postPhotographerUrl})`
@@ -35,3 +39,26 @@ export async function selectPostsByPromptId(promptId: string): Promise<Post[]> {
     const result = await sql<Post[]>`SELECT post_id, post_profile_id, post_photo_url, post_quote, post_creation_time, post_photographer_name, post_photographer_url FROM post INNER JOIN post_prompt on post.post_id = post_prompt.post_prompt_post_id  WHERE post_prompt.post_prompt_prompt_id = ${promptId}`;
     return result
 }
+
+export async function selectPostsByPostIdAndVoteId(postId: string): Promise<PostWithVotes | null > {
+    const result = await sql<PostWithVotes[]>
+        `SELECT post_id, 
+        post_profile_id, 
+        post_photo_url, 
+        post_quote, 
+        post_creation_time, 
+        post_photographer_name, 
+        post_photographer_url 
+        FROM post 
+        LEFT JOIN (vote.vote_id) ON vote_post_id
+        WHERE post_id = ${postId}
+        GROUP BY
+        post_id`
+
+    if (result.length > 0 ) {
+        const { voteCount, ...post } = result[0]
+        return { ...post, voteCount }
+
+        }
+    return null
+    }

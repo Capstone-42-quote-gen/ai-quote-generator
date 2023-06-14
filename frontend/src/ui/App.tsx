@@ -22,6 +22,10 @@ interface Props {
 }
 export function App(props: Props) {
     const {store} = props
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
         <>
          <Provider store={store}>
