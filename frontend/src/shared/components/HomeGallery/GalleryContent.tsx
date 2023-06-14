@@ -60,7 +60,7 @@ export function GalleryContent(props: GalleryContentProps) {
 
     return (
         <>
-            <div className="d-flex justify-content-center rounded my-2">
+            <div className="d-flex justify-content-center rounded my-4">
                 <div className="col-sm-6 col-md-5 col-lg-4 col-xl-3">
                     <Card className={'quote-image-card'}>
                         <Card.Body className="text-center">
@@ -82,7 +82,8 @@ export function GalleryContent(props: GalleryContentProps) {
                                         {votes.length > 0 && (
                                             <span className={"vote-count me-2"}>{votes.length}</span>
                                         )}
-                                            <Image src={votes.length > 0 ? img_heart_1 : img_heart_0} height="35" className={"vote-icon"}/>
+                                            <Image
+                                                src={votes.length > 0 ? img_heart_1 : img_heart_0} height="35" className={"vote-icon"}/>
                                     </Button>
                                     <Link to={post.postPhotoUrl} download>
                                         <Image src={img_download} className="img-action-icons" height="35" alt="Download" />

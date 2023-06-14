@@ -34,6 +34,11 @@ export async function selectProfileByProfileEmail (profileEmail: string): Promis
     return result?.length === 1 ? result[0] : null
 }
 
+export async function selectProfileByProfileUsername (profileUsername: string): Promise<Profile | null> {
+    const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_username, profile_email, profile_hash, profile_photo_url FROM profile WHERE profile_Username = ${profileUsername}`
+    return result?.length === 1 ? result[0] : null
+}
+
 export async function selectWholeProfileByProfileId(profileId: string): Promise<Profile|null> {
     const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_username, profile_photo_url, profile_email, profile_hash FROM profile WHERE profile_id = ${profileId}`
     return result?.length === 1 ? result[0] : null

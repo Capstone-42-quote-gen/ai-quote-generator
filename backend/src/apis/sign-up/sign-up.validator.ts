@@ -1,5 +1,9 @@
 import { Schema } from 'express-validator'
-import {selectWholeProfileByProfileId} from "../../utils/models/Profile";
+import {
+    selectProfileByProfileEmail,
+    selectProfileByProfileUsername,
+    selectWholeProfileByProfileId
+} from "../../utils/models/Profile";
 
     export const signUpValidator: Schema = {
     profileUsername: {
@@ -13,12 +17,11 @@ import {selectWholeProfileByProfileId} from "../../utils/models/Profile";
             errorMessage: 'Username already in use',
             options: async (value: string, {req}) => {
                 try {
-                    const profile = await selectWholeProfileByProfileId(value)
+                    const profile = await selectProfileByProfileUsername(value)
 
-                    if (profile?.profileUsername !== 'username') {
+                    if (profile !== null) {
                         throw new Error('Invalid username')
                     }
-                    req.body.profile = profile.profileUsername
                     return true;
                 } catch (error) {
                     throw new Error('Invalid username');
@@ -41,12 +44,11 @@ import {selectWholeProfileByProfileId} from "../../utils/models/Profile";
                 errorMessage: 'Email already in use',
                 options: async (value: string, {req}) => {
                     try {
-                        const profile = await selectWholeProfileByProfileId(value)
+                        const profile = await selectProfileByProfileEmail(value)
 
-                        if (profile?.profileEmail !== 'email') {
+                        if (profile !== null) {
                             throw new Error('Invalid email')
                         }
-                        req.body.profile = profile.profileEmail
                         return true;
                     } catch (error) {
                         throw new Error('Invalid email');

@@ -1,6 +1,7 @@
 import {DisplayByProfileId} from "../shared/components/profileGallery/DisplayProfileGallery";
 import {Col, Container, Row} from "react-bootstrap";
 import {Navigation} from "../shared/components/navbar-functions/NavBar.tsx";
+import {SignOutButton} from "../shared/components/SignOut";
 
 export function Profile() {
     return (
@@ -17,7 +18,7 @@ export function Profile() {
             <Container className={'my-3'}>
                 <Row className="justify-content-center">
                     <Col xs="auto" className="text-center" >
-                        <h1>My Profile: GloomSmith Quotes</h1>
+                        <h1>My Profile: GloomSmith Quotes <SignOutButton /></h1>
                     </Col>
                 </Row>
 
