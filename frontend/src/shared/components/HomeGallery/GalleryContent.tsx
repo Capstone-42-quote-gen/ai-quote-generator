@@ -4,7 +4,7 @@ import img_heart_0 from "/src/assets/heart-0.png";
 import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
 import {Link} from "react-router-dom";
-import {Post} from "../../interfaces/Post.ts";
+import {Post} from "../../interfaces/Post";
 import {
     useGetAllPromptsByPostIdQuery,
     useGetProfileByProfileIdQuery,
