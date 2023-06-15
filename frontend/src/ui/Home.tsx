@@ -1,9 +1,9 @@
-import {DisplayByNew} from "../shared/components/navbar-functions/New";
+import {DisplayByPopular} from "../shared/components/navbar-functions/Popular";
 
 export function Home() {
     return (
         <>
-            <DisplayByNew />
+            <DisplayByPopular />
         </>
     )
 }

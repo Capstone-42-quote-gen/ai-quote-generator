@@ -1,4 +1,4 @@
-import {Card, Col, Image, Modal, Row} from "react-bootstrap";
+import {Card, Col, Image, Modal} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import {useState} from "react";
 import {Post} from "../../interfaces/Post";
