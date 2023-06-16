@@ -1,9 +1,9 @@
-import {DisplayByPopular} from "../shared/components/navbar-functions/Popular";
+import {DisplayQuote} from "../shared/components/createquote/DisplayQuote";
 
 export function Home() {
     return (
         <>
-            <DisplayByPopular />
+            <DisplayQuote />
         </>
     )
 }

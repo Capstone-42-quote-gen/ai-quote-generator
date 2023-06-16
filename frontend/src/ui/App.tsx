@@ -32,7 +32,7 @@ export function App(props: Props) {
          <Provider store={store}>
             <BrowserRouter>
                 <Routes>
-                    <Route  path='/' element={<Home />} />
+                    <Route  path='/' element={<DisplayByPopular />} />
                     <Route path={"*"} element={<FourOhFour />} />
                     <Route path={'/create-quote'} element={
                         <PrivateRoute><CreateQuotePage/></PrivateRoute>} />
