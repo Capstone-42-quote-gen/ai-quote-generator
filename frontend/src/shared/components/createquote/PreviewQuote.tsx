@@ -1,10 +1,10 @@
 
 import {Button, Col, Image} from "react-bootstrap";
-import {CreateQuote, PartialPost, QuoteImage} from "../../interfaces/CreateQuote.ts";
-import {MutationResponse, usePostPostPromptMutation, usePostSaveQuoteMutation} from "../../../store/apis.ts";
-import {useJwtToken} from "../../hooks/useJwtHook.tsx";
+import {CreateQuote, PartialPost, QuoteImage} from "../../interfaces/CreateQuote";
+import {MutationResponse, usePostPostPromptMutation, usePostSaveQuoteMutation} from "../../../store/apis";
+import {useJwtToken} from "../../hooks/useJwtHook";
 import {useNavigate} from "react-router-dom";
-import {PostPrompt} from "../../interfaces/PostPrompt.ts";
+import {PostPrompt} from "../../interfaces/PostPrompt";
 
 interface PreviewQuoteProps {
     image: QuoteImage;

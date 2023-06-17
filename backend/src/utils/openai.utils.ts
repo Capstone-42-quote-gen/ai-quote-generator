@@ -35,7 +35,7 @@ try {
     const completion = await openai.createCompletion({
         model: 'text-davinci-003',
         prompt: prompt,
-        temperature: 1.2,
+        temperature: 1.1,
         max_tokens: 200,
     });
 

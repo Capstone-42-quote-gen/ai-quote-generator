@@ -80,14 +80,12 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
             </div>
         );
     }
-
     let voices: Prompt[] = prompts.filter(
         (prompt) => prompt.promptType === "voice"
     );
     let topics: Prompt[] = prompts.filter(
         (prompt) => prompt.promptType === "topic"
     );
-
     return (
         <>
             <Form onSubmit={handleSubmit}>
@@ -113,10 +111,19 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
                         >
                             <option value="">Choose a TOPIC</option>
                             {topics.map((topic) => (
-                                <option key={topic.promptId} value={topic.promptId}>
+                                <option key={topic.promptValue} value={topic.promptId}>
                                     {topic.promptValue}
                                 </option>
                             ))}
+                            {/*<option value="">Choose a TOPIC</option>*/}
+                            {/*{topics*/}
+                            {/*    .slice()*/}
+                            {/*    .sort((a, b) => a.promptValue.localeCompare(b.promptValue))*/}
+                            {/*    .map((topic) => (*/}
+                            {/*    <option key={topic.promptId} value={topic.promptId}>*/}
+                            {/*        {topic.promptValue}*/}
+                            {/*    </option>*/}
+                            {/*))}*/}
                         </Form.Select>
                         <DisplayError errors={errors} touched={touched} field="topic" />
                     </Col>
