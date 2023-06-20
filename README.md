@@ -6,4 +6,4 @@ Our website Gloomsmith is an innovative platform that harnesses the power of art
 - Creates images with the quote embedded on it using IMGIX and provides multiple template options to select their favorite.
 - Browse through popular (based on likes), latest, and by Tags (topic/voices)
   
-This was developed as our capstone project during the 2023 Deep Dive Full Stack Web Development Bootcamp (CNM Engenuity)
+This was developed as our capstone project during the 2023 Deep Dive Full Stack Web Development Bootcamp (CNM Ingenuity)
