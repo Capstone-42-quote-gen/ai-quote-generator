@@ -7,7 +7,7 @@ import {GalleryContent} from "../HomeGallery/GalleryContent";
 export function DisplayByNew() {
     const { data , isLoading } = useGetPostByPostCreationTimeQuery("")
     const posts = data ?? []
-    console.log(posts)
+    // console.log(posts)
     if (isLoading) {
 
         return <>

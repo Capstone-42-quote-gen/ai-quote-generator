@@ -6,7 +6,7 @@ import {Post} from "../../interfaces/Post.ts";
 export function DisplayByPopular() {
     const {data, isLoading} = useGetPostByVotePostIdQuery("")
     const posts = data ?? []
-    console.log(posts)
+    // console.log(posts)
     if (isLoading) {
 
         return<>
@@ -14,7 +14,7 @@ export function DisplayByPopular() {
 
     }
 
-    console.log(posts)
+    // console.log(posts)
 
     return (
         <>

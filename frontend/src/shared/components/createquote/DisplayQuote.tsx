@@ -9,7 +9,7 @@ export function DisplayQuote() {
     const { postId} = useParams()
     const {data: post, isLoading } = useGetPostByPostIdQuery(postId as string)
 
-    console.log(post)
+
     if (isLoading || post === undefined ) {
         return <>
 

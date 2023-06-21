@@ -36,7 +36,7 @@ export const SignUpForm = () => {
 
     const submitSignUp = async (values: SignUp, actions: FormikHelpers<SignUp>) => {
         const {resetForm, setStatus} = actions
-        console.log(values)
+        // console.log(values)
         const result = await submit(values) as MutationResponse
         const {data: response, error} = result as {
             data: ClientResponseForSignIn,

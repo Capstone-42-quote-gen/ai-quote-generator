@@ -12,7 +12,7 @@ export function CreateQuotePage() {
         (state) => state.api.mutations?.SubmitQuote?.data?.data
     );
 
-        console.log(data)
+        // console.log(data)
  const [createQuote, setCreateQuote] = useState <CreateQuote | null > (null)
 
 

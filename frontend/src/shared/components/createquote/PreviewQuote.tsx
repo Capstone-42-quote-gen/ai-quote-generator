@@ -29,8 +29,8 @@ export function PreviewQuote(props: PreviewQuoteProps) {
     const [savePrompt] = usePostPostPromptMutation()
     const {profile} = useJwtToken()
 
-    console.log("Props create quote: Topic ", props.createQuote?.topic)
-    console.log("Props create quote: Voice ", props.createQuote?.voice)
+    // console.log("Props create quote: Topic ", props.createQuote?.topic)
+    // console.log("Props create quote: Voice ", props.createQuote?.voice)
     async function savePost() {
             const partialPost: PartialPost = {
             postProfileId: profile?.profileId as string,
@@ -42,7 +42,7 @@ export function PreviewQuote(props: PreviewQuoteProps) {
         };
 
         const result = await submitQuote(partialPost ) as MutationResponse;
-        console.log(result)
+        // console.log(result)
         const TopicPostPrompt: PostPrompt = {
              postPromptPromptId: props.createQuote?.topic,
              postPromptPostId: result.data.data.postId
@@ -60,7 +60,7 @@ export function PreviewQuote(props: PreviewQuoteProps) {
         // Save the post prompt for Topic
         const topicResult = await savePrompt(VoicePostPrompt ) as MutationResponse;
 
-        console.log(result.data.data.postId)
+        // console.log(result.data.data.postId)
         navigate(`/display-quote/${result.data.data.postId}`)
     }
 

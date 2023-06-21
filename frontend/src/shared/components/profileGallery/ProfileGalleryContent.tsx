@@ -10,7 +10,7 @@ interface ProfileGalleryContentProps {
 
 export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
     const { profilePost } = props
-    console.log(profilePost)
+    // console.log(profilePost)
 
     const [showModal, setShowModal] = useState(false);
     const openModal = () => {
@@ -24,7 +24,7 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
         const { postProfileId } = useParams()
         const { data: profilePosts, isLoading } = useGetPostsByPostProfileIdQuery(postProfileId as string)
 
-        console.log(profilePosts)
+        // console.log(profilePosts)
         if ( isLoading || profilePost === undefined ) {
             return <>
 
