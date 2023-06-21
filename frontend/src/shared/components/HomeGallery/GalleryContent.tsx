@@ -117,8 +117,9 @@ export function GalleryContent(props: GalleryContentProps) {
                                         )}
                                     </p>
                                     <div id="photo-credits">
-                                        Photo by <a href={post.postPhotographerUrl} target="_blank">{post.postPhotographerName}</a> from <a href='https://unsplash.com/?utm_source=Inspirational_Quotes&utm_medium=referral' target="_blank">Unsplash</a>
+                                        Photo by <a href={`${post.postPhotographerUrl}?utm_source=Gloomsmith&utm_medium=referral`} target="_blank">{post.postPhotographerName}</a> from <a href='https://unsplash.com/?utm_source=Gloomsmiths&utm_medium=referral' target="_blank">Unsplash</a>
                                     </div>
+
                                 </Col>
                             </Row>
                         </Card.Body>
