@@ -6,7 +6,7 @@ Our website Gloomsmith is an innovative platform that harnesses the power of art
 - Creates images with the quote embedded on it using IMGIX and provides multiple template options to select their favorite.
 - Browse through popular (based on likes), latest, and by Tags (topic/voices)
 
-This was developed as our capstone project during the 2023 Deep Dive Full Stack Web Development Bootcamp (CNM Ingenuity)
+This was developed as our capstone project during the [2023 Deep Dive Full Stack Web Development Bootcamp (CNM Ingenuity)](https://deepdivecoding.com/fullstack-web-development/)
 
 # Sample Quote Images
 
@@ -20,12 +20,17 @@ This was developed as our capstone project during the 2023 Deep Dive Full Stack 
 
 
 # Built With
--   [Axios](https://www.axios.com/)
--   [Create-React-App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)
--   [Docker](https://www.docker.com/)
--   [ReactJS](https://reactjs.org/)
--   [imgIX ](https://imgix.com/) - Dynamic Text Compositing
--   [Unsplash API](https://unsplash.com/developers) - Get images related to quote topic
+- [OpenAI API](https://platform.openai.com/) - Quotes are generated no the fly from openAI API using our master prompt that passes a topic and voice value. 
+- [Unsplash API](https://unsplash.com/developers) - Get images from the API related to quote topic that user selects.
+- [imgIX ](https://imgix.com/) - Dynamic Text Compositing. We use imgIX that is installed on unsplash and created our own templates. We Genarate the custom image by building our own url with all the quote and formatting information via the URL that is hotlinked direct to unsplash.
+- [Docker](https://www.docker.com/)
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [MailGun](https://mailgun.com/) - User account email activation
+- [ReactJS](https://reactjs.org/)
 
 # Team
 - [Manuel Rascon](https://www.linkedin.com/in/manuel-rascon-/)
