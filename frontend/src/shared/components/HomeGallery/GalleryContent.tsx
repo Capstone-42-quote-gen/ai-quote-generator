@@ -3,6 +3,7 @@ import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
 import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
+import { Helmet } from 'react-helmet';
 import {Link} from "react-router-dom";
 import {Post} from "../../interfaces/Post";
 import {
@@ -60,6 +61,13 @@ export function GalleryContent(props: GalleryContentProps) {
 
     return (
         <>
+            <Helmet>
+                <meta property="og:image" content={post.postPhotoUrl} />
+                <meta property="og:image:alt" content={post.postQuote} />
+                <meta property="og:image:width" content="1080" />
+            </Helmet>
+
+
             <div className="d-flex justify-content-center rounded my-4">
                 <div className="col-sm-6 col-md-5 col-lg-4 col-xl-3">
                     <Card className={'quote-image-card'}>
