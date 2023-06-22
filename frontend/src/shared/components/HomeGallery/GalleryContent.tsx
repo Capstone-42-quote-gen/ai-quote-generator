@@ -19,8 +19,15 @@ interface GalleryContentProps {
     post: Post;
 }
 
+function decodeHTML(text: string): string {
+    const element = document.createElement("textarea");
+    element.innerHTML = text;
+    return element.textContent || element.innerText;
+}
+
 export function GalleryContent(props: GalleryContentProps) {
     const { post } = props;
+    const decodedPostQuote = decodeHTML(post.postQuote);
     const [voted, setVoted] = useState(false)
     const { data: prompts, isLoading } = useGetAllPromptsByPostIdQuery(post.postId);
     const [submitVote] = usePostVoteMutation()
@@ -63,7 +70,7 @@ export function GalleryContent(props: GalleryContentProps) {
         <>
             <Helmet>
                 <meta property="og:image" content={post.postPhotoUrl} />
-                <meta property="og:image:alt" content={post.postQuote} />
+                <meta property="og:image:alt" content={decodedPostQuote} />
                 <meta property="og:image:width" content="1080" />
             </Helmet>
 
@@ -79,6 +86,7 @@ export function GalleryContent(props: GalleryContentProps) {
                                         src={post.postPhotoUrl}
                                         alt="Quote Image" />
                                 </Col>
+
                             </Row>
                             <Row>
                                 <Col className={'text-center'}>
@@ -104,6 +112,7 @@ export function GalleryContent(props: GalleryContentProps) {
                                         <Image src={img_share} className="img-action-icons" height="35" alt="Share" />
                                     </Link>
                                 </Col>
+
                             </Row>
                             <Row>
                                 <Col className={'text-center'}>
@@ -124,6 +133,8 @@ export function GalleryContent(props: GalleryContentProps) {
                                             ))
                                         )}
                                     </p>
+                                   <div id="quote-text">{decodedPostQuote}</div>
+
                                     <div id="photo-credits">
                                         Photo by <a href={`${post.postPhotographerUrl}?utm_source=Gloomsmith&utm_medium=referral`} target="_blank">{post.postPhotographerName}</a> from <a href='https://unsplash.com/?utm_source=Gloomsmiths&utm_medium=referral' target="_blank">Unsplash</a>
                                     </div>

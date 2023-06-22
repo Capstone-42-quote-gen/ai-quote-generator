@@ -27,6 +27,11 @@ p, h1, h4 {
     color: #f4f4f4;
 }
 
+div#quote-text{
+    color:black;
+    padding-bottom: 10px;
+}
+
 a:link {
     color: #0097B2;
 }
