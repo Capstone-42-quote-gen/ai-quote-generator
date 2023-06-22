@@ -3,6 +3,7 @@ import {Navigation} from "./NavBar";
 // import {QuoteImage} from "../../interfaces/CreateQuote";
 import {Post} from "../../interfaces/Post";
 import {GalleryContent} from "../HomeGallery/GalleryContent";
+import LazyLoad from 'react-lazyload';
 
 export function DisplayByNew() {
     const { data , isLoading } = useGetPostByPostCreationTimeQuery("")
@@ -17,11 +18,13 @@ export function DisplayByNew() {
 
     return (
         <>
-            <Navigation/>
-            {posts &&
-                posts.map((posts: Post) => (
-                    <GalleryContent post={posts}/>
-                ))}
-            </>
-    )
+            <Navigation />
+            {posts.map((post: Post) => (
+                <LazyLoad key={post.postId} height={1800} offset={1800}>
+                    <GalleryContent post={post} />
+                </LazyLoad>
+            ))}
+        </>
+    );
+
 }
