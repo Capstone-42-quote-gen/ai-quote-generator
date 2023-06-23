@@ -95,6 +95,25 @@ a.nav-link:visited {
     width: 95%;
     height: 95%;
 }
+/* Link styles within #create-new-quote-msg */
+
+
+
+#create-new-quote-msg a {
+    color: #9B93BF;
+}
+
+#create-new-quote-msg a:hover {
+    color: #6454B2;
+}
+
+#create-new-quote-msg a:visited {
+    color: #9B93BF;
+}
+
+
+
+
 
 .profile-gallery-modal {
     width: 100%;

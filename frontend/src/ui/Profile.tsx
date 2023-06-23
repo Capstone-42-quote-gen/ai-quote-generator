@@ -18,12 +18,13 @@ export function Profile() {
             <Container className={'my-3'}>
                 <Row className="justify-content-center">
                     <Col xs="auto" className="text-center" >
-                        <h1>My Profile: GloomSmith Quotes <SignOutButton /></h1>
+                         <h1>My GloomSmith Quotes: </h1>
                     </Col>
                 </Row>
 
             </Container>
             <DisplayByProfileId/>
+            <SignOutButton />
         </>
         )
   }

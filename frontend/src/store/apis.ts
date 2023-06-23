@@ -94,8 +94,9 @@ export const apis = createApi({
         }),
 
         getPostsByPostProfileId: builder.query<Post[], string> ({
-            query: (postProfileId: string) => `/Post/${postProfileId}`,
+            query: (postProfileId: string) => `/post/postProfileId/${postProfileId}`,
             transformResponse: (response: { data: Post[] }) => {
+                console.log(response.data)
                 return response.data;
             },
         }),

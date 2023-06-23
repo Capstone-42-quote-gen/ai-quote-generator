@@ -22,8 +22,9 @@ export const SignOutButton = () => {
 
     return (
         <>
-            <div className="dropdown-item sign-out-dropdown">
-                <Button className={"post-vote-btn"} onClick={signOut}><Image src={signOutIcon} /></Button>
+            <div className="dropdown-item sign-out-dropdown text-center">
+
+                <Button className={"post-vote-btn"} onClick={signOut}><h5>Sign Out</h5><Image src={signOutIcon} /></Button>
             </div>
 
         </>
