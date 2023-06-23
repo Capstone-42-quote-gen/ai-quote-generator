@@ -53,6 +53,7 @@ export function GalleryContent(props: GalleryContentProps) {
     }
 
     const clickVote = async () => {
+
         await submitVote({votePostId: post.postId})
         await refetch()
         if (voted) {
