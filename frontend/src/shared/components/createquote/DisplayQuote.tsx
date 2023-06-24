@@ -2,6 +2,7 @@ import {useParams} from "react-router-dom";
 import {useGetPostByPostIdQuery} from "../../../store/apis";
 import {GalleryContent} from "../HomeGallery/GalleryContent";
 import {Navigation} from "../navbar-functions/NavBar";
+import {Footer} from "../navbar-functions/Footer.tsx";
 
 
 
@@ -20,6 +21,7 @@ export function DisplayQuote() {
         <>
             <Navigation/>
             <GalleryContent post={post} />
+            <Footer/>
         </>
     )
 }

@@ -23,7 +23,7 @@ body {
     background-color: #6454B2;
     --bs-btn-hover-bg: #9B93BF;
 }
-p, h1, h4 {
+p, h1, h2, h3, h4 {
     color: #f4f4f4;
 }
 
@@ -61,7 +61,25 @@ a.nav-link:visited {
     color:black;
 }
 
+.disclaimer {
+    color: #cccfcf;
+    font-size: 12px;
+}
 
+.about-link{
+    font-size: 24px;
+}
+
+
+a.misc-text:link {
+    color: #beadee;
+}
+a.misc-text:hover {
+    color: #00A676;
+}
+a.misc-text:visited {
+    color: #beadee;
+}
 
 
 /*NAVIGATION*/

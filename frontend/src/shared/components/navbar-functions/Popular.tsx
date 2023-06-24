@@ -3,6 +3,7 @@ import { GalleryContent } from "../HomeGallery/GalleryContent";
 import { useGetPostByVotePostIdQuery } from "../../../store/apis.ts";
 import { Post } from "../../interfaces/Post.ts";
 import LazyLoad from "react-lazyload";
+import {Footer} from "./Footer.tsx";
 
 export function DisplayByPopular() {
     const { data, isLoading } = useGetPostByVotePostIdQuery("");
@@ -20,6 +21,7 @@ export function DisplayByPopular() {
                     <GalleryContent post={post} />
                 </LazyLoad>
             ))}
+            <Footer/>
         </>
     );
 }

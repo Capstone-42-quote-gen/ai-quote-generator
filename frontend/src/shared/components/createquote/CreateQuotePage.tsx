@@ -5,6 +5,7 @@ import { PreviewQuote } from "./PreviewQuote.tsx";
 import {useState} from "react";
 import {CreateQuote, QuoteImage} from "../../interfaces/CreateQuote";
 import {Navigation} from "../navbar-functions/NavBar";
+import {Footer} from "../navbar-functions/Footer.tsx";
 
 export function CreateQuotePage() {
 
@@ -37,6 +38,7 @@ export function CreateQuotePage() {
                         ))}
                 </Row>}
             </Container>
+            <Footer/>
         </>
     );
 }

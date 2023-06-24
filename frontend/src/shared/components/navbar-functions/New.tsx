@@ -4,6 +4,7 @@ import {Navigation} from "./NavBar";
 import {Post} from "../../interfaces/Post";
 import {GalleryContent} from "../HomeGallery/GalleryContent";
 import LazyLoad from 'react-lazyload';
+import {Footer} from "./Footer.tsx";
 
 export function DisplayByNew() {
     const { data , isLoading } = useGetPostByPostCreationTimeQuery("")
@@ -24,6 +25,8 @@ export function DisplayByNew() {
                     <GalleryContent post={post} />
                 </LazyLoad>
             ))}
+
+<Footer/>
         </>
     );
 
