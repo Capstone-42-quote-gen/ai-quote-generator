@@ -4,6 +4,7 @@ import {Card, Col, Container, Row} from "react-bootstrap";
 import signInIcon from "../../../assets/gloomSmithLogo-blue.png";
 import {SignInForm} from "./SignInForm"
 import {SignUp} from "../signup/SignUp"
+import {Footer} from "../navbar-functions/Footer.tsx";
 
 
 export function SignIn() {
@@ -56,6 +57,7 @@ export function SignIn() {
                             </Col>
                         </Row>
             </Container>
+            <Footer/>
     </>
     )
 }

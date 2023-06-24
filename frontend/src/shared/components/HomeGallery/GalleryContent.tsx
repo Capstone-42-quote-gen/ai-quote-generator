@@ -3,6 +3,7 @@ import img_share from "/src/assets/share.png";
 import img_heart_0 from "/src/assets/heart-0.png";
 import img_heart_1 from "/src/assets/heart-1.png";
 import img_download from "/src/assets/download.png";
+import { Helmet } from 'react-helmet';
 import {Link} from "react-router-dom";
 import {Post} from "../../interfaces/Post";
 import {
@@ -18,8 +19,15 @@ interface GalleryContentProps {
     post: Post;
 }
 
+function decodeHTML(text: string): string {
+    const element = document.createElement("textarea");
+    element.innerHTML = text;
+    return element.textContent || element.innerText;
+}
+
 export function GalleryContent(props: GalleryContentProps) {
     const { post } = props;
+    const decodedPostQuote = decodeHTML(post.postQuote);
     const [voted, setVoted] = useState(false)
     const { data: prompts, isLoading } = useGetAllPromptsByPostIdQuery(post.postId);
     const [submitVote] = usePostVoteMutation()
@@ -45,6 +53,7 @@ export function GalleryContent(props: GalleryContentProps) {
     }
 
     const clickVote = async () => {
+
         await submitVote({votePostId: post.postId})
         await refetch()
         if (voted) {
@@ -60,6 +69,13 @@ export function GalleryContent(props: GalleryContentProps) {
 
     return (
         <>
+            <Helmet>
+                <meta property="og:image" content={post.postPhotoUrl} />
+                <meta property="og:image:alt" content={decodedPostQuote} />
+                <meta property="og:image:width" content="1080" />
+            </Helmet>
+
+
             <div className="d-flex justify-content-center rounded my-4">
                 <div className="col-sm-6 col-md-5 col-lg-4 col-xl-3">
                     <Card className={'quote-image-card'}>
@@ -71,6 +87,7 @@ export function GalleryContent(props: GalleryContentProps) {
                                         src={post.postPhotoUrl}
                                         alt="Quote Image" />
                                 </Col>
+
                             </Row>
                             <Row>
                                 <Col className={'text-center'}>
@@ -96,6 +113,7 @@ export function GalleryContent(props: GalleryContentProps) {
                                         <Image src={img_share} className="img-action-icons" height="35" alt="Share" />
                                     </Link>
                                 </Col>
+
                             </Row>
                             <Row>
                                 <Col className={'text-center'}>
@@ -116,9 +134,12 @@ export function GalleryContent(props: GalleryContentProps) {
                                             ))
                                         )}
                                     </p>
+                                   <div id="quote-text">{decodedPostQuote}</div>
+
                                     <div id="photo-credits">
-                                        Photo by <a href={post.postPhotographerUrl} target="_blank">{post.postPhotographerName}</a> from <a href='https://unsplash.com/?utm_source=Inspirational_Quotes&utm_medium=referral' target="_blank">Unsplash</a>
+                                        Photo by <a href={`${post.postPhotographerUrl}?utm_source=Gloomsmith&utm_medium=referral`} target="_blank">{post.postPhotographerName}</a> from <a href='https://unsplash.com/?utm_source=Gloomsmiths&utm_medium=referral' target="_blank">Unsplash</a>
                                     </div>
+
                                 </Col>
                             </Row>
                         </Card.Body>
