@@ -1,4 +1,4 @@
-import React from 'react'
+git simport React from 'react'
 import ReactDOM from 'react-dom/client'
 import {App} from "./ui/App.tsx";
 import {store} from "./store/store.ts";

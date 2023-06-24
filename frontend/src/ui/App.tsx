@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
-import { Home } from './Home'
+// import { Home } from './Home'
 import { FourOhFour } from './FourOhFour'
 // import {Profile} from "./Profile";
 import {Provider} from "react-redux";
