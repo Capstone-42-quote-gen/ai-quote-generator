@@ -1,20 +1,18 @@
 import { Button, Col, Form, Row, Spinner } from "react-bootstrap";
 import * as Yup from "yup";
-import { Formik, FormikHelpers,FormikProps} from "formik";
+import { Formik, FormikHelpers, FormikProps } from "formik";
 import {MutationResponse, useGetAllPromptsQuery, usePostCreateQuoteGenerateMutation} from "../../../store/apis";
 import {CreateQuote} from "../../interfaces/CreateQuote";
 import {Prompt} from "../../interfaces/Prompt.ts";
 import {DisplayError} from "../display-error/DisplayError";
-import {DisplayStatus} from "../display-status/DisplayStatus";
-// import {FormDebugger} from "../FormDebugger";
-import {Dispatch, SetStateAction} from "react";
+import {Dispatch, SetStateAction, useState} from "react";
 
 interface CreateQuoteFormLogicProps {
     setCreateQuote: Dispatch<SetStateAction<CreateQuote | null>>
 }
 
 export const CreateQuoteFormLogic = (props: CreateQuoteFormLogicProps) => {
-    const {setCreateQuote} = props
+    const {setCreateQuote} = props;
     const [submit] = usePostCreateQuoteGenerateMutation({fixedCacheKey:"SubmitQuote"});
     const createQuote: CreateQuote = {
         topic: "",
@@ -25,21 +23,23 @@ export const CreateQuoteFormLogic = (props: CreateQuoteFormLogicProps) => {
         voice: Yup.string().required("Voice is required"),
     });
 
-    const submitQuote = async ( values: CreateQuote, formikHelpers: FormikHelpers<CreateQuote>) => {
+    const [loading, setLoading] = useState(false);
 
+    const submitQuote = async ( values: CreateQuote, formikHelpers: FormikHelpers<CreateQuote>) => {
+        setLoading(true);
         const { setStatus } = formikHelpers;
-        const createQuote: CreateQuote = {topic: values.topic, voice: values.voice}
-        setCreateQuote(createQuote)
+        const createQuote: CreateQuote = {topic: values.topic, voice: values.voice};
+        setCreateQuote(createQuote);
 
         const result = (await submit(createQuote)) as MutationResponse;
 
         const { data: response, error } = result;
-    // console.log(response)
+
+        setLoading(false);
+
         if (error) {
             setStatus({ type: error.type, message: error.message });
         } else if (response?.status === 200) {
-
-            // resetForm();
             setStatus({ type: response.type, message: response.message })
         } else {
             setStatus({
@@ -55,12 +55,12 @@ export const CreateQuoteFormLogic = (props: CreateQuoteFormLogicProps) => {
             onSubmit={submitQuote}
             validationSchema={validator}
         >
-            {CreateQuoteFormContent}
+            {(props) => <CreateQuoteFormContent {...props} loading={loading} setLoading={setLoading} />}
         </Formik>
     );
 };
 
-export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
+export const CreateQuoteFormContent = (props: FormikProps<CreateQuote> & {loading: boolean, setLoading: (isLoading: boolean) => void}) => {
     const {
         status,
         values,
@@ -69,6 +69,9 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
         handleChange,
         handleBlur,
         handleSubmit,
+        setFieldValue,
+        loading,
+        setLoading
     } = props;
 
     const { data: prompts, isLoading } = useGetAllPromptsQuery("");
@@ -87,6 +90,22 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
     let topics: Prompt[] = prompts.filter(
         (prompt) => prompt.promptType === "topic"
     );
+
+    const getRandomItem = (items: any[]) => {
+        const randomIndex = Math.floor(Math.random() * items.length);
+        return items[randomIndex].promptId;
+    };
+
+    const handleRandomSelection = async () => {
+        const randomTopic = getRandomItem(topics);
+        const randomVoice = getRandomItem(voices);
+        await Promise.all([
+            setFieldValue('topic', randomTopic, true),
+            setFieldValue('voice', randomVoice, true),
+        ]);
+        handleSubmit();
+    };
+
 
     return (
         <>
@@ -110,6 +129,7 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
                             value={values.topic}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            disabled={loading}
                         >
                             <option value="">Choose a TOPIC</option>
                             {topics.map((topic) => (
@@ -127,6 +147,7 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
                             value={values.voice}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            disabled={loading}
                         >
                             <option value="">Choose a VOICE</option>
                             {voices.map((voice) => (
@@ -141,14 +162,17 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote>) => {
 
                 <Row className="mb-3 justify-content-center">
                     <Col xs="auto" className="py-2">
-                        <Button size="lg" type="submit" className="generate-button">
+                        <Button size="lg" type="submit" className="generate-button" disabled={loading}>
                             Generate a Quote
+                        </Button>
+                    </Col>
+                    <Col xs="auto" className="py-2">
+                        <Button size="lg" onClick={handleRandomSelection} className="generate-button" disabled={loading}>
+                            I'm Feeling Lucky
                         </Button>
                     </Col>
                 </Row>
             </Form>
-            {/*<DisplayStatus status={status} />*/}
-            {/*<FormDebugger {...props} />*/}
         </>
     );
 };
