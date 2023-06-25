@@ -14,6 +14,7 @@ import {
 } from "../../../store/apis";
 import {Prompt} from "../../interfaces/Prompt";
 import {useState} from "react";
+import LazyLoad from 'react-lazy-load';
 
 interface GalleryContentProps {
     post: Post;
@@ -83,10 +84,12 @@ export function GalleryContent(props: GalleryContentProps) {
                             <Row className={'justify-content-center'}>
                                 <Col>
                                     <Link to={`/display-quote/${post.postId}`}>
+                                        <LazyLoad offset={400}>
                                         <Card.Img
                                             className={'quote-image img-fluid'}
                                             src={post.postPhotoUrl}
                                             alt="Quote Image"/>
+                                        </LazyLoad>
                                     </Link>
                                 </Col>
 

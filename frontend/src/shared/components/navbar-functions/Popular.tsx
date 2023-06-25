@@ -2,7 +2,6 @@ import { Navigation } from "./NavBar";
 import { GalleryContent } from "../HomeGallery/GalleryContent";
 import { useGetPostByVotePostIdQuery } from "../../../store/apis.ts";
 import { Post } from "../../interfaces/Post.ts";
-// import LazyLoad from 'react-lazy-load'
 import {Footer} from "./Footer.tsx";
 
 export function DisplayByPopular() {
@@ -17,9 +16,8 @@ export function DisplayByPopular() {
         <>
             <Navigation />
             {posts.map((post: Post) => (
-                // <LazyLoad height={762} offset={300}>
-                    <GalleryContent post={post} />
-                 // </LazyLoad>
+               <GalleryContent post={post} />
+
             ))}
             <Footer/>
         </>
