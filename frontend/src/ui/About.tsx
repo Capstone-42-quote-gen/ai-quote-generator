@@ -20,6 +20,7 @@ export const AboutUs = () => {
                         amusing quote image that can be easily shared with friends. Casual
                         users can also save their favorite creations and explore the latest
                         and most popular ones.
+
                     </p>
                     <h3>About The Project</h3>
                     <p >
@@ -27,8 +28,16 @@ export const AboutUs = () => {
                     </p>
                     <p>Our team wanted to work on a project that allowed us to practice the skills we were learning and that used AI to do something fun and interesting, and that would be of some use to people after the bootcamp finished.
 
-                    You can read more about the technologies used in this project on our <a href="https://github.com/Capstone-42-quote-gen/ai-quote-generator" target="_blank" className="misc-text">github repo</a></p>
-                </Row>
+                    You can read more about the technologies used in this project on our <a href="https://github.com/Capstone-42-quote-gen/ai-quote-generator" target="_blank" className="misc-text">github repo</a></p>                 </Row>
+                <Row className="text-center"><p><strong> Like this project? Chip in to help keep this site running (hosting and OpenAI API fees)</strong></p>
+
+                    <a href="https://www.buymeacoffee.com/gloomsmith" target="_blank">
+                        <img
+                            src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                            alt="Buy Me A Coffee"
+                            style={{height: '60px', width: '217px'}}
+                        />
+                    </a></Row>
                 <Row className="pt-3">
                     <h3>The Gloomsmith Team (Cohort 42)</h3>
                     <Col xs={12} sm={6} md={4} lg={4}>
@@ -83,6 +92,8 @@ export const AboutUs = () => {
                     </Col>
 
                 </Row>
+
+
             </Container>
             <Footer />
         </>
