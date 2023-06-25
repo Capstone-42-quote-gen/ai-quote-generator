@@ -40,7 +40,6 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
               </Col>
 
 
-
                <Modal show={showModal}
                       onHide={closeModal}
                       onClick={closeModal}>
