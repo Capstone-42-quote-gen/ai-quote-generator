@@ -10,20 +10,19 @@ export function DisplayByProfileId() {
     const { data , isLoading } = useGetPostsByPostProfileIdQuery("")
     const posts = data ?? []
     if (isLoading) {
-
-    return <>
-
-    </>
+    console.log(useGetPostsByPostProfileIdQuery)
+    return <></>;
     }
 
     return (
         <>
             <Container>
                 <Row className="justify-content-center">
-            {posts.map((profilePost: Post) => (
+                {posts.map((profilePost: Post) => (
                     <ProfileGalleryContent
                         key={profilePost.postProfileId}
-                        profilePost={profilePost}/>
+                        profilePost={profilePost}
+                    />
                 ))}
             </Row>
             </Container>

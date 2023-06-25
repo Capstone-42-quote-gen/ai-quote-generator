@@ -23,7 +23,7 @@ export function Profile() {
                 </Row>
 
             </Container>
-            <DisplayByProfileId/>
+            <DisplayByProfileId />
         </>
         )
   }
