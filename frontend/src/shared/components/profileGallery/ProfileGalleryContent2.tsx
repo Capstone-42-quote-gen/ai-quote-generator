@@ -98,7 +98,6 @@ export function GalleryContentProfile(props: GalleryContentProps) {
                                                 </a>
                                             ))
                                         )}
-                                        &nbsp;-&nbsp;
                                         {topic.length > 0 && (
                                             topic.map((item) => (
                                                 <a key={item.promptId} href={`/tags/${item.promptId}`}>

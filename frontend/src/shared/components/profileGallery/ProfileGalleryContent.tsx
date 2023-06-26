@@ -1,8 +1,6 @@
 import {Card, Col, Image, Modal} from "react-bootstrap";
-import {useParams} from "react-router-dom";
 import {useState} from "react";
 import {Post} from "../../interfaces/Post";
-import {useGetPostsByPostProfileIdQuery} from "../../../store/apis";
 
 interface ProfileGalleryContentProps {
     profilePost: Post
@@ -20,16 +18,6 @@ export function ProfileGalleryContent(props: ProfileGalleryContentProps) {
     const closeModal = () => {
         setShowModal(false);
     };
-
-        const { postProfileId } = useParams()
-        const { data: profilePosts, isLoading } = useGetPostsByPostProfileIdQuery(postProfileId as string)
-
-        console.log(profilePosts)
-        if ( isLoading || profilePost === undefined ) {
-            return <>
-
-            </>
-        }
             return (
                 <>
 

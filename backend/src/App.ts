@@ -7,13 +7,13 @@ import { createClient,  RedisClientType } from 'redis'
 import RedisStore from 'connect-redis'
 import SignUpRouter from "./apis/sign-up/sign-up.router";
 import {SignInRouter} from "./apis/sign-in/sign-in.route";
-import PostRoute from "./apis/post/post.route";
 import {PromptRoute} from "./apis/prompt/prompt.route";
 import {ProfileRoute} from "./apis/profile/profile.route";
 import {VoteRoute} from "./apis/vote/vote.route";
 import {PostPromptRoute} from "./apis/post-prompt/post-prompt.route";
 import {GeneratePromptRoute} from "./apis/generate-prompt/generate-prompt.route";
 import {SignOutRoute} from "./apis/sign-out/sign-out.route";
+import PostRoute from "./apis/post/post.route";
 
 
 // The following class creates the app and instantiates the server
