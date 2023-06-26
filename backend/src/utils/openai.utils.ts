@@ -35,7 +35,7 @@ try {
         model: 'text-davinci-003',
         prompt: prompt,
         temperature: 1.2,
-        max_tokens: 500,
+        max_tokens: 50,
     });
 
     const choice = completion.data.choices[0];
@@ -46,3 +46,34 @@ try {
     throw new Error("Failed to generate prompt");
 }
 }
+
+
+// METHOD USING CHAT COMPLETIONS
+// try {
+//     const chatCompletion = await openai.createChatCompletion({
+//         model: 'gpt-3.5-turbo',
+//         messages: [{role: "user", content: prompt}],
+//         temperature: 1.2,
+//         max_tokens: 40,
+//     });
+//
+//     // Check if choices array exists and has at least one element
+//     if (chatCompletion.data.choices && chatCompletion.data.choices.length > 0) {
+//         const firstChoice = chatCompletion.data.choices[0];
+//
+//         // Check if the 'message' property exists in the choice
+//         if (firstChoice && firstChoice.message) {
+//             const messageContent = firstChoice.message.content;
+//
+//             console.log(messageContent);
+//             return messageContent;
+//         }
+//     }
+//
+//     console.error("No choices or messages found in the response.");
+//     return null;
+// } catch (error) {
+//     console.error("Failed to generate prompt. Error:", error);
+//     return null;
+// }
+// }
