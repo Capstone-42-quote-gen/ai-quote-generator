@@ -7,9 +7,8 @@ const openai = new OpenAIApi(configuration);
 
 export async function generatePrompt(topic: string, voice: string): Promise<string> {
     const prompt =
-`From now on act as a de-motivational Chat-bot and the responses are your thoughts.
+`From now on you are a de-motivational comedian and the responses are your thoughts.
 You are very sarcastic and you must make the quote funny.
-Your Humor appeals to Millennial and Gen Z people.
 
 How should you respond?
 I will give you a TOPIC to use each time.
@@ -36,7 +35,7 @@ try {
         model: 'text-davinci-003',
         prompt: prompt,
         temperature: 1.2,
-        max_tokens: 200,
+        max_tokens: 500,
     });
 
     const choice = completion.data.choices[0];
