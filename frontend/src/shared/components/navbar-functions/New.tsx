@@ -1,9 +1,7 @@
 import {useGetPostByPostCreationTimeQuery} from "../../../store/apis";
 import {Navigation} from "./NavBar";
-// import {QuoteImage} from "../../interfaces/CreateQuote";
 import {Post} from "../../interfaces/Post";
 import {GalleryContent} from "../HomeGallery/GalleryContent";
-import LazyLoad from 'react-lazyload';
 import {Footer} from "./Footer.tsx";
 
 export function DisplayByNew() {
@@ -21,12 +19,10 @@ export function DisplayByNew() {
         <>
             <Navigation />
             {posts.map((post: Post) => (
-                <LazyLoad key={post.postId} height={1800} offset={1800}>
-                    <GalleryContent post={post} />
-                </LazyLoad>
-            ))}
+                <GalleryContent post={post} />
+                            ))}
 
-<Footer/>
+            <Footer/>
         </>
     );
 

@@ -4,8 +4,6 @@ import {GalleryContent} from "../HomeGallery/GalleryContent";
 import {Navigation} from "../navbar-functions/NavBar";
 import {Footer} from "../navbar-functions/Footer.tsx";
 
-
-
 export function DisplayQuote() {
     const { postId} = useParams()
     const {data: post, isLoading } = useGetPostByPostIdQuery(postId as string)
@@ -21,7 +19,7 @@ export function DisplayQuote() {
         <>
             <Navigation/>
             <GalleryContent post={post} />
-            <Footer/>
+             <Footer/>
         </>
     )
 }
