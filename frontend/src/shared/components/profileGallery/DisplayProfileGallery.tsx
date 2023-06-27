@@ -1,7 +1,7 @@
 import { useGetPostsByPostProfileIdQuery } from "../../../store/apis.ts";
 import { Post } from "../../interfaces/Post";
 import { ProfileGalleryContent } from "./ProfileGalleryContent";
-import {Button, Col, Container, Row} from "react-bootstrap";
+import {Container, Row} from "react-bootstrap";
 import { useJwtToken } from "../../hooks/useJwtHook.tsx";
 
 export function DisplayByProfileId() {
@@ -36,5 +36,4 @@ export function DisplayByProfileId() {
         </>
     );
 }
-
 
