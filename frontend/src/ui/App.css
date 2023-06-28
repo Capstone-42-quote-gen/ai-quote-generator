@@ -30,12 +30,13 @@ p, h1, h2, h3, h4 {
 div#tagline{
     font-size: 20px;
     color: #f4f4f4;
+    padding-bottom: 10px;
 }
 
 div#quote-text{
     color:black;
     padding-bottom: 10px;
-}
+    }
 
 a:link {
     color: #0097B2;
