@@ -44,8 +44,9 @@ export function Navigation() {
                 <Col className="text-center">
                     <a href="/">
                         <Image fluid src={logo}
-                               className={'py-3'} />
+                               className={'py-3'} /><br />
                     </a>
+                    <div id="tagline">Where AI Crafts Hilariously Demotivating Quotes</div>
                 </Col>
             </Row>
             {/*<Row className="align-items-center">*/}
