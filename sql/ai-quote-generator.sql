@@ -59,119 +59,189 @@ CREATE TABLE if not exists post_prompt
 CREATE INDEX ON post_prompt(post_prompt_post_id);
 CREATE INDEX ON post_prompt(post_prompt_prompt_id);
 
-
 -- Voice Statements --
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Morgan Freeman');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'The Joker');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Darth Vader');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Christopher Walken');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Arnold Schwarzenegger');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Kermit the Frog');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Samuel L. Jackson');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Sean Connery');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Donald Trump');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Joe Biden');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Bill Clinton');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Clint Eastwood');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'SpongeBob');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Austin Powers');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Yoda');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Millennials');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Daffy Duck');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Sylvester Stallone');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Bane');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Mickey Mouse');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Al Pacino');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Gilbert Gottfried');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Forrest Gump');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Peter Griffin');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Elmo');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Shaggy');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Liam Neeson');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Jack Sparrow');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Gollum');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Mr. T');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Jimmy Stewart');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Hulk Hogan');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'James Earl Jones');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'John Travolta');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Christopher Lloyd');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Cartman');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Tommy Wiseau');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'John Malkovich');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Jeff Goldblum');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Ron Swanson');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Gandalf');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Borat');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Dracula');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Adam Sandler');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Robin Williams');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Danny DeVito');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Mr. Bean');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Steve Irwin');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Pee-wee Herman');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Napoleon Dynamite');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'David Attenborough');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Eddie Murphy');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Valley Girl');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Redneck');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Hipster');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Drill Sergeant');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Mad Scientist');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Snobby Socialite');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Used Car Salesman');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Soccer Mom');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Tech Geek');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Yoga Instructor');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Cowboy/Cowgirl');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Fashionista');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Gamer');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'California Surfer');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Procrastinator');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Karate Sensei');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Drama Queen');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Fitness Guru');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Nosy Neighbor');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Self-Proclaimed Guru');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Stand-Up Comedian');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Wine Connoisseur');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Coupon Clipper');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Reality TV Star');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Organic Vegan');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Party Animal');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Psychic Medium');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'voice', 'Couch Potato');
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value)
+VALUES
+    (gen_random_uuid(), 'voice', 'Morgan Freeman'),
+    (gen_random_uuid(), 'voice', 'The Joker'),
+    (gen_random_uuid(), 'voice', 'Darth Vader'),
+    (gen_random_uuid(), 'voice', 'Christopher Walken'),
+    (gen_random_uuid(), 'voice', 'Arnold Schwarzenegger'),
+    (gen_random_uuid(), 'voice', 'Kermit the Frog'),
+    (gen_random_uuid(), 'voice', 'Samuel L. Jackson'),
+    (gen_random_uuid(), 'voice', 'Sean Connery'),
+    (gen_random_uuid(), 'voice', 'Donald Trump'),
+    (gen_random_uuid(), 'voice', 'Joe Biden'),
+    (gen_random_uuid(), 'voice', 'Bill Clinton'),
+    (gen_random_uuid(), 'voice', 'Clint Eastwood'),
+    (gen_random_uuid(), 'voice', 'SpongeBob'),
+    (gen_random_uuid(), 'voice', 'Austin Powers'),
+    (gen_random_uuid(), 'voice', 'Yoda'),
+    (gen_random_uuid(), 'voice', 'Millennials'),
+    (gen_random_uuid(), 'voice', 'Daffy Duck'),
+    (gen_random_uuid(), 'voice', 'Sylvester Stallone'),
+    (gen_random_uuid(), 'voice', 'Bane'),
+    (gen_random_uuid(), 'voice', 'Mickey Mouse'),
+    (gen_random_uuid(), 'voice', 'Al Pacino'),
+    (gen_random_uuid(), 'voice', 'Gilbert Gottfried'),
+    (gen_random_uuid(), 'voice', 'Forrest Gump'),
+    (gen_random_uuid(), 'voice', 'Peter Griffin'),
+    (gen_random_uuid(), 'voice', 'Elmo'),
+    (gen_random_uuid(), 'voice', 'Shaggy'),
+    (gen_random_uuid(), 'voice', 'Liam Neeson'),
+    (gen_random_uuid(), 'voice', 'Jack Sparrow'),
+    (gen_random_uuid(), 'voice', 'Gollum'),
+    (gen_random_uuid(), 'voice', 'Mr. T'),
+    (gen_random_uuid(), 'voice', 'Jimmy Stewart'),
+    (gen_random_uuid(), 'voice', 'Hulk Hogan'),
+    (gen_random_uuid(), 'voice', 'James Earl Jones'),
+    (gen_random_uuid(), 'voice', 'John Travolta'),
+    (gen_random_uuid(), 'voice', 'Christopher Lloyd'),
+    (gen_random_uuid(), 'voice', 'Cartman'),
+    (gen_random_uuid(), 'voice', 'Tommy Wiseau'),
+    (gen_random_uuid(), 'voice', 'John Malkovich'),
+    (gen_random_uuid(), 'voice', 'Jeff Goldblum'),
+    (gen_random_uuid(), 'voice', 'Ron Swanson'),
+    (gen_random_uuid(), 'voice', 'Gandalf'),
+    (gen_random_uuid(), 'voice', 'Borat'),
+    (gen_random_uuid(), 'voice', 'Dracula'),
+    (gen_random_uuid(), 'voice', 'Adam Sandler'),
+    (gen_random_uuid(), 'voice', 'Robin Williams'),
+    (gen_random_uuid(), 'voice', 'Danny DeVito'),
+    (gen_random_uuid(), 'voice', 'Mr. Bean'),
+    (gen_random_uuid(), 'voice', 'Steve Irwin'),
+    (gen_random_uuid(), 'voice', 'Pee-wee Herman'),
+    (gen_random_uuid(), 'voice', 'Napoleon Dynamite'),
+    (gen_random_uuid(), 'voice', 'David Attenborough'),
+    (gen_random_uuid(), 'voice', 'Eddie Murphy'),
+    (gen_random_uuid(), 'voice', 'Valley Girl'),
+    (gen_random_uuid(), 'voice', 'Redneck'),
+    (gen_random_uuid(), 'voice', 'Hipster'),
+    (gen_random_uuid(), 'voice', 'Drill Sergeant'),
+    (gen_random_uuid(), 'voice', 'Mad Scientist'),
+    (gen_random_uuid(), 'voice', 'Snobby Socialite'),
+    (gen_random_uuid(), 'voice', 'Used Car Salesman'),
+    (gen_random_uuid(), 'voice', 'Soccer Mom'),
+    (gen_random_uuid(), 'voice', 'Tech Geek'),
+    (gen_random_uuid(), 'voice', 'Yoga Instructor'),
+    (gen_random_uuid(), 'voice', 'Cowboy/Cowgirl'),
+    (gen_random_uuid(), 'voice', 'Fashionista'),
+    (gen_random_uuid(), 'voice', 'Gamer'),
+    (gen_random_uuid(), 'voice', 'California Surfer'),
+    (gen_random_uuid(), 'voice', 'Procrastinator'),
+    (gen_random_uuid(), 'voice', 'Karate Sensei'),
+    (gen_random_uuid(), 'voice', 'Drama Queen'),
+    (gen_random_uuid(), 'voice', 'Fitness Guru'),
+    (gen_random_uuid(), 'voice', 'Nosy Neighbor'),
+    (gen_random_uuid(), 'voice', 'Self-Proclaimed Guru'),
+    (gen_random_uuid(), 'voice', 'Stand-Up Comedian'),
+    (gen_random_uuid(), 'voice', 'Wine Connoisseur'),
+    (gen_random_uuid(), 'voice', 'Coupon Clipper'),
+    (gen_random_uuid(), 'voice', 'Reality TV Star'),
+    (gen_random_uuid(), 'voice', 'Organic Vegan'),
+    (gen_random_uuid(), 'voice', 'Party Animal'),
+    (gen_random_uuid(), 'voice', 'Psychic Medium'),
+    (gen_random_uuid(), 'voice', 'Couch Potato');
+
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value)
+VALUES
+    (gen_random_uuid(), 'voice', 'Wednesday Addams'),
+    (gen_random_uuid(), 'voice', 'The Queen of England'),
+    (gen_random_uuid(), 'voice', 'Sandy Cheeks'),
+    (gen_random_uuid(), 'voice', 'Delores Umbridge'),
+    (gen_random_uuid(), 'voice', 'Dolly Parton'),
+    (gen_random_uuid(), 'voice', 'Audrey Hepburn'),
+    (gen_random_uuid(), 'voice', 'Ellen Ripley'),
+    (gen_random_uuid(), 'voice', 'Danerys Targaryen'),
+    (gen_random_uuid(), 'voice', 'Leslie Knope'),
+    (gen_random_uuid(), 'voice', 'Eleven'),
+    (gen_random_uuid(), 'voice', 'Elvira'),
+    (gen_random_uuid(), 'voice', 'Mary Poppins'),
+    (gen_random_uuid(), 'voice', 'Miranda Priestly'),
+    (gen_random_uuid(), 'voice', 'Lara Croft'),
+    (gen_random_uuid(), 'voice', 'Mulan'),
+    (gen_random_uuid(), 'voice', 'Regina George'),
+    (gen_random_uuid(), 'voice', 'Matilda Wormwood'),
+    (gen_random_uuid(), 'voice', 'Eowyn'),
+    (gen_random_uuid(), 'voice', 'Elle Woods'),
+    (gen_random_uuid(), 'voice', 'Sailor Moon'),
+    (gen_random_uuid(), 'voice', 'Jane Austen'),
+    (gen_random_uuid(), 'voice', 'Zooey Deschanel'),
+    (gen_random_uuid(), 'voice', 'Doja Cat'),
+    (gen_random_uuid(), 'voice', 'Lisa Simpson'),
+    (gen_random_uuid(), 'voice', 'Dorothy'),
+    (gen_random_uuid(), 'voice', 'Amelia Bedelia'),
+    (gen_random_uuid(), 'voice', 'Dora the Explorer'),
+    (gen_random_uuid(), 'voice', 'Velma Dinkley'),
+    (gen_random_uuid(), 'voice', 'Elsa'),
+    (gen_random_uuid(), 'voice', 'Wonder Woman'),
+    (gen_random_uuid(), 'voice', 'Princess Bubblegum'),
+    (gen_random_uuid(), 'voice', 'Ms Frizzle'),
+    (gen_random_uuid(), 'voice', 'Daria'),
+    (gen_random_uuid(), 'voice', 'Cat woman');
+
+-- Topic Statements --
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value)
+VALUES
+    (gen_random_uuid(), 'topic', 'Procrastination'),
+    (gen_random_uuid(), 'topic', 'Being Married'),
+    (gen_random_uuid(), 'topic', 'Coworkers at the Office'),
+    (gen_random_uuid(), 'topic', 'Work and Productivity'),
+    (gen_random_uuid(), 'topic', 'Health and Fitness'),
+    (gen_random_uuid(), 'topic', 'Relationships and Dating'),
+    (gen_random_uuid(), 'topic', 'Education and School'),
+    (gen_random_uuid(), 'topic', 'Technology and Social media'),
+    (gen_random_uuid(), 'topic', 'Aging and Getting older'),
+    (gen_random_uuid(), 'topic', 'Travel and Adventure'),
+    (gen_random_uuid(), 'topic', 'Love and Relationships'),
+    (gen_random_uuid(), 'topic', 'Money and Finance'),
+    (gen_random_uuid(), 'topic', 'Meetings and Conference Calls'),
+    (gen_random_uuid(), 'topic', 'Self-help and Personal Development'),
+    (gen_random_uuid(), 'topic', 'Social Media Addiction'),
+    (gen_random_uuid(), 'topic', 'Politics and Current Events'),
+    (gen_random_uuid(), 'topic', 'Career and Job dissatisfaction'),
+    (gen_random_uuid(), 'topic', 'Pop Culture and Entertainment'),
+    (gen_random_uuid(), 'topic', 'Goal Setting'),
+    (gen_random_uuid(), 'topic', 'Hobbies and Interests'),
+    (gen_random_uuid(), 'topic', 'Food and Diet'),
+    (gen_random_uuid(), 'topic', 'Celebrities and Pop Culture'),
+    (gen_random_uuid(), 'topic', 'Parenting and Family'),
+    (gen_random_uuid(), 'topic', 'School and Education'),
+    (gen_random_uuid(), 'topic', 'Sports and Fitness'),
+    (gen_random_uuid(), 'topic', 'Government'),
+    (gen_random_uuid(), 'topic', 'The Pandemic'),
+    (gen_random_uuid(), 'topic', 'Family Christmas Vacation'),
+    (gen_random_uuid(), 'topic', 'Thanksgiving Holidays'),
+    (gen_random_uuid(), 'topic', 'New Year''s resolutions');
+
+-- Template to add new topic if the topic value doesn't already exist in the DB --
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value)
+SELECT gen_random_uuid(), 'topic', 'Aging and Getting older'
+WHERE NOT EXISTS (
+    SELECT 1 FROM prompt WHERE prompt_type = 'topic' AND prompt_value = 'Aging and Getting older'
+);
+
+
+-- Update the prompt table to sort prompt_value alphabetically
+UPDATE prompt AS p
+SET prompt_value = sorted_values.prompt_value
+FROM (
+         SELECT prompt_id, prompt_type, prompt_value,
+                ROW_NUMBER() OVER (PARTITION BY prompt_type ORDER BY prompt_value) AS row_num
+         FROM prompt
+     ) AS sorted_values
+WHERE p.prompt_id = sorted_values.prompt_id;
 
 
 
 -- Topic Statements --
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Procrastination');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Being Married');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Coworkers at the Office');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Work and Productivity');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Health and Fitness');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Relationships and Dating');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Education and School');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Technology and Social media');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Aging and Getting older');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Travel and Adventure');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Love and Relationships');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Money and Finance');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Meetings and Conference Calls');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Self-help and Personal Development');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Social Media Addiction');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Politics and Current Events');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Career and Job dissatisfaction');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Pop Culture and Entertainment');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Goal Setting');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Hobbies and Interests');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Food and Diet');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Celebrities and Pop Culture');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Parenting and Family');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'School and Education');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Sports and Fitness');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Government');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'The Pandemic');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Family Christmas Vacation');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'Thanksgiving Holidays');
-INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES (gen_random_uuid(), 'topic', 'New Year''s resolutions');
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value)
+SELECT gen_random_uuid(), 'topic', 'Procrastination'
+WHERE NOT EXISTS (
+    SELECT 1 FROM prompt WHERE prompt_type = 'topic' AND prompt_value = 'Procrastination'
+);
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value)
+SELECT gen_random_uuid(), 'topic', 'Being Married'
+WHERE NOT EXISTS (
+    SELECT 1 FROM prompt WHERE prompt_type = 'topic' AND prompt_value = 'Being Married'
+);

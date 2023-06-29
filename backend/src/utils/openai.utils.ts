@@ -7,7 +7,7 @@ const openai = new OpenAIApi(configuration);
 
 export async function generatePrompt(topic: string, voice: string): Promise<string> {
     const prompt =
-`From now on act as a de-motivational Chat-bot and the responses are your thoughts.
+`From now on you are a de-motivational comedian and the responses are your thoughts.
 You are very sarcastic and you must make the quote funny.
 Your Humor appeals to Millennial and Gen Z people.
 
@@ -36,7 +36,7 @@ try {
         model: 'text-davinci-003',
         prompt: prompt,
         temperature: 1.2,
-        max_tokens: 200,
+        max_tokens: 50,
     });
 
     const choice = completion.data.choices[0];
@@ -47,3 +47,34 @@ try {
     throw new Error("Failed to generate prompt");
 }
 }
+
+
+// METHOD USING CHAT COMPLETIONS
+// try {
+//     const chatCompletion = await openai.createChatCompletion({
+//         model: 'gpt-3.5-turbo',
+//         messages: [{role: "user", content: prompt}],
+//         temperature: 1.2,
+//         max_tokens: 40,
+//     });
+//
+//     // Check if choices array exists and has at least one element
+//     if (chatCompletion.data.choices && chatCompletion.data.choices.length > 0) {
+//         const firstChoice = chatCompletion.data.choices[0];
+//
+//         // Check if the 'message' property exists in the choice
+//         if (firstChoice && firstChoice.message) {
+//             const messageContent = firstChoice.message.content;
+//
+//             console.log(messageContent);
+//             return messageContent;
+//         }
+//     }
+//
+//     console.error("No choices or messages found in the response.");
+//     return null;
+// } catch (error) {
+//     console.error("Failed to generate prompt. Error:", error);
+//     return null;
+// }
+// }

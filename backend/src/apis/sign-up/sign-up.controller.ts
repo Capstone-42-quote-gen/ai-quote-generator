@@ -12,6 +12,7 @@ export async function signUpProfileController (request: Request, response: Respo
         const mailgun: Mailgun = new Mailgun(formData)
         const mailgunClient: Client = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY as string})
 
+
         const {profileEmail, profilePassword, profileUsername} = request.body
         const profileHash = await setHash(profilePassword)
         const profileActivationToken = setActivationToken()
@@ -20,14 +21,14 @@ export async function signUpProfileController (request: Request, response: Respo
 
         const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${profileActivationToken}`
 
-        const message = `<h2>Thanks for signing into</h2> 
-        <p>Copy and paste your link to activate your account</p>
+        const message = `<h2>Thanks for signing on Gloomsmith</h2> 
+        <p>To get started please click the below link to activate your account so you can get started with creating funny AI generated de-motivational quotes.</p>
         <p><a href="${basePath}">${basePath}</a></p>`
 
         const mailgunMessage = {
-            from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN as string}>`,
+            from: `Gloomsmith <postmaster@${process.env.MAILGUN_DOMAIN as string}>`,
             to:profileEmail,
-            subject:"Activate your account",
+            subject:"Activate your Gloomsmith.lol Account",
             html: message
         }
 
@@ -44,11 +45,15 @@ export async function signUpProfileController (request: Request, response: Respo
         }
         await insertProfile(profile)
 
-        await mailgunClient.messages.create(process.env.MAILGUN_DOMAIN as string, mailgunMessage)
+// TODO: Disable sending email activation email since login isn't properly setup to restrict  users that are not activated, and need proper html formatting for activation success message.
+//         await mailgunClient.messages.create(process.env.MAILGUN_DOMAIN as string, mailgunMessage)
+
+
 
         const status: Status = {
             status: 200,
-            message:'profile successfully created. Please check your email to activate your account',
+            message:'Account successfully created. You can now login with your new account. Close this window and login.',
+            // message:'Account successfully created. Please check your email to activate your account.',
             data: null
         }
         return response.json(status)

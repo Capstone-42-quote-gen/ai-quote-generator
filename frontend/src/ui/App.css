@@ -15,7 +15,20 @@ body {
 
 .custom-navbar {
     background-color: #f4f4f4;
-    height: 95%;
+    height: 100%;
+    max-width: 100%; /* Default max width for mobile */
+}
+
+@media (min-width: 768px) {
+    /* Desktop mode */
+    .custom-navbar {
+        max-width: 700px;
+        margin: 0 auto; /* Center the navbar horizontally */
+    }
+}
+
+.nav-link-active {
+    background-color: #6c4fc0;
 }
 
 
@@ -23,9 +36,20 @@ body {
     background-color: #6454B2;
     --bs-btn-hover-bg: #9B93BF;
 }
-p, h1, h4 {
+p, h1, h2, h3, h4 {
     color: #f4f4f4;
 }
+
+div#tagline{
+    font-size: 20px;
+    color: #f4f4f4;
+    padding-bottom: 10px;
+}
+
+div#quote-text{
+    color:black;
+    padding-bottom: 10px;
+    }
 
 a:link {
     color: #0097B2;
@@ -37,12 +61,14 @@ a:hover {
     color: #6454B2;
 }
 
+a.nav-link:hover {
+    color: #3E2374;
+}
+
 a.nav-link:link {
     color: #361F07;
 }
-a.nav-link:hover {
-    color: #00A676;
-}
+
 a.nav-link:visited {
     color: #361F07;
 }
@@ -56,7 +82,25 @@ a.nav-link:visited {
     color:black;
 }
 
+.disclaimer {
+    color: #cccfcf;
+    font-size: 12px;
+}
 
+.about-link{
+    font-size: 24px;
+}
+
+
+a.misc-text:link {
+    color: #beadee;
+}
+a.misc-text:hover {
+    color: #00A676;
+}
+a.misc-text:visited {
+    color: #beadee;
+}
 
 
 /*NAVIGATION*/
@@ -90,6 +134,25 @@ a.nav-link:visited {
     width: 95%;
     height: 95%;
 }
+/* Link styles within #create-new-quote-msg */
+
+
+
+#create-new-quote-msg a {
+    color: #9B93BF;
+}
+
+#create-new-quote-msg a:hover {
+    color: #6454B2;
+}
+
+#create-new-quote-msg a:visited {
+    color: #9B93BF;
+}
+
+
+
+
 
 .profile-gallery-modal {
     width: 100%;

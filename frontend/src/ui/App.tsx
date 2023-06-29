@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
-import { Home } from './Home'
+// import { Home } from './Home'
 import { FourOhFour } from './FourOhFour'
 // import {Profile} from "./Profile";
 import {Provider} from "react-redux";
@@ -16,6 +16,7 @@ import {PrivateRoute} from "../shared/components/RouteGuard";
 import {DisplayByPopular} from "../shared/components/navbar-functions/Popular";
 import {Profile} from "./Profile";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import {AboutUs} from "./About.tsx";
 
 
 interface Props {
@@ -43,6 +44,7 @@ export function App(props: Props) {
                     <Route path={'/sign-in'} element={<SignIn />} />
                     <Route path={'/sign-up'} element={<SignUp />} />
                     <Route path={'/new'} element={<DisplayByNew />} />
+                    <Route path={'/about'} element={<AboutUs />} />
                     <Route path={'/tags/:promptId'} element={<DisplayTags />} />
                     {/*<Route path={'/profile'} element={<Profile />} />*/}
                     <Route path={'/sign-in'} element={<SignIn />} />
