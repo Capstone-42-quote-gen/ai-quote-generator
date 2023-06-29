@@ -27,6 +27,10 @@ body {
     }
 }
 
+.nav-link-active {
+    background-color: #6c4fc0;
+}
+
 
 .generate-button {
     background-color: #6454B2;
