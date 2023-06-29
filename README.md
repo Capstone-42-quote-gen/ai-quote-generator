@@ -10,6 +10,8 @@ Our website Gloomsmith is an innovative platform that harnesses the power of art
 
 This was developed as our capstone project during the [2023 Deep Dive Full Stack Web Development Bootcamp (CNM Ingenuity)](https://deepdivecoding.com/fullstack-web-development/)
 
+## Live site at: https://gloomsmith.lol
+
 # Sample Quote Images
 
 > ["Marriage --where you just keep practicing the same pose until death do you part"](https://images.unsplash.com/photo-1664548322898-2b18f3170606?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTMzNDJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODY4NDMwMzh8&ixlib=rb-4.0.3&q=80&w=1080&fit=crop&bs=inherit&bm=screen&balph=20&blend64=OTlhOTUx&txtpad=40&txtsize=30&txtclr=fff&txtalign=center&txt64=aHR0cHM6Ly9nbG9vbXNtaXRoLmxvbA&markalign=center,top&mark64=aHR0cHM6Ly9hc3NldHMuaW1naXgubmV0L350ZXh0P3c9MTAwMCZ0eHRjbHI9ZmZmJnR4dD0lMjJNYXJyaWFnZS0td2hlcmUlMjB5b3UlMjBqdXN0JTIwa2VlcCUyMHByYWN0aWNpbmclMjB0aGUlMjBzYW1lJTIwcG9zZSUyMHVudGlsJTIwZGVhdGglMjBkbyUyMHlvdSUyMHBhcnQuJTIyJTIwLSUyMFlvZ2ElMjBJbnN0cnVjdG9yJnc9MTAwMCZ0eHRzaXplPTgwJnR4dGxlYWQ9MjAmdHh0cGFkPTEwMCZ0eHRmb250PUFtZXJpY2FuVHlwZXdyaXRlciZ0eHRhbGlnbj1jZW50ZXI=&exp=-10&w=1080) - *Yoga Instructor*
