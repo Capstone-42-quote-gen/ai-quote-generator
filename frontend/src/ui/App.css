@@ -15,7 +15,16 @@ body {
 
 .custom-navbar {
     background-color: #f4f4f4;
-    height: 95%;
+    height: 100%;
+    max-width: 100%; /* Default max width for mobile */
+}
+
+@media (min-width: 768px) {
+    /* Desktop mode */
+    .custom-navbar {
+        max-width: 700px;
+        margin: 0 auto; /* Center the navbar horizontally */
+    }
 }
 
 
@@ -48,12 +57,14 @@ a:hover {
     color: #6454B2;
 }
 
+a.nav-link:hover {
+    color: #3E2374;
+}
+
 a.nav-link:link {
     color: #361F07;
 }
-a.nav-link:hover {
-    color: #00A676;
-}
+
 a.nav-link:visited {
     color: #361F07;
 }
