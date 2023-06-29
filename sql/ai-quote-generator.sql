@@ -166,7 +166,41 @@ VALUES
     (gen_random_uuid(), 'voice', 'Wine Connoisseur'),
     (gen_random_uuid(), 'voice', 'Wonder Woman'),
     (gen_random_uuid(), 'voice', 'Yoga Instructor'),
-    (gen_random_uuid(), 'voice', 'Yoda');
+    (gen_random_uuid(), 'voice', 'Yoda'),
+    (gen_random_uuid(), 'voice', 'Wednesday Addams'),
+    (gen_random_uuid(), 'voice', 'The Queen of England'),
+    (gen_random_uuid(), 'voice', 'Sandy Cheeks'),
+    (gen_random_uuid(), 'voice', 'Delores Umbridge'),
+    (gen_random_uuid(), 'voice', 'Dolly Parton'),
+    (gen_random_uuid(), 'voice', 'Audrey Hepburn'),
+    (gen_random_uuid(), 'voice', 'Ellen Ripley'),
+    (gen_random_uuid(), 'voice', 'Danerys Targaryen'),
+    (gen_random_uuid(), 'voice', 'Eleven'),
+    (gen_random_uuid(), 'voice', 'Elvira'),
+    (gen_random_uuid(), 'voice', 'Mary Poppins'),
+    (gen_random_uuid(), 'voice', 'Miranda Priestly'),
+    (gen_random_uuid(), 'voice', 'Lara Croft'),
+    (gen_random_uuid(), 'voice', 'Mulan'),
+    (gen_random_uuid(), 'voice', 'Regina George'),
+    (gen_random_uuid(), 'voice', 'Matilda Wormwood'),
+    (gen_random_uuid(), 'voice', 'Eowyn'),
+    (gen_random_uuid(), 'voice', 'Elle Woods'),
+    (gen_random_uuid(), 'voice', 'Sailor Moon'),
+    (gen_random_uuid(), 'voice', 'Jane Austen'),
+    (gen_random_uuid(), 'voice', 'Zooey Deschanel'),
+    (gen_random_uuid(), 'voice', 'Doja Cat'),
+    (gen_random_uuid(), 'voice', 'Lisa Simpson'),
+    (gen_random_uuid(), 'voice', 'Dorothy'),
+    (gen_random_uuid(), 'voice', 'Amelia Bedelia'),
+    (gen_random_uuid(), 'voice', 'Dora the Explorer'),
+    (gen_random_uuid(), 'voice', 'Velma Dinkley'),
+    (gen_random_uuid(), 'voice', 'Elsa'),
+    (gen_random_uuid(), 'voice', 'Wonder Woman'),
+    (gen_random_uuid(), 'voice', 'Princess Bubblegum'),
+    (gen_random_uuid(), 'voice', 'Ms Frizzle'),
+    (gen_random_uuid(), 'voice', 'Daria'),
+    (gen_random_uuid(), 'voice', 'Cat woman');
+
 
 
 -- Topic Statements --
@@ -235,3 +269,5 @@ SELECT gen_random_uuid(), 'topic', 'Being Married'
 WHERE NOT EXISTS (
     SELECT 1 FROM prompt WHERE prompt_type = 'topic' AND prompt_value = 'Being Married'
 );
+
+
