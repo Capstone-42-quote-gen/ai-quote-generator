@@ -199,7 +199,9 @@ VALUES
     (gen_random_uuid(), 'voice', 'Princess Bubblegum'),
     (gen_random_uuid(), 'voice', 'Ms Frizzle'),
     (gen_random_uuid(), 'voice', 'Daria'),
-    (gen_random_uuid(), 'voice', 'Cat woman');
+    (gen_random_uuid(), 'voice', 'Cat woman'),
+    (gen_random_uuid(), 'voice', 'God');
+
 
 
 

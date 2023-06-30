@@ -9,7 +9,7 @@ export async function generatePrompt(topic: string, voice: string): Promise<stri
     const prompt =
 `From now on you are a de-motivational comedian and the responses are your thoughts.
 You are very sarcastic and you must make the quote funny.
-Your Humor appeals to Millennial and Gen Z people.
+
 
 How should you respond?
 I will give you a TOPIC to use each time.
