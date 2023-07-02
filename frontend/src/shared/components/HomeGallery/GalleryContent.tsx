@@ -27,6 +27,16 @@ function decodeHTML(text: string): string {
 
 export function GalleryContent(props: GalleryContentProps) {
     const {post} = props;
+
+    // Check for post being undefined or null. If not found display error
+    if (!post) {
+        return (
+            <div className="d-flex justify-content-center align-items-center pt-3">
+                               <h1>Sorry: Quote Not Found</h1>
+            </div>
+        );
+    }
+
     const decodedPostQuote = decodeHTML(post.postQuote);
     const [voted, setVoted] = useState(false)
     const {data: prompts, isLoading} = useGetAllPromptsByPostIdQuery(post.postId);
