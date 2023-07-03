@@ -93,13 +93,14 @@ export const apis = createApi({
             transformResponse: (response: { data: Vote[] }) => response.data,
         }),
 
-        getPostsByPostProfileId: builder.query<Post[], string> ({
-            query: (postProfileId: string) => `/post/${postProfileId}`,
+        getPostsByPostProfileId: builder.query<Post[], string>({
+            query: (postProfileId: string) => `/post/postProfileId/${postProfileId}`,
             transformResponse: (response: { data: Post[] }) => {
                 console.log(response.data)
                 return response.data;
             },
         }),
+
 
         getPostsByPromptId: builder.query<Post[], string> ({
             query: (promptId: string) => `/post/promptId/${promptId}`,
