@@ -239,6 +239,13 @@ VALUES
     (gen_random_uuid(), 'topic', 'Travel and Adventure'),
     (gen_random_uuid(), 'topic', 'Work and Productivity');
 
+INSERT INTO prompt (prompt_id, prompt_type, prompt_value) VALUES
+(gen_random_uuid(), 'topic', 'Emails'),
+  (gen_random_uuid(), 'topic', 'Job Hunting'),
+  (gen_random_uuid(), 'topic', 'Bosses'),
+  (gen_random_uuid(), 'topic', 'Coffee'),
+  (gen_random_uuid(), 'topic', 'Office Politics');
+
 
 -- Template to add new topic if the topic value doesn't already exist in the DB --
 INSERT INTO prompt (prompt_id, prompt_type, prompt_value)

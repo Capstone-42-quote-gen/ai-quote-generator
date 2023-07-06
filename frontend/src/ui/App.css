@@ -1,7 +1,8 @@
 
 /* COLORS */
 body {
-    background-color: #687A8F;
+    background-color: #424D66;
+    font-family: 'Arimo', sans-serif;
 
 }
 
@@ -38,6 +39,11 @@ body {
 }
 p, h1, h2, h3, h4 {
     color: #f4f4f4;
+
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Gugi', cursive;
 }
 
 div#tagline{

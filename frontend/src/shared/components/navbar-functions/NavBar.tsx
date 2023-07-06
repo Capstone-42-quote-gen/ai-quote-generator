@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import {Col, Nav, Row} from "react-bootstrap";
 import {Image} from "react-bootstrap";
 import signIn from "../../../assets/sign-in-icon.png";
-import logo from "../../../assets/gloomSmithLogo-blue.png";
+import logo from "../../../assets/gloomSmithLogo-pink.png";
 import robot from "../../../assets/icons8-bot-48.png";
 import robotActive from "../../../assets/icons8-bot-48-active.png";
 import heart from "../../../assets/heart-0.png";
