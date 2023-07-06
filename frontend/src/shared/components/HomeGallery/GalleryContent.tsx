@@ -14,6 +14,9 @@ import {
 import {Prompt} from "../../interfaces/Prompt";
 import {useState} from "react";
 import LazyLoad from 'react-lazy-load';
+import {useJwtToken} from "../../hooks/useJwtHook.tsx";
+import { useNavigate } from 'react-router-dom';
+
 
 interface GalleryContentProps {
     post: Post;
@@ -27,6 +30,8 @@ function decodeHTML(text: string): string {
 
 export function GalleryContent(props: GalleryContentProps) {
     const {post} = props;
+    const navigate = useNavigate();
+    const { profile, isLoading: profileLoading } = useJwtToken();
 
     // Check for post being undefined or null. If not found display error
     if (!post) {
@@ -41,7 +46,8 @@ export function GalleryContent(props: GalleryContentProps) {
     const [voted, setVoted] = useState(false)
     const {data: prompts, isLoading} = useGetAllPromptsByPostIdQuery(post.postId);
     const [submitVote] = usePostVoteMutation()
-    const {data: profile, isLoading: profileIsLoading} = useGetProfileByProfileIdQuery(post.postProfileId)
+    const { data: userProfile, isLoading: profileIsLoading } = useGetProfileByProfileIdQuery(post.postProfileId);
+
     const {data: votes, isLoading: votesIsLoading, refetch} =
         useGetVotesByVotePostIdQuery(post.postId)
 
@@ -63,18 +69,18 @@ export function GalleryContent(props: GalleryContentProps) {
     }
 
     const clickVote = async () => {
+        if (profile === null || profileLoading) {
+            navigate('/sign-in');
+            return;
+        }
 
-        await submitVote({votePostId: post.postId})
-        await refetch()
+        await submitVote({votePostId: post.postId});
+        await refetch();
         if (voted) {
             setVoted(false);
         } else {
-            setVoted(true)
+            setVoted(true);
         }
-    }
-
-    if (profile === null) {
-        return (<></>)
     }
 
     return (
