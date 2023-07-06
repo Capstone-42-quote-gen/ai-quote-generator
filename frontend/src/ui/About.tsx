@@ -41,7 +41,7 @@ export const AboutUs = () => {
                 <Row className="pt-3">
                     <h3>The Gloomsmith Team (Cohort 42)</h3>
                     <Col xs={12} sm={6} md={4} lg={4}>
-                        <Card className="mt-3">
+                        <Card className="mt-3 h-100">
                             <img src="https://media.licdn.com/dms/image/D5603AQH1FP9hVkoMTw/profile-displayphoto-shrink_800_800/0/1685241156603?e=1692835200&v=beta&t=sf6pd0wcGwl7PTiAffk3P6QlJpnDVpNnI6axjxzLAXM" className="card-img-top" alt="..." />
                             <Card.Body>
                                 <Card.Title>Manuel Rascon</Card.Title>
@@ -59,7 +59,7 @@ export const AboutUs = () => {
                     </Col>
 
                     <Col xs={12} sm={6} md={4} lg={4}>
-                        <Card className="mt-3">
+                        <Card className="mt-3 h-100">
                             <img src="https://media.licdn.com/dms/image/D5603AQHoRwDpA0v1mw/profile-displayphoto-shrink_800_800/0/1687636110009?e=1692835200&v=beta&t=tUy7-ZLeSTEz578fCuMBeTJF1bESsE6_OrhKMBIKuys" className="card-img-top" alt="..." />
                             <Card.Body>
                                 <Card.Title>Gurumustuk Khalsa</Card.Title>
@@ -74,7 +74,7 @@ export const AboutUs = () => {
                         </Card>
                     </Col>
                     <Col xs={12} sm={6} md={4} lg={4}>
-                        <Card className="mt-3">
+                        <Card className="mt-3 h-100">
                             <img src="https://media.licdn.com/dms/image/D5603AQFTLpnPsTaJxw/profile-displayphoto-shrink_800_800/0/1683310283863?e=1692835200&v=beta&t=syR3oK0v8vumzKI3fxF6f2V7nGZTfc5kSmeFN7IDnZA" className="card-img-top" alt="..." />
                             <Card.Body>
                                 <Card.Title>Robert Balch II</Card.Title>

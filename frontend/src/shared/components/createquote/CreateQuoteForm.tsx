@@ -133,14 +133,9 @@ export const CreateQuoteFormContent = (props: FormikProps<CreateQuote> & { loadi
         <>
             <Form onSubmit={handleSubmit}>
                 <Row className="justify-content-center pt-3">
-                    <Col xs="auto" className="text-center" >
+                    <Col lg="7" xs="auto" className="text-center">
                         <h1>Create an AI Quote Image</h1>
-                        <p>Select your topic and voice to let the AI work its magic! Once
-                            the quote is generated choose from 6 draft images, each
-                            showcasing the same quote with different layouts. Click to save
-                            your favorite to your profile. Let the AI amuse and astound you
-                            with its whimsical creations!
-                        </p>
+                        <p>Choose a topic and voice to influence what and how the AI will generate a quote image before your eyes! Then choose from 6 draft images showing the quote with different layouts. Click to "Save" if you like one of the quotes; or Generate again till you find one that you love. Have Fun! Heart your fav quotes. </p>
                     </Col>
                 </Row>
 
