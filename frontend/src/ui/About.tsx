@@ -26,18 +26,13 @@ export const AboutUs = () => {
                     <p >
                         This website was developed as our team project at <a href="https://deepdivecoding.com/" target="_blank" className="misc-text">Deep Dive Full Stack Web Development Bootcamp</a> (CNM Ingenuity) in Albuquerque, New Mexico (USA) in June 2023.
                     </p>
-                    <p>Our team wanted to work on a project that allowed us to practice the skills we were learning and that used AI to do something fun and interesting, and that would be of some use to people after the bootcamp finished.
+                    <p>Our team wanted to work on a project that allowed us to practice the skills we were learning and that used AI to do something fun and interesting, and that would be of some use to people after the bootcamp finished.</p>
 
-                    You can read more about the technologies used in this project on our <a href="https://github.com/Capstone-42-quote-gen/ai-quote-generator" target="_blank" className="misc-text">github repo</a></p>                 </Row>
-                <Row className="text-center"><p><strong> Like this project? Chip in to help keep this site running (hosting and OpenAI API fees)</strong></p>
+                    <h3>Tech Stack</h3>
+                        <p>Our project leverages cutting-edge technologies to deliver a seamless user experience. We built it using Node.js, Express, and Redux Toolkit on the back-end, while the front-end is powered by ReactJS and TypeScript. The UI is crafted with React Bootstrap, providing a sleek and responsive design. We integrated the OpenAI API to generate dynamic quotes in real-time, fueled by our master prompt that combines the selected voice and topic. To enrich the visual appeal, we connect with the Unsplash API to fetch related photos based on the chosen topic. Leveraging imgIX, we dynamically compose the quote onto the images, utilizing our own custom templates. The entire application is containerized using Docker, ensuring scalability and portability.</p>
 
-                    <a href="https://www.buymeacoffee.com/gloomsmith" target="_blank">
-                        <img
-                            src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-                            alt="Buy Me A Coffee"
-                            style={{height: '60px', width: '217px'}}
-                        />
-                    </a></Row>
+                   <p> You can checkout our <a href="https://github.com/Capstone-42-quote-gen/ai-quote-generator" target="_blank" className="misc-text">github repo</a> if you want to fork the project to make some other type of quote generator or look at the code.</p>                 </Row>
+
                 <Row className="pt-3">
                     <h3>The Gloomsmith Team (Cohort 42)</h3>
                     <Col xs={12} sm={6} md={4} lg={4}>
